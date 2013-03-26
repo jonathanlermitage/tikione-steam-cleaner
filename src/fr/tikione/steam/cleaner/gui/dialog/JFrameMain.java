@@ -17,7 +17,6 @@ import fr.tikione.steam.cleaner.util.conf.DangerousItems;
 import fr.tikione.steam.cleaner.util.conf.UncheckedItems;
 import java.awt.Color;
 import java.awt.Cursor;
-import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -30,8 +29,6 @@ import java.awt.event.WindowStateListener;
 import java.io.CharConversionException;
 import java.io.File;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -206,6 +203,8 @@ public class JFrameMain extends JFrame {
         jButtonSocialFacebook.setToolTipText("<html><body>" + translation.getString(Translation.SEC_WMAIN, "icon.social.facebook")
                 + "<br><font color=\"blue\">https://www.facebook.com/tikione.steamcleaner</font></body></html>");
         jButtonStopSearch.setVisible(false);
+        jButtonGithub.setToolTipText("<html><body>" + "TikiOne <b>GitHub</b>"
+                + "<br><font color=\"blue\">https://github.com/jonathanlermitage/tikione-steam-cleaner</font></body></html>");
     }
 
     /**
@@ -446,6 +445,7 @@ public class JFrameMain extends JFrame {
         jLabelAppVersion = new JLabel();
         jButtonSocialFacebook = new JButton();
         jButtonSocialGoogleplus = new JButton();
+        jButtonGithub = new JButton();
 
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new Color(255, 255, 255));
@@ -730,6 +730,17 @@ public class JFrameMain extends JFrame {
             }
         });
 
+        jButtonGithub.setIcon(new ImageIcon(getClass().getResource("/fr/tikione/steam/cleaner/gui/icons/github_btn.png"))); // NOI18N
+        jButtonGithub.setToolTipText("");
+        jButtonGithub.setContentAreaFilled(false);
+        jButtonGithub.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        jButtonGithub.setFocusPainted(false);
+        jButtonGithub.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jButtonGithubActionPerformed(evt);
+            }
+        });
+
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -738,6 +749,8 @@ public class JFrameMain extends JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBarMain, GroupLayout.PREFERRED_SIZE, 499, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonGithub, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(ComponentPlacement.RELATED)
                 .addComponent(jButtonSocialGoogleplus, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(ComponentPlacement.RELATED)
                 .addComponent(jButtonSocialFacebook, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
@@ -751,7 +764,8 @@ public class JFrameMain extends JFrame {
                     .addComponent(jToolBarMain, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanelAppVersion, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonSocialFacebook)
-                    .addComponent(jButtonSocialGoogleplus))
+                    .addComponent(jButtonSocialGoogleplus)
+                    .addComponent(jButtonGithub))
                 .addPreferredGap(ComponentPlacement.RELATED)
                 .addComponent(jPanelMain, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -943,23 +957,11 @@ public class JFrameMain extends JFrame {
     }//GEN-LAST:event_jButtonToolbarAboutActionPerformed
 
     private void jButtonSocialGoogleplusActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonSocialGoogleplusActionPerformed
-        if (Desktop.isDesktopSupported()) {
-            try {
-                Desktop.getDesktop().browse(new URI("https://plus.google.com/106743162871852275430"));
-            } catch (URISyntaxException | IOException ex) {
-                Log.error(ex);
-            }
-        }
+        UpdateManager.extBrowser("https://plus.google.com/106743162871852275430");
     }//GEN-LAST:event_jButtonSocialGoogleplusActionPerformed
 
     private void jButtonSocialFacebookActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonSocialFacebookActionPerformed
-        if (Desktop.isDesktopSupported()) {
-            try {
-                Desktop.getDesktop().browse(new URI("https://www.facebook.com/tikione.steamcleaner"));
-            } catch (URISyntaxException | IOException ex) {
-                Log.error(ex);
-            }
-        }
+        UpdateManager.extBrowser("https://www.facebook.com/tikione.steamcleaner");
     }//GEN-LAST:event_jButtonSocialFacebookActionPerformed
 
     private void jButtonAddCustomFolderActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonAddCustomFolderActionPerformed
@@ -990,8 +992,13 @@ public class JFrameMain extends JFrame {
         CLOSING_APP = true;
     }//GEN-LAST:event_jButtonStopSearchActionPerformed
 
+    private void jButtonGithubActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonGithubActionPerformed
+        UpdateManager.extBrowser("https://github.com/jonathanlermitage/tikione-steam-cleaner");
+    }//GEN-LAST:event_jButtonGithubActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JButton jButtonAddCustomFolder;
+    private JButton jButtonGithub;
     private JButton jButtonLocateSteamDir;
     private JButton jButtonManualSteamDirSearch;
     private JButton jButtonReloadRedistList;

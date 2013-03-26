@@ -34,6 +34,8 @@
           <Group type="102" attributes="0">
               <Component id="jToolBarMain" min="-2" pref="499" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
+              <Component id="jButtonGithub" min="-2" pref="29" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jButtonSocialGoogleplus" min="-2" pref="29" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jButtonSocialFacebook" min="-2" pref="25" max="-2" attributes="0"/>
@@ -50,6 +52,7 @@
                   <Component id="jPanelAppVersion" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonSocialFacebook" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonSocialGoogleplus" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonGithub" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanelMain" max="32767" attributes="0"/>
@@ -486,6 +489,22 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSocialGoogleplusActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonGithub">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/fr/tikione/steam/cleaner/gui/icons/github_btn.png"/>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+        <Property name="contentAreaFilled" type="boolean" value="false"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Hand Cursor"/>
+        </Property>
+        <Property name="focusPainted" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonGithubActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
