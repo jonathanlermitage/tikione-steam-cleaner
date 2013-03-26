@@ -11,6 +11,16 @@ import java.net.URL;
  */
 public class GraphicsUtils {
 
+    private static final Image DEFAULT_ICON_IMG;
+
+    private static final Toolkit DEFAULT_TOOLKIT = Toolkit.getDefaultToolkit();
+
+    static {
+        URL TSC_MAIN_ICON = GraphicsUtils.class.getResource(
+            "/fr/tikione/steam/cleaner/gui/icons/tikione-steam-cleaner-icon.png");
+        DEFAULT_ICON_IMG = DEFAULT_TOOLKIT.createImage(TSC_MAIN_ICON);
+    }
+
     /** Suppresses default constructor, ensuring non-instantiability. */
     private GraphicsUtils() {
     }
@@ -21,8 +31,7 @@ public class GraphicsUtils {
      * @param window the frame to center.
      */
     public static void setFrameCentered(Window window) {
-        Toolkit tk = Toolkit.getDefaultToolkit();
-        Dimension screenSize = tk.getScreenSize();
+        Dimension screenSize = DEFAULT_TOOLKIT.getScreenSize();
         final int screenWidth = screenSize.width;
         final int screenHeight = screenSize.height;
         int posX = (screenWidth / 2) - (window.getWidth() / 2);
@@ -36,9 +45,6 @@ public class GraphicsUtils {
      * @param window the frame to set icon.
      */
     public static void setIcon(Window window) {
-        URL url = GraphicsUtils.class.getResource("/fr/tikione/steam/cleaner/gui/icons/tikione-steam-cleaner-icon.png");
-        Toolkit kit = Toolkit.getDefaultToolkit();
-        Image img = kit.createImage(url);
-        window.setIconImage(img);
+        window.setIconImage(DEFAULT_ICON_IMG);
     }
 }
