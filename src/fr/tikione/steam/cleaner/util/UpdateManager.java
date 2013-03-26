@@ -118,7 +118,7 @@ public class UpdateManager {
      *
      * @param uri the URI to display.
      */
-    private static void extBrowser(String uri) {
+    public static void extBrowser(String uri) {
         if (Desktop.isDesktopSupported()) {
             try {
                 Desktop.getDesktop().browse(new URI(uri));

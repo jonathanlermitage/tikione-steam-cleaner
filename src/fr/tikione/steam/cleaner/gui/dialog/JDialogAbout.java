@@ -3,17 +3,14 @@ package fr.tikione.steam.cleaner.gui.dialog;
 import fr.tikione.steam.cleaner.util.GraphicsUtils;
 import fr.tikione.steam.cleaner.util.Log;
 import fr.tikione.steam.cleaner.util.Translation;
+import fr.tikione.steam.cleaner.util.UpdateManager;
 import java.awt.Color;
 import java.awt.Cursor;
-import java.awt.Desktop;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
@@ -180,13 +177,7 @@ public class JDialogAbout extends JDialog {
     }//GEN-LAST:event_jButtonCloseActionPerformed
 
     private void jButtonPaypalDonationActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonPaypalDonationActionPerformed
-        if (Desktop.isDesktopSupported()) {
-            try {
-                Desktop.getDesktop().browse(new URI("http://sourceforge.net/donate/index.php?group_id=357545"));
-            } catch (URISyntaxException | IOException ex) {
-                Log.error(ex);
-            }
-        }
+        UpdateManager.extBrowser("http://sourceforge.net/donate/index.php?group_id=357545");
     }//GEN-LAST:event_jButtonPaypalDonationActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JButton jButtonClose;
