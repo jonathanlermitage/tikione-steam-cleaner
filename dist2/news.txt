@@ -1,0 +1,26 @@
+$25 March 2013 $
+--------------------------------------------------
+_ TikiOne 2.1.0 RC1 users: to install the 2.1.0 Final, you'll have
+  to do it manually (both RC1 and Final releases have the same
+  version number).
+--------------------------------------------------
+_ TikiOne needs your help for Spanish and Hungarian translation files!
+--------------------------------------------------
+_ TikiOne is on Steam Greenlight! Check 
+  http://steamcommunity.com/sharedfiles/filedetails/?id=129701983
+  and vote to promote our software!
+--------------------------------------------------
+_ The TikiOne website is alive thanks to your donations only 
+  (I won't introduce ads or fu%$£&g toolbars: TikiOne is free and
+  open source, I'll never make money with it). 
+_ The 2012 hosting plan has been payed thanks to 5 generous donators.
+_ The 2013 hosting plan still needs your help: we need 30$ this year.
+_ For information, the website is hosted by 1&1 (www.1and1.com).
+  The website is used to host the steamcleaner.tikione.fr information 
+  pages, the software's auto-update file (update.zip), the changelog 
+  file and some other technical informations. Without your help, the
+  project would simply die.
+_ Check http://sourceforge.net/p/tikione/donate for PayPal donations. 
+  Thx!
+--------------------------------------------------
+~Jonathan Lermitage <jonathan.lermitage@entreprise38.org>

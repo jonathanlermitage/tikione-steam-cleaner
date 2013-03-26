@@ -1,0 +1,1072 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>TikiOne Steam Cleaner CHANGELOG</title>
+    <meta name="robots"      content="ALL" />
+    <meta name="description" content="Tikione Steam Cleaner CHANGELOG" />
+    <meta name="keywords"    content="steam, tikione, tikione-steam-cleaner, cleaner, gnu, gpl, changelog" />
+    <style type="text/css" media="screen,print">
+      body {
+        /*line-height: 110%;*/
+        background-color: #FFFFFF;
+        color: #4f4136;
+        font-size: 0.90em;
+        font-family: /*Tahoma,*/ "Segoe UI", "Calibri", "Arial", "Verdana", "Tahoma", sans-serif;
+        margin: 1em;
+      }
+      h2 {
+        font-family: "Segoe UI Light", "Segoe UI", "Calibri", "Arial", "Verdana", "Tahoma", sans-serif;
+        font-size: 2.00em;
+        /*background-color: black;
+        color: white;
+        margin: 0em;
+        padding: 0.20em;
+        border-bottom: 3px solid gray;
+        padding-left: 0.5em;*/
+        margin-top: 0.5em;
+        margin-bottom: 2em;
+        margin-left: 0em;
+        margin-right: 4em;
+        padding-left: 4em;
+        padding-bottom: 0.25em;
+        border-bottom: solid 1px red;
+      }
+      h3 {
+        font-family: "Segoe UI Light", "Segoe UI", "Calibri", "Arial", "Verdana", "Tahoma", sans-serif;
+        font-size:1.50em;
+        color:#222222;
+        font-weight: normal;
+      }
+      h3.first {
+        padding-top: 1em;
+      }
+      a:link { text-decoration: none; }
+      a:visited { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      a:active { text-decoration: none; }
+      p {
+        padding-left: 1em;
+      }
+      pre {
+        color: #882222;
+        font-weight: normal;
+        border-left-style: solid;
+        border-left-width: 10px;
+        border-left-color: #f1e0c1;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 1em;
+        margin-right: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        padding-left: 10px;
+        padding-right: 0px;
+        font-family: monospace;
+        font-size: 0.90em;
+        padding-left: 1em;
+      }
+      pre.noborder {
+        color: #4f4136;
+        border: 0px;
+      }
+      code {
+        color: #882222;
+        font-weight: normal;
+        /*font-family: monospace;*/
+        font-family: "Segoe UI", "Arial", "Verdana", "Tahoma", sans-serif;
+      }
+      .comment {
+        color:teal;
+        font-weight: normal;
+      }
+      .endAuthor {
+        margin-top: 3em;
+        margin-bottom: 5em;
+        margin-left: 4em;
+        margin-right: 0em;
+        padding-top: 0.25em;
+        border-top: solid 1px red;
+      }
+      .change {
+        color: crimson;
+        background-color: #f7f0f0;
+        padding-left: 0.25em;
+        padding-right: 0.25em;
+      }
+      .veryImportantUpdate {
+        color: white;
+        background-color: darksalmon;
+        padding-left: 0.35em;
+        padding-right: 0.35em;
+        margin-left: 1.15em;
+        font-size: 0.90em;
+        text-transform: uppercase;
+      }
+      .fixed {
+        color: darkgreen;
+        background-color: #e6f4e1;
+        padding-left: 0.25em;
+        padding-right: 0.25em;
+      }
+      .versionShortDescMinor {
+        padding-left: 1em;
+        font-weight: normal;
+        font-size: 0.85em;
+      }
+      .versionShortDescMajor {
+        padding-left: 1em;
+        font-weight: normal;
+      }
+      .bannerJdk142 {
+        background-color: #e0daf2;
+        font-weight: normal;
+        color: #2a2e36;
+        font-size: 0.45em;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        font-family: arial;
+        vertical-align: middle;
+      }
+      .bannerJdk5 {
+        background-color: #dae1f2;
+        font-weight: normal;
+        color: #2a2e36;
+        font-size: 0.45em;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        font-family: arial;
+        vertical-align: middle;
+      }
+      .bannerJdk6 {
+        background-color: #b8fab8;
+        font-weight: normal;
+        color: #2a2e36;
+        font-size: 0.45em;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        font-family: arial;
+        vertical-align: middle;
+      }
+      .bannerJdk7 {
+        background-color: #ccffcc;
+        font-weight: normal;
+        color: #2a2e36;
+        font-size: 0.45em;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        font-family: arial;
+        vertical-align: middle;
+        border: 1px solid #00cccc;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <h2>
+      This is the official CHANGELOG file for TikiOne Steam Cleaner
+    </h2>
+
+    <p>Nota:<br/>
+      &times; <em>"major update"</em> means big changes that can lead to incompatibilities with previous version.<br/>
+      &times; <em>"intermediate update"</em> means normal changes that can lead to incompatibilities with previous
+      version, and can be quickly fixed.<br/>
+      &times; <em>"minor updates"</em> means small changes or additions that doesn't lead to incompatibilities with
+      previous version.
+    </p>
+
+    <pre class="noborder">
+                version: X.Y.Z
+                         | | |
+major version number ----/ | \----- minor version number
+                           \------- intermediate version number
+
+    </pre>
+
+    <h3 class="first">
+      2.1.0 (2013/03/26) - current version
+      <span class="bannerJdk7">JAVA 7</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">improved</span> a part of the search engine with <strong>multi-threading</strong>. Results analysis
+        may run faster on multi-core processors.
+      </li>
+      <li>
+        <span class="fixed">added</span> a button to abort the search.
+      </li>
+      <li>
+        <span class="fixed">updated</span> German (de) translation. Thx <strong>Boris Klein</strong>
+        for his great contribution.
+      </li>
+      <li>
+        renamed the logfile <em>"steamcleaner_messages.log"</em> to avoid collision with other TikiOne products.
+      </li>
+      <li>
+        internal: some code optimization in the search engine.
+      </li>
+      <li>
+        internal: some code cleanup in the search engine.
+      </li>
+    </ul>
+
+    <h3>
+      2.0.4 (2013/03/21)
+      <span class="bannerJdk7">JAVA 7</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">updated</span> the the startup (.bat) script.
+      </li>
+      <li>
+        <span class="fixed">updated</span> encoding of Russian and Ukrainian translation files from Windows-1251 to UTF-8.
+      </li>
+      <li>
+        merged the TikiOne Steam Cleaner and TikiOne NIO projects.
+      </li>
+    </ul>
+
+    <h3>
+      2.0.3 (2013/03/19)
+      <span class="bannerJdk7">JAVA 7</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">added</span> Ukrainian (ua) translation. Thx <strong>Dmitry Bolotov
+        (&#1044;&#1084;&#1080;&#1090;&#1088;&#1080;&#1081; &#1041;&#1086;&#1083;&#1086;&#1090;&#1086;&#1074;)</strong>
+        for his great contribution.
+      </li>
+      <li>
+        <span class="fixed">updated</span> Russian (ru) translation. Thx <strong>Dmitry Bolotov
+        (&#1044;&#1084;&#1080;&#1090;&#1088;&#1080;&#1081; &#1041;&#1086;&#1083;&#1086;&#1090;&#1086;&#1074;)</strong>.
+      </li>
+    </ul>
+
+    <h3>
+      2.0.2 (2013/03/16)
+      <span class="bannerJdk7">JAVA 7</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">added</span> Polish (pl) translation. Thx <strong>Piotr Swat</strong>
+        for his great contribution.
+      </li>
+      <li>
+        improved translation files.
+      </li>
+    </ul>
+
+    <h3>
+      2.0.1 (2013/03/07)
+      <span class="bannerJdk7">JAVA 7</span> <span class="veryImportantUpdate">this is a highly recommended update !</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="change">removed</span> the <em>"/config/config.vdf"</em> file parsing support (too many
+        bugs with some Steam installations). It will fix a bug that forced the program to include the entire
+        <em>"C:\"</em> drive to the search path.
+      </li>
+      <li>
+        increased the default maximum depth of search (3->5).
+      </li>
+      <li>
+        <span class="fixed">updated</span> the logging engine: log messages are now stored in the
+        <em>"<strong>%USERPROFILE%/.tikione/log/messages.log</strong>"</em> file.
+      </li>
+      <li>
+        <span class="fixed">added</span> dependency to the TikiOne NIO library (v0.0.1). It will provide the multi-threaded
+        optimizations in the future 2.1.0 version.
+      </li>
+      <li>
+        <span class="fixed">updated</span> Portuguese (pt) translation. Thx <strong>Pedro Henrique Viegas Diniz</strong>.
+      </li>
+      <li>
+        <span class="fixed">updated</span> Russian (ru) translation. Thx <strong>Dmitry Bolotov
+        (&#1044;&#1084;&#1080;&#1090;&#1088;&#1080;&#1081; &#1041;&#1086;&#1083;&#1086;&#1090;&#1086;&#1074;)</strong>.
+      </li>
+    </ul>
+
+    <h3>
+      2.0.0 (2013/03/06)
+      <span class="bannerJdk7">JAVA 7</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">added</span> a <strong>Windows installer</strong> based on Nullsoft Scriptable Install System (NSIS)
+        2.46.5-Unicode.<br />
+        For future 2.x.x releases, please uninstall previous version first; do not try to upgrade an existing NSIS based installation
+        (I'll try to make it possible in a future release).
+      </li>
+      <li>
+        <span class="fixed">fixed</span> a regression bug in the <em>"/config/config.vdf"</em> file parsing (results were
+        ignored since a few TikiOne releases).
+      </li>
+      <li>
+        <span class="fixed">added</span> Portuguese (pt) translation. Thx <strong>Pedro Henrique Viegas Diniz</strong>
+        for his great contribution.
+      </li>
+      <li>
+        <span class="fixed">updated</span> Russian (ru) translation. Thx <strong>Dmitry Bolotov
+        (&#1044;&#1084;&#1080;&#1090;&#1088;&#1080;&#1081; &#1041;&#1086;&#1083;&#1086;&#1090;&#1086;&#1074;)</strong>
+        for his great contribution.
+      </li>
+    </ul>
+
+    <h3>
+      1.4.13 (2013/03/03)
+      <span class="bannerJdk7">JAVA 7</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">fixed</span> a bug case when trying to delete a folder that has already been deleted.
+      </li>
+      <li>
+        some code reworked.
+      </li>
+    </ul>
+
+    <h3>
+      1.4.12 (2013/02/28)
+      <span class="bannerJdk7">JAVA 7</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">updated</span> Russian (ru) translation. Thx <strong>Dmitry Bolotov
+        (&#1044;&#1084;&#1080;&#1090;&#1088;&#1080;&#1081; &#1041;&#1086;&#1083;&#1086;&#1090;&#1086;&#1074;)</strong>.
+      </li>
+    </ul>
+
+    <h3>
+      1.4.11 (2013/02/27)
+      <span class="bannerJdk7">JAVA 7</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">updated</span> the search engine to support a static list of folders to exclude from the search path.
+        See the <code>/conf/tikione-steam-cleaner_dangerous-items.ini</code> file for details.
+      </li>
+      <li>
+        <span class="fixed">updated</span> internationalization: the user interface is now fully internationalizable.
+      </li>
+      <li>
+        minor UI improvements.
+      </li>
+    </ul>
+
+    <h3>
+      1.4.10 (2013/02/22)
+      <span class="bannerJdk7">JAVA 7</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">updated</span> Hungarian (hu) translation. Thx <strong>Zsolt Brechler</strong>.
+      </li>
+      <li>
+        <span class="fixed">updated</span> the logging engine (custom-&gt;log4j-1.2.17).
+      </li>
+      <li>
+        information messages and errors are now always appended to logs.
+      </li>
+      <li>
+        minor UI improvements.
+      </li>
+    </ul>
+
+    <h3>
+      1.4.9 (2013/02/14)
+      <span class="bannerJdk7">JAVA 7</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">updated</span> dependency to the TikiOne INI library (v2.0.2-&gt;v2.0.3).
+      </li>
+      <li>
+        <span class="fixed">updated</span> Russian (ru) translation. Thx <strong>Dmitry Bolotov
+        (&#1044;&#1084;&#1080;&#1090;&#1088;&#1080;&#1081; &#1041;&#1086;&#1083;&#1086;&#1090;&#1086;&#1074;)</strong>.
+      </li>
+      <li>
+        minor UI improvements.
+      </li>
+    </ul>
+
+    <h3>
+      1.4.8 (2013/02/13)
+      <span class="bannerJdk7">JAVA 7</span> <span class="veryImportantUpdate">this is a highly recommended update !</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">fixed</span> the  the startup (.bat) script to allow elevation of privileges (right click /
+        Run as administrator).
+      </li>
+      <li>
+        <span class="fixed">added</span> the ability to define a list of additional <strong>custom folders</strong> to the search path.
+        <br />Nota: the "C:\Windows" folder is automatically excluded from the search path. You still can add it manually
+        (or any of its subfolders), but it won't be analysed.
+      </li>
+      <li>
+        <span class="fixed">updated</span> translation files: new content is now internationalizable (added French, English and Spanish
+        new words only, we need your help to complete the other translations).
+      </li>
+      <li>
+        <span class="fixed">fixed</span> calculation of the space saved after cleaning (files which have not been removed
+        due to errors were not properly managed).
+      </li>
+      <li>
+        <span class="fixed">fixed</span> a bug in the folder deletion process that could lead to a crash of the application.
+      </li>
+      <li>
+        minor speed improvements of the search engine.
+      </li>
+      <li>
+        minor UI improvements.
+      </li>
+    </ul>
+
+    <h3>
+      1.4.7 (2013/02/09)
+      <span class="bannerJdk7">JAVA 7</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">updated</span> Russian (ru) translation. Thx <strong>Dmitry Bolotov
+        (&#1044;&#1084;&#1080;&#1090;&#1088;&#1080;&#1081; &#1041;&#1086;&#1083;&#1086;&#1090;&#1086;&#1074;)</strong>.
+      </li>
+    </ul>
+
+    <h3>
+      1.4.6 (2013/02/08)
+      <span class="bannerJdk7">JAVA 7</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">updated</span> the update engine to better manage TikiOne's version numbers.
+      </li>
+      <li>
+        added a button to show the latest changelog file.
+      </li>
+      <li>
+        internal: some code cleanup.
+      </li>
+    </ul>
+
+    <h3>
+      1.4.5 (2013/02/05)
+      <span class="bannerJdk7">JAVA 7</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">added</span> Russian (ru) translation. Thx <strong>Dmitry Bolotov
+          (&#1044;&#1084;&#1080;&#1090;&#1088;&#1080;&#1081; &#1041;&#1086;&#1083;&#1086;&#1090;&#1086;&#1074;)</strong>
+        for his great contribution.
+      </li>
+      <li>
+        <span class="fixed">updated</span> the update engine to better manage TikiOne's version numbers.
+      </li>
+      <li>
+        added logs to indicate which folders have been scanned during research.
+      </li>
+      <li>
+        minor improvements of the internationalization engine (custom encoding support).
+      </li>
+      <li>
+        minor UI improvements.
+      </li>
+    </ul>
+
+    <h3>
+      1.4.4 (2013/01/31)
+      <span class="bannerJdk7">JAVA 7</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">updated</span> the search engine: fixed a bug in the <em>"/config/config.vdf"</em> file
+        parsing (search was case sensitive).
+      </li>
+    </ul>
+
+    <h3>
+      1.4.3 (2013/01/30)
+      <span class="bannerJdk7">JAVA 7</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="change">removed</span> the confirmation dialog of selected redistributable packages deletion
+        (this confirmation sounded useless).
+      </li>
+      <li>
+        <span class="fixed">updated</span> the search engine: the old and new engines have been merged to solve
+        come compatibility issues.
+      </li>
+      <li>
+        <span class="fixed">updated</span> the application configuration management: config files are now stored
+        in the <em>"<strong>%USERPROFILE%/.tikione/</strong>"</em> directory. So, your preferences are preserved
+        when you install a new version of TikiOne Steam Cleaner.
+      </li>
+      <li>
+        <span class="fixed">updated</span> the update mechanism: TikiOne Steam Cleaner can now download and
+        <strong>install updates automatically</strong> (simply check for updates and use the download button).<br />
+        If an error occurs, you will be redirected to the SourceForge.net website to download new version by hand.
+      </li>
+      <li>
+        <span class="fixed">fixed</span> a case that generated unnecessary error/warning logs.
+      </li>
+      <li>
+        minor performance optimizations of the search engine.
+      </li>
+      <li>
+        minor UI improvements.
+      </li>
+    </ul>
+
+    <h3>
+      1.4.2 (2013/01/27)
+      <span class="bannerJdk7">JAVA 7</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">fixed</span> a crach case where a folder registered by <em>"/config/config.vdf"</em> doesn't
+        exist.
+      </li>
+    </ul>
+
+    <h3>
+      1.4.1 (2013/01/26)
+      <span class="bannerJdk7">JAVA 7</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">fixed</span> the startup (.bat) script: it should avoid some rare craches.
+      </li>
+      <li>
+        <span class="fixed">updated</span> the search engine in order to detect <strong>custom installation
+          directories</strong>. This is the main new feature of the future TikiOne Steam Cleaner 2.0.0 version.
+      </li>
+      <li>
+        <span class="change">warning</span>: due to the new search engine, the program still asks for the Steam
+        base directory, but the <em>"/config/config.vdf"</em> has to be present too (in a normal Steam installation,
+        it is here).<br />
+        Info: the <em>"/config/config.vdf"</em> indicates where all your games are installed.
+      </li>
+      <li>
+        <span class="fixed">updated</span> the error dialogs (to warn about the possible <em>"/config/config.vdf"</em>
+        file absence).
+      </li>
+    </ul>
+
+    <h3>
+      1.4.0 (2013/01/17)
+      <span class="bannerJdk7">JAVA 7</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="change">warning</span>: TikiOne Steam Cleaner now runs with Java 7 (or the upcoming version 8). You
+        can not run it with Java 5 nor Java 6.
+      </li>
+      <li>
+        <span class="change">information</span>: the 1.4.x branch will prepare the future 2.0.0 version of TikiOne
+        Steam Cleaner (which will include support for the new Steam features).
+      </li>
+      <li>
+        <span class="fixed">fixed</span> the startup (.bat) script: it should detect more Java installations.
+      </li>
+      <li>
+        <span class="fixed">replaced</span> the main menu by a toolbar.
+      </li>
+      <li>
+        internal: general code cleanup.
+      </li>
+      <li>
+        removed support of VDF files (this feature sounded useless and not efficient enough).
+      </li>
+    </ul>
+
+    <h3>
+      1.3.5 (2012/11/10)
+      <span class="bannerJdk6">JAVA 6</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">updated</span> German (de) translation. Thx <strong>Ulli Kunz</strong> for his great
+        contribution.
+      </li>
+    </ul>
+
+    <h3>
+      1.3.4 (2012/10/28)
+      <span class="bannerJdk6">JAVA 6</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">added</span> Hungarian (hu) translation. Thx <strong>Zsolt Brechler</strong> for his
+        great contribution.
+      </li>
+    </ul>
+
+    <h3>
+      1.3.3 (2012/08/21)
+      <span class="bannerJdk6">JAVA 6</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">updated</span> the configuration file to detect BattleEye Anti-Cheat Engine installers.
+      </li>
+      <li>
+        <span class="fixed">updated</span> the program's launcher to detect more Java installations.
+      </li>
+    </ul>
+
+    <h3>
+      1.3.2 (2012/07/31)
+      <span class="bannerJdk6">JAVA 6</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">updated</span> the configuration file to improve installers detection (DirectX folder for the
+        Worms Reloaded game).
+      </li>
+    </ul>
+
+    <h3>
+      1.3.1 (2012/07/25)
+      <span class="bannerJdk6">JAVA 6</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">updated</span> the program's logger to provide more detailed error messages.
+      </li>
+    </ul>
+
+    <h3>
+      1.3.0 (2012/05/15)
+      <span class="bannerJdk6">JAVA 6</span>
+    </h3>
+
+    <ul>
+      <li>
+        the program now asks for the Steam base directory, not the <em>"SteamApps"</em> directory.
+      </li>
+      <li>
+        <span class="fixed">updated</span> the configuration file to improve installers detection (DirectX, DotNET, AMD 
+        Dual-Core Optimizer and patterns I have classified as experimental). Thx <strong>Petr Kudli&#269;ka</strong>
+        for his great contribution.
+      </li>
+      <li>
+        <span class="fixed">updated</span> the detection of possible Steam base directories.
+      </li>
+      <li>
+        <span class="fixed">updated</span> the English and French translations.
+      </li>
+      <li>
+        <span class="fixed">added</span> a PayPal button for donations.
+      </li>
+      <li>
+        <span class="fixed">added</span> an option to enable experimental installers detection. This feature is
+        deactivated by default.
+      </li>
+      <li>
+        <span class="fixed">added</span> an option to check for program updates at startup. This feature is activated
+        by default.
+      </li>
+      <li>
+        <span class="fixed">added</span> Spanish (es) translation, based on Google Trad and Microsoft Translator.
+      </li>
+      <li>
+        <span class="fixed">added</span> German (de) translation, based on Google Trad and Microsoft Translator.
+      </li>
+      <li>
+        <span class="fixed">added</span> icons in some menu items and buttons.
+      </li>
+      <li>
+        <span class="fixed">added</span> the possibility to save to a (log) file the errors that the program encounters. 
+        This feature is activated by default.
+      </li>
+      <li>
+        internal: re-activated the debugging informations from compiled Java class files, to make log informations
+        more accurate.
+      </li>
+      <li>
+        important code cleanup and refactoring.
+      </li>
+      <li>
+        reworked UI (User Interface).
+      </li>
+      <li>
+        <span class="change">information</span>: replaced the executable file (generated by Bat-To-Exe-Converter v1.6)
+        by a windows batch file (BAT): some antivirus softwares reported it as a malware (this is a false-positive
+        alert, probably due to unreliable heuristics).<br />
+        Avira Antivir has announced a fix for this false-positive alert in a future update of its virus definitions
+        database.<br />
+        You still can download and use the executable file from the 1.2.2 version of TikiOne Steam Cleaner. I'll provide 
+        my own executable file in a future release.
+      </li>
+      <li>
+        the start-up script now increases the maximum amount of memory that the program can use, to avoid some abnormal 
+        exits. Available if you use the bundled JRE only (available in the <em>"tikione-steam-cleaner-1.3.0 (<strong>with
+            JRE</strong>).zip"</em> package download).<br />
+        A future version of the start-up script (or executable file, if available) will apply the same parameters to the 
+        system's JRE (if you use the default package download: <em>"tikione-steam-cleaner-1.3.0.zip"</em>).
+      </li>
+    </ul>
+
+    <h3>
+      1.2.2 (2012/04/29)
+      <span class="bannerJdk6">JAVA 6</span>
+    </h3>
+
+    <ul>
+      <li>
+        at first launch, the default language is now selected according to the operating system's settings.
+      </li>
+    </ul>
+
+    <h3>
+      1.2.1 (2012/04/21)
+      <span class="bannerJdk6">JAVA 6</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">fixed</span> the log files name (the month's number was wrong).
+      </li>
+      <li>
+        minor performance optimizations.
+      </li>
+      <li>
+        internal: removed the debugging informations from compiled Java class files, to reduce the application size.
+      </li>
+    </ul>
+
+    <h3>
+      1.2.0 (2012/04/18)
+      <span class="bannerJdk6">JAVA 6</span> <span class="veryImportantUpdate">this is a highly recommended update !</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">updated</span> the configuration file to improve installers detection ("dependencies" 
+        directories) (1.1.5 update 1 integration).
+      </li>
+      <li>
+        <span class="fixed">updated</span> the configuration file to make installers detection safer (<strong>it will 
+          avoid false-positive directories detections</strong>) (1.1.5 update 1 integration).
+      </li>
+      <li>
+        <span class="fixed">added</span> the possibility to verify redistributable packages files validity thanks to the 
+        VDF games files (<strong>it will avoid false-positive directories detections too</strong>). This feature is
+        experimental and not activated by default.
+      </li>
+      <li>
+        <span class="fixed">added</span> the possibility to save to a (log) file the list of redistributable packages 
+        you have deleted. This feature is activated by default.
+      </li>
+      <li>
+        <span class="fixed">updated</span> the French translation.
+      </li>
+      <li>
+        minor performance optimizations.
+      </li>
+      <li>
+        <span class="fixed">updated</span> dependency to the TikiOne INI library (v2.0.1-&gt;v2.0.2).
+      </li>
+    </ul>
+
+    <h3>
+      1.1.5 (2012/03/29)
+      <span class="bannerJdk6">JAVA 6</span>
+    </h3>
+
+    <ul>
+      <li>
+        some UI enhancements.
+      </li>
+      <li>
+        <span class="fixed">updated</span> the French translation of "About TikiOne Steam Cleaner" window's title 
+        (1.1.4 translation update 1 integration).
+      </li>
+    </ul>
+
+    <h3>
+      1.1.4 (2012/03/29)
+      <span class="bannerJdk6">JAVA 6</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">fixed</span> a bug: close the application while a search task is running hides the main
+        window but it doesn't end the search task. The search task is now automatically aborted.
+      </li>
+      <li>
+        <span class="fixed">added</span> support for language translations.
+      </li>
+      <li>
+        <span class="fixed">added</span> French translation (fr).
+      </li>
+      <li>
+        the application configuration design allows you to add new translations easily: edit or add
+        <code>/conf/i18n/*.ini</code> files.<br />
+        Don't hesitate to contact me for additional translations (you can find my email at the end of this page).
+      </li>
+      <li>
+        <span class="fixed">updated</span> (decreased by 2) the default max depth of folders scanning to significantly
+        improve search speed.
+      </li>
+      <li>
+        <span class="fixed">added</span> an option to configure max depth of folders scanning.
+      </li>
+    </ul>
+
+    <h3>
+      1.1.3 (2012/03/19)
+      <span class="bannerJdk6">JAVA 6</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">updated</span> the configuration file to improve installers detection ("prerequisite(s)"
+        directories).
+      </li>
+    </ul>
+
+    <h3>
+      1.1.2 (2012/03/10)
+      <span class="bannerJdk6">JAVA 6</span>
+    </h3>
+
+    <ul>
+      <li>
+        some UI enhancements.
+      </li>
+      <li>
+        <span class="fixed">updated</span> the configuration file to improve Visual C++ Redistributable Package
+        installers detection.
+      </li>
+    </ul>
+
+    <h3>
+      1.1.1 (2012/03/04)
+      <span class="bannerJdk6">JAVA 6</span>
+    </h3>
+
+    <ul>
+      <li>
+        reduced the application size by 25%.
+      </li>
+    </ul>
+
+    <h3>
+      1.1.0 (2012/03/01)
+      <span class="bannerJdk6">JAVA 6</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="change">warning</span>: TikiOne Steam Cleaner now runs with Java 6 (or better). You can not run it
+        with Java 5.
+      </li>
+      <li>
+        <span class="fixed">added</span> the possibility to check for new version of TikiOne Steam Cleaner.
+      </li>
+      <li>
+        <span class="fixed">added</span> an estimation of the amount of disk space you have saved by deleting
+        selected redistributable
+        packages.
+      </li>
+      <li>
+        code cleanup and some documentation added in the Java source code (Javadoc).
+      </li>
+      <li>
+        <span class="fixed">updated</span> the configuration file to improve installers detection ("installer(s)"
+        directories).
+      </li>
+      <li>
+        <span class="fixed">fixed</span> a case where the "Search" button is disabled if no redistributable package found.
+      </li>
+    </ul>
+
+    <h3>
+      1.0.8 (2012/02/01)
+      <span class="bannerJdk5">JAVA 5</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">fixed</span> another case where user could search for packages to remove, edit the Steam path 
+        (via the "..." button), and launch redistributable packages deletion: packages base path used the new and wrong
+        Steam path.
+      </li>
+    </ul>
+
+    <h3>
+      1.0.7 (2012/01/31)
+      <span class="bannerJdk5">JAVA 5</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">added</span> an information message when Steam is correctly detected and there is 
+        (no) redistributable package to remove.
+      </li>
+      <li>
+        <span class="fixed">added</span> the ability to remember when a redistributable package has been unselected in 
+        the list, in order to set its default state to unselected too for later searches.
+      </li>
+      <li>
+        <span class="fixed">added</span> a progress bar to show advance of research.
+      </li>
+      <li>
+        <span class="fixed">improved</span> user interface reactivity during research.
+      </li>
+      <li>
+        <span class="fixed">fixed</span> another language error: replaced "Redistri<strong>bua</strong>ble" by
+        "Redistri<strong>buta</strong>ble" in Visual C++ Redistributable Package installer description.
+      </li>
+    </ul>
+
+    <h3>
+      1.0.6 (2012/01/30)
+      <span class="bannerJdk5">JAVA 5</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">fixed</span> a little language error in button names: replaced "Redistri<strong>bua</strong>ble"
+        by "Redistri<strong>buta</strong>ble".
+      </li>
+    </ul>
+
+    <h3>
+      1.0.5 (2012/01/30)
+      <span class="bannerJdk5">JAVA 5</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">updated</span> the program and configuration file to be case insensitive when 
+        examining redistributable package names. This will improve detection of every redistributable package.
+      </li>
+      <li>
+        <span class="fixed">updated</span> the configuration file to improve GameSpy Arcade installers detection.
+      </li>
+      <li>
+        some code optimizations.
+      </li>
+    </ul>
+
+    <h3>
+      1.0.4 (2012/01/29)
+      <span class="bannerJdk5">JAVA 5</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">fixed</span> a case where user could search for packages to remove, edit the Steam path, and 
+        launch redistributable packages deletion: packages base path used the new and wrong Steam path.<br/>
+        Deletion buttons ("Remove selected items..." and "Generate a Windows Batch...") are now disabled when Steam path is
+        modified: you have to initiate a new search in order to re-enable them.
+      </li>
+      <li>
+        <span class="fixed">updated</span> the configuration file to fix DirectX installers detection.
+      </li>
+    </ul>
+
+    <h3>
+      1.0.3 (2012/01/29)
+      <span class="bannerJdk5">JAVA 5</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">updated</span> the configuration file to rename the Visual C++ redist description
+        ("Vi<strong>v</strong>ual" to "Vi<strong>s</strong>ual").
+      </li>
+      <li>
+        <span class="fixed">fixed</span> size information for files smaller than 1 MB.
+      </li>
+    </ul>
+
+    <h3>
+      1.0.2 (2012/01/28)
+      <span class="bannerJdk5">JAVA 5</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">updated</span> the configuration file to remove the "install(s)" and ""installer(s)"
+        directories detection.
+      </li>
+      <li>
+        <span class="fixed">fixed</span> the version shown into the window title.
+      </li>
+      <li>
+        <span class="fixed">renamed</span> the "Reload" button title to "Search".
+      </li>
+      <li>
+        <span class="fixed">added</span> a button ("...") to search Steam folder manually.
+      </li>
+    </ul>
+
+    <h3>
+      1.0.1 (2012/01/28)
+      <span class="bannerJdk5">JAVA 5</span>
+    </h3>
+
+    <ul>
+      <li>
+        <span class="fixed">updated</span> the configuration file to fix .NET 4.0 Framework installers detection.
+      </li>
+    </ul>
+
+    <h3>
+      1.0.0 (2012/01/28)
+      <span class="bannerJdk5">JAVA 5</span>
+    </h3>
+
+    <ul>
+      <li>
+        first public release.
+      </li>
+
+    </ul>
+
+    <p class="endAuthor">
+      <strong>Jonathan Lermitage</strong>, a French professional programmer
+      &lt; <a href="mailto:jonathan.lermitage@entreprise38.org">jonathan.lermitage@entreprise38.org</a> &gt;<br />
+      WebSites and projects:<br />
+      - <a href="https://sourceforge.net/projects/tikione/">TikiOne projects</a><br />
+      - <a href="http://netbeanscolors.org/devblog/">NetBeansColors</a><br />
+      - <a href="http://plugins.netbeans.org/plugin/43619/pmd">PMD Plugin</a> for NetBeans 7.3, 7.2 and 7.1<br />
+      - <a href="http://plugins.netbeans.org/plugin/38945/unit-tests-code-coverage-plugin-updated-for-netbeans-7-0">
+        Unit Tests Code Coverage Plugin</a> for NetBeans 7.3, 7.2, 7.1, 7.0 and 6.9<br />
+      - <a href="http://plugins.netbeans.org/plugin/39635/spellchecker-french-dictionaries">French</a>,
+      <a href="http://plugins.netbeans.org/plugin/45563/spellchecker-portuguese-and-brazilian-dictionaries">Portuguese/Brazilian</a>, 
+      <a href="http://plugins.netbeans.org/plugin/39636/spellchecker-german-dictionaries">German</a> and
+      <a href="http://plugins.netbeans.org/plugin/39759/spellchecker-spanish-dictionary">Spanish</a>
+      dictionaries for the NetBeans 7.3, 7.2, 7.1, 7.0 and 6.9 online spellchecker
+    </p>
+  </body>
+</html>
