@@ -1,7 +1,6 @@
 package fr.tikione.steam.cleaner;
 
 import fr.tikione.ini.InfinitiveLoopException;
-import fr.tikione.steam.cleaner.util.ThreadedFileComparator;
 import fr.tikione.steam.cleaner.gui.dialog.JFrameMain;
 import fr.tikione.steam.cleaner.util.Log;
 import java.io.IOException;
@@ -31,7 +30,7 @@ public class Main {
             Log.info("Application started; version is " + Version.VERSION
                     + "; default encoding is " + CONF_ENCODING
                     + "; default locale is " + SYS_LOCALE.toString());
-            Log.info("(DEBUG) Number of CPU logical cores detected is '" + ThreadedFileComparator.getCPUCores() + '\'');
+//            Log.info("(DEBUG) Number of CPU logical cores detected is '" + ThreadedFileComparator.getCPUCores() + '\'');
             javax.swing.UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
             Log.error(e);
