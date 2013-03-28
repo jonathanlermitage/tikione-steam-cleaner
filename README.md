@@ -12,8 +12,8 @@ To build the project:
 * load the project with NetBeans (7.1 or better) and a Java7 compatible JDK (I use Oracle JDK7)
 * provide missing dependencies:
  * TikiOne INI 2.0.3, available at <http://sourceforge.net/projects/tikione/files/tikione-ini/>
- * Apache Commons IO 2.4
- * Apache Log4J 1.2.17
+ * Apache Commons IO 2.4, available at <http://commons.apache.org/proper/commons-io/>
+ * Apache log4j™ 1.2.17, available at <http://logging.apache.org/log4j/1.2/>
 * set the working directory to the "dist2" folder. It contains additional configuration files used by base application.
 
 You can now build and run the project.
@@ -23,6 +23,8 @@ To package the application, simply merge the "dist" and "dist2" folders.
 To bundle a JVM, copy it into a "jre" folder in the "dist2" folder and launch the NSIS script: it will package TikiOne
 steam Cleaner with the provided JVM into an EXE installer based on NSIS-Unicode (Nullsoft Scriptable Install System,
 Unicode version: I use version 2.46-5 from <http://code.google.com/p/unsis/downloads/list>).
+
+Public distributions are currently hosted by Sourceforge.net. See <http://sourceforge.net/projects/tikione/> for details and downloads. The documentation website is <http://steamcleaner.tikione.fr> (available in English, French and Russian), it also hosts the auto-update files used by TikiOne Steam Cleaner application.
 
 ## Author
 * Jonathan Lermitage (<jonathan.lermitage@entreprise38.org>)
