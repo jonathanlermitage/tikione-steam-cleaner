@@ -11,9 +11,9 @@ To build the project:
 
 * load the project with NetBeans (7.1 or better) and a Java7 compatible JDK (I use Oracle JDK7)
 * provide missing dependencies:
- * TikiOne-INI 2.0.3, available at <http://sourceforge.net/projects/tikione/files/tikione-ini/>
+ * TikiOne INI 2.0.3, available at <http://sourceforge.net/projects/tikione/files/tikione-ini/>
  * Apache Commons IO 2.4
- * Apache Log4J 1.2.27
+ * Apache Log4J 1.2.17
 * set the working directory to the "dist2" folder. It contains additional configuration files used by base application.
 
 You can now build and run the project.
