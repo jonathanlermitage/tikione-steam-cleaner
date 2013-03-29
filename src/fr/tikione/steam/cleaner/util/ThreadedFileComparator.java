@@ -35,7 +35,6 @@ public class ThreadedFileComparator {
             throws InterruptedException {
         int nbfiles = files.size();
         if (nbfiles > 0) {
-//            Log.info("(DEBUG)   Will check " + nbfiles + " elements");
             int nbthreads = getCPUCores();
             if (nbthreads < 2) {
                 nbthreads = 2;
@@ -52,7 +51,6 @@ public class ThreadedFileComparator {
             for (int nt = 0; nt < nbthreads; nt++) {
                 int startIdx = nt * segment;
                 int endIdx = (nt == nbthreads - 1) ? nbfiles - 1 : startIdx + segment - 1;
-//                Log.info("(DEBUG)   Starts thread #" + nt + " with " + startIdx + "->" + endIdx + " idx range");
                 FileComparatorWorker swThread = new FileComparatorWorker(nt, files, startIdx, endIdx, redistsPatterns, onFiles);
                 swThread.start();
                 threads.add(swThread);

@@ -302,11 +302,7 @@ public class JFrameMain extends JFrame {
                             setTableModelUI();
                             List<File> srcFolders = new ArrayList<>(32);
                             if (fSteamDir.exists() && fCommon.exists()) {
-//                                List<File> gamesFromVDF = VDFUtils.getGames(fSteamDir.getAbsolutePath() + "/config/config.vdf");
-//                                for (File fromVDF : gamesFromVDF) {
-//                                    srcFolders.add(fromVDF); // FIXED removed Steam VDF parsing, it's too much unstable.
-//                                }
-                                srcFolders.add(fCommon); // FIXED merge the two Steam search engines to solve compatibility issues.
+                                srcFolders.add(fCommon);
                             }
                             File[] customFolders = customFoldersListStrToFiles();
                             for (File customFolder : customFolders) {
