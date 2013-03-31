@@ -319,9 +319,7 @@ public class JFrameMain extends JFrame {
                                     config.getRedistFilePatternsAndDesc(config.getEnableExperimentalPatterns()),
                                     checkedFiles, true);
                             try {
-                                Log.info("(DEBUG) Files patterns analysis");
                                 tc.start();
-                                Log.info("(DEBUG)   Done");
                             } catch (InterruptedException ex) {
                                 Log.error(ex);
                             }
@@ -330,9 +328,7 @@ public class JFrameMain extends JFrame {
                                     config.getRedistFolderPatternsAndDesc(config.getEnableExperimentalPatterns()),
                                     checkedFolders, false);
                             try {
-                                Log.info("(DEBUG) Folders patterns analysis");
                                 tc.start();
-                                Log.info("(DEBUG)   Done");
                             } catch (InterruptedException ex) {
                                 Log.error(ex);
                             }

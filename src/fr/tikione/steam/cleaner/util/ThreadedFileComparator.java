@@ -46,7 +46,6 @@ public class ThreadedFileComparator {
                 segment = nbfiles;
                 nbthreads = 1;
             }
-            Log.info("(DEBUG)   Starts results analysis with " + nbthreads + " thread" + (nbthreads > 1 ? "s" : ""));
             List<Thread> threads = new ArrayList<>(nbthreads);
             for (int nt = 0; nt < nbthreads; nt++) {
                 int startIdx = nt * segment;
@@ -120,7 +119,6 @@ public class ThreadedFileComparator {
                     if (onFiles ? candidate.getFile().isFile() : candidate.getFile().isDirectory()) {
                         if (!checkedFiles.contains(candidate)) {
                             checkedFiles.add(candidate);
-                            Log.info("(DEBUG)   Thread #" + id + " found candidate: " + candidate.getFile().getAbsolutePath());
                         }
                     }
                 }
