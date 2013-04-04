@@ -35,10 +35,7 @@ public class ThreadedFileComparator {
             throws InterruptedException {
         int nbfiles = files.size();
         if (nbfiles > 0) {
-            int nbthreads = getCPUCores();
-            if (nbthreads < 2) {
-                nbthreads = 2;
-            }
+            int nbthreads = 4;
             int segment;
             if (nbfiles > nbthreads) {
                 segment = nbfiles / nbthreads;
@@ -50,7 +47,7 @@ public class ThreadedFileComparator {
             for (int nt = 0; nt < nbthreads; nt++) {
                 int startIdx = nt * segment;
                 int endIdx = (nt == nbthreads - 1) ? nbfiles - 1 : startIdx + segment - 1;
-                FileComparatorWorker swThread = new FileComparatorWorker(nt, files, startIdx, endIdx, redistsPatterns, onFiles);
+                FileComparatorWorker swThread = new FileComparatorWorker(files, startIdx, endIdx, redistsPatterns, onFiles);
                 swThread.start();
                 threads.add(swThread);
             }
@@ -62,31 +59,7 @@ public class ThreadedFileComparator {
         }
     }
 
-    /**
-     * Get the number of cores of the CPU. 
-     * It reads the "NUMBER_OF_PROCESSORS" environment variable of MS Windows. If this variables doesn't exist or if its value
-     * is zero or a negative number, it returns 1.
-     *
-     * @return number of cores.
-     */
-    public static int getCPUCores() {
-        String scores = System.getenv("NUMBER_OF_PROCESSORS");
-        int icores;
-        try {
-            icores = Integer.parseInt(scores);
-            if (icores < 1) {
-                icores = 1;
-            }
-        } catch (Exception ex) {
-            Log.error("Cannot get the number of CPU logical cores; application will consider your CPU has 1 logical core", ex);
-            icores = 1;
-        }
-        return icores;
-    }
-
     class FileComparatorWorker extends Thread {
-
-        private final int id;
 
         /** List of files to exam (warning: this list in unmodifiable). */
         private final List<File> files;
@@ -101,8 +74,7 @@ public class ThreadedFileComparator {
 
         private boolean onFiles;
 
-        FileComparatorWorker(int id, List<File> files, int startIdx, int endIdx, List<Redist> redistsPatterns, boolean onFiles) {
-            this.id = id;
+        FileComparatorWorker(List<File> files, int startIdx, int endIdx, List<Redist> redistsPatterns, boolean onFiles) {
             this.files = files;
             this.startIdx = startIdx;
             this.endIdx = endIdx;
