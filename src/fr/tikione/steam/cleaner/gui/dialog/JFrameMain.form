@@ -32,7 +32,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jPanelMain" max="32767" attributes="0"/>
           <Group type="102" attributes="0">
-              <Component id="jToolBarMain" min="-2" pref="499" max="-2" attributes="0"/>
+              <Component id="jToolBarMain" min="-2" pref="274" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="jButtonGithub" min="-2" pref="29" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
