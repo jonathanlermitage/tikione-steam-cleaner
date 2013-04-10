@@ -6,7 +6,7 @@ public class Version {
 
     public static final int MINOR = 1;
 
-    public static final int PATCH = 3;
+    public static final int PATCH = 4;
 
     public static final String VERSION = MAJOR + "." + MINOR + "." + PATCH;
 
