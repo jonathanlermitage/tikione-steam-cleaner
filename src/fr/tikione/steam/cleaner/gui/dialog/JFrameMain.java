@@ -205,6 +205,12 @@ public class JFrameMain extends JFrame {
         jButtonStopSearch.setVisible(false);
         jButtonGithub.setToolTipText("<html><body>" + "TikiOne <b>GitHub</b>"
                 + "<br><font color=\"blue\">https://github.com/jonathanlermitage/tikione-steam-cleaner</font></body></html>");
+        jButtonReddit.setToolTipText("<html><body>" + "TikiOne <b>Reddit</b>"
+                + "<br><font color=\"blue\">"
+                + "http://www.reddit.com/r/Steam/comments/174udg/tikione_steam_cleaner_140_free_wasted_disk_space/"
+                + "</font></body></html>");
+        jButtonTwitter.setToolTipText("<html><body>" + "TikiOne <b>Twitter</b>"
+                + "<br><font color=\"blue\">https://twitter.com/JLermitage</font></body></html>");
     }
 
     /**
@@ -438,6 +444,8 @@ public class JFrameMain extends JFrame {
         jButtonSocialFacebook = new JButton();
         jButtonSocialGoogleplus = new JButton();
         jButtonGithub = new JButton();
+        jButtonTwitter = new JButton();
+        jButtonReddit = new JButton();
 
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new Color(255, 255, 255));
@@ -722,7 +730,7 @@ public class JFrameMain extends JFrame {
             }
         });
 
-        jButtonGithub.setIcon(new ImageIcon(getClass().getResource("/fr/tikione/steam/cleaner/gui/icons/github_btn.png"))); // NOI18N
+        jButtonGithub.setIcon(new ImageIcon(getClass().getResource("/fr/tikione/steam/cleaner/gui/icons/social_github.png"))); // NOI18N
         jButtonGithub.setToolTipText("");
         jButtonGithub.setContentAreaFilled(false);
         jButtonGithub.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -730,6 +738,28 @@ public class JFrameMain extends JFrame {
         jButtonGithub.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButtonGithubActionPerformed(evt);
+            }
+        });
+
+        jButtonTwitter.setIcon(new ImageIcon(getClass().getResource("/fr/tikione/steam/cleaner/gui/icons/social_twitter.png"))); // NOI18N
+        jButtonTwitter.setToolTipText("");
+        jButtonTwitter.setContentAreaFilled(false);
+        jButtonTwitter.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        jButtonTwitter.setFocusPainted(false);
+        jButtonTwitter.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jButtonTwitterActionPerformed(evt);
+            }
+        });
+
+        jButtonReddit.setIcon(new ImageIcon(getClass().getResource("/fr/tikione/steam/cleaner/gui/icons/social_reddit.png"))); // NOI18N
+        jButtonReddit.setToolTipText("");
+        jButtonReddit.setContentAreaFilled(false);
+        jButtonReddit.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        jButtonReddit.setFocusPainted(false);
+        jButtonReddit.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jButtonRedditActionPerformed(evt);
             }
         });
 
@@ -742,6 +772,10 @@ public class JFrameMain extends JFrame {
                 .addComponent(jToolBarMain, GroupLayout.PREFERRED_SIZE, 499, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonGithub, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(ComponentPlacement.RELATED)
+                .addComponent(jButtonReddit, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(ComponentPlacement.UNRELATED)
+                .addComponent(jButtonTwitter, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(ComponentPlacement.RELATED)
                 .addComponent(jButtonSocialGoogleplus, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(ComponentPlacement.RELATED)
@@ -757,7 +791,9 @@ public class JFrameMain extends JFrame {
                     .addComponent(jPanelAppVersion, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonSocialFacebook)
                     .addComponent(jButtonSocialGoogleplus)
-                    .addComponent(jButtonGithub))
+                    .addComponent(jButtonGithub)
+                    .addComponent(jButtonTwitter)
+                    .addComponent(jButtonReddit))
                 .addPreferredGap(ComponentPlacement.RELATED)
                 .addComponent(jPanelMain, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -988,11 +1024,20 @@ public class JFrameMain extends JFrame {
         UpdateManager.extBrowser("https://github.com/jonathanlermitage/tikione-steam-cleaner");
     }//GEN-LAST:event_jButtonGithubActionPerformed
 
+    private void jButtonTwitterActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonTwitterActionPerformed
+        UpdateManager.extBrowser("https://twitter.com/JLermitage");
+    }//GEN-LAST:event_jButtonTwitterActionPerformed
+
+    private void jButtonRedditActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonRedditActionPerformed
+        UpdateManager.extBrowser("http://www.reddit.com/r/Steam/comments/174udg/tikione_steam_cleaner_140_free_wasted_disk_space/");
+    }//GEN-LAST:event_jButtonRedditActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JButton jButtonAddCustomFolder;
     private JButton jButtonGithub;
     private JButton jButtonLocateSteamDir;
     private JButton jButtonManualSteamDirSearch;
+    private JButton jButtonReddit;
     private JButton jButtonReloadRedistList;
     private JButton jButtonRemoveCustomFolder;
     private JButton jButtonRemoveRedistItemsFromDisk;
@@ -1002,6 +1047,7 @@ public class JFrameMain extends JFrame {
     private JButton jButtonToolbarAbout;
     private JButton jButtonToolbarCheckforupdates;
     private JButton jButtonToolbarOptions;
+    private JButton jButtonTwitter;
     private JLabel jLabelAppVersion;
     private JLabel jLabelCustomFolders;
     private JLabel jLabelSteamDir;
