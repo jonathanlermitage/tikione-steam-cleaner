@@ -11,6 +11,16 @@ UninstPage instfiles
 
 Section "install"
     setOutPath $INSTDIR
+    delete "$INSTDIR\CHANGELOG.HTML"
+    delete "$INSTDIR\news.txt"
+    delete "$INSTDIR\tikione-steam-cleaner.bat"
+    delete "$INSTDIR\tikione-steam-cleaner.ico"
+    delete "$INSTDIR\tikione-steam-cleaner.jar"
+    rmDir /r "$INSTDIR\conf"
+    rmDir /r "$INSTDIR\jre"
+    rmDir /r "$INSTDIR\lib"
+    rmDir /r "$INSTDIR\license"
+    rmDir /r "$INSTDIR\log"
     file CHANGELOG.html
     file news.txt
     file tikione-steam-cleaner.bat
