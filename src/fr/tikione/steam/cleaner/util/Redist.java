@@ -5,11 +5,10 @@ import java.util.Objects;
 import java.util.regex.Pattern;
 
 /**
- * A redistributable package file or folder.
+ * A description of a redistributable package file or folder found on the system storage -OR-
+ * a file or folder name pattern that represents a single or a set of redistributable packages.
  */
 public class Redist {
-
-    private String pattern;
 
     private final String description;
 
@@ -17,10 +16,27 @@ public class Redist {
 
     private File file;
 
-    public Redist(String name, String description) {
-        this.pattern = name;
+    /**
+     * Define a file or folder name pattern that represents a single or a set of redistributable packages. Used to find
+     * redistributable packages files and folders on the system storage.
+     *
+     * @param pattern the pattern (a regular expression) that represents the redistributable package.
+     * @param description a description of the redistributable package.
+     */
+    public Redist(String pattern, String description) {
         this.description = description;
-        this.compiledPattern = Pattern.compile(name);
+        this.compiledPattern = Pattern.compile(pattern);
+    }
+
+    /**
+     * Define description of a redistributable package file or folder found on the system storage.
+     *
+     * @param file the redistributable package found on the system storage.
+     * @param description a description of the redistributable package.
+     */
+    public Redist(File file, String description) {
+        this.file = file;
+        this.description = description;
     }
 
     @Override
@@ -44,18 +60,9 @@ public class Redist {
         }
         return true;
     }
-    
-    public Redist(File file, String description) {
-        this.file = file;
-        this.description = description;
-    }
 
     public String getDescription() {
         return description;
-    }
-
-    public String getPattern() {
-        return pattern;
     }
 
     public Pattern getCompiledPattern() {

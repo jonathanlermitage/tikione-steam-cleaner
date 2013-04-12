@@ -21,8 +21,7 @@ public class FileUtils {
     }
 
     /**
-     * List all files and folders of a specific folder with a recursive search. While searching, this method shows advancement by
-     * setting and updating the given progress-bar.
+     * List all files and folders of a specific folder with a recursive search.
      *
      * @param jframe the frame to show progress.
      * @param files the collection of files and folder to complete with results.
