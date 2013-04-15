@@ -201,7 +201,7 @@ public class JFrameMain extends JFrame {
         jButtonSocialGoogleplus.setToolTipText("<html><body>" + translation.getString(Translation.SEC_WMAIN, "icon.social.googleplus")
                 + " (Jonathan Lermitage)<br><font color=\"blue\">https://plus.google.com/106743162871852275430</font></body></html>");
         jButtonSocialFacebook.setToolTipText("<html><body>" + translation.getString(Translation.SEC_WMAIN, "icon.social.facebook")
-                + "<br><font color=\"blue\">https://www.facebook.com/tikione.steamcleaner</font></body></html>");
+                + "<br><font color=\"blue\">https://www.facebook.com/jonathan.lermitage</font></body></html>");
         jButtonStopSearch.setVisible(false);
         jButtonGithub.setToolTipText("<html><body>" + "TikiOne <b>GitHub</b>"
                 + "<br><font color=\"blue\">https://github.com/jonathanlermitage/tikione-steam-cleaner</font></body></html>");
