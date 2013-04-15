@@ -989,7 +989,7 @@ public class JFrameMain extends JFrame {
     }//GEN-LAST:event_jButtonSocialGoogleplusActionPerformed
 
     private void jButtonSocialFacebookActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonSocialFacebookActionPerformed
-        UpdateManager.extBrowser("https://www.facebook.com/tikione.steamcleaner");
+        UpdateManager.extBrowser("https://www.facebook.com/jonathan.lermitage");
     }//GEN-LAST:event_jButtonSocialFacebookActionPerformed
 
     private void jButtonAddCustomFolderActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonAddCustomFolderActionPerformed
