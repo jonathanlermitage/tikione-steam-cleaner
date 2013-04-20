@@ -5,6 +5,8 @@ redistribuable packages downloaded by Steam (http://store.steampowered.com).
 
 TikiOne Steam Cleaner is built with NetBeans 7.3 (http://netbeans.org/) and the latest version of Oracle JDK7.
 
+![Screenshot](http://netbeanscolors.org/files/steamcleaner_2.png)
+
 ## How to build, test and package TikiOne Steam Cleaner
 
 To build the project:
