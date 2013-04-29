@@ -31,6 +31,9 @@ Public distributions are currently hosted by Sourceforge.net. See <http://source
 ## Author
 * Jonathan Lermitage (<jonathan.lermitage@entreprise38.org>)
 
+You are an IT or industrial company which has an office in France? I'm open to hiring: I will integrate an engineering school (Computer
+Science and Mathematics) in September, and I look for a three-year contract (part-time at school, part-time work).
+
 ## Contributors
 * Dmitry Bolotov (Дмитрий Болотов): Russian and Ukrainian translations
 * Boris Klein: German translation
