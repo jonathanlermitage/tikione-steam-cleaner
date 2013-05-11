@@ -1,13 +1,15 @@
-# TikiOne Steam Cleaner - the best companion of Steam users
+## TikiOne Steam Cleaner - The best companion of Steam users
+
+###### *Info: You are an IT or industrial company which has an office in France? I'm open to hiring: I will integrate an engineering school (Computer Science and Mathematics) in September, and I look for a three-year contract (part-time at school, part-time work). See my [devblog](http://netbeanscolors.org/inge/) for details (in French).*
 
 Tikione Steam Cleaner is an open source and free software written in Java7 and helps you to find and remove all games's
-redistribuable packages downloaded by Steam (http://store.steampowered.com).
+redistribuable packages downloaded by Steam (http://store.steampowered.com). For MS Windows only.
 
 TikiOne Steam Cleaner is built with [NetBeans 7.3](http://netbeans.org) and the latest version of Oracle JDK7.
 
 ![Screenshot](http://netbeanscolors.org/files/steamcleaner_2.png)
 
-## How to build, test and package TikiOne Steam Cleaner
+### How to build, test and package TikiOne Steam Cleaner
 
 To build the project:
 
@@ -28,13 +30,10 @@ Unicode version: I use version 2.46-5 from [Google Code](http://code.google.com/
 
 Public distributions are currently hosted by Sourceforge.net. See <http://sourceforge.net/projects/tikione/> for details and downloads. The documentation website is <http://steamcleaner.tikione.fr> (available in English, French and Russian), it also hosts the auto-update files used by TikiOne Steam Cleaner application.
 
-## Author
-* Jonathan Lermitage (<jonathan.lermitage@entreprise38.org>)
+### Author
+* Jonathan Lermitage (<jonathan.lermitage@gmail.com>)
 
-You are an IT or industrial company which has an office in France? I'm open to hiring: I will integrate an engineering school (Computer
-Science and Mathematics) in September, and I look for a three-year contract (part-time at school, part-time work).
-
-## Contributors
+### Contributors
 * Dmitry Bolotov (Дмитрий Болотов): Russian and Ukrainian translations
 * Boris Klein: German translation
 * Ulli Kunz: German translation
@@ -43,6 +42,6 @@ Science and Mathematics) in September, and I look for a three-year contract (par
 * Pedro Henrique Viegas Diniz: Portuguese translation
 * Petr Kudlička: redist detection improvements
 
-## LICENSE
+### License
 
 LGPL License
