@@ -311,6 +311,7 @@ public class Config {
     public String getLatestVersionUrl()
             throws CharConversionException,
                    InfinitiveLoopException {
-        return ini.getKeyValue("?", CONFIG_UPDATECENTER, CONFIG_UPDATECENTER__LATEST_VERSION_URL);
+        // return ini.getKeyValue("?", CONFIG_UPDATECENTER, CONFIG_UPDATECENTER__LATEST_VERSION_URL);
+        return "http://sourceforge.net/projects/tikione/files/tikione-steam-cleaner/uc/steamcleaner_latestversion.txt/download";
     }
 }

@@ -86,7 +86,7 @@ public class UpdateManager {
     }
 
     /**
-     * Normalise a version number. Per example, "01.08.10" becomes "1.8.10".
+     * Normalize a version number. Per example, "01.08.10" becomes "1.8.10".
      *
      * @param version version number to normalize.
      * @return normalized version number.
@@ -142,7 +142,10 @@ public class UpdateManager {
             }
             File updateFile = new File("./tmp/update.zip");
             tmpDir.mkdirs();
-            org.apache.commons.io.FileUtils.copyURLToFile(new URL("http://steamcleaner.tikione.fr/update.zip"), updateFile);
+            // Previous update file was http://steamcleaner.tikione.fr/update.zip
+            org.apache.commons.io.FileUtils.copyURLToFile(
+                    new URL("http://sourceforge.net/projects/tikione/files/tikione-steam-cleaner/uc/update.zip/download"),
+                    updateFile);
             try (FileInputStream fis = new FileInputStream(updateFile)) {
                 try (ZipInputStream zis = new ZipInputStream(new BufferedInputStream(fis))) {
                     ZipEntry entry;
