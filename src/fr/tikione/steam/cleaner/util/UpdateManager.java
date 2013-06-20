@@ -129,7 +129,7 @@ public class UpdateManager {
     }
 
     /**
-     * Downloads the latest program's version and prepares it for upgrade. The upgrade process needs a rogram's restart to complete.
+     * Downloads the latest program's version and prepares it for upgrade. The upgrade process needs a program's restart to complete.
      *
      * @return {@code true} if download and preparation are okay, {@code false} otherwise.
      */
@@ -142,7 +142,6 @@ public class UpdateManager {
             }
             File updateFile = new File("./tmp/update.zip");
             tmpDir.mkdirs();
-            // Previous update file was http://steamcleaner.tikione.fr/update.zip
             org.apache.commons.io.FileUtils.copyURLToFile(
                     new URL("http://sourceforge.net/projects/tikione/files/tikione-steam-cleaner/uc/update.zip/download"),
                     updateFile);
