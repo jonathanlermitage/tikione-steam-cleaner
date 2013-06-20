@@ -3,7 +3,7 @@
 Tikione Steam Cleaner is an open source and free software written in Java7 and helps you to find and remove all games's
 redistribuable packages downloaded by Steam (http://store.steampowered.com). For MS Windows only.
 
-TikiOne Steam Cleaner is built with [NetBeans 7.3](http://netbeans.org) and the latest version of Oracle JDK7.
+TikiOne Steam Cleaner is built with [NetBeans 7.3.1](http://netbeans.org) and the latest version of Oracle JDK7.
 
 ![Screenshot](http://netbeanscolors.org/files/steamcleaner_2.png)
 
