@@ -26,7 +26,7 @@ To bundle a JVM, copy it into a "jre" folder in the "dist2" folder and launch th
 steam Cleaner with the provided JVM into an EXE installer based on NSIS-Unicode (Nullsoft Scriptable Install System,
 Unicode version: I use version 2.46-5 from [Google Code](http://code.google.com/p/unsis/downloads/list)).
 
-Public distributions are currently hosted by Sourceforge.net. See <http://sourceforge.net/projects/tikione/> for details and downloads. The documentation website is <http://steamcleaner.tikione.fr> (available in English, French and Russian), it also hosts the auto-update files used by TikiOne Steam Cleaner application.
+Public distributions are currently hosted by Sourceforge.net. See <http://sourceforge.net/projects/tikione/> for details and downloads.
 
 ### Author
 * Jonathan Lermitage (<jonathan.lermitage@gmail.com>)
