@@ -9,7 +9,7 @@
 # The 2013 hosting plan still needs your help: we need 30$ this year. #
 #######################################################################
 
-  For information, the website is hosted by 1&1 (www.1and1.com).
+  For information, the website is now hosted by Gandi (www.gandi.net).
   The website is used to host the steamcleaner.tikione.fr information 
   pages, the software's auto-update file (update.zip), the changelog 
   file and some other technical informations. Without your help, the
@@ -18,4 +18,4 @@
   Check http://sourceforge.net/p/tikione/donate for PayPal donations.
   Thx!
 
-  ~Jonathan Lermitage <jonathan.lermitage@entreprise38.org>
+  ~Jonathan Lermitage <jonathan.lermitage@gmail.com>

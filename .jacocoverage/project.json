@@ -1,0 +1,12 @@
+{
+  "pkgclss.excludelist" : [ ],
+  "preferences" : {
+    "JaCoCoverage.Editor.EnableCodeHighlighting" : "true",
+    "JaCoCoverage.Editor.EnableCodeHighlightingExtended" : "true",
+    "JaCoCoverage.Html.AutoOpenReport" : "false",
+    "JaCoCoverage.Html.EnableReport" : "false",
+    "JaCoCoverage.JaCoCoWorkfiles.Rule" : "2",
+    "JaCoCoverage.NbConsole.EnableReport" : "true",
+    "JaCoCoverage.Prj.OverrideGlobals" : "true"
+  }
+}
