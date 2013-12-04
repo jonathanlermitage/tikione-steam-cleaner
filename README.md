@@ -1,3 +1,5 @@
+##### ``>> Project Status >>`` TikiOne Steam Cleaner v1 development is over. I will build a new version based on Python instead of Java: you'll get a more secure, lighter and faster program. Check [TikiOne Steam Cleaner v2](https://github.com/jonathanlermitage/tikione-steam-cleaner-2) next year.
+
 ## TikiOne Steam Cleaner - The best companion of Steam users
 
 Tikione Steam Cleaner is an open source and free software written in Java7 and helps you to find and remove all games's
