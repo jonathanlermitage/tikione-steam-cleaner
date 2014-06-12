@@ -1,4 +1,4 @@
-##### ``>> Project Status >>`` TikiOne Steam Cleaner v1 development is over. I will build a new version based on Python instead of Java: you'll get a more secure, lighter and faster program. Check [TikiOne Steam Cleaner v2](https://github.com/jonathanlermitage/tikione-steam-cleaner-2) next year.
+##### ``>> Project Status >>`` TikiOne Steam Cleaner v1 development is over. I will build a new version asap.
 
 ## TikiOne Steam Cleaner - The best companion of Steam users
 
