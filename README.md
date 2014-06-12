@@ -1,4 +1,4 @@
-##### ``>> Project Status >>`` TikiOne Steam Cleaner v1 development is over. I will build a new version asap.
+##### ``>> Project Status >>`` TikiOne Steam Cleaner v1 development is over. I will build a new version (TikiOne Steam Cleaner 2) based on C# asap.
 
 ## TikiOne Steam Cleaner - The best companion of Steam users
 
