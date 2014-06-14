@@ -1,6 +1,6 @@
 @echo off
 rem TikiOne Steam Cleaner, a pure Java cleaner for Steam games redistributable packages.
-rem Copyright (C) 2008-2013  Jonathan Lermitage
+rem Copyright (C) 2008-2014  Jonathan Lermitage
 rem 
 rem This tool is free software; you can redistribute it and/or modify it under the terms of the
 rem GNU Lesser General Public License as published by the Free Software Foundation; either version

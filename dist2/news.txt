@@ -3,18 +3,6 @@
   (I won't introduce ads or toolbars like Ask.com: TikiOne is
   free and open source, I'll never make money with it).
 
-  The 2012 hosting plan has been payed thanks to 5 generous donators.
-
-#######################################################################
-# The 2013 hosting plan still needs your help: we need 30$ this year. #
-#######################################################################
-
-  For information, the website is now hosted by Gandi (www.gandi.net).
-  The website is used to host the steamcleaner.tikione.fr information 
-  pages, the software's auto-update file (update.zip), the changelog 
-  file and some other technical informations. Without your help, the
-  project would simply die.
-
   Check http://sourceforge.net/p/tikione/donate for PayPal donations.
   Thx!
 
