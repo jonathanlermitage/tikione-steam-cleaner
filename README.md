@@ -1,11 +1,10 @@
-##### ``>> Project Status >>`` TikiOne Steam Cleaner v1 development is over. I will build a new version based on Python instead of Java: you'll get a more secure, lighter and faster program. Check [TikiOne Steam Cleaner v2](https://github.com/jonathanlermitage/tikione-steam-cleaner-2) next year.
+##### ``>> Project Status >>`` Finally, I don't have enought free-time to intruduce a new programming language. So, TikiOne Steam Cleaner development has restarted. I will continue to use Java. Thx for your understanding, and sorry for the confusion.  In other words, V2 (with native code) is dead but V1 (with Java) is alive!
 
 ## TikiOne Steam Cleaner - The best companion of Steam users
 
-Tikione Steam Cleaner is an open source and free software written in Java7 and helps you to find and remove all games's
-redistribuable packages downloaded by Steam (http://store.steampowered.com). For MS Windows only.
+Tikione Steam Cleaner is an open source and free software written in Java7 and helps you to find and remove all games's redistribuable packages downloaded by Steam (http://store.steampowered.com). For MS Windows only.
 
-TikiOne Steam Cleaner is built with [NetBeans 7.3.1](http://netbeans.org) and the latest version of Oracle JDK7.
+TikiOne Steam Cleaner is built with [NetBeans 8.0](http://netbeans.org) and the latest version of Oracle JDK7.
 
 ![Screenshot](http://netbeanscolors.org/files/steamcleaner_2.png)
 
@@ -24,9 +23,7 @@ You can now build and run the project.
 
 To package the application, simply merge the "dist" and "dist2" folders.
 
-To bundle a JVM, copy it into a "jre" folder in the "dist2" folder and launch the NSIS script: it will package TikiOne
-steam Cleaner with the provided JVM into an EXE installer based on NSIS-Unicode (Nullsoft Scriptable Install System,
-Unicode version: I use version 2.46-5 from [Google Code](http://code.google.com/p/unsis/downloads/list)).
+To bundle a JVM, copy it into a "jre" folder in the "dist2" folder and launch the NSIS script: it will package TikiOne steam Cleaner with the provided JVM into an EXE installer based on NSIS-Unicode (Nullsoft Scriptable Install System, Unicode version: I use version 2.46-5 from [Google Code](http://code.google.com/p/unsis/downloads/list)).
 
 Public distributions are currently hosted by Sourceforge.net. See <http://sourceforge.net/projects/tikione/> for details and downloads.
 
