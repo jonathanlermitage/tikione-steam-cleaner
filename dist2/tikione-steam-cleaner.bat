@@ -19,90 +19,17 @@ rem TikiOne Steam Cleaner start-up script.
 rem Used to launch TikiOne Steam Cleaner with the bundled JVM (if exists) or the operating system's JVM.
 rem ---------------------------------------------------------------------------------------------------------------------------
 
-rem **************************************************
-rem Go to the application's dir (fix for the case you start the BAT with elevated privileges)
-cd %~dp0%
+set "PATH=%PATH%;%cd%\jre\bin\;%~dp0%\jre\bin\"
+set "PATH=%PATH%;C:\Program Files\Java\jre\bin\"
+set "PATH=%PATH%;C:\Program Files\Java\jre7\bin\"
+set "PATH=%PATH%;C:\Program Files\Java\jre8\bin\"
+set "PATH=%PATH%;C:\Program Files\Java\jre9\bin\"
+set "PATH=%PATH%;C:\Program Files\Java\jre10\bin\"
+set "PATH=%PATH%;C:\Program Files (x86)\Java\jre\bin\"
+set "PATH=%PATH%;C:\Program Files (x86)\Java\jre7\bin\"
+set "PATH=%PATH%;C:\Program Files (x86)\Java\jre8\bin\"
+set "PATH=%PATH%;C:\Program Files (x86)\Java\jre9\bin\"
+set "PATH=%PATH%;C:\Program Files (x86)\Java\jre10\bin\"
 
-rem **************************************************
-rem Check for patch to apply.
-if exist "%cd%\tmp\tikione-steam-cleaner\" goto applyPatch
-goto noPatch
-
-:applyPatch
-rmdir /S /Q "%cd%\conf\"
-rmdir /S /Q "%cd%\lib\"
-rmdir /S /Q "%cd%\license\"
-move /Y "%cd%\tmp\tikione-steam-cleaner\*.*" "%cd%"
-move /Y "%cd%\tmp\tikione-steam-cleaner\conf" "%cd%"
-move /Y "%cd%\tmp\tikione-steam-cleaner\lib" "%cd%"
-move /Y "%cd%\tmp\tikione-steam-cleaner\license" "%cd%"
-rmdir /S /Q "%cd%\tmp\"
-goto startProgram
-
-:noPatch
-goto startProgram
-
-rem **************************************************
-rem Start program.
-:startProgram
-
-rem Set global JVM options, to increase the maximum amount of memory (RAM) available to the JVM, to avoid some abnormal exits. It increases
-rem the Java Thread Stack size too ("Xss"), to avoid some very rare crash cases (e.g. if you scan a very large folder).
-set "JAVA_OPTS1=-Xms32m"
-set "JAVA_OPTS2=-Xmx768m"
-set "JAVA_OPTS3=-Xss3m"
-set "PRG="tikione-steam-cleaner.jar"
-
-if exist "%cd%\jre\bin\javaw.exe" goto start1
-if exist "C:\Program Files\Java\jre7\bin\javaw.exe" goto start2
-if exist "C:\Program Files (x86)\Java\jre7\bin\javaw.exe" goto start3
-if exist "C:\Program Files\Java\jre8\bin\javaw.exe" goto start6
-if exist "C:\Program Files (x86)\Java\jre8\bin\javaw.exe" goto start7
-if exist "C:\Program Files\Java\jre\bin\javaw.exe" goto start8
-if exist "C:\Program Files (x86)\Java\jre\bin\javaw.exe" goto start9
-
-echo launch Java from system PATH
-echo start with Java from system path
-set "JAVAWEXE_PATH=javaw.exe"
-goto startFinal
-
-:start1 
-echo start with bundled Java7
-set "JAVAWEXE_PATH=%cd%\jre\bin\javaw.exe"
-goto startFinal
-
-:start2 
-echo start with program files Java 7
-set "JAVAWEXE_PATH=C:\Program Files\Java\jre7\bin\javaw.exe"
-goto startFinal
-
-:start3 
-echo start with program files Java 7
-set "JAVAWEXE_PATH=C:\Program Files (x86)\Java\jre7\bin\javaw.exe"
-goto startFinal
-
-:start6 
-echo start with program files Java 8
-set "JAVAWEXE_PATH=C:\Program Files\Java\jre8\bin\javaw.exe"
-goto startFinal
-
-:start7 
-echo start with program files Java 8
-set "JAVAWEXE_PATH=C:\Program Files (x86)\Java\jre8\bin\javaw.exe"
-goto startFinal
-
-:start8 
-echo start with program files Java
-set "JAVAWEXE_PATH=C:\Program Files\Java\jre\bin\javaw.exe"
-goto startFinal
-
-:start9 
-echo start with program files Java
-set "JAVAWEXE_PATH=C:\Program Files (x86)\Java\jre\bin\javaw.exe"
-goto startFinal
-
-:startFinal
-start "" "%JAVAWEXE_PATH%" "-jar" "%JAVA_OPTS1%" "%JAVA_OPTS2%" "%JAVA_OPTS3%" "%PRG%"
+start "" "javaw.exe" "-jar" "tikione-steam-cleaner.jar"
 goto end
-
-:end
