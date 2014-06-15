@@ -1,4 +1,4 @@
-##### ``>> Project Status >>`` Finally, I don't have enought free-time to introduce a new programming language. So, TikiOne Steam Cleaner development has restarted. I will continue to use Java. Thx for your understanding, and sorry for the confusion.  In other words, V2 (with native code) is dead but V1 (with Java) is alive!
+##### ``>> Project Status >>`` Finally, the project is still alive!
 
 ## TikiOne Steam Cleaner - The best companion of Steam users
 
