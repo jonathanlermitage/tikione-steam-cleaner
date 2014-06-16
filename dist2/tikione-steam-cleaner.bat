@@ -32,4 +32,3 @@ set "PATH=%PATH%;C:\Program Files (x86)\Java\jre9\bin\"
 set "PATH=%PATH%;C:\Program Files (x86)\Java\jre10\bin\"
 
 start "" "javaw.exe" "-jar" "tikione-steam-cleaner.jar"
-goto end
