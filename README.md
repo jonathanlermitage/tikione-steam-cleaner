@@ -38,6 +38,7 @@ Public distributions are currently hosted by Sourceforge.net. See <http://source
 * Piotr Swat: Polish translation
 * Pedro Henrique Viegas Diniz: Portuguese translation
 * Petr Kudlička: redist detection improvements
+* Brian Huqueriza: redist detection improvements
 
 ### License
 

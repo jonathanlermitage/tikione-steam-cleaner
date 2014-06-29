@@ -110,7 +110,7 @@ public class UpdateManager {
      * Launch the external web browser with the TikiOne Steam Cleaner changelog file URL (on the TikiOne.fr website).
      */
     public static void extBrowserGetLatestChangelog() {
-        extBrowser("http://steamcleaner.tikione.fr/CHANGELOG.html");
+        extBrowser("http://tikione.fr/steamcleaner/CHANGELOG.html");
     }
 
     /**
