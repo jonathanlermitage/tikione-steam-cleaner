@@ -19,6 +19,8 @@ rem TikiOne Steam Cleaner start-up script.
 rem Used to launch TikiOne Steam Cleaner with the bundled JVM (if exists) or the operating system's JVM.
 rem ---------------------------------------------------------------------------------------------------------------------------
 
+cd %~dp0%
+
 set "PATH=%PATH%;%cd%\jre\bin\;%~dp0%\jre\bin\"
 set "PATH=%PATH%;C:\Program Files\Java\jre\bin\"
 set "PATH=%PATH%;C:\Program Files\Java\jre7\bin\"
