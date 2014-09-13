@@ -77,7 +77,7 @@ public class CustomFolders {
         String itemTable = ini.getKeyValue(null, CONFIG_CUSTOM_FOLDERS, CONFIG_CUSTOM_FOLDERS__ITEM_LIST);
         List<String> res;
         if (itemTable == null) {
-            res = (List<String>) Collections.EMPTY_LIST;
+            res = Collections.EMPTY_LIST;
         } else {
             res = Arrays.asList(itemTable.split(Matcher.quoteReplacement("\""), 0));
         }

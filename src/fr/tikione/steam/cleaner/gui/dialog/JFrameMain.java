@@ -72,15 +72,15 @@ public class JFrameMain extends JFrame {
     private String tblRedistLabelDefault;
 
     /** Background color of input text for Steam location, when it is found and OK. */
-    private static Color COLOR_PATH_OK = new Color(204, 245, 187);
+    private static final Color COLOR_PATH_OK = new Color(204, 245, 187);
 
     /** Background color of input text for Steam location, when it is not found or non-OK. */
-    private static Color COLOR_PATH_ERR = new Color(255, 204, 255);
+    private static final Color COLOR_PATH_ERR = new Color(255, 204, 255);
 
     /** Default table model for the list of redistributable packages found. */
     private DefaultTableModel model;
 
-    private DefaultListModel<File> listModel;
+    private final DefaultListModel<File> listModel;
 
     /** List of non-checked items in the list of redistributable packages. */
     private List<String> uncheckedRedistPathList = new ArrayList<>(8);
@@ -98,13 +98,13 @@ public class JFrameMain extends JFrame {
     private final DangerousItems dangerousItems;
 
     /** List of folders patterns to exclude from the search path. */
-    private List<Pattern> dangerousFolders;
+    private final List<Pattern> dangerousFolders;
 
     /** Steam directory. */
     private File fSteamDir = null;
 
     /** Translated application's messages handler. */
-    private Translation translation;
+    private final Translation translation;
 
     /**
      * Create new form JFrameMain. This is the main form.
@@ -819,11 +819,12 @@ public class JFrameMain extends JFrame {
     }
 
     private boolean checkSteamDirFile(String path) {
-        if (!path.endsWith("/") && !path.endsWith(File.separator)) {
-            path += File.separatorChar;
-        }
-        File steamapps = new File(path + "config" + File.separatorChar + "config.vdf");
-        return steamapps.exists() && steamapps.isFile();
+//        if (!path.endsWith("/") && !path.endsWith(File.separator)) {
+//            path += File.separatorChar;
+//        }
+//        File steamapps = new File(path + "config" + File.separatorChar + "config.vdf");
+//        return steamapps.exists() && steamapps.isFile();
+        return true;
     }
 
     private void jTextFieldSteamDirKeyReleased(KeyEvent evt) {//GEN-FIRST:event_jTextFieldSteamDirKeyReleased
@@ -843,7 +844,7 @@ public class JFrameMain extends JFrame {
                         jTextFieldSteamDir.setBackground(COLOR_PATH_OK);
                         jButtonReloadRedistList.setEnabled(true);
                         fSteamDir = fPossibleSteamDir;
-                        break SEARCH_STEAM_DIR;
+                        break;
                     }
                 } catch (Exception ex) {
                     Log.error(ex);
@@ -910,7 +911,7 @@ public class JFrameMain extends JFrame {
             model = new RedistTableModel(translation);
             setTableModelUI();
             jPanelList.setBorder(BorderFactory.createTitledBorder(tblRedistLabelDefault));
-        } catch (Exception ex) {
+        } catch (IOException ex) {
             Log.error(ex);
         }
     }//GEN-LAST:event_jButtonRemoveRedistItemsFromDiskActionPerformed
