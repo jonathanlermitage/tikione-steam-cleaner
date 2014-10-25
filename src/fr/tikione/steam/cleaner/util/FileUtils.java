@@ -50,7 +50,7 @@ public class FileUtils {
                                     if (StringHelper.checkRegex(abslowPath, dangerousPatt)) {
                                         accept = false;
                                         Log.info("Skipped hazardous place: '" + pathname + "'");
-                                        break EXCLUDE_DANGEROUS;
+                                        break;
                                     }
                                 }
                             } else {
@@ -63,7 +63,7 @@ public class FileUtils {
                         FOLDER_LISTING:
                         for (File subFolder : subFolders) {
                             if (JFrameMain.isCLOSING_APP()) {
-                                break FOLDER_LISTING;
+                                break;
                             }
                             files.add(subFolder);
                             listDirNoRecount(jframe, files, subFolder, depth - 1, dangerousFolders);
@@ -102,7 +102,7 @@ public class FileUtils {
                         if (StringHelper.checkRegex(abslowPath, dangerousPatt)) {
                             accept = false;
                             Log.info("Skipped hazardous place: '" + pathname + "'");
-                            break EXCLUDE_DANGEROUS;
+                            break;
                         }
                     }
                 } else {
@@ -115,7 +115,7 @@ public class FileUtils {
             FILE_LISTING:
             for (File subFolder : subFolders) { // FIXED avoid NPE on (protected) subFolders if custom dir.
                 if (JFrameMain.isCLOSING_APP()) {
-                    break FILE_LISTING;
+                    break;
                 }
                 files.add(subFolder);
                 listDirNoRecount(jframe, files, subFolder, depth - 1, dangerousFolders);
@@ -139,7 +139,7 @@ public class FileUtils {
             if (pattern.matcher(fileName.toLowerCase(Main.SYS_LOCALE)).find()) {
                 Redist redistFound = new Redist(file, redist.getDescription());
                 checkedFiles = redistFound;
-                break CHECK;
+                break;
             }
         }
         return checkedFiles;

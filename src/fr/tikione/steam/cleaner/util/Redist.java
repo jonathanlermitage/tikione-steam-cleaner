@@ -55,10 +55,7 @@ public class Redist {
             return false;
         }
         final Redist other = (Redist) obj;
-        if (!Objects.equals(this.file, other.file)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.file, other.file);
     }
 
     public String getDescription() {
