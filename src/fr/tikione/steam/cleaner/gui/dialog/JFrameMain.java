@@ -198,8 +198,6 @@ public class JFrameMain extends JFrame {
         jButtonAddCustomFolder.setText(translation.getString(Translation.SEC_WMAIN, "button.add.custom.folder"));
         jButtonRemoveCustomFolder.setText(translation.getString(Translation.SEC_WMAIN, "button.rem.custom.folder"));
         jLabelCustomFolders.setText("<html>" + translation.getString(Translation.SEC_WMAIN, "label.custom.folders.list") + "</html>");
-        jButtonSocialGoogleplus.setToolTipText("<html><body>" + translation.getString(Translation.SEC_WMAIN, "icon.social.googleplus")
-                + " (Jonathan Lermitage)<br><font color=\"blue\">https://plus.google.com/106743162871852275430</font></body></html>");
         jButtonSocialFacebook.setToolTipText("<html><body>" + translation.getString(Translation.SEC_WMAIN, "icon.social.facebook")
                 + "<br><font color=\"blue\">https://www.facebook.com/jonathan.lermitage</font></body></html>");
         jButtonStopSearch.setVisible(false);
@@ -442,7 +440,6 @@ public class JFrameMain extends JFrame {
         jPanelAppVersion = new JPanel();
         jLabelAppVersion = new JLabel();
         jButtonSocialFacebook = new JButton();
-        jButtonSocialGoogleplus = new JButton();
         jButtonGithub = new JButton();
         jButtonTwitter = new JButton();
         jButtonReddit = new JButton();
@@ -541,8 +538,7 @@ public class JFrameMain extends JFrame {
 
         GroupLayout jPanelListLayout = new GroupLayout(jPanelList);
         jPanelList.setLayout(jPanelListLayout);
-        jPanelListLayout.setHorizontalGroup(
-            jPanelListLayout.createParallelGroup(Alignment.LEADING)
+        jPanelListLayout.setHorizontalGroup(jPanelListLayout.createParallelGroup(Alignment.LEADING)
             .addGroup(Alignment.TRAILING, jPanelListLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelListLayout.createParallelGroup(Alignment.TRAILING)
@@ -555,8 +551,7 @@ public class JFrameMain extends JFrame {
                         .addComponent(jButtonRemoveRedistItemsFromDisk)))
                 .addContainerGap())
         );
-        jPanelListLayout.setVerticalGroup(
-            jPanelListLayout.createParallelGroup(Alignment.LEADING)
+        jPanelListLayout.setVerticalGroup(jPanelListLayout.createParallelGroup(Alignment.LEADING)
             .addGroup(Alignment.TRAILING, jPanelListLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelListLayout.createParallelGroup(Alignment.CENTER)
@@ -601,8 +596,7 @@ public class JFrameMain extends JFrame {
 
         GroupLayout jPanelMainLayout = new GroupLayout(jPanelMain);
         jPanelMain.setLayout(jPanelMainLayout);
-        jPanelMainLayout.setHorizontalGroup(
-            jPanelMainLayout.createParallelGroup(Alignment.LEADING)
+        jPanelMainLayout.setHorizontalGroup(jPanelMainLayout.createParallelGroup(Alignment.LEADING)
             .addComponent(jPanelList, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanelMainLayout.createSequentialGroup()
                 .addContainerGap()
@@ -625,8 +619,7 @@ public class JFrameMain extends JFrame {
                     .addComponent(jButtonRemoveCustomFolder, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
-        jPanelMainLayout.setVerticalGroup(
-            jPanelMainLayout.createParallelGroup(Alignment.LEADING)
+        jPanelMainLayout.setVerticalGroup(jPanelMainLayout.createParallelGroup(Alignment.LEADING)
             .addGroup(jPanelMainLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelMainLayout.createParallelGroup(Alignment.BASELINE)
@@ -699,12 +692,10 @@ public class JFrameMain extends JFrame {
 
         GroupLayout jPanelAppVersionLayout = new GroupLayout(jPanelAppVersion);
         jPanelAppVersion.setLayout(jPanelAppVersionLayout);
-        jPanelAppVersionLayout.setHorizontalGroup(
-            jPanelAppVersionLayout.createParallelGroup(Alignment.LEADING)
+        jPanelAppVersionLayout.setHorizontalGroup(jPanelAppVersionLayout.createParallelGroup(Alignment.LEADING)
             .addComponent(jLabelAppVersion, GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
         );
-        jPanelAppVersionLayout.setVerticalGroup(
-            jPanelAppVersionLayout.createParallelGroup(Alignment.LEADING)
+        jPanelAppVersionLayout.setVerticalGroup(jPanelAppVersionLayout.createParallelGroup(Alignment.LEADING)
             .addComponent(jLabelAppVersion, GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
         );
 
@@ -716,17 +707,6 @@ public class JFrameMain extends JFrame {
         jButtonSocialFacebook.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButtonSocialFacebookActionPerformed(evt);
-            }
-        });
-
-        jButtonSocialGoogleplus.setIcon(new ImageIcon(getClass().getResource("/fr/tikione/steam/cleaner/gui/icons/social_googleplus.png"))); // NOI18N
-        jButtonSocialGoogleplus.setToolTipText("");
-        jButtonSocialGoogleplus.setContentAreaFilled(false);
-        jButtonSocialGoogleplus.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        jButtonSocialGoogleplus.setFocusPainted(false);
-        jButtonSocialGoogleplus.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                jButtonSocialGoogleplusActionPerformed(evt);
             }
         });
 
@@ -765,8 +745,7 @@ public class JFrameMain extends JFrame {
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(Alignment.LEADING)
+        layout.setHorizontalGroup(layout.createParallelGroup(Alignment.LEADING)
             .addComponent(jPanelMain, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBarMain, GroupLayout.PREFERRED_SIZE, 274, GroupLayout.PREFERRED_SIZE)
@@ -774,23 +753,19 @@ public class JFrameMain extends JFrame {
                 .addComponent(jButtonGithub, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(ComponentPlacement.RELATED)
                 .addComponent(jButtonReddit, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(ComponentPlacement.UNRELATED)
-                .addComponent(jButtonTwitter, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(ComponentPlacement.RELATED)
-                .addComponent(jButtonSocialGoogleplus, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonTwitter, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(ComponentPlacement.RELATED)
                 .addComponent(jButtonSocialFacebook, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanelAppVersion, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(Alignment.LEADING)
+        layout.setVerticalGroup(layout.createParallelGroup(Alignment.LEADING)
             .addGroup(Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(Alignment.LEADING)
                     .addComponent(jToolBarMain, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanelAppVersion, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonSocialFacebook)
-                    .addComponent(jButtonSocialGoogleplus)
                     .addComponent(jButtonGithub)
                     .addComponent(jButtonTwitter)
                     .addComponent(jButtonReddit))
@@ -985,10 +960,6 @@ public class JFrameMain extends JFrame {
         aboutFrame.setVisible(true);
     }//GEN-LAST:event_jButtonToolbarAboutActionPerformed
 
-    private void jButtonSocialGoogleplusActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonSocialGoogleplusActionPerformed
-        UpdateManager.extBrowser("https://plus.google.com/106743162871852275430");
-    }//GEN-LAST:event_jButtonSocialGoogleplusActionPerformed
-
     private void jButtonSocialFacebookActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonSocialFacebookActionPerformed
         UpdateManager.extBrowser("https://www.facebook.com/jonathan.lermitage");
     }//GEN-LAST:event_jButtonSocialFacebookActionPerformed
@@ -1043,7 +1014,6 @@ public class JFrameMain extends JFrame {
     private JButton jButtonRemoveCustomFolder;
     private JButton jButtonRemoveRedistItemsFromDisk;
     private JButton jButtonSocialFacebook;
-    private JButton jButtonSocialGoogleplus;
     private JButton jButtonStopSearch;
     private JButton jButtonToolbarAbout;
     private JButton jButtonToolbarCheckforupdates;
