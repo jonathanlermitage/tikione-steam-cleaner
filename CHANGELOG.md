@@ -2,8 +2,6 @@
 
 ### 2.4.0 (2014/11/xx) JAVA7
 * fixed configuration corruption after application upgrade (some users reported problems with after a 2.3.2 upgrade, that could be fixed by deleting the "%USERPROFILE%/.tikione/" directory).
-* added a note about the fact that you could remove the bundled JVM if an other one is detected in "Program Files" or "Program Files (x86)".
-* fixed #4 (custom folder selection dialogue improvement).
 * removed GooglePlus shortcut.
 
 ### 2.3.2 (2014/09/13) JAVA 7

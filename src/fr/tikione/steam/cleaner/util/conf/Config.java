@@ -115,7 +115,7 @@ public class Config {
         File backupConfigFile = new File("conf/backup/tikione-steam-cleaner_config.ini");
         File userprofile = new File(System.getenv("USERPROFILE") + "/.tikione/");
         userprofile.mkdirs();
-        configFile = new File(userprofile.getAbsolutePath() + "/tikione-steam-cleaner_config_rev231.ini");
+        configFile = new File(userprofile.getAbsolutePath() + "/tikione-steam-cleaner_config_rev240.ini");
         if (!configFile.exists()) {
             org.apache.commons.io.FileUtils.copyFile(backupConfigFile, configFile);
         }
@@ -124,40 +124,40 @@ public class Config {
         ini.getConfig().enableReadUnicodeEscConv(true);
         ini.load(configFile, Main.CONF_ENCODING);
 
-        // Patch for 2.3.1 revision: migrate previous profile to new one.
-        try {
-            File configFileP231 = new File(userprofile.getAbsolutePath() + "/tikione-steam-cleaner_config.ini");
-            if (configFileP231.exists()) {
-                Ini iniP231 = new Ini();
-                iniP231.getConfig().enableParseLineConcat(true);
-                iniP231.getConfig().enableReadUnicodeEscConv(true);
-                iniP231.load(configFileP231, Main.CONF_ENCODING);
-                ini.setKeyValue(
-                        CONFIG_STEAM_FOLDERS, CONFIG_STEAM_FOLDERS__LATEST_DIR,
-                        iniP231.getKeyValue(CONFIG_STEAM_FOLDERS, CONFIG_STEAM_FOLDERS__LATEST_DIR));
-                ini.setKeyValue(
-                        CONFIG_STEAM_FOLDERS, CONFIG_STEAM_FOLDERS__MAX_DEPTH,
-                        iniP231.getKeyValue(CONFIG_STEAM_FOLDERS, CONFIG_STEAM_FOLDERS__MAX_DEPTH));
-                ini.setKeyValue(
-                        CONFIG_LANG, CONFIG_LANG__SELECTION,
-                        iniP231.getKeyValue(CONFIG_LANG, CONFIG_LANG__SELECTION));
-                ini.setKeyValue(
-                        CONFIG_MAIN_WINDOW_UI, CONFIG_MAIN_WINDOW_UI__SIZE_X,
-                        iniP231.getKeyValue(CONFIG_MAIN_WINDOW_UI, CONFIG_MAIN_WINDOW_UI__SIZE_X));
-                ini.setKeyValue(
-                        CONFIG_MAIN_WINDOW_UI, CONFIG_MAIN_WINDOW_UI__SIZE_Y,
-                        iniP231.getKeyValue(CONFIG_MAIN_WINDOW_UI, CONFIG_MAIN_WINDOW_UI__SIZE_Y));
-                ini.setKeyValue(
-                        CONFIG_MAIN_WINDOW_UI, CONFIG_MAIN_WINDOW_UI__STATE,
-                        iniP231.getKeyValue(CONFIG_MAIN_WINDOW_UI, CONFIG_MAIN_WINDOW_UI__STATE));
-                ini.setKeyValue(
-                        CONFIG_MISC, CONFIG_MISC__CHK_FOR_UPT_AT_STATUP,
-                        iniP231.getKeyValue(CONFIG_MISC, CONFIG_MISC__CHK_FOR_UPT_AT_STATUP));
-                configFileP231.delete();
-            }
-        } catch (InfinitiveLoopException | IOException | IllegalArgumentException ex) {
-            Log.error(ex);
-        }
+//        // Patch for 2.3.1 revision: migrate previous profile to new one.
+//        try {
+//            File configFileP231 = new File(userprofile.getAbsolutePath() + "/tikione-steam-cleaner_config.ini");
+//            if (configFileP231.exists()) {
+//                Ini iniP231 = new Ini();
+//                iniP231.getConfig().enableParseLineConcat(true);
+//                iniP231.getConfig().enableReadUnicodeEscConv(true);
+//                iniP231.load(configFileP231, Main.CONF_ENCODING);
+//                ini.setKeyValue(
+//                        CONFIG_STEAM_FOLDERS, CONFIG_STEAM_FOLDERS__LATEST_DIR,
+//                        iniP231.getKeyValue(CONFIG_STEAM_FOLDERS, CONFIG_STEAM_FOLDERS__LATEST_DIR));
+//                ini.setKeyValue(
+//                        CONFIG_STEAM_FOLDERS, CONFIG_STEAM_FOLDERS__MAX_DEPTH,
+//                        iniP231.getKeyValue(CONFIG_STEAM_FOLDERS, CONFIG_STEAM_FOLDERS__MAX_DEPTH));
+//                ini.setKeyValue(
+//                        CONFIG_LANG, CONFIG_LANG__SELECTION,
+//                        iniP231.getKeyValue(CONFIG_LANG, CONFIG_LANG__SELECTION));
+//                ini.setKeyValue(
+//                        CONFIG_MAIN_WINDOW_UI, CONFIG_MAIN_WINDOW_UI__SIZE_X,
+//                        iniP231.getKeyValue(CONFIG_MAIN_WINDOW_UI, CONFIG_MAIN_WINDOW_UI__SIZE_X));
+//                ini.setKeyValue(
+//                        CONFIG_MAIN_WINDOW_UI, CONFIG_MAIN_WINDOW_UI__SIZE_Y,
+//                        iniP231.getKeyValue(CONFIG_MAIN_WINDOW_UI, CONFIG_MAIN_WINDOW_UI__SIZE_Y));
+//                ini.setKeyValue(
+//                        CONFIG_MAIN_WINDOW_UI, CONFIG_MAIN_WINDOW_UI__STATE,
+//                        iniP231.getKeyValue(CONFIG_MAIN_WINDOW_UI, CONFIG_MAIN_WINDOW_UI__STATE));
+//                ini.setKeyValue(
+//                        CONFIG_MISC, CONFIG_MISC__CHK_FOR_UPT_AT_STATUP,
+//                        iniP231.getKeyValue(CONFIG_MISC, CONFIG_MISC__CHK_FOR_UPT_AT_STATUP));
+//                configFileP231.delete();
+//            }
+//        } catch (InfinitiveLoopException | IOException | IllegalArgumentException ex) {
+//            Log.error(ex);
+//        }
     }
 
     /**
