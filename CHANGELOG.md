@@ -1,6 +1,6 @@
 ## TikiOne Steam Cleaner Change Log
 
-### 2.4.0 (2014/11/xx) JAVA7
+### 2.4.0 (2014/11/15) JAVA7
 * fixed configuration corruption after application upgrade (some users reported problems with after a 2.3.2 upgrade, that could be fixed by deleting the "%USERPROFILE%/.tikione/" directory).
 * removed GooglePlus shortcut.
 
