@@ -826,7 +826,7 @@ public class JFrameMain extends JFrame {
                 }
             }
             if (fSteamDir == null || !checkSteamDirFile(fSteamDir.getAbsolutePath())) {
-                jTextFieldSteamDir.setText("  " + translation.getString(Translation.SEC_WMAIN, "errmsg.cantfindsteamdir"));
+                jTextFieldSteamDir.setText("  "/* + translation.getString(Translation.SEC_WMAIN, "errmsg.cantfindsteamdir")*/);
                 jTextFieldSteamDir.setBackground(COLOR_PATH_ERR);
                 if (listModel == null || listModel.isEmpty()) {
                     jButtonReloadRedistList.setEnabled(false);
