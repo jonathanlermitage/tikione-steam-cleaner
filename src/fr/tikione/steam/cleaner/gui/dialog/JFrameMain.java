@@ -852,7 +852,7 @@ public class JFrameMain extends JFrame {
                 jTextFieldSteamDir.setText(folder.getAbsolutePath());
                 jTextFieldSteamDir.setBackground(COLOR_PATH_OK);
             } else {
-                jTextFieldSteamDir.setText("  " + translation.getString(Translation.SEC_WMAIN, "errmsg.cantfindsteamdir"));
+                jTextFieldSteamDir.setText("  " /*+ translation.getString(Translation.SEC_WMAIN, "errmsg.cantfindsteamdir")*/);
                 jTextFieldSteamDir.setBackground(COLOR_PATH_ERR);
             }
         }
