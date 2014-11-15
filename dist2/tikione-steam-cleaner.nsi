@@ -21,7 +21,6 @@ Section "install"
     rmDir /r "$INSTDIR\lib"
     rmDir /r "$INSTDIR\license"
     rmDir /r "$INSTDIR\log"
-    file CHANGELOG.html
     file news.txt
     file tikione-steam-cleaner.bat
     file tikione-steam-cleaner.ico
@@ -46,7 +45,6 @@ SectionEnd
 Section "uninstall"
     DeleteRegKey HKLM "SOFTWARE\TikiOneSteamCleaner"
     DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\TikiOneSteamCleaner"
-    delete "$INSTDIR\CHANGELOG.HTML"
     delete "$INSTDIR\news.txt"
     delete "$INSTDIR\tikione-steam-cleaner.bat"
     delete "$INSTDIR\tikione-steam-cleaner.ico"
