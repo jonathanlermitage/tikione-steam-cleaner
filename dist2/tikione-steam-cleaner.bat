@@ -33,4 +33,4 @@ set "PATH=%PATH%;C:\Program Files (x86)\Java\jre8\bin\"
 set "PATH=%PATH%;C:\Program Files (x86)\Java\jre9\bin\"
 set "PATH=%PATH%;C:\Program Files (x86)\Java\jre10\bin\"
 
-start "" "javaw.exe" "-jar" "-Xms32m" "" -Xmx512m "tikione-steam-cleaner.jar"
+start "" "javaw.exe" "-jar" "-Xms32m" "-Xmx512m" "tikione-steam-cleaner.jar"
