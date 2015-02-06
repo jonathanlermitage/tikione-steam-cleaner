@@ -37,12 +37,12 @@ public class ThreadedFileComparator {
         if (nbfiles > 0) {
             int nbthreads = 4;
             int segment;
-            if (nbfiles > nbthreads) {
-                segment = nbfiles / nbthreads;
-            } else {
+            //if (nbfiles > nbthreads) {
+            //    segment = nbfiles / nbthreads;
+            //} else {
                 segment = nbfiles;
                 nbthreads = 1;
-            }
+            //}
             List<Thread> threads = new ArrayList<>(nbthreads);
             for (int nt = 0; nt < nbthreads; nt++) {
                 int startIdx = nt * segment;
@@ -72,7 +72,7 @@ public class ThreadedFileComparator {
 
         public final List<Redist> checkedFiles;
 
-        private boolean onFiles;
+        private final boolean onFiles;
 
         FileComparatorWorker(List<File> files, int startIdx, int endIdx, List<Redist> redistsPatterns, boolean onFiles) {
             this.files = files;

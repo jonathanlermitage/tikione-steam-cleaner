@@ -1,6 +1,6 @@
 @echo off
 rem TikiOne Steam Cleaner, a pure Java cleaner for Steam games redistributable packages.
-rem Copyright (C) 2008-2014  Jonathan Lermitage
+rem Copyright (C) 2008-2015  Jonathan Lermitage
 rem 
 rem This tool is free software; you can redistribute it and/or modify it under the terms of the
 rem GNU Lesser General Public License as published by the Free Software Foundation; either version
@@ -33,4 +33,4 @@ set "PATH=%PATH%;C:\Program Files (x86)\Java\jre8\bin\"
 set "PATH=%PATH%;C:\Program Files (x86)\Java\jre9\bin\"
 set "PATH=%PATH%;C:\Program Files (x86)\Java\jre10\bin\"
 
-start "" "javaw.exe" "-jar" "tikione-steam-cleaner.jar"
+start "" "javaw.exe" "-jar" "-Xms32m" "" -Xmx512m "tikione-steam-cleaner.jar"
