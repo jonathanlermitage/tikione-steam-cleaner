@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/jonathanlermitage/tikione-steam-cleaner.png?label=ready&title=Ready)](https://waffle.io/jonathanlermitage/tikione-steam-cleaner)
 ##### ``>> Project Status >>`` Finally, the project is still alive!
 
 ## TikiOne Steam Cleaner - The best companion of Steam users
