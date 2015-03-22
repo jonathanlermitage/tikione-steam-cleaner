@@ -459,15 +459,17 @@ public class JFrameMain extends JFrame {
 
         jPanelMain.setBackground(new Color(255, 255, 255));
 
+        jLabelSteamDir.setFont(new Font("Dialog", 0, 13)); // NOI18N
         jLabelSteamDir.setText("Steam folder :");
 
+        jTextFieldSteamDir.setFont(new Font("DialogInput", 0, 13)); // NOI18N
         jTextFieldSteamDir.addKeyListener(new KeyAdapter() {
             public void keyReleased(KeyEvent evt) {
                 jTextFieldSteamDirKeyReleased(evt);
             }
         });
 
-        jButtonLocateSteamDir.setFont(new Font("Tahoma", 1, 11)); // NOI18N
+        jButtonLocateSteamDir.setFont(new Font("Dialog", 1, 12)); // NOI18N
         jButtonLocateSteamDir.setText("Try to locate Steam automatically");
         jButtonLocateSteamDir.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -475,7 +477,7 @@ public class JFrameMain extends JFrame {
             }
         });
 
-        jButtonManualSteamDirSearch.setFont(new Font("Tahoma", 1, 11)); // NOI18N
+        jButtonManualSteamDirSearch.setFont(new Font("Dialog", 1, 11)); // NOI18N
         jButtonManualSteamDirSearch.setText("...");
         jButtonManualSteamDirSearch.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -485,8 +487,9 @@ public class JFrameMain extends JFrame {
 
         jPanelList.setBackground(new Color(255, 255, 255));
         jPanelList.setBorder(BorderFactory.createTitledBorder("Redistributable packages found :"));
+        jPanelList.setFont(new Font("Dialog", 0, 13)); // NOI18N
 
-        jButtonReloadRedistList.setFont(new Font("Tahoma", 1, 11)); // NOI18N
+        jButtonReloadRedistList.setFont(new Font("Dialog", 1, 12)); // NOI18N
         jButtonReloadRedistList.setIcon(new ImageIcon(getClass().getResource("/fr/tikione/steam/cleaner/gui/icons/famfamfam_btn_search.png"))); // NOI18N
         jButtonReloadRedistList.setText("Search");
         jButtonReloadRedistList.setEnabled(false);
@@ -496,7 +499,7 @@ public class JFrameMain extends JFrame {
             }
         });
 
-        jButtonRemoveRedistItemsFromDisk.setFont(new Font("Tahoma", 1, 11)); // NOI18N
+        jButtonRemoveRedistItemsFromDisk.setFont(new Font("Dialog", 1, 12)); // NOI18N
         jButtonRemoveRedistItemsFromDisk.setForeground(new Color(0, 0, 153));
         jButtonRemoveRedistItemsFromDisk.setIcon(new ImageIcon(getClass().getResource("/fr/tikione/steam/cleaner/gui/icons/famfamfam_btn_clean.png"))); // NOI18N
         jButtonRemoveRedistItemsFromDisk.setText("Remove selected items from disk");
@@ -527,6 +530,7 @@ public class JFrameMain extends JFrame {
         jTableRedistList.setShowVerticalLines(false);
         jScrollPane1.setViewportView(jTableRedistList);
 
+        jButtonStopSearch.setFont(new Font("Dialog", 0, 13)); // NOI18N
         jButtonStopSearch.setIcon(new ImageIcon(getClass().getResource("/fr/tikione/steam/cleaner/gui/icons/famfamfam_stop_search.png"))); // NOI18N
         jButtonStopSearch.setFocusable(false);
         jButtonStopSearch.setRequestFocusEnabled(false);
@@ -559,18 +563,20 @@ public class JFrameMain extends JFrame {
                     .addComponent(jButtonRemoveRedistItemsFromDisk)
                     .addComponent(jButtonStopSearch))
                 .addPreferredGap(ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
+        jLabelCustomFolders.setFont(new Font("Dialog", 0, 13)); // NOI18N
         jLabelCustomFolders.setText("<html>Custom folders list :</html>");
         jLabelCustomFolders.setVerticalAlignment(SwingConstants.TOP);
 
+        jListCustomFolders.setFont(new Font("DialogInput", 0, 13)); // NOI18N
         jListCustomFolders.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         jListCustomFolders.setRequestFocusEnabled(false);
         jScrollPane2.setViewportView(jListCustomFolders);
 
-        jButtonAddCustomFolder.setFont(new Font("Tahoma", 1, 11)); // NOI18N
+        jButtonAddCustomFolder.setFont(new Font("Dialog", 1, 12)); // NOI18N
         jButtonAddCustomFolder.setIcon(new ImageIcon(getClass().getResource("/fr/tikione/steam/cleaner/gui/icons/famfamfam_btn_add_folder.png"))); // NOI18N
         jButtonAddCustomFolder.setText("Add to list...");
         jButtonAddCustomFolder.setMaximumSize(new Dimension(119, 23));
@@ -582,7 +588,7 @@ public class JFrameMain extends JFrame {
             }
         });
 
-        jButtonRemoveCustomFolder.setFont(new Font("Tahoma", 1, 11)); // NOI18N
+        jButtonRemoveCustomFolder.setFont(new Font("Dialog", 1, 12)); // NOI18N
         jButtonRemoveCustomFolder.setIcon(new ImageIcon(getClass().getResource("/fr/tikione/steam/cleaner/gui/icons/famfamfam_btn_del_folder.png"))); // NOI18N
         jButtonRemoveCustomFolder.setText("Remove from list");
         jButtonRemoveCustomFolder.setMaximumSize(new Dimension(149, 23));
@@ -685,7 +691,7 @@ public class JFrameMain extends JFrame {
         jPanelAppVersion.setBackground(new Color(178, 129, 255));
         jPanelAppVersion.setForeground(new Color(255, 255, 255));
 
-        jLabelAppVersion.setFont(new Font("Tahoma", 0, 14)); // NOI18N
+        jLabelAppVersion.setFont(new Font("Dialog", 0, 14)); // NOI18N
         jLabelAppVersion.setForeground(new Color(255, 255, 255));
         jLabelAppVersion.setHorizontalAlignment(SwingConstants.CENTER);
         jLabelAppVersion.setText("version here");

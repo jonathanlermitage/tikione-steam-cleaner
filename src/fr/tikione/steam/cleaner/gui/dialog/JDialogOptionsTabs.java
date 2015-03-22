@@ -161,10 +161,11 @@ public class JDialogOptionsTabs extends JDialog {
         jPanelMain.setBackground(new Color(255, 255, 255));
 
         jTabbedPaneOpts.setBackground(new Color(255, 255, 255));
-        jTabbedPaneOpts.setFont(new Font("Tahoma", 1, 11)); // NOI18N
+        jTabbedPaneOpts.setFont(new Font("Dialog", 1, 11)); // NOI18N
 
         jPanelP0.setBackground(new Color(255, 255, 255));
 
+        jLabelSelectLang.setFont(new Font("Dialog", 0, 13)); // NOI18N
         jLabelSelectLang.setText("Program language :");
         jLabelSelectLang.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent evt) {
@@ -175,6 +176,7 @@ public class JDialogOptionsTabs extends JDialog {
             }
         });
 
+        jComboBoxLang.setFont(new Font("Dialog", 0, 13)); // NOI18N
         jComboBoxLang.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent evt) {
                 jComboBoxLangMouseEntered(evt);
@@ -184,6 +186,7 @@ public class JDialogOptionsTabs extends JDialog {
             }
         });
 
+        jLabeSearchlMaxDepth.setFont(new Font("Dialog", 0, 13)); // NOI18N
         jLabeSearchlMaxDepth.setText("Search maximum depth :");
         jLabeSearchlMaxDepth.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent evt) {
@@ -194,6 +197,7 @@ public class JDialogOptionsTabs extends JDialog {
             }
         });
 
+        jComboBoxSearchlMaxDepth.setFont(new Font("Dialog", 0, 13)); // NOI18N
         jComboBoxSearchlMaxDepth.setModel(new DefaultComboBoxModel(new String[] { "3", "4", "5", "6", "7", "8" }));
         jComboBoxSearchlMaxDepth.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         jComboBoxSearchlMaxDepth.addMouseListener(new MouseAdapter() {
@@ -205,11 +209,13 @@ public class JDialogOptionsTabs extends JDialog {
             }
         });
 
+        jLabelDescP0.setFont(new Font("Dialog", 0, 13)); // NOI18N
         jLabelDescP0.setHorizontalAlignment(SwingConstants.LEFT);
         jLabelDescP0.setVerticalAlignment(SwingConstants.TOP);
-        jLabelDescP0.setBorder(BorderFactory.createTitledBorder(null, "Information :", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font("Tahoma", 1, 11), new Color(0, 0, 153))); // NOI18N
+        jLabelDescP0.setBorder(BorderFactory.createTitledBorder(null, "Information :", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font("Dialog", 1, 11), new Color(0, 0, 153))); // NOI18N
 
         jCheckBoxCheckForUpdatesAtStartup.setBackground(new Color(255, 255, 255));
+        jCheckBoxCheckForUpdatesAtStartup.setFont(new Font("Dialog", 0, 13)); // NOI18N
         jCheckBoxCheckForUpdatesAtStartup.setText("Check for updates at startup");
         jCheckBoxCheckForUpdatesAtStartup.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent evt) {
@@ -222,8 +228,7 @@ public class JDialogOptionsTabs extends JDialog {
 
         GroupLayout jPanelP0Layout = new GroupLayout(jPanelP0);
         jPanelP0.setLayout(jPanelP0Layout);
-        jPanelP0Layout.setHorizontalGroup(
-            jPanelP0Layout.createParallelGroup(Alignment.LEADING)
+        jPanelP0Layout.setHorizontalGroup(jPanelP0Layout.createParallelGroup(Alignment.LEADING)
             .addGroup(jPanelP0Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelP0Layout.createParallelGroup(Alignment.LEADING)
@@ -244,8 +249,7 @@ public class JDialogOptionsTabs extends JDialog {
                             .addComponent(jCheckBoxCheckForUpdatesAtStartup))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
-        jPanelP0Layout.setVerticalGroup(
-            jPanelP0Layout.createParallelGroup(Alignment.LEADING)
+        jPanelP0Layout.setVerticalGroup(jPanelP0Layout.createParallelGroup(Alignment.LEADING)
             .addGroup(jPanelP0Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelP0Layout.createParallelGroup(Alignment.BASELINE)
@@ -257,7 +261,7 @@ public class JDialogOptionsTabs extends JDialog {
                     .addComponent(jLabeSearchlMaxDepth))
                 .addPreferredGap(ComponentPlacement.UNRELATED)
                 .addComponent(jCheckBoxCheckForUpdatesAtStartup)
-                .addPreferredGap(ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
+                .addPreferredGap(ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
                 .addComponent(jLabelDescP0, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -269,33 +273,33 @@ public class JDialogOptionsTabs extends JDialog {
         jPanelInfoP1.setBackground(new Color(247, 234, 234));
         jPanelInfoP1.setBorder(new LineBorder(new Color(153, 0, 51), 1, true));
 
-        jLabelInfoP1.setFont(new Font("Tahoma", 1, 11)); // NOI18N
+        jLabelInfoP1.setFont(new Font("Dialog", 1, 11)); // NOI18N
         jLabelInfoP1.setForeground(new Color(153, 0, 0));
         jLabelInfoP1.setHorizontalAlignment(SwingConstants.CENTER);
         jLabelInfoP1.setText("Warning : experimental functionalities. Use them with caution !");
 
         GroupLayout jPanelInfoP1Layout = new GroupLayout(jPanelInfoP1);
         jPanelInfoP1.setLayout(jPanelInfoP1Layout);
-        jPanelInfoP1Layout.setHorizontalGroup(
-            jPanelInfoP1Layout.createParallelGroup(Alignment.LEADING)
+        jPanelInfoP1Layout.setHorizontalGroup(jPanelInfoP1Layout.createParallelGroup(Alignment.LEADING)
             .addGroup(Alignment.TRAILING, jPanelInfoP1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelInfoP1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPanelInfoP1Layout.setVerticalGroup(
-            jPanelInfoP1Layout.createParallelGroup(Alignment.LEADING)
+        jPanelInfoP1Layout.setVerticalGroup(jPanelInfoP1Layout.createParallelGroup(Alignment.LEADING)
             .addGroup(Alignment.TRAILING, jPanelInfoP1Layout.createSequentialGroup()
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelInfoP1)
                 .addContainerGap())
         );
 
+        jLabelDescP1.setFont(new Font("Dialog", 0, 13)); // NOI18N
         jLabelDescP1.setHorizontalAlignment(SwingConstants.LEFT);
         jLabelDescP1.setVerticalAlignment(SwingConstants.TOP);
-        jLabelDescP1.setBorder(BorderFactory.createTitledBorder(null, "Information :", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font("Tahoma", 1, 11), new Color(0, 51, 153))); // NOI18N
+        jLabelDescP1.setBorder(BorderFactory.createTitledBorder(null, "Information :", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font("Dialog", 1, 11), new Color(0, 51, 153))); // NOI18N
 
         jCheckBoxListEnableExpRedists.setBackground(new Color(255, 255, 255));
+        jCheckBoxListEnableExpRedists.setFont(new Font("Dialog", 0, 13)); // NOI18N
         jCheckBoxListEnableExpRedists.setText("Include experimental redist package patterns in search");
         jCheckBoxListEnableExpRedists.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent evt) {
@@ -308,8 +312,7 @@ public class JDialogOptionsTabs extends JDialog {
 
         GroupLayout jPanelP1Layout = new GroupLayout(jPanelP1);
         jPanelP1.setLayout(jPanelP1Layout);
-        jPanelP1Layout.setHorizontalGroup(
-            jPanelP1Layout.createParallelGroup(Alignment.LEADING)
+        jPanelP1Layout.setHorizontalGroup(jPanelP1Layout.createParallelGroup(Alignment.LEADING)
             .addGroup(jPanelP1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelP1Layout.createParallelGroup(Alignment.LEADING)
@@ -318,21 +321,20 @@ public class JDialogOptionsTabs extends JDialog {
                     .addComponent(jPanelInfoP1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jPanelP1Layout.setVerticalGroup(
-            jPanelP1Layout.createParallelGroup(Alignment.LEADING)
+        jPanelP1Layout.setVerticalGroup(jPanelP1Layout.createParallelGroup(Alignment.LEADING)
             .addGroup(jPanelP1Layout.createSequentialGroup()
                 .addGap(7, 7, 7)
                 .addComponent(jPanelInfoP1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jCheckBoxListEnableExpRedists)
-                .addPreferredGap(ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
+                .addPreferredGap(ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
                 .addComponent(jLabelDescP1, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         jTabbedPaneOpts.addTab("  Experimental  ", jPanelP1);
 
-        jButtonOKP0.setFont(new Font("Tahoma", 1, 11)); // NOI18N
+        jButtonOKP0.setFont(new Font("Dialog", 1, 11)); // NOI18N
         jButtonOKP0.setText("OK");
         jButtonOKP0.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -340,7 +342,7 @@ public class JDialogOptionsTabs extends JDialog {
             }
         });
 
-        jButtonCancelP0.setFont(new Font("Tahoma", 1, 11)); // NOI18N
+        jButtonCancelP0.setFont(new Font("Dialog", 1, 11)); // NOI18N
         jButtonCancelP0.setText("Cancel");
         jButtonCancelP0.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -350,8 +352,7 @@ public class JDialogOptionsTabs extends JDialog {
 
         GroupLayout jPanelMainLayout = new GroupLayout(jPanelMain);
         jPanelMain.setLayout(jPanelMainLayout);
-        jPanelMainLayout.setHorizontalGroup(
-            jPanelMainLayout.createParallelGroup(Alignment.LEADING)
+        jPanelMainLayout.setHorizontalGroup(jPanelMainLayout.createParallelGroup(Alignment.LEADING)
             .addGroup(jPanelMainLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelMainLayout.createParallelGroup(Alignment.LEADING)
@@ -365,8 +366,7 @@ public class JDialogOptionsTabs extends JDialog {
                         .addComponent(jButtonOKP0)))
                 .addContainerGap())
         );
-        jPanelMainLayout.setVerticalGroup(
-            jPanelMainLayout.createParallelGroup(Alignment.LEADING)
+        jPanelMainLayout.setVerticalGroup(jPanelMainLayout.createParallelGroup(Alignment.LEADING)
             .addGroup(jPanelMainLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTabbedPaneOpts, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)
@@ -379,12 +379,10 @@ public class JDialogOptionsTabs extends JDialog {
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(Alignment.LEADING)
+        layout.setHorizontalGroup(layout.createParallelGroup(Alignment.LEADING)
             .addComponent(jPanelMain, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(Alignment.LEADING)
+        layout.setVerticalGroup(layout.createParallelGroup(Alignment.LEADING)
             .addComponent(jPanelMain, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 

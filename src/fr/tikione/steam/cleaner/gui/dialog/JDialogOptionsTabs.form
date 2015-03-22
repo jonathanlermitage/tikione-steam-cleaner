@@ -84,7 +84,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="1"/>
+              <Font name="Dialog" size="11" style="1"/>
             </Property>
           </Properties>
 
@@ -151,7 +151,7 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jCheckBoxCheckForUpdatesAtStartup" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="146" max="32767" attributes="0"/>
+                          <EmptySpace pref="125" max="32767" attributes="0"/>
                           <Component id="jLabelDescP0" min="-2" pref="117" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -161,6 +161,9 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabelSelectLang">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="13" style="0"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Program language :"/>
                   </Properties>
                   <Events>
@@ -170,6 +173,9 @@
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBoxLang">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="13" style="0"/>
+                    </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="0"/>
                     </Property>
@@ -185,6 +191,9 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabeSearchlMaxDepth">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="13" style="0"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Search maximum depth :"/>
                   </Properties>
                   <Events>
@@ -194,6 +203,9 @@
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBoxSearchlMaxDepth">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="13" style="0"/>
+                    </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="new javax.swing.DefaultComboBoxModel(new String[] { &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot; })" type="code"/>
                     </Property>
@@ -212,12 +224,15 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabelDescP0">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="13" style="0"/>
+                    </Property>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="verticalAlignment" type="int" value="1"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder title="Information :">
-                          <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
+                          <Font PropertyName="font" name="Dialog" size="11" style="1"/>
                           <Color PropertyName="color" blue="99" green="0" red="0" type="rgb"/>
                         </TitledBorder>
                       </Border>
@@ -228,6 +243,9 @@
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="13" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Check for updates at startup"/>
                   </Properties>
@@ -273,7 +291,7 @@
                           <Component id="jPanelInfoP1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jCheckBoxListEnableExpRedists" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="152" max="32767" attributes="0"/>
+                          <EmptySpace pref="140" max="32767" attributes="0"/>
                           <Component id="jLabelDescP1" min="-2" pref="117" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -319,7 +337,7 @@
                     <Component class="javax.swing.JLabel" name="jLabelInfoP1">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Tahoma" size="11" style="1"/>
+                          <Font name="Dialog" size="11" style="1"/>
                         </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="0" green="0" red="99" type="rgb"/>
@@ -332,12 +350,15 @@
                 </Container>
                 <Component class="javax.swing.JLabel" name="jLabelDescP1">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="13" style="0"/>
+                    </Property>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="verticalAlignment" type="int" value="1"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder title="Information :">
-                          <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
+                          <Font PropertyName="font" name="Dialog" size="11" style="1"/>
                           <Color PropertyName="color" blue="99" green="33" red="0" type="rgb"/>
                         </TitledBorder>
                       </Border>
@@ -348,6 +369,9 @@
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="13" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Include experimental redist package patterns in search"/>
                   </Properties>
@@ -363,7 +387,7 @@
         <Component class="javax.swing.JButton" name="jButtonOKP0">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="1"/>
+              <Font name="Dialog" size="11" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="OK"/>
           </Properties>
@@ -374,7 +398,7 @@
         <Component class="javax.swing.JButton" name="jButtonCancelP0">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="1"/>
+              <Font name="Dialog" size="11" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Cancel"/>
           </Properties>

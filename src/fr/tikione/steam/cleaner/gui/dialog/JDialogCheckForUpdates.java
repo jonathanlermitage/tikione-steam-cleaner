@@ -102,12 +102,13 @@ public class JDialogCheckForUpdates extends JDialog {
 
         jPanel1.setBackground(new Color(255, 255, 255));
 
+        jLabelMessage.setFont(new Font("Dialog", 0, 13)); // NOI18N
         jLabelMessage.setHorizontalAlignment(SwingConstants.LEFT);
         jLabelMessage.setVerticalAlignment(SwingConstants.TOP);
         jLabelMessage.setHorizontalTextPosition(SwingConstants.LEFT);
         jLabelMessage.setVerticalTextPosition(SwingConstants.TOP);
 
-        jButtonClose.setFont(new Font("Tahoma", 1, 11)); // NOI18N
+        jButtonClose.setFont(new Font("Dialog", 1, 11)); // NOI18N
         jButtonClose.setText("Close");
         jButtonClose.setFocusable(false);
         jButtonClose.addActionListener(new ActionListener() {
@@ -116,7 +117,7 @@ public class JDialogCheckForUpdates extends JDialog {
             }
         });
 
-        jButtonDownload.setFont(new Font("Tahoma", 1, 11)); // NOI18N
+        jButtonDownload.setFont(new Font("Dialog", 1, 11)); // NOI18N
         jButtonDownload.setForeground(new Color(0, 0, 102));
         jButtonDownload.setText("Download the latest version");
         jButtonDownload.setFocusable(false);
@@ -126,7 +127,7 @@ public class JDialogCheckForUpdates extends JDialog {
             }
         });
 
-        jButtonChangelog.setFont(new Font("Tahoma", 1, 11)); // NOI18N
+        jButtonChangelog.setFont(new Font("Dialog", 1, 11)); // NOI18N
         jButtonChangelog.setText("Changelog");
         jButtonChangelog.setFocusable(false);
         jButtonChangelog.addActionListener(new ActionListener() {
@@ -137,23 +138,21 @@ public class JDialogCheckForUpdates extends JDialog {
 
         GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
                     .addComponent(jLabelMessage, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jButtonDownload)
-                        .addPreferredGap(ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
+                        .addPreferredGap(ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
                         .addComponent(jButtonChangelog)
                         .addPreferredGap(ComponentPlacement.RELATED)
                         .addComponent(jButtonClose))
                     .addComponent(jSeparator))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelMessage, GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
@@ -169,12 +168,10 @@ public class JDialogCheckForUpdates extends JDialog {
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(Alignment.LEADING)
+        layout.setHorizontalGroup(layout.createParallelGroup(Alignment.LEADING)
             .addComponent(jPanel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(Alignment.LEADING)
+        layout.setVerticalGroup(layout.createParallelGroup(Alignment.LEADING)
             .addComponent(jPanel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 

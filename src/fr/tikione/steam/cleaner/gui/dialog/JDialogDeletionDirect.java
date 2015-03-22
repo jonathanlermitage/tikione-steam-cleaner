@@ -143,12 +143,13 @@ public class JDialogDeletionDirect extends JDialog {
         jPanel1.setBackground(new Color(255, 255, 255));
 
         jTextAreaDeletionLog.setColumns(20);
-        jTextAreaDeletionLog.setFont(new Font("Monospaced", 0, 11)); // NOI18N
+        jTextAreaDeletionLog.setFont(new Font("DialogInput", 0, 12)); // NOI18N
         jTextAreaDeletionLog.setRows(5);
         jTextAreaDeletionLog.setText("(logfile) :");
         jTextAreaDeletionLog.setWrapStyleWord(true);
         jScrollPane1.setViewportView(jTextAreaDeletionLog);
 
+        jButtonClose.setFont(new Font("Dialog", 0, 13)); // NOI18N
         jButtonClose.setText("Close");
         jButtonClose.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -171,8 +172,7 @@ public class JDialogDeletionDirect extends JDialog {
 
         GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
@@ -183,8 +183,7 @@ public class JDialogDeletionDirect extends JDialog {
                         .addComponent(jButtonClose)))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
@@ -197,14 +196,12 @@ public class JDialogDeletionDirect extends JDialog {
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(Alignment.LEADING)
+        layout.setHorizontalGroup(layout.createParallelGroup(Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(Alignment.LEADING)
+        layout.setVerticalGroup(layout.createParallelGroup(Alignment.LEADING)
             .addComponent(jPanel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
