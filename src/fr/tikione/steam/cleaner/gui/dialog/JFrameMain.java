@@ -14,6 +14,7 @@ import fr.tikione.steam.cleaner.util.UpdateManager;
 import fr.tikione.steam.cleaner.util.conf.Config;
 import fr.tikione.steam.cleaner.util.conf.CustomFolders;
 import fr.tikione.steam.cleaner.util.conf.DangerousItems;
+import fr.tikione.steam.cleaner.util.conf.Patterns;
 import fr.tikione.steam.cleaner.util.conf.UncheckedItems;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -87,6 +88,9 @@ public class JFrameMain extends JFrame {
 
     /** Application configuration handler. */
     private final Config config;
+	
+	/** The program configuration handler (redist patterns). */
+    private Patterns patternsCfg;
 
     /** Application configuration handler. */
     private final UncheckedItems uncheckedItems;
@@ -121,6 +125,7 @@ public class JFrameMain extends JFrame {
         super();
         GraphicsUtils.setIcon(this);
         config = Config.getInstance();
+		patternsCfg = Patterns.getInstance();
         dangerousItems = DangerousItems.getInstance();
         dangerousFolders = dangerousItems.getDangerousFolders();
         String lngCode = config.getSelectedLanguage();
@@ -320,7 +325,7 @@ public class JFrameMain extends JFrame {
                             List<Redist> checkedFolders = new ArrayList<>(128);
                             ThreadedFileComparator tc = new ThreadedFileComparator(
                                     allFiles,
-                                    config.getRedistFilePatternsAndDesc(config.getEnableExperimentalPatterns()),
+                                    patternsCfg.getRedistFilePatternsAndDesc(patternsCfg.getEnableExperimentalPatterns()),
                                     checkedFiles, true);
                             try {
                                 tc.start();
@@ -329,7 +334,7 @@ public class JFrameMain extends JFrame {
                             }
                             tc = new ThreadedFileComparator(
                                     allFiles,
-                                    config.getRedistFolderPatternsAndDesc(config.getEnableExperimentalPatterns()),
+                                    patternsCfg.getRedistFolderPatternsAndDesc(patternsCfg.getEnableExperimentalPatterns()),
                                     checkedFolders, false);
                             try {
                                 tc.start();
@@ -936,6 +941,7 @@ public class JFrameMain extends JFrame {
         }
         try {
             config.save();
+			patternsCfg.save();
             uncheckedItems.save();
             customFolders.save();
         } catch (IOException ex) {

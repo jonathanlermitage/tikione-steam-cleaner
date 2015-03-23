@@ -6,10 +6,10 @@ package fr.tikione.steam.cleaner.util;
 public class CountryLanguage {
 
     /** Language code. */
-    private String code;
+    private final String code;
 
     /** Language name. */
-    private String desc;
+    private final String desc;
 
     /**
      * Define a language to be used in the application's UI.

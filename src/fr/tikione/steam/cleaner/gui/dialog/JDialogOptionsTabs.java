@@ -6,6 +6,7 @@ import fr.tikione.steam.cleaner.util.GraphicsUtils;
 import fr.tikione.steam.cleaner.util.Log;
 import fr.tikione.steam.cleaner.util.Translation;
 import fr.tikione.steam.cleaner.util.conf.Config;
+import fr.tikione.steam.cleaner.util.conf.Patterns;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
@@ -44,14 +45,17 @@ import javax.swing.border.TitledBorder;
 @SuppressWarnings({"serial", "rawtypes"})
 public class JDialogOptionsTabs extends JDialog {
 
-    /** The program configuration handler. */
+    /** The program configuration handler (global). */
     private Config config;
+	
+	/** The program configuration handler (redist patterns). */
+    private Patterns patternsCfg;
 
     /** The links between program languages descriptions (ex: French) and codes (ex: fr_FR). */
     private Map<String, String> langDescToLangCode = new LinkedHashMap<>(4);
 
     /** The program language translation handler. */
-    private Translation translation;
+    private final Translation translation;
 
     /**
      * Create new form JDialogOptions.
@@ -66,6 +70,7 @@ public class JDialogOptionsTabs extends JDialog {
             throws IOException {
         super(parent, modal);
         config = Config.getInstance();
+		patternsCfg = Patterns.getInstance();
         this.translation = translation;
         initComponents();
         initTranslateComponents(translation);
@@ -79,7 +84,7 @@ public class JDialogOptionsTabs extends JDialog {
                 List<CountryLanguage> availLang;
                 try {
                     jCheckBoxCheckForUpdatesAtStartup.setSelected(config.getCheckForUpdatesAtStartup());
-                    jCheckBoxListEnableExpRedists.setSelected(config.getEnableExperimentalPatterns());
+                    jCheckBoxListEnableExpRedists.setSelected(patternsCfg.getEnableExperimentalPatterns());
                     // List and auto-select language.
                     availLang = Translation.getAvailLangList();
                     for (CountryLanguage lang : availLang) {
@@ -395,7 +400,7 @@ public class JDialogOptionsTabs extends JDialog {
         config.setSelecteLanguage(langCodeSelected);
         config.setMaxDepth(Integer.parseInt(jComboBoxSearchlMaxDepth.getSelectedItem().toString()));
         config.setCheckForUpdatesAtStartup(jCheckBoxCheckForUpdatesAtStartup.isSelected());
-        config.setEnableExperimentalPatterns(jCheckBoxListEnableExpRedists.isSelected());
+        patternsCfg.setEnableExperimentalPatterns(jCheckBoxListEnableExpRedists.isSelected());
         this.dispose();
     }
 

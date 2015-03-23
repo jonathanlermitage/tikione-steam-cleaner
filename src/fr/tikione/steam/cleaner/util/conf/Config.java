@@ -44,24 +44,6 @@ public class Config {
     /** INI configuration file key : indicate if window is maximized. */
     private static final String CONFIG_MAIN_WINDOW_UI__STATE = "state";
 
-    /** INI configuration file section : redistributable packages file and folder patterns. */
-    private static final String CONFIG_REDIST_PATTERNS = "REDISTRIBUTABLE_PACKAGES_PATTERNS";
-
-    /** INI configuration file key : redistributable package file patterns. */
-    private static final String CONFIG_REDIST_PATTERNS__FILE_PATTERNS = "redistFilePatterns";
-
-    /** INI configuration file key : redistributable package folder patterns. */
-    private static final String CONFIG_REDIST_PATTERNS__FOLDER_PATTERNS = "redistFolderPatterns";
-
-    /** INI configuration file key : redistributable package file patterns. */
-    private static final String CONFIG_REDIST_PATTERNS__FILE_PATTERNS_EXP = "experimentalRedistFilesPatterns";
-
-    /** INI configuration file key : redistributable package folder patterns. */
-    private static final String CONFIG_REDIST_PATTERNS__FOLDER_PATTERNS_EXP = "experimentalRedistFolderPatterns";
-
-    /** INI configuration file key : enable experimental patterns. */
-    private static final String CONFIG_REDIST_PATTERNS__ENABLE_EXP_PATTERNS = "enableExperimentalPatterns";
-
     /** INI configuration file section : UI language. */
     private static final String CONFIG_LANG = "LANG";
 
@@ -115,7 +97,7 @@ public class Config {
         File backupConfigFile = new File("conf/backup/tikione-steam-cleaner_config.ini");
         File userprofile = new File(System.getenv("USERPROFILE") + "/.tikione/");
         userprofile.mkdirs();
-        configFile = new File(userprofile.getAbsolutePath() + "/tikione-steam-cleaner_config_rev240.ini");
+        configFile = new File(userprofile.getAbsolutePath() + "/tikione-steam-cleaner_config_rev241.ini");
         if (!configFile.exists()) {
             org.apache.commons.io.FileUtils.copyFile(backupConfigFile, configFile);
         }
@@ -229,57 +211,7 @@ public class Config {
         return Integer.parseInt(ini.getKeyValue("0", CONFIG_MAIN_WINDOW_UI, CONFIG_MAIN_WINDOW_UI__STATE));
     }
 
-    public List<Redist> getRedistFilePatternsAndDesc(boolean includeExp)
-            throws CharConversionException,
-            InfinitiveLoopException {
-        List<Redist> res = getRedistPatternsAndDesc(CONFIG_REDIST_PATTERNS__FILE_PATTERNS);
-        if (includeExp) {
-            List<Redist> resAdd = getRedistPatternsAndDesc(CONFIG_REDIST_PATTERNS__FILE_PATTERNS_EXP);
-            res.addAll(resAdd);
-        }
-        return res;
-    }
-
-    public List<Redist> getRedistFolderPatternsAndDesc(boolean includeExp)
-            throws CharConversionException,
-            InfinitiveLoopException {
-        List<Redist> res = getRedistPatternsAndDesc(CONFIG_REDIST_PATTERNS__FOLDER_PATTERNS);
-        if (includeExp) {
-            List<Redist> resAdd = getRedistPatternsAndDesc(CONFIG_REDIST_PATTERNS__FOLDER_PATTERNS_EXP);
-            res.addAll(resAdd);
-        }
-        return res;
-    }
-
-    public boolean getEnableExperimentalPatterns()
-            throws CharConversionException,
-            InfinitiveLoopException {
-        return Boolean.parseBoolean(ini.getKeyValue("false", CONFIG_REDIST_PATTERNS, CONFIG_REDIST_PATTERNS__ENABLE_EXP_PATTERNS));
-    }
-
-    private List<Redist> getRedistPatternsAndDesc(String configKey)
-            throws CharConversionException,
-            InfinitiveLoopException {
-        List<Redist> redistList = new ArrayList<>(8);
-        String[] redistTokens = ini.getKeyValue("", CONFIG_REDIST_PATTERNS, configKey).split("\"", 0);
-        boolean FileDescToggle = true;
-        String redistName = null;
-        String redtsiDescription;
-        for (String redist : redistTokens) {
-            if (redist.length() > 0) { // Skip first and last tokens.
-                if (FileDescToggle) {
-                    redistName = redist;
-                } else {
-                    redtsiDescription = redist;
-                    redistList.add(new Redist(redistName, redtsiDescription));
-                }
-                FileDescToggle ^= true;
-            }
-        }
-        return redistList;
-    }
-
-    public void setCheckForUpdatesAtStartup(boolean checkForUpt) {
+	public void setCheckForUpdatesAtStartup(boolean checkForUpt) {
         updated = true;
         ini.setKeyValue(CONFIG_MISC, CONFIG_MISC__CHK_FOR_UPT_AT_STATUP, Boolean.toString(checkForUpt));
     }
@@ -287,11 +219,6 @@ public class Config {
     public void setLatestSteamFolder(String folder) {
         updated = true;
         ini.setKeyValue(CONFIG_STEAM_FOLDERS, CONFIG_STEAM_FOLDERS__LATEST_DIR, folder);
-    }
-
-    public void setEnableExperimentalPatterns(boolean enable) {
-        updated = true;
-        ini.setKeyValue(CONFIG_REDIST_PATTERNS, CONFIG_REDIST_PATTERNS__ENABLE_EXP_PATTERNS, Boolean.toString(enable));
     }
 
     public void setUILatestWidth(int width) {

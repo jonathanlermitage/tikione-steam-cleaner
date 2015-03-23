@@ -111,11 +111,11 @@ public class Translation {
                 String langCode = lang.getCode();
                 if (langCode.equalsIgnoreCase(userLocale) || langCode.equalsIgnoreCase(userLanguage)) {
                     sysLang = langCode;
-                    break SEARCH_LANG;
+                    break;
                 }
             }
         } catch (Exception ex) {
-            ex.printStackTrace();
+			Log.error(ex);
             sysLang = DEFAULT_LANGCODE;
         }
         return sysLang;
