@@ -3,12 +3,12 @@ package fr.tikione.steam.cleaner.gui.dialog;
 import fr.tikione.ini.InfinitiveLoopException;
 import fr.tikione.ini.util.StringHelper;
 import fr.tikione.steam.cleaner.Version;
+import fr.tikione.steam.cleaner.util.FileComparator;
 import fr.tikione.steam.cleaner.util.FileUtils;
 import fr.tikione.steam.cleaner.util.GraphicsUtils;
 import fr.tikione.steam.cleaner.util.Log;
 import fr.tikione.steam.cleaner.util.Redist;
 import fr.tikione.steam.cleaner.util.RedistTableModel;
-import fr.tikione.steam.cleaner.util.ThreadedFileComparator;
 import fr.tikione.steam.cleaner.util.Translation;
 import fr.tikione.steam.cleaner.util.UpdateManager;
 import fr.tikione.steam.cleaner.util.conf.Config;
@@ -60,363 +60,363 @@ import javax.swing.table.DefaultTableModel;
 @SuppressWarnings("serial")
 public class JFrameMain extends JFrame {
 
-    /** Indicate if the application in exiting. */
-    private static boolean CLOSING_APP = false;
+	/** Indicate if the application in exiting. */
+	private static boolean CLOSING_APP = false;
 
-    /** Initial label of the Reload button. */
-    private String btnReloadLabelInitial;
+	/** Initial label of the Reload button. */
+	private String btnReloadLabelInitial;
 
-    /** Label of the Reload button when application is searching for redistributable packages. */
-    private String btnReloadLabelWorking;
+	/** Label of the Reload button when application is searching for redistributable packages. */
+	private String btnReloadLabelWorking;
 
-    /** Initial label of the table that contains list of redistributable packages found. */
-    private String tblRedistLabelDefault;
+	/** Initial label of the table that contains list of redistributable packages found. */
+	private String tblRedistLabelDefault;
 
-    /** Background color of input text for Steam location, when it is found and OK. */
-    private static final Color COLOR_PATH_OK = new Color(204, 245, 187);
+	/** Background color of input text for Steam location, when it is found and OK. */
+	private static final Color COLOR_PATH_OK = new Color(204, 245, 187);
 
-    /** Background color of input text for Steam location, when it is not found or non-OK. */
-    private static final Color COLOR_PATH_ERR = new Color(255, 204, 255);
+	/** Background color of input text for Steam location, when it is not found or non-OK. */
+	private static final Color COLOR_PATH_ERR = new Color(255, 204, 255);
 
-    /** Default table model for the list of redistributable packages found. */
-    private DefaultTableModel model;
+	/** Default table model for the list of redistributable packages found. */
+	private DefaultTableModel model;
 
-    private final DefaultListModel<File> listModel;
+	private final DefaultListModel<File> listModel;
 
-    /** List of non-checked items in the list of redistributable packages. */
-    private List<String> uncheckedRedistPathList = new ArrayList<>(8);
+	/** List of non-checked items in the list of redistributable packages. */
+	private List<String> uncheckedRedistPathList = new ArrayList<>(8);
 
-    /** Application configuration handler. */
-    private final Config config;
-	
+	/** Application configuration handler. */
+	private final Config config;
+
 	/** The program configuration handler (redist patterns). */
-    private Patterns patternsCfg;
+	private final Patterns patternsCfg;
 
-    /** Application configuration handler. */
-    private final UncheckedItems uncheckedItems;
+	/** Application configuration handler. */
+	private final UncheckedItems uncheckedItems;
 
-    /** Application configuration handler. */
-    private final CustomFolders customFolders;
+	/** Application configuration handler. */
+	private final CustomFolders customFolders;
 
-    /** Application configuration handler. */
-    private final DangerousItems dangerousItems;
+	/** Application configuration handler. */
+	private final DangerousItems dangerousItems;
 
-    /** List of folders patterns to exclude from the search path. */
-    private final List<Pattern> dangerousFolders;
+	/** List of folders patterns to exclude from the search path. */
+	private final List<Pattern> dangerousFolders;
 
-    /** Steam directory. */
-    private File fSteamDir = null;
+	/** Steam directory. */
+	private File fSteamDir = null;
 
-    /** Translated application's messages handler. */
-    private final Translation translation;
+	/** Translated application's messages handler. */
+	private final Translation translation;
 
-    /**
-     * Create new form JFrameMain. This is the main form.
-     *
-     * @throws IOException if an error occurs while loading configuration file.
-     * @throws CharConversionException if an error occurs while loading configuration file.
-     * @throws InfinitiveLoopException if an error occurs while loading configuration file.
-     */
-    @SuppressWarnings({"LeakingThisInConstructor", "unchecked"})
-    public JFrameMain()
-            throws IOException,
-                   CharConversionException,
-                   InfinitiveLoopException {
-        super();
-        GraphicsUtils.setIcon(this);
-        config = Config.getInstance();
+	/**
+	 * Create new form JFrameMain. This is the main form.
+	 *
+	 * @throws IOException if an error occurs while loading configuration file.
+	 * @throws CharConversionException if an error occurs while loading configuration file.
+	 * @throws InfinitiveLoopException if an error occurs while loading configuration file.
+	 */
+	@SuppressWarnings({"LeakingThisInConstructor", "unchecked"})
+	public JFrameMain()
+			throws IOException,
+			CharConversionException,
+			InfinitiveLoopException {
+		super();
+		GraphicsUtils.setIcon(this);
+		config = Config.getInstance();
 		patternsCfg = Patterns.getInstance();
-        dangerousItems = DangerousItems.getInstance();
-        dangerousFolders = dangerousItems.getDangerousFolders();
-        String lngCode = config.getSelectedLanguage();
-        translation = new Translation(lngCode);
+		dangerousItems = DangerousItems.getInstance();
+		dangerousFolders = dangerousItems.getDangerousFolders();
+		String lngCode = config.getSelectedLanguage();
+		translation = new Translation(lngCode);
 
-        model = new RedistTableModel(translation); // Model for the (visual) list a detected redistributable packages.
-        initComponents();
-        secondInitComponents(translation);
-        setTitle("TikiOne Steam Cleaner (Jonathan Lermitage)");
-        if (config.getCheckForUpdatesAtStartup()) {
-            checkForUpdates();
-        }
-        jLabelAppVersion.setText(' ' + translation.getString(Translation.SEC_WMAIN, "version.title").replace(
-                "{0}", Version.VERSION) + ' ');
+		model = new RedistTableModel(translation); // Model for the (visual) list a detected redistributable packages.
+		initComponents();
+		secondInitComponents(translation);
+		setTitle("TikiOne Steam Cleaner (Jonathan Lermitage)");
+		if (config.getCheckForUpdatesAtStartup()) {
+			checkForUpdates();
+		}
+		jLabelAppVersion.setText(' ' + translation.getString(Translation.SEC_WMAIN, "version.title").replace(
+				"{0}", Version.VERSION) + ' ');
 
-        // Restore latest frame state and center it.
-        if (config.getUIState() == JFrame.MAXIMIZED_BOTH) {
-            setExtendedState(config.getUIState());
-        } else {
-            setSize(config.getUILatestWidth(), config.getUILatestHeight());
-        }
-        GraphicsUtils.setFrameCentered(this);
+		// Restore latest frame state and center it.
+		if (config.getUIState() == JFrame.MAXIMIZED_BOTH) {
+			setExtendedState(config.getUIState());
+		} else {
+			setSize(config.getUILatestWidth(), config.getUILatestHeight());
+		}
+		GraphicsUtils.setFrameCentered(this);
 
-        // Restore latest saved steam directory. Try to detect it if no steam directory previously found (or first run).
-        String latestSteamDirStr = config.getLatestSteamFolder();
-        if (latestSteamDirStr.length() > 0) {
-            File possibleSteamDir = new File(latestSteamDirStr);
-            if (checkSteamDirFile(possibleSteamDir.getAbsolutePath())) {
-                fSteamDir = possibleSteamDir;
-                jTextFieldSteamDir.setText(fSteamDir.getAbsolutePath());
-                jTextFieldSteamDir.setBackground(COLOR_PATH_OK);
-                jButtonReloadRedistList.setEnabled(true);
-            } else {
-                locateSteamDir();
-            }
-        } else {
-            locateSteamDir();
-        }
+		// Restore latest saved steam directory. Try to detect it if no steam directory previously found (or first run).
+		String latestSteamDirStr = config.getLatestSteamFolder();
+		if (latestSteamDirStr.length() > 0) {
+			File possibleSteamDir = new File(latestSteamDirStr);
+			if (checkSteamDirFile(possibleSteamDir.getAbsolutePath())) {
+				fSteamDir = possibleSteamDir;
+				jTextFieldSteamDir.setText(fSteamDir.getAbsolutePath());
+				jTextFieldSteamDir.setBackground(COLOR_PATH_OK);
+				jButtonReloadRedistList.setEnabled(true);
+			} else {
+				locateSteamDir();
+			}
+		} else {
+			locateSteamDir();
+		}
 
-        uncheckedItems = new UncheckedItems();
-        uncheckedRedistPathList.addAll(uncheckedItems.getUncheckedItems());
-        setTableModelUI();
+		uncheckedItems = new UncheckedItems();
+		uncheckedRedistPathList.addAll(uncheckedItems.getUncheckedItems());
+		setTableModelUI();
 
-        listModel = new DefaultListModel<>();
-        jListCustomFolders.setModel(listModel);
+		listModel = new DefaultListModel<>();
+		jListCustomFolders.setModel(listModel);
 
-        customFolders = new CustomFolders();
-        List<String> customFoldersAsStr = customFolders.getCustomFolders();
-        for (String foldername : customFoldersAsStr) {
-            listModel.addElement(new File(foldername));
-        }
-        if (!listModel.isEmpty()) {
-            jButtonReloadRedistList.setEnabled(true);
-        }
-    }
+		customFolders = new CustomFolders();
+		List<String> customFoldersAsStr = customFolders.getCustomFolders();
+		for (String foldername : customFoldersAsStr) {
+			listModel.addElement(new File(foldername));
+		}
+		if (!listModel.isEmpty()) {
+			jButtonReloadRedistList.setEnabled(true);
+		}
+	}
 
-    /**
-     * Additional components initialization : translate messages and titles, and make some custom UI transformations.
-     * 
-     * @param translation the program language translation handler.
-     */
-    private void secondInitComponents(Translation translation) {
-        btnReloadLabelInitial = translation.getString(Translation.SEC_WMAIN, "button.search");
-        btnReloadLabelWorking = translation.getString(Translation.SEC_WMAIN, "button.search.working");
-        tblRedistLabelDefault = translation.getString(Translation.SEC_WMAIN, "redistList.title");
-        jButtonLocateSteamDir.setText(translation.getString(Translation.SEC_WMAIN, "button.locateSteam"));
-        jButtonManualSteamDirSearch.setText(translation.getString(Translation.SEC_WMAIN, "button.locateSteamManually"));
-        jButtonReloadRedistList.setText(btnReloadLabelInitial);
-        jButtonRemoveRedistItemsFromDisk.setText(translation.getString(Translation.SEC_WMAIN, "button.removeSelectedItems"));
-        jLabelSteamDir.setText(translation.getString(Translation.SEC_WMAIN, "label.steamDir"));
-        jButtonToolbarOptions.setToolTipText(translation.getString(Translation.SEC_WMAIN, "menu.options"));
-        jButtonToolbarCheckforupdates.setToolTipText(translation.getString(Translation.SEC_WMAIN, "menu.checkForUpdates"));
-        jButtonToolbarAbout.setToolTipText(translation.getString(Translation.SEC_WMAIN, "menu.about"));
-        jPanelList.setBorder(BorderFactory.createTitledBorder(tblRedistLabelDefault));
-        jButtonAddCustomFolder.setText(translation.getString(Translation.SEC_WMAIN, "button.add.custom.folder"));
-        jButtonRemoveCustomFolder.setText(translation.getString(Translation.SEC_WMAIN, "button.rem.custom.folder"));
-        jLabelCustomFolders.setText("<html>" + translation.getString(Translation.SEC_WMAIN, "label.custom.folders.list") + "</html>");
-        jButtonSocialFacebook.setToolTipText("<html><body>" + translation.getString(Translation.SEC_WMAIN, "icon.social.facebook")
-                + "<br><font color=\"blue\">https://www.facebook.com/jonathan.lermitage</font></body></html>");
-        jButtonStopSearch.setVisible(false);
-        jButtonGithub.setToolTipText("<html><body>" + "TikiOne <b>GitHub</b>"
-                + "<br><font color=\"blue\">https://github.com/jonathanlermitage/tikione-steam-cleaner</font></body></html>");
-        jButtonReddit.setToolTipText("<html><body>" + "TikiOne <b>Reddit</b>"
-                + "<br><font color=\"blue\">"
-                + "http://www.reddit.com/r/Steam/comments/174udg/tikione_steam_cleaner_140_free_wasted_disk_space/"
-                + "</font></body></html>");
-        jButtonTwitter.setToolTipText("<html><body>" + "TikiOne <b>Twitter</b>"
-                + "<br><font color=\"blue\">https://twitter.com/JLermitage</font></body></html>");
-    }
+	/**
+	 * Additional components initialization : translate messages and titles, and make some custom UI transformations.
+	 *
+	 * @param translation the program language translation handler.
+	 */
+	private void secondInitComponents(Translation translation) {
+		btnReloadLabelInitial = translation.getString(Translation.SEC_WMAIN, "button.search");
+		btnReloadLabelWorking = translation.getString(Translation.SEC_WMAIN, "button.search.working");
+		tblRedistLabelDefault = translation.getString(Translation.SEC_WMAIN, "redistList.title");
+		jButtonLocateSteamDir.setText(translation.getString(Translation.SEC_WMAIN, "button.locateSteam"));
+		jButtonManualSteamDirSearch.setText(translation.getString(Translation.SEC_WMAIN, "button.locateSteamManually"));
+		jButtonReloadRedistList.setText(btnReloadLabelInitial);
+		jButtonRemoveRedistItemsFromDisk.setText(translation.getString(Translation.SEC_WMAIN, "button.removeSelectedItems"));
+		jLabelSteamDir.setText(translation.getString(Translation.SEC_WMAIN, "label.steamDir"));
+		jButtonToolbarOptions.setToolTipText(translation.getString(Translation.SEC_WMAIN, "menu.options"));
+		jButtonToolbarCheckforupdates.setToolTipText(translation.getString(Translation.SEC_WMAIN, "menu.checkForUpdates"));
+		jButtonToolbarAbout.setToolTipText(translation.getString(Translation.SEC_WMAIN, "menu.about"));
+		jPanelList.setBorder(BorderFactory.createTitledBorder(tblRedistLabelDefault));
+		jButtonAddCustomFolder.setText(translation.getString(Translation.SEC_WMAIN, "button.add.custom.folder"));
+		jButtonRemoveCustomFolder.setText(translation.getString(Translation.SEC_WMAIN, "button.rem.custom.folder"));
+		jLabelCustomFolders.setText("<html>" + translation.getString(Translation.SEC_WMAIN, "label.custom.folders.list") + "</html>");
+		jButtonSocialFacebook.setToolTipText("<html><body>" + translation.getString(Translation.SEC_WMAIN, "icon.social.facebook")
+				+ "<br><font color=\"blue\">https://www.facebook.com/jonathan.lermitage</font></body></html>");
+		jButtonStopSearch.setVisible(false);
+		jButtonGithub.setToolTipText("<html><body>" + "TikiOne <b>GitHub</b>"
+				+ "<br><font color=\"blue\">https://github.com/jonathanlermitage/tikione-steam-cleaner</font></body></html>");
+		jButtonReddit.setToolTipText("<html><body>" + "TikiOne <b>Reddit</b>"
+				+ "<br><font color=\"blue\">"
+				+ "http://www.reddit.com/r/Steam/comments/174udg/tikione_steam_cleaner_140_free_wasted_disk_space/"
+				+ "</font></body></html>");
+		jButtonTwitter.setToolTipText("<html><body>" + "TikiOne <b>Twitter</b>"
+				+ "<br><font color=\"blue\">https://twitter.com/JLermitage</font></body></html>");
+	}
 
-    /**
-     * Get an array of File objetcs from the list of custom folders.
-     * 
-     * @return an array of folders.
-     */
-    private File[] customFoldersListStrToFiles() {
-        int nbFolders = listModel.size();
-        List<File> folders = new ArrayList<>(nbFolders + 1);
-        for (int i = 0; i < nbFolders; i++) {
-            folders.add(listModel.get(i));
-        }
-        return folders.toArray(new File[folders.size()]);
-    }
+	/**
+	 * Get an array of File objetcs from the list of custom folders.
+	 *
+	 * @return an array of folders.
+	 */
+	private File[] customFoldersListStrToFiles() {
+		int nbFolders = listModel.size();
+		List<File> folders = new ArrayList<>(nbFolders + 1);
+		for (int i = 0; i < nbFolders; i++) {
+			folders.add(listModel.get(i));
+		}
+		return folders.toArray(new File[folders.size()]);
+	}
 
-    /**
-     * Save the list of custom folders to a configuration file.
-     */
-    private void memorizeCustomFoldersToConf() {
-        try {
-            File[] folders = customFoldersListStrToFiles();
-            List<String> foldersAsStr = new ArrayList<>(folders.length + 1);
-            for (File folder : folders) {
-                foldersAsStr.add(folder.getAbsolutePath());
-            }
-            customFolders.setCustomFolders(foldersAsStr);
-        } catch (CharConversionException | InfinitiveLoopException ex) {
-            Log.error(ex);
-        }
-    }
+	/**
+	 * Save the list of custom folders to a configuration file.
+	 */
+	private void memorizeCustomFoldersToConf() {
+		try {
+			File[] folders = customFoldersListStrToFiles();
+			List<String> foldersAsStr = new ArrayList<>(folders.length + 1);
+			for (File folder : folders) {
+				foldersAsStr.add(folder.getAbsolutePath());
+			}
+			customFolders.setCustomFolders(foldersAsStr);
+		} catch (CharConversionException | InfinitiveLoopException ex) {
+			Log.error(ex);
+		}
+	}
 
-    /**
-     * Store the list of unchecked items (redistributable packages shown in the main table) to a configuration file.
-     */
-    private void memorizeUncheckedItemsToConf() {
-        try {
-            if (fSteamDir != null) {
-                List<String> nowUncheckedItemsList = new ArrayList<>(8);
-                List<String> nowCheckedItemsList = new ArrayList<>(8);
-                List<String> newUncheckedItemsList = new ArrayList<>(8);
-                List<String> prevUncheckedItems = uncheckedItems.getUncheckedItems();
-                for (int row = 0; row < model.getRowCount(); row++) {
-                    boolean checked = (Boolean) model.getValueAt(row, 0);
-                    String redistFullPath = (String) model.getValueAt(row, 1);
-                    if (checked) {
-                        nowCheckedItemsList.add(redistFullPath);
-                    } else {
-                        nowUncheckedItemsList.add(redistFullPath);
-                    }
-                }
-                newUncheckedItemsList.addAll(nowUncheckedItemsList);
-                for (String prevUncheckedItem : prevUncheckedItems) {
-                    if (!nowCheckedItemsList.contains(prevUncheckedItem) && !newUncheckedItemsList.contains(prevUncheckedItem)) {
-                        newUncheckedItemsList.add(prevUncheckedItem);
-                    }
-                }
-                uncheckedItems.setUncheckedItems(newUncheckedItemsList);
-            }
-        } catch (CharConversionException | InfinitiveLoopException ex) {
-            Log.error(ex);
-        }
-    }
+	/**
+	 * Store the list of unchecked items (redistributable packages shown in the main table) to a configuration file.
+	 */
+	private void memorizeUncheckedItemsToConf() {
+		try {
+			if (fSteamDir != null) {
+				List<String> nowUncheckedItemsList = new ArrayList<>(8);
+				List<String> nowCheckedItemsList = new ArrayList<>(8);
+				List<String> newUncheckedItemsList = new ArrayList<>(8);
+				List<String> prevUncheckedItems = uncheckedItems.getUncheckedItems();
+				for (int row = 0; row < model.getRowCount(); row++) {
+					boolean checked = (Boolean) model.getValueAt(row, 0);
+					String redistFullPath = (String) model.getValueAt(row, 1);
+					if (checked) {
+						nowCheckedItemsList.add(redistFullPath);
+					} else {
+						nowUncheckedItemsList.add(redistFullPath);
+					}
+				}
+				newUncheckedItemsList.addAll(nowUncheckedItemsList);
+				for (String prevUncheckedItem : prevUncheckedItems) {
+					if (!nowCheckedItemsList.contains(prevUncheckedItem) && !newUncheckedItemsList.contains(prevUncheckedItem)) {
+						newUncheckedItemsList.add(prevUncheckedItem);
+					}
+				}
+				uncheckedItems.setUncheckedItems(newUncheckedItemsList);
+			}
+		} catch (CharConversionException | InfinitiveLoopException ex) {
+			Log.error(ex);
+		}
+	}
 
-    private void searchRedistPackagesOnDisk() {
-        memorizeUncheckedItemsToConf();
-        jPanelList.setBorder(BorderFactory.createTitledBorder(tblRedistLabelDefault));
-        String sSteamDir = jTextFieldSteamDir.getText();
-        if (!StringHelper.strIsEmpty(sSteamDir)) {
-            if (!sSteamDir.endsWith("/") && !sSteamDir.endsWith(File.separator)) {
-                sSteamDir += File.separatorChar;
-            }
-            fSteamDir = new File(sSteamDir);
-            final File fCommon = new File(sSteamDir + "steamapps" + File.separatorChar + "common" + File.separatorChar);
-            boolean steamExists = fSteamDir.isDirectory() && fSteamDir.exists() && fCommon.exists();
-            if (!listModel.isEmpty() || steamExists) {
-                if (steamExists) {
-                    jTextFieldSteamDir.setBackground(COLOR_PATH_OK);
-                }
-                enableAllUI(false);
-                jButtonReloadRedistList.setText(btnReloadLabelWorking);
-                final JFrame thisframe = this;
-                Thread tJob = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            jButtonStopSearch.setVisible(true);
-                            String nameFile = translation.getString(Translation.SEC_WMAIN, "redistList.item.file");
-                            String nameFileUpCase = translation.getString(Translation.SEC_WMAIN, "redistList.item.fileUpperCase");
-                            String nameFiles = translation.getString(Translation.SEC_WMAIN, "redistList.item.files");
-                            String nameFolder = translation.getString(Translation.SEC_WMAIN, "redistList.item.folder");
-                            String nameFolderUpCase = translation.getString(Translation.SEC_WMAIN, "redistList.item.folderUppercase");
-                            String nameFolders = translation.getString(Translation.SEC_WMAIN, "redistList.item.folders");
-                            model = new RedistTableModel(translation);
-                            setTableModelUI();
-                            List<File> srcFolders = new ArrayList<>(32);
-                            if (fSteamDir.exists() && fCommon.exists()) {
-                                srcFolders.add(fCommon);
-                            }
-                            File[] customFolders = customFoldersListStrToFiles();
-                            for (File customFolder : customFolders) {
-                                if (!srcFolders.contains(customFolder)) {
-                                    srcFolders.add(customFolder);
-                                }
-                            }
-                            List<File> allFiles = new ArrayList<>(1024);
-                            FileUtils.listDir(thisframe, allFiles, srcFolders, config.getMaDepth(), dangerousFolders);
-                            List<Redist> checkedFiles = new ArrayList<>(128);
-                            List<Redist> checkedFolders = new ArrayList<>(128);
-                            ThreadedFileComparator tc = new ThreadedFileComparator(
-                                    allFiles,
-                                    patternsCfg.getRedistFilePatternsAndDesc(patternsCfg.getEnableExperimentalPatterns()),
-                                    checkedFiles, true);
-                            try {
-                                tc.start();
-                            } catch (InterruptedException ex) {
-                                Log.error(ex);
-                            }
-                            tc = new ThreadedFileComparator(
-                                    allFiles,
-                                    patternsCfg.getRedistFolderPatternsAndDesc(patternsCfg.getEnableExperimentalPatterns()),
-                                    checkedFolders, false);
-                            try {
-                                tc.start();
-                            } catch (InterruptedException ex) {
-                                Log.error(ex);
-                            }
-                            uncheckedRedistPathList = uncheckedItems.getUncheckedItems();
-                            for (Redist redist : checkedFiles) {
-                                boolean checked = !uncheckedRedistPathList.contains(redist.getFile().getAbsolutePath());
-                                model.addRow(new Object[]{
-                                    checked,
-                                    redist.getFile().getAbsolutePath(),
-                                    redist.getSize(),
-                                    " (" + nameFileUpCase + ") " + redist.getDescription()});
-                            }
-                            for (Redist redist : checkedFolders) {
-                                boolean check = !uncheckedRedistPathList.contains(redist.getFile().getAbsolutePath() + File.separatorChar);
-                                model.addRow(new Object[]{
-                                    check,
-                                    redist.getFile().getAbsolutePath()
-                                    + File.separatorChar,
-                                    redist.getSize(),
-                                    " (" + nameFolderUpCase + ") " + redist.getDescription()});
-                            }
-                            int nbFiles = checkedFiles.size();
-                            int nbFolders = checkedFolders.size();
-                            jPanelList.setBorder(BorderFactory.createTitledBorder(tblRedistLabelDefault + " "
-                                    + nbFiles + " " + (nbFiles > 1 ? nameFiles : nameFile) + ", " + checkedFolders.size() + " "
-                                    + (nbFolders > 1 ? nameFolders : nameFolder)));
-                        } catch (InfinitiveLoopException | IOException ex) {
-                            Log.error(ex);
-                        } finally {
-                            jButtonStopSearch.setVisible(false);
-                            jButtonReloadRedistList.setText(btnReloadLabelInitial);
-                            enableAllUI(true);
-                            boolean rdistFound = model.getRowCount() > 0;
-                            jButtonRemoveRedistItemsFromDisk.setEnabled(rdistFound);
-                            jButtonReloadRedistList.setEnabled(true);
-                        }
-                    }
-                });
-                tJob.start();
-            } else {
-                jButtonRemoveRedistItemsFromDisk.setEnabled(false);
-                jButtonReloadRedistList.setEnabled(true);
-            }
-        } else {
-            jTextFieldSteamDir.setBackground(COLOR_PATH_ERR);
-            jButtonRemoveRedistItemsFromDisk.setEnabled(false);
-            jButtonReloadRedistList.setEnabled(false);
-        }
-    }
+	private void searchRedistPackagesOnDisk() {
+		memorizeUncheckedItemsToConf();
+		jPanelList.setBorder(BorderFactory.createTitledBorder(tblRedistLabelDefault));
+		String sSteamDir = jTextFieldSteamDir.getText();
+		if (!StringHelper.strIsEmpty(sSteamDir)) {
+			if (!sSteamDir.endsWith("/") && !sSteamDir.endsWith(File.separator)) {
+				sSteamDir += File.separatorChar;
+			}
+			fSteamDir = new File(sSteamDir);
+			final File fCommon = new File(sSteamDir + "steamapps" + File.separatorChar + "common" + File.separatorChar);
+			boolean steamExists = fSteamDir.isDirectory() && fSteamDir.exists() && fCommon.exists();
+			if (!listModel.isEmpty() || steamExists) {
+				if (steamExists) {
+					jTextFieldSteamDir.setBackground(COLOR_PATH_OK);
+				}
+				enableAllUI(false);
+				jButtonReloadRedistList.setText(btnReloadLabelWorking);
+				final JFrame thisframe = this;
+				Thread tJob = new Thread(new Runnable() {
+					@Override
+					public void run() {
+						try {
+							jButtonStopSearch.setVisible(true);
+							String nameFile = translation.getString(Translation.SEC_WMAIN, "redistList.item.file");
+							String nameFileUpCase = translation.getString(Translation.SEC_WMAIN, "redistList.item.fileUpperCase");
+							String nameFiles = translation.getString(Translation.SEC_WMAIN, "redistList.item.files");
+							String nameFolder = translation.getString(Translation.SEC_WMAIN, "redistList.item.folder");
+							String nameFolderUpCase = translation.getString(Translation.SEC_WMAIN, "redistList.item.folderUppercase");
+							String nameFolders = translation.getString(Translation.SEC_WMAIN, "redistList.item.folders");
+							model = new RedistTableModel(translation);
+							setTableModelUI();
+							List<File> srcFolders = new ArrayList<>(32);
+							if (fSteamDir.exists() && fCommon.exists()) {
+								srcFolders.add(fCommon);
+							}
+							File[] customFolders = customFoldersListStrToFiles();
+							for (File customFolder : customFolders) {
+								if (!srcFolders.contains(customFolder)) {
+									srcFolders.add(customFolder);
+								}
+							}
+							List<File> allFiles = new ArrayList<>(1024);
+							FileUtils.listDir(thisframe, allFiles, srcFolders, config.getMaDepth(), dangerousFolders);
+							List<Redist> checkedFiles = new ArrayList<>(128);
+							List<Redist> checkedFolders = new ArrayList<>(128);
+							FileComparator tc = new FileComparator(
+									allFiles,
+									patternsCfg.getRedistFilePatternsAndDesc(patternsCfg.getEnableExperimentalPatterns()),
+									checkedFiles, true);
+							try {
+								tc.start();
+							} catch (InterruptedException ex) {
+								Log.error(ex);
+							}
+							tc = new FileComparator(
+									allFiles,
+									patternsCfg.getRedistFolderPatternsAndDesc(patternsCfg.getEnableExperimentalPatterns()),
+									checkedFolders, false);
+							try {
+								tc.start();
+							} catch (InterruptedException ex) {
+								Log.error(ex);
+							}
+							uncheckedRedistPathList = uncheckedItems.getUncheckedItems();
+							for (Redist redist : checkedFiles) {
+								boolean checked = !uncheckedRedistPathList.contains(redist.getFile().getAbsolutePath());
+								model.addRow(new Object[]{
+									checked,
+									redist.getFile().getAbsolutePath(),
+									redist.getSize(),
+									" (" + nameFileUpCase + ") " + redist.getDescription()});
+							}
+							for (Redist redist : checkedFolders) {
+								boolean check = !uncheckedRedistPathList.contains(redist.getFile().getAbsolutePath() + File.separatorChar);
+								model.addRow(new Object[]{
+									check,
+									redist.getFile().getAbsolutePath()
+									+ File.separatorChar,
+									redist.getSize(),
+									" (" + nameFolderUpCase + ") " + redist.getDescription()});
+							}
+							int nbFiles = checkedFiles.size();
+							int nbFolders = checkedFolders.size();
+							jPanelList.setBorder(BorderFactory.createTitledBorder(tblRedistLabelDefault + " "
+									+ nbFiles + " " + (nbFiles > 1 ? nameFiles : nameFile) + ", " + checkedFolders.size() + " "
+									+ (nbFolders > 1 ? nameFolders : nameFolder)));
+						} catch (InfinitiveLoopException | IOException ex) {
+							Log.error(ex);
+						} finally {
+							jButtonStopSearch.setVisible(false);
+							jButtonReloadRedistList.setText(btnReloadLabelInitial);
+							enableAllUI(true);
+							boolean rdistFound = model.getRowCount() > 0;
+							jButtonRemoveRedistItemsFromDisk.setEnabled(rdistFound);
+							jButtonReloadRedistList.setEnabled(true);
+						}
+					}
+				});
+				tJob.start();
+			} else {
+				jButtonRemoveRedistItemsFromDisk.setEnabled(false);
+				jButtonReloadRedistList.setEnabled(true);
+			}
+		} else {
+			jTextFieldSteamDir.setBackground(COLOR_PATH_ERR);
+			jButtonRemoveRedistItemsFromDisk.setEnabled(false);
+			jButtonReloadRedistList.setEnabled(false);
+		}
+	}
 
-    private void setTableModelUI() {
-        jTableRedistList.setModel(model);
-        jTableRedistList.getColumnModel().getColumn(0).setPreferredWidth(50);
-        jTableRedistList.getColumnModel().getColumn(0).setMinWidth(10);
-        jTableRedistList.getColumnModel().getColumn(0).setMaxWidth(100);
-        jTableRedistList.getColumnModel().getColumn(2).setPreferredWidth(80);
-        jTableRedistList.getColumnModel().getColumn(2).setMinWidth(10);
-        jTableRedistList.getColumnModel().getColumn(2).setMaxWidth(200);
-        jTableRedistList.getColumnModel().getColumn(3).setPreferredWidth(275);
-        jTableRedistList.getColumnModel().getColumn(3).setMinWidth(50);
-        jTableRedistList.getColumnModel().getColumn(3).setMaxWidth(500);
-    }
+	private void setTableModelUI() {
+		jTableRedistList.setModel(model);
+		jTableRedistList.getColumnModel().getColumn(0).setPreferredWidth(50);
+		jTableRedistList.getColumnModel().getColumn(0).setMinWidth(10);
+		jTableRedistList.getColumnModel().getColumn(0).setMaxWidth(100);
+		jTableRedistList.getColumnModel().getColumn(2).setPreferredWidth(80);
+		jTableRedistList.getColumnModel().getColumn(2).setMinWidth(10);
+		jTableRedistList.getColumnModel().getColumn(2).setMaxWidth(200);
+		jTableRedistList.getColumnModel().getColumn(3).setPreferredWidth(275);
+		jTableRedistList.getColumnModel().getColumn(3).setMinWidth(50);
+		jTableRedistList.getColumnModel().getColumn(3).setMaxWidth(500);
+	}
 
-    private void enableAllUI(boolean enable) {
-        jButtonLocateSteamDir.setEnabled(enable);
-        jButtonManualSteamDirSearch.setEnabled(enable);
-        jButtonReloadRedistList.setEnabled(enable);
-        jButtonRemoveRedistItemsFromDisk.setEnabled(enable);
-        jTableRedistList.setEnabled(enable);
-        jTextFieldSteamDir.setEnabled(enable);
-        jButtonAddCustomFolder.setEnabled(enable);
-        jButtonRemoveCustomFolder.setEnabled(enable);
-    }
+	private void enableAllUI(boolean enable) {
+		jButtonLocateSteamDir.setEnabled(enable);
+		jButtonManualSteamDirSearch.setEnabled(enable);
+		jButtonReloadRedistList.setEnabled(enable);
+		jButtonRemoveRedistItemsFromDisk.setEnabled(enable);
+		jTableRedistList.setEnabled(enable);
+		jTextFieldSteamDir.setEnabled(enable);
+		jButtonAddCustomFolder.setEnabled(enable);
+		jButtonRemoveCustomFolder.setEnabled(enable);
+	}
 
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always regenerated by the Form Editor.
-     */
-    @SuppressWarnings("unchecked")
+	/**
+	 * This method is called from within the constructor to initialize the form.
+	 * WARNING: Do NOT modify this code. The content of this method is always regenerated by the Form Editor.
+	 */
+	@SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -787,233 +787,233 @@ public class JFrameMain extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private boolean checkSteamDirInputtext() {
-        boolean folderValid;
-        if (!checkSteamDirFile(jTextFieldSteamDir.getText())) {
-            jTextFieldSteamDir.setBackground(COLOR_PATH_ERR);
-            jButtonReloadRedistList.setEnabled(false);
-            jButtonReloadRedistList.setEnabled(!listModel.isEmpty());
-            folderValid = false;
-        } else {
-            jTextFieldSteamDir.setBackground(COLOR_PATH_OK);
-            jButtonReloadRedistList.setEnabled(true);
-            jButtonReloadRedistList.setEnabled(true);
-            folderValid = true;
-        }
-        jButtonRemoveRedistItemsFromDisk.setEnabled(false);
-        return folderValid;
-    }
+	private boolean checkSteamDirInputtext() {
+		boolean folderValid;
+		if (!checkSteamDirFile(jTextFieldSteamDir.getText())) {
+			jTextFieldSteamDir.setBackground(COLOR_PATH_ERR);
+			jButtonReloadRedistList.setEnabled(false);
+			jButtonReloadRedistList.setEnabled(!listModel.isEmpty());
+			folderValid = false;
+		} else {
+			jTextFieldSteamDir.setBackground(COLOR_PATH_OK);
+			jButtonReloadRedistList.setEnabled(true);
+			jButtonReloadRedistList.setEnabled(true);
+			folderValid = true;
+		}
+		jButtonRemoveRedistItemsFromDisk.setEnabled(false);
+		return folderValid;
+	}
 
-    private boolean checkSteamDirFile(String path) {
+	private boolean checkSteamDirFile(String path) {
 //        if (!path.endsWith("/") && !path.endsWith(File.separator)) {
 //            path += File.separatorChar;
 //        }
 //        File steamapps = new File(path + "config" + File.separatorChar + "config.vdf");
 //        return steamapps.exists() && steamapps.isFile();
-        return true;
-    }
+		return true;
+	}
 
     private void jTextFieldSteamDirKeyReleased(KeyEvent evt) {//GEN-FIRST:event_jTextFieldSteamDirKeyReleased
-        checkSteamDirInputtext();
+		checkSteamDirInputtext();
     }//GEN-LAST:event_jTextFieldSteamDirKeyReleased
 
-    private void locateSteamDir() {
-        try {
-            fSteamDir = null;
-            List<String> steamPossibleFoldersTbl = config.getPossibleSteamFolders();
-            SEARCH_STEAM_DIR:
-            for (String s : steamPossibleFoldersTbl) {
-                try {
-                    File fPossibleSteamDir = new File(s);
-                    if (fPossibleSteamDir.exists() && fPossibleSteamDir.isDirectory()) {
-                        jTextFieldSteamDir.setText(fPossibleSteamDir.getAbsolutePath());
-                        jTextFieldSteamDir.setBackground(COLOR_PATH_OK);
-                        jButtonReloadRedistList.setEnabled(true);
-                        fSteamDir = fPossibleSteamDir;
-                        break;
-                    }
-                } catch (Exception ex) {
-                    Log.error(ex);
-                }
-            }
-            if (fSteamDir == null || !checkSteamDirFile(fSteamDir.getAbsolutePath())) {
-                jTextFieldSteamDir.setText("  "/* + translation.getString(Translation.SEC_WMAIN, "errmsg.cantfindsteamdir")*/);
-                jTextFieldSteamDir.setBackground(COLOR_PATH_ERR);
-                if (listModel == null || listModel.isEmpty()) {
-                    jButtonReloadRedistList.setEnabled(false);
-                }
-            }
-        } catch (CharConversionException | InfinitiveLoopException ex) {
-            Log.error(ex);
-        }
-    }
+	private void locateSteamDir() {
+		try {
+			fSteamDir = null;
+			List<String> steamPossibleFoldersTbl = config.getPossibleSteamFolders();
+			SEARCH_STEAM_DIR:
+			for (String s : steamPossibleFoldersTbl) {
+				try {
+					File fPossibleSteamDir = new File(s);
+					if (fPossibleSteamDir.exists() && fPossibleSteamDir.isDirectory()) {
+						jTextFieldSteamDir.setText(fPossibleSteamDir.getAbsolutePath());
+						jTextFieldSteamDir.setBackground(COLOR_PATH_OK);
+						jButtonReloadRedistList.setEnabled(true);
+						fSteamDir = fPossibleSteamDir;
+						break;
+					}
+				} catch (Exception ex) {
+					Log.error(ex);
+				}
+			}
+			if (fSteamDir == null || !checkSteamDirFile(fSteamDir.getAbsolutePath())) {
+				jTextFieldSteamDir.setText("  "/* + translation.getString(Translation.SEC_WMAIN, "errmsg.cantfindsteamdir") */);
+				jTextFieldSteamDir.setBackground(COLOR_PATH_ERR);
+				if (listModel == null || listModel.isEmpty()) {
+					jButtonReloadRedistList.setEnabled(false);
+				}
+			}
+		} catch (CharConversionException | InfinitiveLoopException ex) {
+			Log.error(ex);
+		}
+	}
 
     private void jButtonLocateSteamDirActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonLocateSteamDirActionPerformed
-        locateSteamDir();
+		locateSteamDir();
     }//GEN-LAST:event_jButtonLocateSteamDirActionPerformed
 
     private void jButtonManualSteamDirSearchActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonManualSteamDirSearchActionPerformed
-        JFileChooser dialogue = new JFileChooser();
-        dialogue.setMultiSelectionEnabled(false);
-        dialogue.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        dialogue.setAcceptAllFileFilterUsed(false);
-        if (dialogue.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-            File folder = dialogue.getSelectedFile();
-            if (folder != null && checkSteamDirFile(folder.getAbsolutePath())) {
-                jTextFieldSteamDir.setText(folder.getAbsolutePath());
-                jTextFieldSteamDir.setBackground(COLOR_PATH_OK);
-            } else {
-                jTextFieldSteamDir.setText("  " /*+ translation.getString(Translation.SEC_WMAIN, "errmsg.cantfindsteamdir")*/);
-                jTextFieldSteamDir.setBackground(COLOR_PATH_ERR);
-            }
-        }
+		JFileChooser dialogue = new JFileChooser();
+		dialogue.setMultiSelectionEnabled(false);
+		dialogue.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		dialogue.setAcceptAllFileFilterUsed(false);
+		if (dialogue.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+			File folder = dialogue.getSelectedFile();
+			if (folder != null && checkSteamDirFile(folder.getAbsolutePath())) {
+				jTextFieldSteamDir.setText(folder.getAbsolutePath());
+				jTextFieldSteamDir.setBackground(COLOR_PATH_OK);
+			} else {
+				jTextFieldSteamDir.setText("  " /* + translation.getString(Translation.SEC_WMAIN, "errmsg.cantfindsteamdir") */);
+				jTextFieldSteamDir.setBackground(COLOR_PATH_ERR);
+			}
+		}
     }//GEN-LAST:event_jButtonManualSteamDirSearchActionPerformed
 
     private void jButtonReloadRedistListActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonReloadRedistListActionPerformed
-        searchRedistPackagesOnDisk();
-        CLOSING_APP = false;
+		searchRedistPackagesOnDisk();
+		CLOSING_APP = false;
     }//GEN-LAST:event_jButtonReloadRedistListActionPerformed
 
     private void jButtonRemoveRedistItemsFromDiskActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveRedistItemsFromDiskActionPerformed
-        memorizeUncheckedItemsToConf();
-        List<File> filesDoDel = new ArrayList<>(8);
-        List<File> foldersToDel = new ArrayList<>(8);
-        for (int row = 0; row < model.getRowCount(); row++) {
-            boolean selected = (Boolean) model.getValueAt(row, 0);
-            if (selected) {
-                String path = (String) model.getValueAt(row, 1);
-                if (path.endsWith(File.separator)) {
-                    foldersToDel.add(new File(path));
-                } else {
-                    filesDoDel.add(new File(path));
-                }
-            }
-        }
-        try {
-            JDialogDeletionDirect delFrame = new JDialogDeletionDirect(this, true, translation);
-            delFrame.setFilesToDelete(filesDoDel, foldersToDel);
-            delFrame.setVisible(true);
-            jButtonRemoveRedistItemsFromDisk.setEnabled(false);
-            model = new RedistTableModel(translation);
-            setTableModelUI();
-            jPanelList.setBorder(BorderFactory.createTitledBorder(tblRedistLabelDefault));
-        } catch (IOException ex) {
-            Log.error(ex);
-        }
+		memorizeUncheckedItemsToConf();
+		List<File> filesDoDel = new ArrayList<>(8);
+		List<File> foldersToDel = new ArrayList<>(8);
+		for (int row = 0; row < model.getRowCount(); row++) {
+			boolean selected = (Boolean) model.getValueAt(row, 0);
+			if (selected) {
+				String path = (String) model.getValueAt(row, 1);
+				if (path.endsWith(File.separator)) {
+					foldersToDel.add(new File(path));
+				} else {
+					filesDoDel.add(new File(path));
+				}
+			}
+		}
+		try {
+			JDialogDeletionDirect delFrame = new JDialogDeletionDirect(this, true, translation);
+			delFrame.setFilesToDelete(filesDoDel, foldersToDel);
+			delFrame.setVisible(true);
+			jButtonRemoveRedistItemsFromDisk.setEnabled(false);
+			model = new RedistTableModel(translation);
+			setTableModelUI();
+			jPanelList.setBorder(BorderFactory.createTitledBorder(tblRedistLabelDefault));
+		} catch (IOException ex) {
+			Log.error(ex);
+		}
     }//GEN-LAST:event_jButtonRemoveRedistItemsFromDiskActionPerformed
 
-    private void checkForUpdates() {
-        new Thread(new Runnable() {
-            @SuppressWarnings("NestedAssignment")
-            @Override
-            public void run() {
-                String latestVersion = UpdateManager.getLatestVersion();
-                if (!UpdateManager.IsUpToDate(latestVersion)) {
-                    setTitle(getTitle() + "   " + translation.getString(Translation.SEC_WMAIN, "title.newVersionMsg")
-                            .replace("{0}", UpdateManager.normalizeVersionStr(latestVersion)));
-                }
-            }
-        }).start();
-    }
+	private void checkForUpdates() {
+		new Thread(new Runnable() {
+			@SuppressWarnings("NestedAssignment")
+			@Override
+			public void run() {
+				String latestVersion = UpdateManager.getLatestVersion();
+				if (!UpdateManager.IsUpToDate(latestVersion)) {
+					setTitle(getTitle() + "   " + translation.getString(Translation.SEC_WMAIN, "title.newVersionMsg")
+							.replace("{0}", UpdateManager.normalizeVersionStr(latestVersion)));
+				}
+			}
+		}).start();
+	}
 
-    public static boolean isCLOSING_APP() {
-        return CLOSING_APP;
-    }
+	public static boolean isCLOSING_APP() {
+		return CLOSING_APP;
+	}
 
-    public static void setCLOSING_APP(boolean closingApp) {
-        JFrameMain.CLOSING_APP = closingApp;
-    }
+	public static void setCLOSING_APP(boolean closingApp) {
+		JFrameMain.CLOSING_APP = closingApp;
+	}
 
     private void formWindowClosing(WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        setCLOSING_APP(true);
-        memorizeUncheckedItemsToConf();
-        Dimension windowDimension = this.getSize();
-        int height = windowDimension.height;
-        int width = windowDimension.width;
-        config.setUILatestHeight(height);
-        config.setUILatestWidth(width);
-        if (null != fSteamDir) {
-            String steamDirToSave = fSteamDir.getAbsolutePath().replaceAll("\\\\", "/");
-            if (!steamDirToSave.endsWith("/")) {
-                steamDirToSave += "/";
-            }
-            config.setLatestSteamFolder(steamDirToSave);
-        }
-        try {
-            config.save();
+		setCLOSING_APP(true);
+		memorizeUncheckedItemsToConf();
+		Dimension windowDimension = this.getSize();
+		int height = windowDimension.height;
+		int width = windowDimension.width;
+		config.setUILatestHeight(height);
+		config.setUILatestWidth(width);
+		if (null != fSteamDir) {
+			String steamDirToSave = fSteamDir.getAbsolutePath().replaceAll("\\\\", "/");
+			if (!steamDirToSave.endsWith("/")) {
+				steamDirToSave += "/";
+			}
+			config.setLatestSteamFolder(steamDirToSave);
+		}
+		try {
+			config.save();
 			patternsCfg.save();
-            uncheckedItems.save();
-            customFolders.save();
-        } catch (IOException ex) {
-            Log.error(ex);
-        }
+			uncheckedItems.save();
+			customFolders.save();
+		} catch (IOException ex) {
+			Log.error(ex);
+		}
     }//GEN-LAST:event_formWindowClosing
 
     private void formWindowStateChanged(WindowEvent evt) {//GEN-FIRST:event_formWindowStateChanged
-        config.setUIState(evt.getNewState());
+		config.setUIState(evt.getNewState());
     }//GEN-LAST:event_formWindowStateChanged
 
     private void jButtonToolbarOptionsActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonToolbarOptionsActionPerformed
-        try {
-            JDialogOptionsTabs optionsFrame = new JDialogOptionsTabs(this, true, translation);
-            optionsFrame.setVisible(true);
-        } catch (IOException ex) {
-            Log.error(ex);
-        }
+		try {
+			JDialogOptionsTabs optionsFrame = new JDialogOptionsTabs(this, true, translation);
+			optionsFrame.setVisible(true);
+		} catch (IOException ex) {
+			Log.error(ex);
+		}
     }//GEN-LAST:event_jButtonToolbarOptionsActionPerformed
 
     private void jButtonToolbarCheckforupdatesActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonToolbarCheckforupdatesActionPerformed
-        JDialogCheckForUpdates checkForUpdatesFrame = new JDialogCheckForUpdates(this, true, translation);
-        checkForUpdatesFrame.setVisible(true);
+		JDialogCheckForUpdates checkForUpdatesFrame = new JDialogCheckForUpdates(this, true, translation);
+		checkForUpdatesFrame.setVisible(true);
     }//GEN-LAST:event_jButtonToolbarCheckforupdatesActionPerformed
 
     private void jButtonToolbarAboutActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonToolbarAboutActionPerformed
-        JDialogAbout aboutFrame = new JDialogAbout(this, true, translation);
-        aboutFrame.setVisible(true);
+		JDialogAbout aboutFrame = new JDialogAbout(this, true, translation);
+		aboutFrame.setVisible(true);
     }//GEN-LAST:event_jButtonToolbarAboutActionPerformed
 
     private void jButtonSocialFacebookActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonSocialFacebookActionPerformed
-        UpdateManager.extBrowser("https://www.facebook.com/jonathan.lermitage");
+		UpdateManager.extBrowser("https://www.facebook.com/jonathan.lermitage");
     }//GEN-LAST:event_jButtonSocialFacebookActionPerformed
 
     private void jButtonAddCustomFolderActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonAddCustomFolderActionPerformed
-        JFileChooser dialogue = new JFileChooser();
-        dialogue.setMultiSelectionEnabled(false);
-        dialogue.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        dialogue.setAcceptAllFileFilterUsed(false);
-        if (dialogue.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-            File folder = dialogue.getSelectedFile();
-            listModel.addElement(folder);
-            memorizeCustomFoldersToConf();
-            jButtonReloadRedistList.setEnabled(true);
-        }
+		JFileChooser dialogue = new JFileChooser();
+		dialogue.setMultiSelectionEnabled(false);
+		dialogue.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		dialogue.setAcceptAllFileFilterUsed(false);
+		if (dialogue.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+			File folder = dialogue.getSelectedFile();
+			listModel.addElement(folder);
+			memorizeCustomFoldersToConf();
+			jButtonReloadRedistList.setEnabled(true);
+		}
     }//GEN-LAST:event_jButtonAddCustomFolderActionPerformed
 
     private void jButtonRemoveCustomFolderActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveCustomFolderActionPerformed
-        int selIdx = jListCustomFolders.getSelectedIndex();
-        if (selIdx > -1) {
-            listModel.remove(selIdx);
-            memorizeCustomFoldersToConf();
-            if (listModel.isEmpty() && fSteamDir != null && !fSteamDir.exists()) {
-                jButtonReloadRedistList.setEnabled(false);
-            }
-        }
+		int selIdx = jListCustomFolders.getSelectedIndex();
+		if (selIdx > -1) {
+			listModel.remove(selIdx);
+			memorizeCustomFoldersToConf();
+			if (listModel.isEmpty() && fSteamDir != null && !fSteamDir.exists()) {
+				jButtonReloadRedistList.setEnabled(false);
+			}
+		}
     }//GEN-LAST:event_jButtonRemoveCustomFolderActionPerformed
 
     private void jButtonStopSearchActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonStopSearchActionPerformed
-        CLOSING_APP = true;
+		CLOSING_APP = true;
     }//GEN-LAST:event_jButtonStopSearchActionPerformed
 
     private void jButtonGithubActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonGithubActionPerformed
-        UpdateManager.extBrowser("https://github.com/jonathanlermitage/tikione-steam-cleaner");
+		UpdateManager.extBrowser("https://github.com/jonathanlermitage/tikione-steam-cleaner");
     }//GEN-LAST:event_jButtonGithubActionPerformed
 
     private void jButtonTwitterActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonTwitterActionPerformed
-        UpdateManager.extBrowser("https://twitter.com/JLermitage");
+		UpdateManager.extBrowser("https://twitter.com/JLermitage");
     }//GEN-LAST:event_jButtonTwitterActionPerformed
 
     private void jButtonRedditActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonRedditActionPerformed
-        UpdateManager.extBrowser("http://www.reddit.com/r/Steam/comments/174udg/tikione_steam_cleaner_140_free_wasted_disk_space/");
+		UpdateManager.extBrowser("http://www.reddit.com/r/Steam/comments/174udg/tikione_steam_cleaner_140_free_wasted_disk_space/");
     }//GEN-LAST:event_jButtonRedditActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
