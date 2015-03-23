@@ -26,32 +26,19 @@ public class FileComparator {
 		this.onFiles = onFiles;
 	}
 
-	/**
-	 * Perform multi-threaded analysis.
-	 *
-	 * @throws InterruptedException if an errro occurs on threads synchronization.
-	 */
 	public final void start()
 			throws InterruptedException {
 		int nbfiles = files.size();
 		Log.info("debug: ThreadedFileComparator >> number of files or folders to check: " + nbfiles);
 		if (nbfiles > 0) {
-			int nbthreads = 1;
-			int segment = nbfiles;
-			List<Thread> threads = new ArrayList<>(nbthreads);
-			for (int nt = 0; nt < nbthreads; nt++) {
-				int startIdx = nt * segment;
-				int endIdx = (nt == nbthreads - 1) ? nbfiles - 1 : startIdx + segment - 1;
-				Log.info("debug: ThreadedFileComparator >> startIdx=" + startIdx + ", endIdx=" + endIdx);
-				FileComparatorWorker swThread = new FileComparatorWorker(files, startIdx, endIdx, redistsPatterns, onFiles);
-				swThread.start();
-				threads.add(swThread);
-			}
-			for (Thread thread : threads) {
-				thread.join();
-				List<Redist> res = ((FileComparatorWorker) thread).checkedFiles;
-				checkedFiles.addAll(res);
-			}
+			int startIdx = 0;
+			int endIdx = nbfiles - 1;
+			Log.info("debug: ThreadedFileComparator >> startIdx=" + startIdx + ", endIdx=" + endIdx);
+			FileComparatorWorker swThread = new FileComparatorWorker(files, startIdx, endIdx, redistsPatterns, onFiles);
+			swThread.start();
+			swThread.join();
+			List<Redist> res = swThread.checkedFiles;
+			checkedFiles.addAll(res);
 		}
 	}
 
