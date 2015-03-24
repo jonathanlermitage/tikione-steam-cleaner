@@ -153,14 +153,8 @@ public class JFrameMain extends JFrame {
 		String latestSteamDirStr = config.getLatestSteamFolder();
 		if (latestSteamDirStr.length() > 0) {
 			File possibleSteamDir = new File(latestSteamDirStr);
-			if (checkSteamDirFile(possibleSteamDir.getAbsolutePath())) {
-				fSteamDir = possibleSteamDir;
-				jTextFieldSteamDir.setText(fSteamDir.getAbsolutePath());
-				jTextFieldSteamDir.setBackground(COLOR_PATH_OK);
-				jButtonReloadRedistList.setEnabled(true);
-			} else {
-				locateSteamDir();
-			}
+			fSteamDir = possibleSteamDir;
+			jTextFieldSteamDir.setText(fSteamDir.getAbsolutePath());
 		} else {
 			locateSteamDir();
 		}
@@ -177,9 +171,8 @@ public class JFrameMain extends JFrame {
 		for (String foldername : customFoldersAsStr) {
 			listModel.addElement(new File(foldername));
 		}
-		if (!listModel.isEmpty()) {
-			jButtonReloadRedistList.setEnabled(true);
-		}
+		
+		jButtonReloadRedistList.setEnabled(true);
 	}
 
 	/**
@@ -290,9 +283,6 @@ public class JFrameMain extends JFrame {
 			final File fCommon = new File(sSteamDir + "steamapps" + File.separatorChar + "common" + File.separatorChar);
 			boolean steamExists = fSteamDir.isDirectory() && fSteamDir.exists() && fCommon.exists();
 			if (!listModel.isEmpty() || steamExists) {
-				if (steamExists) {
-					jTextFieldSteamDir.setBackground(COLOR_PATH_OK);
-				}
 				enableAllUI(false);
 				jButtonReloadRedistList.setText(btnReloadLabelWorking);
 				final JFrame thisframe = this;
@@ -372,19 +362,15 @@ public class JFrameMain extends JFrame {
 							enableAllUI(true);
 							boolean rdistFound = model.getRowCount() > 0;
 							jButtonRemoveRedistItemsFromDisk.setEnabled(rdistFound);
-							jButtonReloadRedistList.setEnabled(true);
 						}
 					}
 				});
 				tJob.start();
 			} else {
 				jButtonRemoveRedistItemsFromDisk.setEnabled(false);
-				jButtonReloadRedistList.setEnabled(true);
 			}
 		} else {
-			jTextFieldSteamDir.setBackground(COLOR_PATH_ERR);
 			jButtonRemoveRedistItemsFromDisk.setEnabled(false);
-			jButtonReloadRedistList.setEnabled(false);
 		}
 	}
 
@@ -404,7 +390,6 @@ public class JFrameMain extends JFrame {
 	private void enableAllUI(boolean enable) {
 		jButtonLocateSteamDir.setEnabled(enable);
 		jButtonManualSteamDirSearch.setEnabled(enable);
-		jButtonReloadRedistList.setEnabled(enable);
 		jButtonRemoveRedistItemsFromDisk.setEnabled(enable);
 		jTableRedistList.setEnabled(enable);
 		jTextFieldSteamDir.setEnabled(enable);
@@ -787,34 +772,7 @@ public class JFrameMain extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-	private boolean checkSteamDirInputtext() {
-		boolean folderValid;
-		if (!checkSteamDirFile(jTextFieldSteamDir.getText())) {
-			jTextFieldSteamDir.setBackground(COLOR_PATH_ERR);
-			jButtonReloadRedistList.setEnabled(false);
-			jButtonReloadRedistList.setEnabled(!listModel.isEmpty());
-			folderValid = false;
-		} else {
-			jTextFieldSteamDir.setBackground(COLOR_PATH_OK);
-			jButtonReloadRedistList.setEnabled(true);
-			jButtonReloadRedistList.setEnabled(true);
-			folderValid = true;
-		}
-		jButtonRemoveRedistItemsFromDisk.setEnabled(false);
-		return folderValid;
-	}
-
-	private boolean checkSteamDirFile(String path) {
-//        if (!path.endsWith("/") && !path.endsWith(File.separator)) {
-//            path += File.separatorChar;
-//        }
-//        File steamapps = new File(path + "config" + File.separatorChar + "config.vdf");
-//        return steamapps.exists() && steamapps.isFile();
-		return true;
-	}
-
     private void jTextFieldSteamDirKeyReleased(KeyEvent evt) {//GEN-FIRST:event_jTextFieldSteamDirKeyReleased
-		checkSteamDirInputtext();
     }//GEN-LAST:event_jTextFieldSteamDirKeyReleased
 
 	private void locateSteamDir() {
@@ -827,8 +785,6 @@ public class JFrameMain extends JFrame {
 					File fPossibleSteamDir = new File(s);
 					if (fPossibleSteamDir.exists() && fPossibleSteamDir.isDirectory()) {
 						jTextFieldSteamDir.setText(fPossibleSteamDir.getAbsolutePath());
-						jTextFieldSteamDir.setBackground(COLOR_PATH_OK);
-						jButtonReloadRedistList.setEnabled(true);
 						fSteamDir = fPossibleSteamDir;
 						break;
 					}
@@ -836,11 +792,9 @@ public class JFrameMain extends JFrame {
 					Log.error(ex);
 				}
 			}
-			if (fSteamDir == null || !checkSteamDirFile(fSteamDir.getAbsolutePath())) {
-				jTextFieldSteamDir.setText("  "/* + translation.getString(Translation.SEC_WMAIN, "errmsg.cantfindsteamdir") */);
-				jTextFieldSteamDir.setBackground(COLOR_PATH_ERR);
+			if (fSteamDir == null) {
+				jTextFieldSteamDir.setText("");
 				if (listModel == null || listModel.isEmpty()) {
-					jButtonReloadRedistList.setEnabled(false);
 				}
 			}
 		} catch (CharConversionException | InfinitiveLoopException ex) {
@@ -859,12 +813,11 @@ public class JFrameMain extends JFrame {
 		dialogue.setAcceptAllFileFilterUsed(false);
 		if (dialogue.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
 			File folder = dialogue.getSelectedFile();
-			if (folder != null && checkSteamDirFile(folder.getAbsolutePath())) {
+			if (folder != null) {
 				jTextFieldSteamDir.setText(folder.getAbsolutePath());
-				jTextFieldSteamDir.setBackground(COLOR_PATH_OK);
+				fSteamDir = new File(jTextFieldSteamDir.getText());
 			} else {
-				jTextFieldSteamDir.setText("  " /* + translation.getString(Translation.SEC_WMAIN, "errmsg.cantfindsteamdir") */);
-				jTextFieldSteamDir.setBackground(COLOR_PATH_ERR);
+				jTextFieldSteamDir.setText("");
 			}
 		}
     }//GEN-LAST:event_jButtonManualSteamDirSearchActionPerformed
@@ -932,12 +885,14 @@ public class JFrameMain extends JFrame {
 		int width = windowDimension.width;
 		config.setUILatestHeight(height);
 		config.setUILatestWidth(width);
-		if (null != fSteamDir) {
+		if (!jTextFieldSteamDir.getText().isEmpty() && null != fSteamDir) {
 			String steamDirToSave = fSteamDir.getAbsolutePath().replaceAll("\\\\", "/");
 			if (!steamDirToSave.endsWith("/")) {
 				steamDirToSave += "/";
 			}
 			config.setLatestSteamFolder(steamDirToSave);
+		} else {
+			config.setLatestSteamFolder("");
 		}
 		try {
 			config.save();
@@ -985,7 +940,6 @@ public class JFrameMain extends JFrame {
 			File folder = dialogue.getSelectedFile();
 			listModel.addElement(folder);
 			memorizeCustomFoldersToConf();
-			jButtonReloadRedistList.setEnabled(true);
 		}
     }//GEN-LAST:event_jButtonAddCustomFolderActionPerformed
 
@@ -995,7 +949,6 @@ public class JFrameMain extends JFrame {
 			listModel.remove(selIdx);
 			memorizeCustomFoldersToConf();
 			if (listModel.isEmpty() && fSteamDir != null && !fSteamDir.exists()) {
-				jButtonReloadRedistList.setEnabled(false);
 			}
 		}
     }//GEN-LAST:event_jButtonRemoveCustomFolderActionPerformed
