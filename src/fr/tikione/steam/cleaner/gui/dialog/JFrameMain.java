@@ -272,16 +272,16 @@ public class JFrameMain extends JFrame {
 	}
 
 	private void searchRedistPackagesOnDisk() {
+		jButtonReloadRedistList.setEnabled(false);
 		memorizeUncheckedItemsToConf();
 		jPanelList.setBorder(BorderFactory.createTitledBorder(tblRedistLabelDefault));
 		String sSteamDir = jTextFieldSteamDir.getText();
-		if (!StringHelper.strIsEmpty(sSteamDir)) {
-			if (!sSteamDir.endsWith("/") && !sSteamDir.endsWith(File.separator)) {
+		if (!listModel.isEmpty() || !StringHelper.strIsEmpty(sSteamDir)) {
+			if (!StringHelper.strIsEmpty(sSteamDir) && !sSteamDir.endsWith("/") && !sSteamDir.endsWith(File.separator)) {
 				sSteamDir += File.separatorChar;
 			}
 			fSteamDir = new File(sSteamDir);
-			final File fCommon = new File(sSteamDir + "steamapps" + File.separatorChar + "common" + File.separatorChar);
-			boolean steamExists = fSteamDir.isDirectory() && fSteamDir.exists() && fCommon.exists();
+			boolean steamExists = fSteamDir.isDirectory() && fSteamDir.exists();
 			if (!listModel.isEmpty() || steamExists) {
 				enableAllUI(false);
 				jButtonReloadRedistList.setText(btnReloadLabelWorking);
@@ -300,8 +300,8 @@ public class JFrameMain extends JFrame {
 							model = new RedistTableModel(translation);
 							setTableModelUI();
 							List<File> srcFolders = new ArrayList<>(32);
-							if (fSteamDir.exists() && fCommon.exists()) {
-								srcFolders.add(fCommon);
+							if (fSteamDir.exists()) {
+								srcFolders.add(fSteamDir);
 							}
 							File[] customFolders = customFoldersListStrToFiles();
 							for (File customFolder : customFolders) {
@@ -318,6 +318,7 @@ public class JFrameMain extends JFrame {
 									patternsCfg.getRedistFilePatternsAndDesc(patternsCfg.getEnableExperimentalPatterns()),
 									checkedFiles, true);
 							try {
+								Log.info("debug: FileComparator on files");
 								tc.start();
 							} catch (InterruptedException ex) {
 								Log.error(ex);
@@ -327,6 +328,7 @@ public class JFrameMain extends JFrame {
 									patternsCfg.getRedistFolderPatternsAndDesc(patternsCfg.getEnableExperimentalPatterns()),
 									checkedFolders, false);
 							try {
+								Log.info("debug: FileComparator on folders");
 								tc.start();
 							} catch (InterruptedException ex) {
 								Log.error(ex);
@@ -824,6 +826,7 @@ public class JFrameMain extends JFrame {
 
     private void jButtonReloadRedistListActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonReloadRedistListActionPerformed
 		searchRedistPackagesOnDisk();
+		jButtonReloadRedistList.setEnabled(true);
 		CLOSING_APP = false;
     }//GEN-LAST:event_jButtonReloadRedistListActionPerformed
 
