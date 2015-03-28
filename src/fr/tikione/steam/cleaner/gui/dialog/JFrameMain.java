@@ -271,8 +271,8 @@ public class JFrameMain extends JFrame {
 		}
 	}
 
-	private void searchRedistPackagesOnDisk() {
-		jButtonReloadRedistList.setEnabled(false);
+	private void searchRedistPackagesOnDisk(final JButton buttonReload) {
+		buttonReload.setEnabled(false);
 		memorizeUncheckedItemsToConf();
 		jPanelList.setBorder(BorderFactory.createTitledBorder(tblRedistLabelDefault));
 		String sSteamDir = jTextFieldSteamDir.getText();
@@ -284,7 +284,7 @@ public class JFrameMain extends JFrame {
 			boolean steamExists = fSteamDir.isDirectory() && fSteamDir.exists();
 			if (!listModel.isEmpty() || steamExists) {
 				enableAllUI(false);
-				jButtonReloadRedistList.setText(btnReloadLabelWorking);
+				buttonReload.setText(btnReloadLabelWorking);
 				final JFrame thisframe = this;
 				Thread tJob = new Thread(new Runnable() {
 					@Override
@@ -360,10 +360,11 @@ public class JFrameMain extends JFrame {
 							Log.error(ex);
 						} finally {
 							jButtonStopSearch.setVisible(false);
-							jButtonReloadRedistList.setText(btnReloadLabelInitial);
+							buttonReload.setText(btnReloadLabelInitial);
 							enableAllUI(true);
 							boolean rdistFound = model.getRowCount() > 0;
 							jButtonRemoveRedistItemsFromDisk.setEnabled(rdistFound);
+							buttonReload.setEnabled(true);
 						}
 					}
 				});
@@ -825,8 +826,7 @@ public class JFrameMain extends JFrame {
     }//GEN-LAST:event_jButtonManualSteamDirSearchActionPerformed
 
     private void jButtonReloadRedistListActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonReloadRedistListActionPerformed
-		searchRedistPackagesOnDisk();
-		jButtonReloadRedistList.setEnabled(true);
+		searchRedistPackagesOnDisk(jButtonReloadRedistList);
 		CLOSING_APP = false;
     }//GEN-LAST:event_jButtonReloadRedistListActionPerformed
 
