@@ -371,9 +371,11 @@ public class JFrameMain extends JFrame {
 				tJob.start();
 			} else {
 				jButtonRemoveRedistItemsFromDisk.setEnabled(false);
+				buttonReload.setEnabled(true);
 			}
 		} else {
 			jButtonRemoveRedistItemsFromDisk.setEnabled(false);
+			buttonReload.setEnabled(true);
 		}
 	}
 
