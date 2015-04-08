@@ -1,6 +1,6 @@
 ## TikiOne Steam Cleaner Change Log
 
-### 2.4.1 (2014/03/28) JAVA7
+### 2.4.1 (2015/03/28) JAVA7
 * fixed support for custom folders.
 * fixed a bug with Steam path (you couldn't launch scan even if the Steam path was filled).
 * fixed threading issues that lead to incomplete scans.
