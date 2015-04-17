@@ -857,6 +857,7 @@ public class JFrameMain extends JFrame {
 
     private void jButtonRemoveRedistItemsFromDiskActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveRedistItemsFromDiskActionPerformed
 		memorizeUncheckedItemsToConf();
+		jButtonRemoveRedistItemsFromDisk.setText(translation.getString(Translation.SEC_WMAIN, "button.removeSelectedItems"));
 		List<File> filesDoDel = new ArrayList<>(8);
 		List<File> foldersToDel = new ArrayList<>(8);
 		for (int row = 0; row < model.getRowCount(); row++) {
