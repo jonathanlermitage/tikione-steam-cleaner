@@ -50,9 +50,12 @@ import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ListSelectionModel;
+import javax.swing.RowSorter;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  * Main window.
@@ -381,6 +384,8 @@ public class JFrameMain extends JFrame {
 
 	private void setTableModelUI() {
 		jTableRedistList.setModel(model);
+		RowSorter<TableModel> sorter = new TableRowSorter<TableModel>(model);
+		jTableRedistList.setRowSorter(sorter);
 		jTableRedistList.getColumnModel().getColumn(0).setPreferredWidth(50);
 		jTableRedistList.getColumnModel().getColumn(0).setMinWidth(10);
 		jTableRedistList.getColumnModel().getColumn(0).setMaxWidth(100);
