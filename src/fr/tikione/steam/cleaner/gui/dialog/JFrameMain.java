@@ -24,6 +24,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowStateListener;
@@ -235,6 +237,17 @@ public class JFrameMain extends JFrame {
 			Log.error(ex);
 		}
 	}
+	
+	private void recomputeTotalSizeMB() {
+		float fsize = 0;
+		for (int i = 0; i < model.getRowCount(); i++) {
+			if (Boolean.parseBoolean(model.getValueAt(i, 0).toString())) {
+				fsize += Float.parseFloat(model.getValueAt(i, 2).toString());
+			}
+		}
+		String btnLabel = translation.getString(Translation.SEC_WMAIN, "button.removeSelectedItems");
+		jButtonRemoveRedistItemsFromDisk.setText(btnLabel + " (" + (int)fsize + "MB)");
+	}
 
 	/**
 	 * Store the list of unchecked items (redistributable packages shown in the main table) to a configuration file.
@@ -353,6 +366,7 @@ public class JFrameMain extends JFrame {
 							jPanelList.setBorder(BorderFactory.createTitledBorder(tblRedistLabelDefault + " "
 									+ nbFiles + " " + (nbFiles > 1 ? nameFiles : nameFile) + ", " + checkedFolders.size() + " "
 									+ (nbFolders > 1 ? nameFolders : nameFolder)));
+							recomputeTotalSizeMB();
 						} catch (InfinitiveLoopException | IOException ex) {
 							Log.error(ex);
 						} finally {
@@ -522,6 +536,16 @@ public class JFrameMain extends JFrame {
         jTableRedistList.setSelectionForeground(new Color(0, 0, 0));
         jTableRedistList.setShowHorizontalLines(false);
         jTableRedistList.setShowVerticalLines(false);
+        jTableRedistList.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
+                jTableRedistListMouseClicked(evt);
+            }
+        });
+        jTableRedistList.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent evt) {
+                jTableRedistListKeyPressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableRedistList);
 
         jButtonStopSearch.setFont(new Font("Dialog", 0, 13)); // NOI18N
@@ -972,6 +996,16 @@ public class JFrameMain extends JFrame {
     private void jButtonRedditActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonRedditActionPerformed
 		UpdateManager.extBrowser("http://www.reddit.com/r/Steam/comments/174udg/tikione_steam_cleaner_140_free_wasted_disk_space/");
     }//GEN-LAST:event_jButtonRedditActionPerformed
+
+    private void jTableRedistListMouseClicked(MouseEvent evt) {//GEN-FIRST:event_jTableRedistListMouseClicked
+        memorizeCustomFoldersToConf();
+		recomputeTotalSizeMB();
+    }//GEN-LAST:event_jTableRedistListMouseClicked
+
+    private void jTableRedistListKeyPressed(KeyEvent evt) {//GEN-FIRST:event_jTableRedistListKeyPressed
+        memorizeCustomFoldersToConf();
+		recomputeTotalSizeMB();
+    }//GEN-LAST:event_jTableRedistListKeyPressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JButton jButtonAddCustomFolder;
