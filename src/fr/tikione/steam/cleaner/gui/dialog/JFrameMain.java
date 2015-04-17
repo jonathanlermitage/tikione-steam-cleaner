@@ -75,12 +75,6 @@ public class JFrameMain extends JFrame {
 	/** Initial label of the table that contains list of redistributable packages found. */
 	private String tblRedistLabelDefault;
 
-	/** Background color of input text for Steam location, when it is found and OK. */
-	private static final Color COLOR_PATH_OK = new Color(204, 245, 187);
-
-	/** Background color of input text for Steam location, when it is not found or non-OK. */
-	private static final Color COLOR_PATH_ERR = new Color(255, 204, 255);
-
 	/** Default table model for the list of redistributable packages found. */
 	private DefaultTableModel model;
 
