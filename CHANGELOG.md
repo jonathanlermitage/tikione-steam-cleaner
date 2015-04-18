@@ -1,5 +1,11 @@
 ## TikiOne Steam Cleaner Change Log
 
+### 2.4.2 (2015/04/18) JAVA7
+* UI improvement: you can sort results.
+* UI improvement: you can see estimated total size of selected elements to delete.
+* some minor bugfixes.
+* updated the bundled JVM to Java 7u80.
+
 ### 2.4.1 (2015/03/28) JAVA7
 * fixed support for custom folders.
 * fixed a bug with Steam path (you couldn't launch scan even if the Steam path was filled).
