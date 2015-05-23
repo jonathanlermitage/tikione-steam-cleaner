@@ -2,6 +2,7 @@
 
 ### 2.4.3 (2015/05/23) JAVA7
 * updated the list of redistributable packages (recently, many games seem to store their redist in a single "_CommonRedist" subdir).
+* fixed UE3 redist detection.
 
 ### 2.4.2 (2015/04/18) JAVA7
 * UI improvement: you can sort results.
