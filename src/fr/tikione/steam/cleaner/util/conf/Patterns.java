@@ -79,7 +79,7 @@ public class Patterns {
         File backupConfigFile = new File("conf/backup/tikione-steam-cleaner_patterns.ini");
         File userprofile = new File(System.getenv("USERPROFILE") + "/.tikione/");
         userprofile.mkdirs();
-        configFile = new File(userprofile.getAbsolutePath() + "/tikione-steam-cleaner_patterns_rev241.ini");
+        configFile = new File(userprofile.getAbsolutePath() + "/tikione-steam-cleaner_patterns_rev243.ini");
         if (!configFile.exists()) {
             org.apache.commons.io.FileUtils.copyFile(backupConfigFile, configFile);
         }
