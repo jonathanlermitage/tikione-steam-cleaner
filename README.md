@@ -1,4 +1,6 @@
+[![Stories in Backlog](https://badge.waffle.io/jonathanlermitage/tikione-steam-cleaner.png?label=backlog&title=Backlog)](https://waffle.io/jonathanlermitage/tikione-steam-cleaner)
 [![Stories in Ready](https://badge.waffle.io/jonathanlermitage/tikione-steam-cleaner.png?label=ready&title=Ready)](https://waffle.io/jonathanlermitage/tikione-steam-cleaner)
+[![Stories in In progress](https://badge.waffle.io/jonathanlermitage/tikione-steam-cleaner.png?label=in%20progress&title=In%20progress)](https://waffle.io/jonathanlermitage/tikione-steam-cleaner)
 
 ## TikiOne Steam Cleaner - The best companion of Steam users
 
