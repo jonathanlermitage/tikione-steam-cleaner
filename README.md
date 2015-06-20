@@ -10,6 +10,15 @@ TikiOne Steam Cleaner is built with [NetBeans 8](http://netbeans.org) and the la
 
 ![Screenshot](http://lermitage.biz/files/steamcleaner_2.png)
 
+### How to download installer
+
+TikiOne Steam Cleaner installer is hosted on:
+
+* [Sourceforge](http://sourceforge.net/projects/tikione/), click [here](http://sourceforge.net/projects/tikione/files/latest/download) to download the latest version
+* [GitHub](https://github.com/jonathanlermitage/tikione-steam-cleaner/releases)
+ 
+You probably heard about the fact that Sourceforge modified installer files of GIMP and Firefox projects to include adware and junkware. This is due to the fact that Sourceforge takes ownership of abandoned projects (they haven't been updated since a very long time on the Sourceforge platform). Sourgeforge decision is very disputable. Meanwhile, maintained projects are not modified; TikiOne Steam Cleaner is one of them: I maintain binaries and they will NEVER come with adware or junkware. The day I stop Steam Cleaner development, I will simply delete my Sourceforge account and project files.
+
 ### How to build, test and package TikiOne Steam Cleaner
 
 To build the project:
