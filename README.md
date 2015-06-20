@@ -54,6 +54,7 @@ You can ask questions and share ideas by email (<jonathan.lermitage@gmail.com>),
 * Zsolt Brechler: Hungarian translation
 * Piotr Swat: Polish translation
 * Pedro Henrique Viegas Diniz: Portuguese translation
+* "ZoSH": Spanish translation
 * Petr Kudlička: redist detection improvements
 * Brian Huqueriza: redist detection improvements
 * Members of the [CanardPC forum](http://forum.canardpc.com), for their support and cheerfulness
