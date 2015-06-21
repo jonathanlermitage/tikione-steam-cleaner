@@ -995,7 +995,7 @@ public class JFrameMain extends JFrame {
     }//GEN-LAST:event_jButtonTwitterActionPerformed
 
     private void jButtonRedditActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonRedditActionPerformed
-		UpdateManager.extBrowser("http://www.reddit.com/r/Steam/comments/174udg/tikione_steam_cleaner_140_free_wasted_disk_space/");
+		UpdateManager.extBrowser("https://www.reddit.com/r/gaming/comments/3ahunc/tikione_steam_cleaner_will_support_gog_and_origin/");
     }//GEN-LAST:event_jButtonRedditActionPerformed
 
     private void jTableRedistListMouseClicked(MouseEvent evt) {//GEN-FIRST:event_jTableRedistListMouseClicked
