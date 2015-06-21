@@ -3,7 +3,7 @@
 ### 2.4.4 (under development) JAVA7
 * updated the list of redistributable packages to support GOG (GalaxyClient) and Origin platforms.
 * updated the exclude list to prevent GOG (GalaxyClient) corruption.
-* updated Spanish (es) translation. Thx https://twitter.com/pxxr_bxy.
+* updated Spanish (es) translation. Thx "ZoSH".
 
 ### 2.4.3 (2015/05/23) JAVA7
 * updated the list of redistributable packages (recently, many games seem to store their redist in a single "_CommonRedist" subdir).
