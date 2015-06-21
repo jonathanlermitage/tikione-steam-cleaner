@@ -3,17 +3,13 @@ package fr.tikione.steam.cleaner.util.conf;
 import fr.tikione.ini.InfinitiveLoopException;
 import fr.tikione.ini.Ini;
 import fr.tikione.steam.cleaner.Main;
-import fr.tikione.steam.cleaner.util.CountryLanguage;
 import fr.tikione.steam.cleaner.util.Log;
 import fr.tikione.steam.cleaner.util.Redist;
-import fr.tikione.steam.cleaner.util.Translation;
 import java.io.CharConversionException;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.regex.Matcher;
 
 /**
  * Configuration handler.
@@ -79,7 +75,7 @@ public class Patterns {
         File backupConfigFile = new File("conf/backup/tikione-steam-cleaner_patterns.ini");
         File userprofile = new File(System.getenv("USERPROFILE") + "/.tikione/");
         userprofile.mkdirs();
-        configFile = new File(userprofile.getAbsolutePath() + "/tikione-steam-cleaner_patterns_rev243.ini");
+        configFile = new File(userprofile.getAbsolutePath() + "/tikione-steam-cleaner_patterns_rev244.ini");
         if (!configFile.exists()) {
             org.apache.commons.io.FileUtils.copyFile(backupConfigFile, configFile);
         }
