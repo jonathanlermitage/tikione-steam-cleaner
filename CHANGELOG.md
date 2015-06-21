@@ -1,7 +1,7 @@
 ## TikiOne Steam Cleaner Change Log
 
 ### 2.4.4 (under development) JAVA7
-* updated the list of redistributable packages to support GOG and Origin platforms.
+* updated the list of redistributable packages to support GOG (GalaxyClient) and Origin platforms.
 * updated the exclude list to prevent GOG (GalaxyClient) corruption.
 * updated Spanish (es) translation. Thx https://twitter.com/pxxr_bxy.
 
