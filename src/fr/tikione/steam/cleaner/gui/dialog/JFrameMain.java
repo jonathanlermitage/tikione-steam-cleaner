@@ -202,7 +202,7 @@ public class JFrameMain extends JFrame {
 				+ "<br><font color=\"blue\">https://github.com/jonathanlermitage/tikione-steam-cleaner</font></body></html>");
 		jButtonReddit.setToolTipText("<html><body>" + "TikiOne <b>Reddit</b>"
 				+ "<br><font color=\"blue\">"
-				+ "http://www.reddit.com/r/Steam/comments/174udg/tikione_steam_cleaner_140_free_wasted_disk_space/"
+				+ "https://www.reddit.com/r/gaming/comments/3ahunc/tikione_steam_cleaner_will_support_gog_and_origin/"
 				+ "</font></body></html>");
 		jButtonTwitter.setToolTipText("<html><body>" + "TikiOne <b>Twitter</b>"
 				+ "<br><font color=\"blue\">https://twitter.com/JLermitage</font></body></html>");
