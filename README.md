@@ -57,6 +57,7 @@ You can ask questions and share ideas by email (<jonathan.lermitage@gmail.com>),
 * "ZoSH": Spanish translation
 * Petr Kudlička: redist detection improvements
 * Brian Huqueriza: redist detection improvements
+* "SnowGabe": redist detection improvements
 * Members of the [CanardPC forum](http://forum.canardpc.com), for their support and cheerfulness
 
 ### License
