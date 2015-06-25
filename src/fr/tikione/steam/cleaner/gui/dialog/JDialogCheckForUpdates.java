@@ -183,29 +183,7 @@ public class JDialogCheckForUpdates extends JDialog {
     }//GEN-LAST:event_jButtonCloseActionPerformed
 
     private void jButtonDownloadActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonDownloadActionPerformed
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                String btnText = jButtonDownload.getText();
-                jButtonDownload.setText("working...");
-                jButtonDownload.setEnabled(false);
-                if (!UpdateManager.downloadLatestAppVersion()) {
-                    JOptionPane.showMessageDialog(null,
-                            translation.getString(Translation.SEC_WCHECKFORUPDATES, "dialog.cantdownload.message.part1") + "\n"
-                            + translation.getString(Translation.SEC_WCHECKFORUPDATES, "dialog.cantdownload.message.part2"),
-                            translation.getString(Translation.SEC_WCHECKFORUPDATES, "dialog.cantdownload.title"),
-                            JOptionPane.INFORMATION_MESSAGE);
-                    UpdateManager.extBrowserGetLatestVersion();
-                } else {
-                    JOptionPane.showMessageDialog(null,
-                            translation.getString(Translation.SEC_WCHECKFORUPDATES, "dialog.downloadok.message"),
-                            translation.getString(Translation.SEC_WCHECKFORUPDATES, "dialog.downloadok.title"),
-                            JOptionPane.INFORMATION_MESSAGE);
-                }
-                jButtonDownload.setText(btnText);
-                jButtonDownload.setEnabled(true);
-            }
-        }).start();
+        UpdateManager.extBrowserGetLatestVersion();
     }//GEN-LAST:event_jButtonDownloadActionPerformed
 
     private void jButtonChangelogActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonChangelogActionPerformed
