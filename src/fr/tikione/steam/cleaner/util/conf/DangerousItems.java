@@ -35,7 +35,7 @@ public class DangerousItems {
         // Singleton creation.
         try {
             dangerousItems = new DangerousItems();
-        } catch (Exception ex) {
+        } catch (IOException ex) {
             Log.error(ex);
             throw new RuntimeException(ex);
         }
@@ -67,7 +67,7 @@ public class DangerousItems {
     public List<Pattern> getDangerousFolders()
             throws CharConversionException,
                    InfinitiveLoopException {
-        List<Pattern> dangerousFolders = new ArrayList<>();
+        List<Pattern> dangerousFolders = new ArrayList<>(16);
         String[] keys = ini.getKeyValue("", CONFIG_AUTOEXCLUDE_PATTERNS, CONFIG_AUTOEXCLUDE_PATTERNS__FOLDERS_LIST).split("\"", 0);
         for (String pattern : keys) {
             if (pattern.length() > 0) {
