@@ -78,43 +78,40 @@ public class JDialogOptionsTabs extends JDialog {
         jLabelDescP1.setVisible(false);
         GraphicsUtils.setFrameCentered(this);
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                List<CountryLanguage> availLang;
-                try {
-                    jCheckBoxCheckForUpdatesAtStartup.setSelected(config.getCheckForUpdatesAtStartup());
-                    jCheckBoxListEnableExpRedists.setSelected(patternsCfg.getEnableExperimentalPatterns());
-                    // List and auto-select language.
-                    availLang = Translation.getAvailLangList();
-                    for (CountryLanguage lang : availLang) {
-                        try {
-                            langDescToLangCode.put(lang.getDesc(), lang.getCode());
-                            ImageIcon langImg = new ImageIcon(Translation.CONF_BASEPATH_FLAGS + lang.getCode() + ".png");
-                            langImg.setDescription(lang.getDesc());
-                            jComboBoxLang.addItem(langImg);
-                        } catch (Exception ex) {
-                            Log.error(ex);
-                        }
-                    }
-                    String selected = config.getSelectedLanguage(availLang);
-                    LANG_PRESELEC:
-                    for (int nLng = 0; nLng < availLang.size(); nLng++) {
-                        if (availLang.get(nLng).getCode().equals(selected)) {
-                            jComboBoxLang.setSelectedIndex(nLng);
-                            break LANG_PRESELEC;
-                        }
-                    }
-                    ComboBoxRenderer renderer = new ComboBoxRenderer();
-                    jComboBoxLang.setRenderer(renderer);
-                    // Auto-select search max depth.
-                    int maxDepth = config.getMaDepth();
-                    jComboBoxSearchlMaxDepth.setSelectedItem(Integer.toString(maxDepth));
-                } catch (InfinitiveLoopException | IOException ex) {
-                    Log.error(ex);
-                }
-            }
-        }).start();
+        new Thread(() -> {
+			List<CountryLanguage> availLang;
+			try {
+				jCheckBoxCheckForUpdatesAtStartup.setSelected(config.getCheckForUpdatesAtStartup());
+				jCheckBoxListEnableExpRedists.setSelected(patternsCfg.getEnableExperimentalPatterns());
+				// List and auto-select language.
+				availLang = Translation.getAvailLangList();
+				availLang.stream().forEach((lang) -> {
+					try {
+						langDescToLangCode.put(lang.getDesc(), lang.getCode());
+						ImageIcon langImg = new ImageIcon(Translation.CONF_BASEPATH_FLAGS + lang.getCode() + ".png");
+						langImg.setDescription(lang.getDesc());
+						jComboBoxLang.addItem(langImg);
+					} catch (Exception ex) {
+						Log.error(ex);
+					}
+				});
+				String selected = config.getSelectedLanguage(availLang);
+				LANG_PRESELEC:
+				for (int nLng = 0; nLng < availLang.size(); nLng++) {
+					if (availLang.get(nLng).getCode().equals(selected)) {
+						jComboBoxLang.setSelectedIndex(nLng);
+						break;
+					}
+				}
+				ComboBoxRenderer renderer = new ComboBoxRenderer();
+				jComboBoxLang.setRenderer(renderer);
+				// Auto-select search max depth.
+				int maxDepth = config.getMaDepth();
+				jComboBoxSearchlMaxDepth.setSelectedItem(Integer.toString(maxDepth));
+			} catch (InfinitiveLoopException | IOException ex) {
+				Log.error(ex);
+			}
+		}).start();
     }
 
     /**

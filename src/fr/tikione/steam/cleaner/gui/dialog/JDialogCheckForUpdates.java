@@ -26,8 +26,6 @@ import javax.swing.WindowConstants;
 @SuppressWarnings("serial")
 public class JDialogCheckForUpdates extends JDialog {
 
-    private Translation translation;
-
     /**
      * Create new form JDialogCheckForUpdates.
      *
@@ -40,38 +38,34 @@ public class JDialogCheckForUpdates extends JDialog {
         super(parent, modal);
         initComponents();
         initTranslateComponents(translation);
-        this.translation = translation;
         GraphicsUtils.setFrameCentered(this);
         jButtonDownload.setVisible(false);
         jLabelMessage.setText(translation.getString(Translation.SEC_WCHECKFORUPDATES, "info.check.working"));
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                String latestVersion = UpdateManager.getLatestVersion();
-                StringBuilder message = new StringBuilder(256);
-                message.append("<html><body>")
-                        .append(translation.getString(Translation.SEC_WCHECKFORUPDATES, "info.yourVersion").replace(
-                        "{0}", Version.VERSION))
-                        .append("<br>")
-                        .append(translation.getString(Translation.SEC_WCHECKFORUPDATES, "info.latestVersion").replace(
-                        "{0}", UpdateManager.normalizeVersionStr(latestVersion)));
-                if (latestVersion.equalsIgnoreCase(translation.getString(Translation.SEC_WCHECKFORUPDATES, "error.contact.url"))) {
-                    message.append("</body></html>");
-                    jButtonDownload.setVisible(false);
-                } else {
-                    message.append("<br><br>");
-                    if (UpdateManager.IsUpToDate(latestVersion)) {
-                        message.append(translation.getString(Translation.SEC_WCHECKFORUPDATES, "info.alreadyUpToDate"));
-                        jButtonDownload.setVisible(false);
-                    } else {
-                        message.append(translation.getString(Translation.SEC_WCHECKFORUPDATES, "info.updateAvailable"));
-                        jButtonDownload.setVisible(true);
-                    }
-                    message.append("</body></html>");
-                }
-                jLabelMessage.setText(message.toString());
-            }
-        }).start();
+        new Thread(() -> {
+			String latestVersion = UpdateManager.getLatestVersion();
+			StringBuilder message = new StringBuilder(256);
+			message.append("<html><body>")
+					.append(translation.getString(Translation.SEC_WCHECKFORUPDATES, "info.yourVersion").replace(
+							"{0}", Version.VERSION))
+					.append("<br>")
+					.append(translation.getString(Translation.SEC_WCHECKFORUPDATES, "info.latestVersion").replace(
+							"{0}", UpdateManager.normalizeVersionStr(latestVersion)));
+			if (latestVersion.equalsIgnoreCase(translation.getString(Translation.SEC_WCHECKFORUPDATES, "error.contact.url"))) {
+				message.append("</body></html>");
+				jButtonDownload.setVisible(false);
+			} else {
+				message.append("<br><br>");
+				if (UpdateManager.IsUpToDate(latestVersion)) {
+					message.append(translation.getString(Translation.SEC_WCHECKFORUPDATES, "info.alreadyUpToDate"));
+					jButtonDownload.setVisible(false);
+				} else {
+					message.append(translation.getString(Translation.SEC_WCHECKFORUPDATES, "info.updateAvailable"));
+					jButtonDownload.setVisible(true);
+				}
+				message.append("</body></html>");
+			}
+			jLabelMessage.setText(message.toString());
+		}).start();
     }
 
     private void initTranslateComponents(Translation translation) {

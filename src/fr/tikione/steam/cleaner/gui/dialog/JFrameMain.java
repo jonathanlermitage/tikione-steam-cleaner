@@ -167,9 +167,9 @@ public class JFrameMain extends JFrame {
 
 		customFolders = new CustomFolders();
 		List<String> customFoldersAsStr = customFolders.getCustomFolders();
-		for (String foldername : customFoldersAsStr) {
+		customFoldersAsStr.stream().forEach((foldername) -> {
 			listModel.addElement(new File(foldername));
-		}
+		});
 		
 		jButtonReloadRedistList.setEnabled(true);
 	}
@@ -296,87 +296,84 @@ public class JFrameMain extends JFrame {
 				enableAllUI(false);
 				buttonReload.setText(btnReloadLabelWorking);
 				final JFrame thisframe = this;
-				Thread tJob = new Thread(new Runnable() {
-					@Override
-					public void run() {
-						try {
-							jButtonStopSearch.setVisible(true);
-							String nameFile = translation.getString(Translation.SEC_WMAIN, "redistList.item.file");
-							String nameFileUpCase = translation.getString(Translation.SEC_WMAIN, "redistList.item.fileUpperCase");
-							String nameFiles = translation.getString(Translation.SEC_WMAIN, "redistList.item.files");
-							String nameFolder = translation.getString(Translation.SEC_WMAIN, "redistList.item.folder");
-							String nameFolderUpCase = translation.getString(Translation.SEC_WMAIN, "redistList.item.folderUppercase");
-							String nameFolders = translation.getString(Translation.SEC_WMAIN, "redistList.item.folders");
-							model = new RedistTableModel(translation);
-							setTableModelUI();
-							List<File> srcFolders = new ArrayList<>(32);
-							if (fSteamDir.exists()) {
-								srcFolders.add(fSteamDir);
-							}
-							File[] customFolders = customFoldersListStrToFiles();
-							for (File customFolder : customFolders) {
-								if (!srcFolders.contains(customFolder)) {
-									srcFolders.add(customFolder);
-								}
-							}
-							List<File> allFiles = new ArrayList<>(1024);
-							FileUtils.listDir(thisframe, allFiles, srcFolders, config.getMaDepth(), dangerousFolders);
-							List<Redist> checkedFiles = new ArrayList<>(128);
-							List<Redist> checkedFolders = new ArrayList<>(128);
-							FileComparator tc = new FileComparator(
-									allFiles,
-									patternsCfg.getRedistFilePatternsAndDesc(patternsCfg.getEnableExperimentalPatterns()),
-									checkedFiles, true);
-							try {
-								Log.info("debug: FileComparator on files");
-								tc.start();
-							} catch (InterruptedException ex) {
-								Log.error(ex);
-							}
-							tc = new FileComparator(
-									allFiles,
-									patternsCfg.getRedistFolderPatternsAndDesc(patternsCfg.getEnableExperimentalPatterns()),
-									checkedFolders, false);
-							try {
-								Log.info("debug: FileComparator on folders");
-								tc.start();
-							} catch (InterruptedException ex) {
-								Log.error(ex);
-							}
-							uncheckedRedistPathList = uncheckedItems.getUncheckedItems();
-							for (Redist redist : checkedFiles) {
-								boolean checked = !uncheckedRedistPathList.contains(redist.getFile().getAbsolutePath());
-								model.addRow(new Object[]{
-									checked,
-									redist.getFile().getAbsolutePath(),
-									redist.getSize(),
-									" (" + nameFileUpCase + ") " + redist.getDescription()});
-							}
-							for (Redist redist : checkedFolders) {
-								boolean check = !uncheckedRedistPathList.contains(redist.getFile().getAbsolutePath() + File.separatorChar);
-								model.addRow(new Object[]{
-									check,
-									redist.getFile().getAbsolutePath()
-									+ File.separatorChar,
-									redist.getSize(),
-									" (" + nameFolderUpCase + ") " + redist.getDescription()});
-							}
-							int nbFiles = checkedFiles.size();
-							int nbFolders = checkedFolders.size();
-							jPanelList.setBorder(BorderFactory.createTitledBorder(tblRedistLabelDefault + " "
-									+ nbFiles + " " + (nbFiles > 1 ? nameFiles : nameFile) + ", " + checkedFolders.size() + " "
-									+ (nbFolders > 1 ? nameFolders : nameFolder)));
-							recomputeTotalSizeMB();
-						} catch (InfinitiveLoopException | IOException ex) {
-							Log.error(ex);
-						} finally {
-							jButtonStopSearch.setVisible(false);
-							buttonReload.setText(btnReloadLabelInitial);
-							enableAllUI(true);
-							boolean rdistFound = model.getRowCount() > 0;
-							jButtonRemoveRedistItemsFromDisk.setEnabled(rdistFound);
-							buttonReload.setEnabled(true);
+				Thread tJob = new Thread(() -> {
+					try {
+						jButtonStopSearch.setVisible(true);
+						String nameFile = translation.getString(Translation.SEC_WMAIN, "redistList.item.file");
+						String nameFileUpCase = translation.getString(Translation.SEC_WMAIN, "redistList.item.fileUpperCase");
+						String nameFiles = translation.getString(Translation.SEC_WMAIN, "redistList.item.files");
+						String nameFolder = translation.getString(Translation.SEC_WMAIN, "redistList.item.folder");
+						String nameFolderUpCase = translation.getString(Translation.SEC_WMAIN, "redistList.item.folderUppercase");
+						String nameFolders = translation.getString(Translation.SEC_WMAIN, "redistList.item.folders");
+						model = new RedistTableModel(translation);
+						setTableModelUI();
+						List<File> srcFolders = new ArrayList<>(32);
+						if (fSteamDir.exists()) {
+							srcFolders.add(fSteamDir);
 						}
+						File[] customFolders1 = customFoldersListStrToFiles();
+						for (File customFolder : customFolders1) {
+							if (!srcFolders.contains(customFolder)) {
+								srcFolders.add(customFolder);
+							}
+						}
+						List<File> allFiles = new ArrayList<>(1024);
+						FileUtils.listDir(thisframe, allFiles, srcFolders, config.getMaDepth(), dangerousFolders);
+						List<Redist> checkedFiles = new ArrayList<>(128);
+						List<Redist> checkedFolders = new ArrayList<>(128);
+						FileComparator tc = new FileComparator(
+								allFiles,
+								patternsCfg.getRedistFilePatternsAndDesc(patternsCfg.getEnableExperimentalPatterns()),
+								checkedFiles, true);
+						try {
+							Log.info("debug: FileComparator on files");
+							tc.start();
+						} catch (InterruptedException ex) {
+							Log.error(ex);
+						}
+						tc = new FileComparator(
+								allFiles,
+								patternsCfg.getRedistFolderPatternsAndDesc(patternsCfg.getEnableExperimentalPatterns()),
+								checkedFolders, false);
+						try {
+							Log.info("debug: FileComparator on folders");
+							tc.start();
+						} catch (InterruptedException ex) {
+							Log.error(ex);
+						}
+						uncheckedRedistPathList = uncheckedItems.getUncheckedItems();
+						checkedFiles.stream().forEach((redist) -> {
+							boolean checked = !uncheckedRedistPathList.contains(redist.getFile().getAbsolutePath());
+							model.addRow(new Object[]{
+								checked,
+								redist.getFile().getAbsolutePath(),
+								redist.getSize(),
+								" (" + nameFileUpCase + ") " + redist.getDescription()});
+						});
+						checkedFolders.stream().forEach((redist) -> {
+							boolean check = !uncheckedRedistPathList.contains(redist.getFile().getAbsolutePath() + File.separatorChar);
+							model.addRow(new Object[]{
+								check,
+								redist.getFile().getAbsolutePath()
+										+ File.separatorChar,
+								redist.getSize(),
+								" (" + nameFolderUpCase + ") " + redist.getDescription()});
+						});
+						int nbFiles = checkedFiles.size();
+						int nbFolders = checkedFolders.size();
+						jPanelList.setBorder(BorderFactory.createTitledBorder(tblRedistLabelDefault + " "
+								+ nbFiles + " " + (nbFiles > 1 ? nameFiles : nameFile) + ", " + checkedFolders.size() + " "
+								+ (nbFolders > 1 ? nameFolders : nameFolder)));
+						recomputeTotalSizeMB();
+					}catch (InfinitiveLoopException | IOException ex) {
+							Log.error(ex);
+					} finally {
+						jButtonStopSearch.setVisible(false);
+						buttonReload.setText(btnReloadLabelInitial);
+						enableAllUI(true);
+						boolean rdistFound = model.getRowCount() > 0;
+						jButtonRemoveRedistItemsFromDisk.setEnabled(rdistFound);
+						buttonReload.setEnabled(true);
 					}
 				});
 				tJob.start();
@@ -392,7 +389,7 @@ public class JFrameMain extends JFrame {
 
 	private void setTableModelUI() {
 		jTableRedistList.setModel(model);
-		RowSorter<TableModel> sorter = new TableRowSorter<TableModel>(model);
+		RowSorter<TableModel> sorter = new TableRowSorter<>(model);
 		jTableRedistList.setRowSorter(sorter);
 		jTableRedistList.getColumnModel().getColumn(0).setPreferredWidth(50);
 		jTableRedistList.getColumnModel().getColumn(0).setMinWidth(10);
@@ -885,15 +882,11 @@ public class JFrameMain extends JFrame {
     }//GEN-LAST:event_jButtonRemoveRedistItemsFromDiskActionPerformed
 
 	private void checkForUpdates() {
-		new Thread(new Runnable() {
-			@SuppressWarnings("NestedAssignment")
-			@Override
-			public void run() {
-				String latestVersion = UpdateManager.getLatestVersion();
-				if (!UpdateManager.IsUpToDate(latestVersion)) {
-					setTitle(getTitle() + "   " + translation.getString(Translation.SEC_WMAIN, "title.newVersionMsg")
-							.replace("{0}", UpdateManager.normalizeVersionStr(latestVersion)));
-				}
+		new Thread(() -> {
+			String latestVersion = UpdateManager.getLatestVersion();
+			if (!UpdateManager.IsUpToDate(latestVersion)) {
+				setTitle(getTitle() + "   " + translation.getString(Translation.SEC_WMAIN, "title.newVersionMsg")
+						.replace("{0}", UpdateManager.normalizeVersionStr(latestVersion)));
 			}
 		}).start();
 	}

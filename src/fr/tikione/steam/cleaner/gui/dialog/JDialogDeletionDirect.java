@@ -49,65 +49,62 @@ public class JDialogDeletionDirect extends JDialog {
         initComponents();
         initTranslateComponents(translation);
         GraphicsUtils.setFrameCentered(this);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                String labelOK = translation.getString(Translation.SEC_DELETE, "info.success");
-                String labelERROR = translation.getString(Translation.SEC_DELETE, "info.error");
-                String labelDelFile = translation.getString(Translation.SEC_DELETE, "info.deleteFile");
-                String labelDelFolder = translation.getString(Translation.SEC_DELETE, "info.deleteFolder");
-                String labelSaved = translation.getString(Translation.SEC_DELETE, "info.spaceSaved");
-                long totalSaved = 0;
-                for (File file : filesToDel) {
-                    if (file.exists()) {
-                        jTextAreaDeletionLog.setText(jTextAreaDeletionLog.getText() + "\r\n- "
-                                + labelDelFile.replace("{0}", file.getAbsolutePath()));
-                        boolean res;
-                        long fileSize = org.apache.commons.io.FileUtils.sizeOf(file);
-                        try {
-                            res = file.delete();
-                        } catch (Exception ex) {
-                            res = false;
-                            Log.error(ex);
-                        }
-                        if (res) {
-                            totalSaved += fileSize;
-                        }
-                        jTextAreaDeletionLog.setText(jTextAreaDeletionLog.getText() + " " + (res ? labelOK : labelERROR));
-                        Log.info("Delete file : " + file.getAbsolutePath() + " ... " + (res ? "OK" : "ERROR"));
-                    } else {
-                        Log.info("Delete file : " + file.getAbsolutePath() + " ... SKIPPED (already deleted)");
-                    }
-                }
-                for (File folder : foldersToDel) {
-                    if (folder.exists()) {
-                        jTextAreaDeletionLog.setText(jTextAreaDeletionLog.getText() + "\r\n- "
-                                + labelDelFolder.replace("{0}", folder.getAbsolutePath()));
-                        boolean res;
-                        long folderSize = org.apache.commons.io.FileUtils.sizeOfDirectory(folder);
-                        try {
-                            res = FileUtils.deleteFolder(folder);
-                        } catch (Exception ex) {
-                            res = false;
-                            Log.error(ex);
-                        }
-                        if (res) {
-                            totalSaved += folderSize;
-                        }
-                        jTextAreaDeletionLog.setText(jTextAreaDeletionLog.getText() + " " + (res ? labelOK : labelERROR));
-                        Log.info("Delete folder : " + folder.getAbsolutePath() + " ... " + (res ? "OK" : "ERROR"));
-                    } else {
-                        Log.info("Delete folder : " + folder.getAbsolutePath() + " ... SKIPPED (already deleted)");
-                    }
-                }
-                double dSize = totalSaved;
-                dSize /= (1024.0 * 1024.0);
-                dSize = Math.round(dSize * 100.0) / 100.0;
-                jTextAreaDeletionLog.setText(jTextAreaDeletionLog.getText() + "\r\n\r\n"
-                        + labelSaved.replace("{0}", Double.toString(dSize)));
-                Log.info(labelSaved.replace("{0}", Double.toString(dSize)));
-            }
-        }).start();
+        new Thread(() -> {
+			String labelOK = translation.getString(Translation.SEC_DELETE, "info.success");
+			String labelERROR = translation.getString(Translation.SEC_DELETE, "info.error");
+			String labelDelFile = translation.getString(Translation.SEC_DELETE, "info.deleteFile");
+			String labelDelFolder = translation.getString(Translation.SEC_DELETE, "info.deleteFolder");
+			String labelSaved = translation.getString(Translation.SEC_DELETE, "info.spaceSaved");
+			long totalSaved = 0;
+			for (File file : filesToDel) {
+				if (file.exists()) {
+					jTextAreaDeletionLog.setText(jTextAreaDeletionLog.getText() + "\r\n- "
+							+ labelDelFile.replace("{0}", file.getAbsolutePath()));
+					boolean res;
+					long fileSize = org.apache.commons.io.FileUtils.sizeOf(file);
+					try {
+						res = file.delete();
+					} catch (Exception ex) {
+						res = false;
+						Log.error(ex);
+					}
+					if (res) {
+						totalSaved += fileSize;
+					}
+					jTextAreaDeletionLog.setText(jTextAreaDeletionLog.getText() + " " + (res ? labelOK : labelERROR));
+					Log.info("Delete file : " + file.getAbsolutePath() + " ... " + (res ? "OK" : "ERROR"));
+				} else {
+					Log.info("Delete file : " + file.getAbsolutePath() + " ... SKIPPED (already deleted)");
+				}
+			}
+			for (File folder : foldersToDel) {
+				if (folder.exists()) {
+					jTextAreaDeletionLog.setText(jTextAreaDeletionLog.getText() + "\r\n- "
+							+ labelDelFolder.replace("{0}", folder.getAbsolutePath()));
+					boolean res;
+					long folderSize = org.apache.commons.io.FileUtils.sizeOfDirectory(folder);
+					try {
+						res = FileUtils.deleteFolder(folder);
+					} catch (Exception ex) {
+						res = false;
+						Log.error(ex);
+					}
+					if (res) {
+						totalSaved += folderSize;
+					}
+					jTextAreaDeletionLog.setText(jTextAreaDeletionLog.getText() + " " + (res ? labelOK : labelERROR));
+					Log.info("Delete folder : " + folder.getAbsolutePath() + " ... " + (res ? "OK" : "ERROR"));
+				} else {
+					Log.info("Delete folder : " + folder.getAbsolutePath() + " ... SKIPPED (already deleted)");
+				}
+			}
+			double dSize = totalSaved;
+			dSize /= (1024.0 * 1024.0);
+			dSize = Math.round(dSize * 100.0) / 100.0;
+			jTextAreaDeletionLog.setText(jTextAreaDeletionLog.getText() + "\r\n\r\n"
+					+ labelSaved.replace("{0}", Double.toString(dSize)));
+			Log.info(labelSaved.replace("{0}", Double.toString(dSize)));
+		}).start();
     }
 
     private void initTranslateComponents(Translation translation) {
