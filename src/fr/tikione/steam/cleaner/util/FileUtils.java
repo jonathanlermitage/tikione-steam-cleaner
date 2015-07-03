@@ -38,27 +38,24 @@ public class FileUtils {
                 try {
                     files.addAll(org.apache.commons.io.FileUtils.listFiles(folder, null, false));
                     File[] subFolders;
-                    subFolders = folder.listFiles(new FileFilter() {
-                        @Override
-                        public boolean accept(File pathname) {
-                            boolean accept;
-                            if (pathname.isDirectory()) {
-                                accept = true;
-                                String abslowPath = pathname.getAbsolutePath().toLowerCase(Main.SYS_LOCALE);
-                                EXCLUDE_DANGEROUS:
-                                for (Pattern dangerousPatt : dangerousFolders) {
-                                    if (StringHelper.checkRegex(abslowPath, dangerousPatt)) {
-                                        accept = false;
-                                        Log.info("Skipped hazardous place: '" + pathname + "'");
-                                        break;
-                                    }
-                                }
-                            } else {
-                                accept = false;
-                            }
-                            return accept;
-                        }
-                    });
+                    subFolders = folder.listFiles((File pathname) -> {
+						boolean accept;
+						if (pathname.isDirectory()) {
+							accept = true;
+							String abslowPath = pathname.getAbsolutePath().toLowerCase(Main.SYS_LOCALE);
+							EXCLUDE_DANGEROUS:
+							for (Pattern dangerousPatt : dangerousFolders) {
+								if (StringHelper.checkRegex(abslowPath, dangerousPatt)) {
+									accept = false;
+									Log.info("Skipped hazardous place: '" + pathname + "'");
+									break;
+								}
+							}
+						} else {
+							accept = false;
+						}
+						return accept;
+					});
                     if (depth > 0 && subFolders != null) {
                         FOLDER_LISTING:
                         for (File subFolder : subFolders) {
@@ -90,27 +87,24 @@ public class FileUtils {
             final List<Pattern> dangerousFolders) {
         jframe.setTitle(folder.getAbsolutePath() + File.separatorChar);
         files.addAll(org.apache.commons.io.FileUtils.listFiles(folder, null, false));
-        File[] subFolders = folder.listFiles(new FileFilter() {
-            @Override
-            public boolean accept(File pathname) {
-                boolean accept;
-                if (pathname.isDirectory()) {
-                    accept = true;
-                    String abslowPath = pathname.getAbsolutePath().toLowerCase(Main.SYS_LOCALE);
-                    EXCLUDE_DANGEROUS:
-                    for (Pattern dangerousPatt : dangerousFolders) {
-                        if (StringHelper.checkRegex(abslowPath, dangerousPatt)) {
-                            accept = false;
-                            Log.info("Skipped hazardous place: '" + pathname + "'");
-                            break;
-                        }
-                    }
-                } else {
-                    accept = false;
-                }
-                return accept;
-            }
-        });
+        File[] subFolders = folder.listFiles((File pathname) -> {
+			boolean accept;
+			if (pathname.isDirectory()) {
+				accept = true;
+				String abslowPath = pathname.getAbsolutePath().toLowerCase(Main.SYS_LOCALE);
+				EXCLUDE_DANGEROUS:
+				for (Pattern dangerousPatt : dangerousFolders) {
+					if (StringHelper.checkRegex(abslowPath, dangerousPatt)) {
+						accept = false;
+						Log.info("Skipped hazardous place: '" + pathname + "'");
+						break;
+					}
+				}
+			} else {
+				accept = false;
+			}
+			return accept;
+		});
         if (depth > 0 && subFolders != null) {
             FILE_LISTING:
             for (File subFolder : subFolders) { // FIXED avoid NPE on (protected) subFolders if custom dir.

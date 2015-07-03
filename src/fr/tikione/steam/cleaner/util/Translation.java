@@ -82,12 +82,7 @@ public class Translation {
                    InfinitiveLoopException {
         List<CountryLanguage> langList = new ArrayList<>(2);
         File i18nFolder = new File(CONF_BASEPATH);
-        File[] langFiles = i18nFolder.listFiles(new FilenameFilter() {
-            @Override
-            public boolean accept(File dir, String name) {
-                return name.endsWith(CONF_EXT) && !name.equalsIgnoreCase("encoding.ini");
-            }
-        });
+        File[] langFiles = i18nFolder.listFiles((File dir, String name) -> name.endsWith(CONF_EXT) && !name.equalsIgnoreCase("encoding.ini"));
         Ini langIni = new Ini();
         for (File langFile : langFiles) {
             langIni.load(langFile, Main.CONF_ENCODING);
