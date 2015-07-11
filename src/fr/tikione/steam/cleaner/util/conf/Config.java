@@ -94,7 +94,7 @@ public class Config {
     private Config()
             throws IOException, CharConversionException, InfinitiveLoopException {
         File backupConfigFile = new File("conf/backup/tikione-steam-cleaner_config.ini");
-        File userprofile = new File(System.getenv("USERPROFILE") + "/.tikione/");
+        File userprofile = new File(getProfilePath());
         userprofile.mkdirs();
         configFile = new File(userprofile.getAbsolutePath() + "/tikione-steam-cleaner_config_rev241.ini");
         if (!configFile.exists()) {
@@ -105,6 +105,18 @@ public class Config {
         ini.getConfig().enableReadUnicodeEscConv(true);
         ini.load(configFile, Main.CONF_ENCODING);
     }
+	
+	/**
+	 * Get profile path.
+	 * @return profile path.
+	 */
+	public static String getProfilePath() {
+		if (Main.PORTABLE) {
+			return "./.tikione/";
+		} else {
+			return System.getenv("USERPROFILE") + "/.tikione/";
+		}
+	}
 
     /**
      * Saves the configuration into a file.

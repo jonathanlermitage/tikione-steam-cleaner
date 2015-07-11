@@ -39,7 +39,7 @@ public class CustomFolders {
     public CustomFolders()
             throws IOException {
         File backupConfigFile = new File("conf/backup/tikione-steam-cleaner_custom-folders.ini");
-        File userprofile = new File(System.getenv("USERPROFILE") + "/.tikione/");
+        File userprofile = new File(Config.getProfilePath());
         userprofile.mkdirs();
         configFile = new File(userprofile.getAbsolutePath() + "/tikione-steam-cleaner_custom-folders.ini");
         if (!configFile.exists()) {

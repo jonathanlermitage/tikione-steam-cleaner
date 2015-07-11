@@ -73,7 +73,7 @@ public class Patterns {
     private Patterns()
             throws IOException, CharConversionException, InfinitiveLoopException {
         File backupConfigFile = new File("conf/backup/tikione-steam-cleaner_patterns.ini");
-        File userprofile = new File(System.getenv("USERPROFILE") + "/.tikione/");
+        File userprofile = new File(Config.getProfilePath());
         userprofile.mkdirs();
         configFile = new File(userprofile.getAbsolutePath() + "/tikione-steam-cleaner_patterns_rev244.ini");
         if (!configFile.exists()) {

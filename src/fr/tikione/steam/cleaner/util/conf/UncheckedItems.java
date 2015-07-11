@@ -39,7 +39,7 @@ public class UncheckedItems {
     public UncheckedItems()
             throws IOException {
         File backupConfigFile = new File("conf/backup/tikione-steam-cleaner_unchecked-items.ini");
-        File userprofile = new File(System.getenv("USERPROFILE") + "/.tikione/");
+        File userprofile = new File(Config.getProfilePath());
         userprofile.mkdirs();
         configFile = new File(userprofile.getAbsolutePath() + "/tikione-steam-cleaner_unchecked-items.ini");
         if (!configFile.exists()) {

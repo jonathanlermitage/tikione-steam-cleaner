@@ -1,5 +1,6 @@
 package fr.tikione.steam.cleaner.util;
 
+import fr.tikione.steam.cleaner.util.conf.Config;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -19,14 +20,14 @@ public class Log {
         try {
             Properties conf = new Properties();
             File backupLog4j = new File("conf/backup/tikione-steam-cleaner_log4j.properties");
-            File userprofile = new File(System.getenv("USERPROFILE") + "/.tikione/");
+            File userprofile = new File(Config.getProfilePath());
             userprofile.mkdirs();
             File userLog4j = new File(userprofile.getAbsolutePath() + "/tikione-steam-cleaner_log4j.properties");
             if (!userLog4j.exists()) {
                 org.apache.commons.io.FileUtils.copyFile(backupLog4j, userLog4j);
             }
             conf.load(new FileReader(userLog4j));
-            conf.setProperty("log4j.appender.messages.File", System.getenv("USERPROFILE") + "/.tikione/log/steamcleaner_messages.log");
+            conf.setProperty("log4j.appender.messages.File", Config.getProfilePath() + "/log/steamcleaner_messages.log");
             PropertyConfigurator.configure(conf);
             messagesLogger = Logger.getLogger("fr.tikione.steam.cleaner.log.info");
         } catch (IOException ex) {

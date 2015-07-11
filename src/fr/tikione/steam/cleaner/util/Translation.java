@@ -6,7 +6,6 @@ import fr.tikione.steam.cleaner.Main;
 import fr.tikione.steam.cleaner.util.conf.I18nEncoding;
 import java.io.CharConversionException;
 import java.io.File;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;

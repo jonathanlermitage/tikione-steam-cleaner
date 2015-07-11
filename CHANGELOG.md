@@ -1,5 +1,10 @@
 ## TikiOne Steam Cleaner Change Log
 
+### 2.4.5 (under development) JAVA8
+* updated German (de) translation. Thx Hauwertlhaufn.
+* updated the bundled JVM to Java 8u45.
+* there are now two editions of TikiOne Steam Cleaner: regular, with the installer, and a portable edition that don't left config files in %userprofile% folder.
+
 ### 2.4.4 (2015/06/21) JAVA7
 * updated the list of redistributable packages to support GOG (GalaxyClient) and Origin platforms. Thx Antti Mieskolainen.
 * updated the experimental list of redistributable packages to support Help, Support and EULA files (non-redist but still removable). Thx Antti Mieskolainen.
