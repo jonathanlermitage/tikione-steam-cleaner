@@ -51,6 +51,7 @@ You can ask questions and share ideas by email (<jonathan.lermitage@gmail.com>),
 * Dmitry Bolotov (Дмитрий Болотов): Russian and Ukrainian translations
 * Boris Klein: German translation
 * Ulli Kunz: German translation
+* Hauwertlhaufn: German translation
 * Zsolt Brechler: Hungarian translation
 * Piotr Swat: Polish translation
 * Pedro Henrique Viegas Diniz: Portuguese translation
