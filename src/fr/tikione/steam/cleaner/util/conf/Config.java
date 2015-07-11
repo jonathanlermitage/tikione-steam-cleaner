@@ -111,7 +111,7 @@ public class Config {
 	 * @return profile path.
 	 */
 	public static String getProfilePath() {
-		if (Main.PORTABLE) {
+		if (Main.ARG_PORTABLE) {
 			return "./.tikione/";
 		} else {
 			return System.getenv("USERPROFILE") + "/.tikione/";

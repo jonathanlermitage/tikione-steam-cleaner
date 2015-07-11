@@ -15,9 +15,9 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class Main {
 
 	public static final String CONF_ENCODING = StandardCharsets.UTF_8.name();
-	public static final Locale SYS_LOCALE = Locale.getDefault();
 	public static final String CONF_NEWLINE = "\r\n";
-	public static boolean PORTABLE;
+	public static final Locale SYS_LOCALE = Locale.getDefault();
+	public static boolean ARG_PORTABLE;
 
 	/**
 	 * The application launcher. Starts GUI.
@@ -25,12 +25,12 @@ public class Main {
 	 * @param args command-line arguments.
 	 */
 	public static void main(String[] args) {
-		PORTABLE = Arrays.asList(args).contains("enablePortablemode");
+		ARG_PORTABLE = Arrays.asList(args).contains("enablePortablemode");
 		Log.info("-------------------------------------------------");
 		Log.info("Application started; version is " + Version.VERSION
 				+ "; default encoding is " + CONF_ENCODING
 				+ "; default locale is " + SYS_LOCALE.toString()
-				+ "; portableMode " + (PORTABLE ? "enabled" : "disabled"));
+				+ "; portableMode " + (ARG_PORTABLE ? "enabled" : "disabled"));
 		try {
 			javax.swing.UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
