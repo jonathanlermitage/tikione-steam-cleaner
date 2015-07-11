@@ -8,7 +8,7 @@ Tikione Steam Cleaner is an open source and free software written in Java 8 and 
 
 GOG (GalaxyClient) and Origin support is under development.
 
-TikiOne Steam Cleaner is built with [NetBeans](http://netbeans.org) and the latest version of Oracle JDK7.
+TikiOne Steam Cleaner is built with [NetBeans](http://netbeans.org) and the latest version of Oracle JDK8.
 
 ![Screenshot](http://lermitage.biz/files/steamcleaner_2.png)
 
