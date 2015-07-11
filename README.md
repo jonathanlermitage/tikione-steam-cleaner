@@ -27,7 +27,7 @@ TikiOne Steam Cleaner installer is hosted on:
 
 To build the project:
 
-* load the project with NetBeans and a Java7 compatible JDK (I use the latest version of NetBeans and Oracle JDK7)
+* load the project with NetBeans and a Java 8 compatible JDK (I use the latest version of NetBeans and Oracle JDK7)
 * dependencies should be automatically loaded from the ``./dependencies/`` folder. Otherwise, you can download them:
  * [TikiOne INI 3.0.0](http://sourceforge.net/projects/tikione/files/tikione-ini/)
  * [Apache Commons IO 2.4](http://commons.apache.org/proper/commons-io/)
