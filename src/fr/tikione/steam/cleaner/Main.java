@@ -22,7 +22,7 @@ public class Main {
 	/**
 	 * The application launcher. Starts GUI.
 	 *
-	 * @param args command-line arguments. Not used in this version.
+	 * @param args command-line arguments.
 	 */
 	public static void main(String[] args) {
 		PORTABLE = Arrays.asList(args).contains("enablePortablemode");
