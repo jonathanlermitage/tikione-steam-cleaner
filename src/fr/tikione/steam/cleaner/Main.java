@@ -15,11 +15,8 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class Main {
 
 	public static final String CONF_ENCODING = StandardCharsets.UTF_8.name();
-
 	public static final Locale SYS_LOCALE = Locale.getDefault();
-
 	public static final String CONF_NEWLINE = "\r\n";
-
 	public static boolean PORTABLE;
 
 	/**
