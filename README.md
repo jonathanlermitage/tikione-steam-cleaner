@@ -19,7 +19,7 @@ TikiOne Steam Cleaner installer is hosted on:
 * [Sourceforge](http://sourceforge.net/projects/tikione/), click [here](http://sourceforge.net/projects/tikione/files/latest/download) to download the latest version
 * [GitHub](https://github.com/jonathanlermitage/tikione-steam-cleaner/releases)
  
-**Tip**: software comes with a standalone version on Java. Standalone means it won't be registered on your system, so you won't be exposed to web vulnerabilities. Standalone Java is used by Steam Cleaner only. Also, if you already installed Java (version 7, 8 or better), you can delete the standalone version: simply go to the Steam Cleaner installation directory (something like `C:\Program Files (x86)\TikiOne Steam Cleaner\`) and delete the `jre` folder. Once it's done, Steam Cleaner will use your Java installation.
+**Tip**: software comes with a standalone version on Java. Standalone means it won't be registered on your system, so you won't be exposed to web vulnerabilities. Standalone Java is used by Steam Cleaner only. Also, if you already installed Java (version 8 or better), you can delete the standalone version: simply go to the Steam Cleaner installation directory (something like `C:\Program Files (x86)\TikiOne Steam Cleaner\`) and delete the `jre` folder. Once it's done, Steam Cleaner will use your Java installation.
 
 **Information about Sourceforge**: you probably heard about the fact that Sourceforge modified installer files of GIMP project to include adware or junkware. This is due to the fact that Sourceforge takes ownership of abandoned projects (they haven't been updated since a very long time on the Sourceforge platform). Sourgeforge decision is very disputable. Meanwhile, maintained projects are not modified; TikiOne Steam Cleaner is one of them: I maintain binaries and they will NEVER come with adware or junkware. The day I stop Steam Cleaner development, I will simply delete my Sourceforge account and project files.
 
@@ -28,7 +28,7 @@ TikiOne Steam Cleaner installer is hosted on:
 To build the project:
 
 * load the project with NetBeans and a Java7 compatible JDK (I use the latest version of NetBeans and Oracle JDK7)
-* dependencies should be automatically loaded from the ``./dependencies/`` folder. Otherwise, you can find them at:
+* dependencies should be automatically loaded from the ``./dependencies/`` folder. Otherwise, you can download them:
  * [TikiOne INI 3.0.0](http://sourceforge.net/projects/tikione/files/tikione-ini/)
  * [Apache Commons IO 2.4](http://commons.apache.org/proper/commons-io/)
  * [Apache log4j™ 1.2.17](http://logging.apache.org/log4j/1.2/)
@@ -38,7 +38,7 @@ You can now build and run the project.
 
 To package the application, simply merge the "dist" and "dist2" folders.
 
-To bundle a JVM, copy it into a "jre" folder in the "dist2" folder and launch the NSIS script: it will package TikiOne steam Cleaner with the provided JVM into an EXE installer based on NSIS-Unicode (Nullsoft Scriptable Install System, Unicode version: I use version 2.46-5 from [Google Code](http://code.google.com/p/unsis/downloads/list)).
+To bundle a JVM (version 8 or better), copy it into a "jre" folder in the "dist2" folder and launch the NSIS script: it will package TikiOne steam Cleaner with the provided JVM into an EXE installer based on NSIS-Unicode (Nullsoft Scriptable Install System, Unicode version: I use version 2.46-5 from [Google Code](http://code.google.com/p/unsis/downloads/list)).
 
 ### Author
 * Jonathan Lermitage (<jonathan.lermitage@gmail.com>)
