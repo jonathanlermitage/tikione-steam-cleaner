@@ -47,7 +47,7 @@ To bundle a JVM (version 8 or better), copy it into a "jre" folder in the "dist2
 
 ## Contact
 
-You can ask questions and share ideas by email (<jonathan.lermitage@gmail.com>), discuss via [Twitter](https://twitter.com/JLermitage) (JLermitage) or [Reddit](https://www.reddit.com/r/gaming/comments/3ahunc/tikione_steam_cleaner_will_support_gog_and_origin/) (jlermitage).
+You can ask questions, share ideas or insult me by email (<jonathan.lermitage@gmail.com>) or discuss via [Twitter](https://twitter.com/JLermitage) (JLermitage).
 
 ## Contributors
 * Dmitry Bolotov (Дмитрий Болотов): Russian and Ukrainian translations
