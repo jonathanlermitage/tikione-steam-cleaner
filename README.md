@@ -63,7 +63,7 @@ You can ask questions, share ideas or insult me by email (<jonathan.lermitage@gm
 * Antti Mieskolainen: redist detection improvements, GOG and Origin support
 * Members of the [CanardPC forum](http://forum.canardpc.com), for their support and cheerfulness
 
-## History of TikiOne Steam Cleaner
+## History
 
 I'm working on this software since Janurary 2012. Here is the full [changelog](https://github.com/jonathanlermitage/tikione-steam-cleaner/blob/master/CHANGELOG.md).
 
