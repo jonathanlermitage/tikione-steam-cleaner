@@ -66,3 +66,7 @@ You can ask questions, share ideas or insult me by email (<jonathan.lermitage@gm
 ## License
 
 LGPL License
+
+## Donations
+
+Because I'm not an emirate, you can help me with a PayPal donation ([jonathan@lermitage.biz](http://sourceforge.net/p/tikione/donate/)).
