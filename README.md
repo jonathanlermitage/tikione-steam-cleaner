@@ -73,4 +73,4 @@ LGPL License
 
 ## Donations
 
-Because I'm not an emirate, you can help me with a PayPal donation ([jonathan@lermitage.biz](http://sourceforge.net/p/tikione/donate/)).
+Because I'm not an emirate, you can help me with a PayPal donation ([TikiOne, jonathan@lermitage.biz](http://sourceforge.net/p/tikione/donate/)).
