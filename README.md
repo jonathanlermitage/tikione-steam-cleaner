@@ -73,6 +73,4 @@ LGPL License
 
 ## Donations
 
-Because I'm not an emirate, you can help me with a PayPal donation ([TikiOne, jonathan@lermitage.biz](http://sourceforge.net/p/tikione/donate/)). I'll use it to buy beer and chocolate.
-
-_PS: to pranksters who donate $ 0.01 => it's funny, and I FUCK YOU ;)_
+You can help me with a PayPal donation ([TikiOne, jonathan@lermitage.biz](http://sourceforge.net/p/tikione/donate/)). I'll buy beer and chocolate.
