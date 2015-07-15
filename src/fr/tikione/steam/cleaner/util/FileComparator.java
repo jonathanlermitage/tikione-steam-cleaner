@@ -27,11 +27,11 @@ public class FileComparator {
 	public final void start()
 			throws InterruptedException {
 		int nbfiles = files.size();
-		Log.info("debug: FileComparator >> number of files or folders to check: " + nbfiles);
+		//Log.info("debug: FileComparator >> number of files or folders to check: " + nbfiles);
 		if (nbfiles > 0) {
 			int startIdx = 0;
 			int endIdx = nbfiles - 1;
-			Log.info("debug: FileComparator >> startIdx=" + startIdx + ", endIdx=" + endIdx);
+			//Log.info("debug: FileComparator >> startIdx=" + startIdx + ", endIdx=" + endIdx);
 			for (int pos = startIdx; pos <= endIdx; pos++) {
 				Redist candidate = FileUtils.checkFile(files.get(pos), redistsPatterns);
 				if (candidate != null) {
