@@ -57,7 +57,7 @@ public class UpdateManager {
 				}
 			}
 		} catch (ConnectException | UnknownHostException ex) {
-			Log.info("Cannot contact the update center");
+			Log.error("Cannot contact the update center", ex);
 			latestVersion = Version.VERSION;
 		} catch (InfinitiveLoopException | IOException ex) {
 			Log.error(ex);
