@@ -3,6 +3,7 @@ package fr.tikione.steam.cleaner;
 import fr.tikione.ini.InfinitiveLoopException;
 import fr.tikione.steam.cleaner.gui.dialog.JFrameMain;
 import fr.tikione.steam.cleaner.util.Log;
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
@@ -18,6 +19,7 @@ public class Main {
 	public static final String CONF_NEWLINE = "\r\n";
 	public static final Locale SYS_LOCALE = Locale.getDefault();
 	public static boolean ARG_PORTABLE;
+	public static boolean BUNDLED_JVM;
 
 	/**
 	 * The application launcher. Starts GUI.
@@ -25,12 +27,20 @@ public class Main {
 	 * @param args command-line arguments.
 	 */
 	public static void main(String[] args) {
+
+		// Detect portable mode.
 		ARG_PORTABLE = Arrays.asList(args).contains("enablePortablemode");
+
+		// Detect bundled JVM.
+		File jre = new File("./jre/");
+		BUNDLED_JVM = jre.isDirectory() && jre.exists();
+
 		Log.info("-------------------------------------------------");
 		Log.info("Application started; version is " + Version.VERSION
 				+ "; default encoding is " + CONF_ENCODING
 				+ "; default locale is " + SYS_LOCALE.toString()
-				+ "; portableMode " + (ARG_PORTABLE ? "enabled" : "disabled"));
+				+ "; portableMode " + (ARG_PORTABLE ? "enabled" : "disabled")
+				+ "; bundledJVM " + (BUNDLED_JVM ? "present" : "not found, will use system JVM"));
 		try {
 			javax.swing.UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
