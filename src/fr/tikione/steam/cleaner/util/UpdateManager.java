@@ -1,6 +1,7 @@
 package fr.tikione.steam.cleaner.util;
 
 import fr.tikione.ini.InfinitiveLoopException;
+import fr.tikione.steam.cleaner.Main;
 import fr.tikione.steam.cleaner.Version;
 import fr.tikione.steam.cleaner.util.conf.Config;
 import java.awt.Desktop;
@@ -18,6 +19,12 @@ import java.net.UnknownHostException;
  * Manager for program's updates.
  */
 public class UpdateManager {
+	
+	private static final String DOWNLOAD_BASE = "https://github.com/jonathanlermitage/tikione-steam-cleaner/releases/download/";
+	private static final String DOWNLOAD_REGULAR = DOWNLOAD_BASE + "v%s/TikiOne.Steam.Cleaner.%s.Setup.exe";
+	private static final String DOWNLOAD_REGULAR_NOJRE = DOWNLOAD_BASE + "v%s/TikiOne.Steam.Cleaner.%s.Setup.NoJRE.exe";
+	private static final String DOWNLOAD_PORTABLE = DOWNLOAD_BASE + "v%s/TikiOne.Steam.Cleaner.%s.Portable.exe";
+	private static final String DOWNLOAD_PORTABLE_NOJRE = DOWNLOAD_BASE + "v%s/TikiOne.Steam.Cleaner.%s.Portable.NoJRE.exe";
 
 	/** Suppresses default constructor, ensuring non-instantiability. */
 	private UpdateManager() {
@@ -93,14 +100,29 @@ public class UpdateManager {
 	}
 
 	/**
-	 * Launch the external web browser with the TikiOne Steam Cleaner download URL (on the SourceForge.net website).
+	 * Launch the external web browser with the TikiOne Steam Cleaner download URL (on the GitHub.com website).
 	 */
 	public static void extBrowserGetLatestVersion() {
-		extBrowser("http://sourceforge.net/projects/tikione/files/latest/download");
+		String version = normalizeVersionStr(getLatestVersion());
+		String download;
+		if (Main.ARG_PORTABLE) {
+			if (Main.BUNDLED_JVM) {
+				download = DOWNLOAD_PORTABLE;
+			} else {
+				download = DOWNLOAD_PORTABLE_NOJRE;
+			}
+		} else {
+			if (Main.BUNDLED_JVM) {
+				download = DOWNLOAD_REGULAR;
+			} else {
+				download = DOWNLOAD_REGULAR_NOJRE;
+			}
+		}
+		extBrowser(String.format(download, version, version));
 	}
 
 	/**
-	 * Launch the external web browser with the TikiOne Steam Cleaner changelog file URL (on the TikiOne.fr website).
+	 * Launch the external web browser with the TikiOne Steam Cleaner changelog file URL (on the GitHub.com website).
 	 */
 	public static void extBrowserGetLatestChangelog() {
 		extBrowser("https://github.com/jonathanlermitage/tikione-steam-cleaner/blob/master/CHANGELOG.md");
