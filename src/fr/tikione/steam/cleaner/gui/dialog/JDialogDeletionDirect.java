@@ -112,7 +112,7 @@ public class JDialogDeletionDirect extends JDialog {
         jButtonClose.setText(translation.getString(Translation.SEC_DELETE, "button.close"));
         jTextAreaDeletionLog.setText(translation.getString(Translation.SEC_DELETE, "info.title"));
         jButtonPaypalDonation.setToolTipText("<html><body>" + translation.getString(Translation.SEC_WABOUT, "icon.donate")
-                + "<br><font color=\"blue\">http://sourceforge.net/donate/index.php?group_id=357545</font></body></html>");
+                + "<br><font color=\"blue\">http://sourceforge.net/p/tikione/donate/</font></body></html>");
     }
 
     @SuppressWarnings("AssignmentToCollectionOrArrayFieldFromParameter")
@@ -210,7 +210,7 @@ public class JDialogDeletionDirect extends JDialog {
     }//GEN-LAST:event_jButtonCloseActionPerformed
 
     private void jButtonPaypalDonationActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonPaypalDonationActionPerformed
-        UpdateManager.extBrowser("http://sourceforge.net/donate/index.php?group_id=357545");
+        UpdateManager.extBrowser("http://sourceforge.net/p/tikione/donate/");
     }//GEN-LAST:event_jButtonPaypalDonationActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JButton jButtonClose;

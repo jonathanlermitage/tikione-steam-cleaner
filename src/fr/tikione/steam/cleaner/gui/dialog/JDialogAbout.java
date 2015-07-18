@@ -70,7 +70,7 @@ public class JDialogAbout extends JDialog {
     private void initTranslateComponents(Translation translation) {
         jButtonClose.setText(translation.getString(Translation.SEC_WABOUT, "button.close"));
         jButtonPaypalDonation.setToolTipText("<html><body>" + translation.getString(Translation.SEC_WABOUT, "icon.donate")
-                + "<br><font color=\"blue\">http://sourceforge.net/donate/index.php?group_id=357545</font></body></html>");
+                + "<br><font color=\"blue\">http://sourceforge.net/p/tikione/donate/</font></body></html>");
     }
 
     /**
@@ -175,7 +175,7 @@ public class JDialogAbout extends JDialog {
     }//GEN-LAST:event_jButtonCloseActionPerformed
 
     private void jButtonPaypalDonationActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonPaypalDonationActionPerformed
-        UpdateManager.extBrowser("http://sourceforge.net/donate/index.php?group_id=357545");
+        UpdateManager.extBrowser("http://sourceforge.net/p/tikione/donate/");
     }//GEN-LAST:event_jButtonPaypalDonationActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JButton jButtonClose;
