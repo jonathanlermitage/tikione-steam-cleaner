@@ -326,7 +326,7 @@ public class JFrameMain extends JFrame {
 								patternsCfg.getRedistFilePatternsAndDesc(patternsCfg.getEnableExperimentalPatterns()),
 								checkedFiles, true);
 						try {
-							Log.info("debug: FileComparator on files");
+							//Log.info("debug: FileComparator on files");
 							tc.start();
 						} catch (InterruptedException ex) {
 							Log.error(ex);
@@ -336,7 +336,7 @@ public class JFrameMain extends JFrame {
 								patternsCfg.getRedistFolderPatternsAndDesc(patternsCfg.getEnableExperimentalPatterns()),
 								checkedFolders, false);
 						try {
-							Log.info("debug: FileComparator on folders");
+							//Log.info("debug: FileComparator on folders");
 							tc.start();
 						} catch (InterruptedException ex) {
 							Log.error(ex);
