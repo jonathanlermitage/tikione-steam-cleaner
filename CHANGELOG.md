@@ -1,6 +1,6 @@
 ## TikiOne Steam Cleaner Change Log
 
-### 2.4.6 (under development) JAVA8
+### 2.4.6 (2015/07/19) JAVA8
 * there are now four editions of TikiOne Steam Cleaner: regular installer with and without bundled JVM, portable edition with and without bundled JVM.
 * updater now offer link to download TikiOne Steam Cleaner from GitHub.com instead of Sourceforge.net.
 * updater now detects which edition to download.
