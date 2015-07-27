@@ -25,7 +25,7 @@ Do not hesitate to share ideas by email (<jonathan.lermitage@gmail.com>) or via 
 
 TikiOne Steam Cleaner installer is hosted on [GitHub releases](https://github.com/jonathanlermitage/tikione-steam-cleaner/releases).
 
-**Information about Sourceforge**: up to version 2.4.6, TikiOne Steam Cleaner was hosted on SourceForge. I have decided to leave this website to prefer GitHub. Starting from version 2.4.7, I'll use GitHub only.
+**Information about Sourceforge**: up to version 2.4.6, TikiOne Steam Cleaner was hosted on SourceForge. I have decided to leave this website to prefer GitHub. Starting from next version, I'll use GitHub only.
 
 ## Build, test and package
 

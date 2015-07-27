@@ -1,5 +1,11 @@
 ## TikiOne Steam Cleaner Change Log
 
+### 3.0.0 (only if Kickstarter/Patreon campaign is a success)
+* first native version, no more Java!
+
+### 2.9.0 (under development) JAVA8
+* this is probably the last version based on Java, version 3.0.0 will use native code. I hope you will help me on Kickstarter or Patreon :)
+
 ### 2.4.6 (2015/07/19) JAVA8
 * there are now four editions of TikiOne Steam Cleaner: regular installer with and without bundled JVM, portable edition with and without bundled JVM.
 * updater now offer link to download TikiOne Steam Cleaner from GitHub.com instead of Sourceforge.net.

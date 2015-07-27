@@ -206,6 +206,10 @@ public class JFrameMain extends JFrame {
 				+ "</font></body></html>");
 		jButtonTwitter.setToolTipText("<html><body>" + "TikiOne <b>Twitter</b>"
 				+ "<br><font color=\"blue\">https://twitter.com/JLermitage</font></body></html>");
+		jButtonCampaignKickstarter.setToolTipText("<html><body>Support Steam Cleaner on <b>Kickstarter</b>"
+				+ "</body></html>");
+		jButtonCampaignPatreon.setToolTipText("<html><body>Support Steam Cleaner on <b>Patreon</b>"
+				+ "</body></html>");
 	}
 
 	/**
@@ -448,6 +452,8 @@ public class JFrameMain extends JFrame {
         jButtonGithub = new JButton();
         jButtonTwitter = new JButton();
         jButtonReddit = new JButton();
+        jButtonCampaignKickstarter = new JButton();
+        jButtonCampaignPatreon = new JButton();
 
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new Color(255, 255, 255));
@@ -561,7 +567,7 @@ public class JFrameMain extends JFrame {
             .addGroup(Alignment.TRAILING, jPanelListLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelListLayout.createParallelGroup(Alignment.TRAILING)
-                    .addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 799, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(jPanelListLayout.createSequentialGroup()
                         .addComponent(jButtonReloadRedistList)
                         .addPreferredGap(ComponentPlacement.RELATED)
@@ -625,7 +631,7 @@ public class JFrameMain extends JFrame {
                     .addGroup(jPanelMainLayout.createSequentialGroup()
                         .addComponent(jLabelCustomFolders, GroupLayout.PREFERRED_SIZE, 104, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2))
+                        .addComponent(jScrollPane2, GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE))
                     .addGroup(jPanelMainLayout.createSequentialGroup()
                         .addComponent(jLabelSteamDir)
                         .addPreferredGap(ComponentPlacement.UNRELATED)
@@ -764,6 +770,28 @@ public class JFrameMain extends JFrame {
             }
         });
 
+        jButtonCampaignKickstarter.setIcon(new ImageIcon(getClass().getResource("/fr/tikione/steam/cleaner/gui/icons/kickstarter_text.png"))); // NOI18N
+        jButtonCampaignKickstarter.setToolTipText("");
+        jButtonCampaignKickstarter.setContentAreaFilled(false);
+        jButtonCampaignKickstarter.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        jButtonCampaignKickstarter.setFocusPainted(false);
+        jButtonCampaignKickstarter.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jButtonCampaignKickstarterActionPerformed(evt);
+            }
+        });
+
+        jButtonCampaignPatreon.setIcon(new ImageIcon(getClass().getResource("/fr/tikione/steam/cleaner/gui/icons/patreon_text.png"))); // NOI18N
+        jButtonCampaignPatreon.setToolTipText("");
+        jButtonCampaignPatreon.setContentAreaFilled(false);
+        jButtonCampaignPatreon.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        jButtonCampaignPatreon.setFocusPainted(false);
+        jButtonCampaignPatreon.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jButtonCampaignPatreonActionPerformed(evt);
+            }
+        });
+
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(layout.createParallelGroup(Alignment.LEADING)
@@ -771,6 +799,10 @@ public class JFrameMain extends JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBarMain, GroupLayout.PREFERRED_SIZE, 274, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonCampaignPatreon, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(ComponentPlacement.RELATED)
+                .addComponent(jButtonCampaignKickstarter, GroupLayout.PREFERRED_SIZE, 141, GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jButtonGithub, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(ComponentPlacement.RELATED)
                 .addComponent(jButtonReddit, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
@@ -789,7 +821,9 @@ public class JFrameMain extends JFrame {
                     .addComponent(jButtonSocialFacebook)
                     .addComponent(jButtonGithub)
                     .addComponent(jButtonTwitter)
-                    .addComponent(jButtonReddit))
+                    .addComponent(jButtonReddit)
+                    .addComponent(jButtonCampaignKickstarter)
+                    .addComponent(jButtonCampaignPatreon))
                 .addPreferredGap(ComponentPlacement.RELATED)
                 .addComponent(jPanelMain, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1001,8 +1035,20 @@ public class JFrameMain extends JFrame {
 		recomputeTotalSizeMB();
     }//GEN-LAST:event_jTableRedistListKeyPressed
 
+    private void jButtonCampaignKickstarterActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonCampaignKickstarterActionPerformed
+        
+		
+    }//GEN-LAST:event_jButtonCampaignKickstarterActionPerformed
+
+    private void jButtonCampaignPatreonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonCampaignPatreonActionPerformed
+        
+		
+    }//GEN-LAST:event_jButtonCampaignPatreonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JButton jButtonAddCustomFolder;
+    private JButton jButtonCampaignKickstarter;
+    private JButton jButtonCampaignPatreon;
     private JButton jButtonGithub;
     private JButton jButtonLocateSteamDir;
     private JButton jButtonManualSteamDirSearch;
