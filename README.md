@@ -6,9 +6,9 @@
 
 _The best companion of Steam users - [Download latest version **here**](https://github.com/jonathanlermitage/tikione-steam-cleaner/releases)_
 
-Tikione Steam Cleaner is an open source and free software written in Java 8 and helps you to find and remove all games's redistribuable packages downloaded by Steam (http://store.steampowered.com). For MS Windows only.
+Tikione Steam Cleaner is an open source and free software written in Java 8 and helps you to find and remove all games's redistribuable packages downloaded by **Steam** (http://store.steampowered.com). For MS Windows only.
 
-GOG (GalaxyClient) and Origin support under development.
+**GOG** (GalaxyClient) and Electronic Arts **Origin** support under development.
 
 ![Screenshot](http://lermitage.biz/files/steamcleaner_2.png)
 
