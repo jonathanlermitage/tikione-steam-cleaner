@@ -12,6 +12,15 @@ Tikione Steam Cleaner is an open source and free software written in Java 8 and 
 
 ![Screenshot](http://lermitage.biz/files/steamcleaner_2.png)
 
+## Project updates (Monday, July 27, 2015)
+
+I'll try to port TikiOne Steam Cleaner to native code. That means you'll no longer need Java, and the program will be smaller (from ~60MB to ~3MB) and faster.
+
+To proceed, I will use a development tool I master: WinDev. Unfortunately, this is a commercial product and I cannot afford a licence (it's about €2000).  
+That why I will launch a Kickstarter and Patreon campaigns soon. I really hope you will support me, otherwise... I simply won't be able to maintain TikiOne Steam Cleaner.
+
+Do not hesitate to share ideas by email (<jonathan.lermitage@gmail.com>) or via [Twitter](https://twitter.com/JLermitage). Thx!
+
 ## Download installer
 
 TikiOne Steam Cleaner installer is hosted on [GitHub releases](https://github.com/jonathanlermitage/tikione-steam-cleaner/releases).
