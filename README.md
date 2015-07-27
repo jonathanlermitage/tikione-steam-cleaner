@@ -14,21 +14,18 @@ TikiOne Steam Cleaner is built with [NetBeans](http://netbeans.org) and the late
 
 ![Screenshot](http://lermitage.biz/files/steamcleaner_2.png)
 
-## How to download TikiOne Steam Cleaner installer
+## Download installer
 
 TikiOne Steam Cleaner installer is hosted on [GitHub releases](https://github.com/jonathanlermitage/tikione-steam-cleaner/releases).
 
 **Information about Sourceforge**: up to version 2.4.6, TikiOne Steam Cleaner was hosted on SourceForge. I have decided to leave this website to prefer GitHub.
 
-## How to build, test and package TikiOne Steam Cleaner
+## Build, test and package
 
 To build the project:
 
 * load the project with NetBeans and a Java 8 compatible JDK (I use the latest version of NetBeans and Oracle JDK8)
-* dependencies should be automatically loaded from the ``./dependencies/`` folder. Otherwise, you can download them:
- * [TikiOne INI 3.0.0](http://sourceforge.net/projects/tikione/files/tikione-ini/)
- * [Apache Commons IO 2.4](http://commons.apache.org/proper/commons-io/)
- * [Apache log4j™ 1.2.17](http://logging.apache.org/log4j/1.2/)
+* dependencies should be automatically loaded from the ``./dependencies/`` folder.
 * set the working directory to the "dist2" folder. It contains additional configuration files used by base application.
 
 You can now build and run the project.
