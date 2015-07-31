@@ -1036,13 +1036,11 @@ public class JFrameMain extends JFrame {
     }//GEN-LAST:event_jTableRedistListKeyPressed
 
     private void jButtonCampaignKickstarterActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonCampaignKickstarterActionPerformed
-        
-		
+        UpdateManager.extBrowser("https://www.kickstarter.com/projects/313629631/1711978703?token=51560623");
     }//GEN-LAST:event_jButtonCampaignKickstarterActionPerformed
 
     private void jButtonCampaignPatreonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonCampaignPatreonActionPerformed
-        
-		
+		UpdateManager.extBrowser("https://www.patreon.com/user?u=942297");
     }//GEN-LAST:event_jButtonCampaignPatreonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
