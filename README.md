@@ -10,7 +10,7 @@ Tikione Steam Cleaner is an open source and free software written in Java 8 and 
 
 **GOG** (GalaxyClient) and Electronic Arts **Origin** support under development.
 
-![Screenshot](http://lermitage.biz/files/steamcleaner_2.png)
+![Screenshot](https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/src/fr/tikione/steam/cleaner/gui/tikione-steam-cleaner-banner.png)
 
 ## Project updates (Monday, July 27, 2015)
 
