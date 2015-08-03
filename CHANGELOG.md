@@ -3,7 +3,8 @@
 ### 3.0.0 (only if Kickstarter/Patreon campaign is a success)
 * first native version, no more Java!
 
-### 2.9.0 (under development) JAVA8
+### 2.9.0 (2015/08/03) JAVA8
+* added links to Patreon and Kickstarter campaigns.
 * this is probably the last version based on Java, version 3.0.0 will use native code. I hope you will help me on Kickstarter or Patreon ([see why it's important](https://github.com/jonathanlermitage/tikione-steam-cleaner#project-updates-monday-july-27-2015)).
 
 ### 2.4.6 (2015/07/19) JAVA8
