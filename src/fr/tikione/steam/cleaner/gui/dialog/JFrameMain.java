@@ -1036,7 +1036,7 @@ public class JFrameMain extends JFrame {
     }//GEN-LAST:event_jTableRedistListKeyPressed
 
     private void jButtonCampaignKickstarterActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonCampaignKickstarterActionPerformed
-        UpdateManager.extBrowser("https://www.kickstarter.com/projects/313629631/1711978703?token=51560623");
+        UpdateManager.extBrowser("https://www.kickstarter.com/projects/313629631/tikione-steam-cleaner");
     }//GEN-LAST:event_jButtonCampaignKickstarterActionPerformed
 
     private void jButtonCampaignPatreonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonCampaignPatreonActionPerformed
