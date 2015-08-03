@@ -1,1 +1,1 @@
-fr.tikione.steam.cleaner=2.4.6
+fr.tikione.steam.cleaner=2.9.0
