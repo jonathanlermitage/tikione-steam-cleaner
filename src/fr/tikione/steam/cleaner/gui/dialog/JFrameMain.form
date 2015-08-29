@@ -36,8 +36,6 @@
               <EmptySpace max="32767" attributes="0"/>
               <Component id="jButtonCampaignPatreon" min="-2" pref="120" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jButtonCampaignKickstarter" min="-2" pref="141" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jButtonGithub" min="-2" pref="29" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jButtonReddit" min="-2" pref="29" max="-2" attributes="0"/>
@@ -60,7 +58,6 @@
                   <Component id="jButtonGithub" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonTwitter" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonReddit" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonCampaignKickstarter" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonCampaignPatreon" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -87,7 +84,7 @@
                       <Group type="102" attributes="0">
                           <Component id="jLabelCustomFolders" min="-2" pref="104" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane2" pref="487" max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" pref="293" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="jLabelSteamDir" min="-2" max="-2" attributes="0"/>
@@ -220,7 +217,7 @@
                           <Component id="jButtonStopSearch" alignment="2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="241" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="118" max="32767" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -554,22 +551,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRedditActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButtonCampaignKickstarter">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/fr/tikione/steam/cleaner/gui/icons/kickstarter_text.png"/>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
-        <Property name="contentAreaFilled" type="boolean" value="false"/>
-        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Hand Cursor"/>
-        </Property>
-        <Property name="focusPainted" type="boolean" value="false"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCampaignKickstarterActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonCampaignPatreon">
