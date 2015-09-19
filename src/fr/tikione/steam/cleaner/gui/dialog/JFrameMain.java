@@ -206,8 +206,6 @@ public class JFrameMain extends JFrame {
 				+ "</font></body></html>");
 		jButtonTwitter.setToolTipText("<html><body>" + "TikiOne <b>Twitter</b>"
 				+ "<br><font color=\"blue\">https://twitter.com/JLermitage</font></body></html>");
-		jButtonCampaignPatreon.setToolTipText("<html><body>Support Steam Cleaner on <b>Patreon</b>"
-				+ "</body></html>");
 	}
 
 	/**
@@ -450,7 +448,6 @@ public class JFrameMain extends JFrame {
     jButtonGithub = new JButton();
     jButtonTwitter = new JButton();
     jButtonReddit = new JButton();
-    jButtonCampaignPatreon = new JButton();
 
     setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     setBackground(new Color(255, 255, 255));
@@ -767,17 +764,6 @@ public class JFrameMain extends JFrame {
       }
     });
 
-    jButtonCampaignPatreon.setIcon(new ImageIcon(getClass().getResource("/fr/tikione/steam/cleaner/gui/icons/patreon_text.png"))); // NOI18N
-    jButtonCampaignPatreon.setToolTipText("");
-    jButtonCampaignPatreon.setContentAreaFilled(false);
-    jButtonCampaignPatreon.setCursor(new Cursor(Cursor.HAND_CURSOR));
-    jButtonCampaignPatreon.setFocusPainted(false);
-    jButtonCampaignPatreon.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent evt) {
-        jButtonCampaignPatreonActionPerformed(evt);
-      }
-    });
-
     GroupLayout layout = new GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(layout.createParallelGroup(Alignment.LEADING)
@@ -785,8 +771,6 @@ public class JFrameMain extends JFrame {
       .addGroup(layout.createSequentialGroup()
         .addComponent(jToolBarMain, GroupLayout.PREFERRED_SIZE, 274, GroupLayout.PREFERRED_SIZE)
         .addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addComponent(jButtonCampaignPatreon, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
-        .addPreferredGap(ComponentPlacement.RELATED)
         .addComponent(jButtonGithub, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
         .addPreferredGap(ComponentPlacement.RELATED)
         .addComponent(jButtonReddit, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
@@ -805,9 +789,8 @@ public class JFrameMain extends JFrame {
           .addComponent(jButtonSocialFacebook)
           .addComponent(jButtonGithub)
           .addComponent(jButtonTwitter)
-          .addComponent(jButtonReddit)
-          .addComponent(jButtonCampaignPatreon))
-        .addPreferredGap(ComponentPlacement.RELATED)
+          .addComponent(jButtonReddit))
+        .addGap(10, 10, 10)
         .addComponent(jPanelMain, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
@@ -1018,13 +1001,8 @@ public class JFrameMain extends JFrame {
 		recomputeTotalSizeMB();
     }//GEN-LAST:event_jTableRedistListKeyPressed
 
-    private void jButtonCampaignPatreonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonCampaignPatreonActionPerformed
-		UpdateManager.extBrowser("https://www.patreon.com/user?u=942297");
-    }//GEN-LAST:event_jButtonCampaignPatreonActionPerformed
-
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private JButton jButtonAddCustomFolder;
-  private JButton jButtonCampaignPatreon;
   private JButton jButtonGithub;
   private JButton jButtonLocateSteamDir;
   private JButton jButtonManualSteamDirSearch;
