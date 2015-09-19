@@ -52,12 +52,6 @@ To bundle a JVM (version 8 or better), copy it into a "jre" folder in the "dist2
 
 You can ask questions, share ideas or insult me by email (<jonathan.lermitage@gmail.com>) or discuss via [Twitter](https://twitter.com/JLermitage).
 
-## Donators
-* [Rami M. M.](https://www.patreon.com/raimu)
-
-If you donate via **Patreon** ($5+) but don't see your name here, please send me an email or contact me via Patreon directly. I'll add your name and external links if asked (links to your Facebook, Twitter, Google+, LinkedIn profile, a weblog or anything else).  
-Thank you very much for your support.
-
 ## Contributors
 * Dmitry Bolotov (Дмитрий Болотов): Russian and Ukrainian translations
 * Boris Klein: German translation
