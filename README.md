@@ -1,3 +1,5 @@
+**:zzz: FYI, development is stopped. I needed funds to port Steam Cleaner to native code. Kickstarter and Patreon campaigns simply failed. Please consider using CCleaner with CCenhancer instead. :zzz:**
+
 # TikiOne Steam Cleaner
 
 _The best companion of Steam users - [Download latest version **here**](https://github.com/jonathanlermitage/tikione-steam-cleaner/releases)_
@@ -7,6 +9,10 @@ Tikione Steam Cleaner is an open source and free software written in Java 8 and 
 **GOG** (GalaxyClient) and Electronic Arts **Origin** support under development.
 
 ![Screenshot](https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/src/fr/tikione/steam/cleaner/gui/tikione-steam-cleaner-banner.png)
+
+## Project updates (Monday, September 19, 2015)
+
+Kickstarter and Patreon campaigns are a big fail. That means it's probably time to end development of Steam Cleaner. Thx for you support and see you on another project ;)
 
 ## Project updates (Monday, July 27, 2015)
 
