@@ -6,7 +6,7 @@
 
 ### 2.9.0 (2015/08/03) JAVA8
 * added links to Patreon and Kickstarter campaigns.
-* this is probably the last version based on Java, version 3.0.0 will use native code. I hope you will help me on Kickstarter or Patreon ([see why it's important](https://github.com/jonathanlermitage/tikione-steam-cleaner#project-updates-monday-july-27-2015)).
+* this is probably the last version based on Java, version 3.0.0 will use native code. I hope you will help me on Kickstarter or Patreon.
 
 ### 2.4.6 (2015/07/19) JAVA8
 * there are now four editions of TikiOne Steam Cleaner: regular installer with and without bundled JVM, portable edition with and without bundled JVM.
