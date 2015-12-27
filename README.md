@@ -1,4 +1,4 @@
-**:zzz: FYI, development is stopped. I needed funds to port Steam Cleaner to native code. Kickstarter and Patreon campaigns simply failed. Please consider using CCleaner with CCenhancer instead. :zzz:**
+**:zzz: FYI, development is stopped. :zzz:**
 
 # TikiOne Steam Cleaner
 
