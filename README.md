@@ -1,5 +1,5 @@
 **:fire: Thursday, January 21, 2016  
-I will continue to include contributions (usually translations) and bugfixes.  
+I will continue to include contributions (usually translations) and provide bugfixes.  
 Don't expect new features or native builds.**
 
 # TikiOne Steam Cleaner
