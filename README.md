@@ -1,8 +1,6 @@
-**:fire: Thursday, January 21 2016  
-FYI, I have decided to continue a minimal development of Steam Cleaner.  
-I will include contributions (usually translations) and critical bugfixes only.  
-There won't be new features, nor native builds.  
-Thx.**
+**:fire: Thursday, January 21, 2016  
+I will continue to include contributions (usually translations) and bugfixes.  
+Don't expect new features or native builds.**
 
 # TikiOne Steam Cleaner
 
@@ -10,7 +8,7 @@ _The best companion of Steam users - [Download latest version **here**](https://
 
 Tikione Steam Cleaner is an open source and free software written in Java 8 and helps you to find and remove all games's redistribuable packages downloaded by **Steam** (http://store.steampowered.com). For MS Windows only.
 
-**GOG** (GalaxyClient) and Electronic Arts **Origin** support under development.
+**GOG** (GalaxyClient) and Electronic Arts **Origin** are supported.
 
 ![Screenshot](https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/src/fr/tikione/steam/cleaner/gui/tikione-steam-cleaner-banner.png)
 
