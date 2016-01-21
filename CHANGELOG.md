@@ -1,7 +1,7 @@
 ## TikiOne Steam Cleaner Change Log
 
 ### 2.9.2 (2016/0x/xx) JAVA8
-* ???
+* added Simplified Chinese (zh-cn) translation. Thx "wbsdty331".
 
 ### 2.9.1 (2015/09/19) JAVA8
 * removed links to Kickstarter and Patreon campaigns.
