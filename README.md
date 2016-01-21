@@ -1,4 +1,8 @@
-**:zzz: FYI, development is stopped. I needed funds to port Steam Cleaner to native code. Kickstarter and Patreon campaigns simply failed. Please consider using CCleaner with CCenhancer instead. :zzz:**
+**:fire: Thursday, January 21 2016  
+FYI, I have decided to continue a minimal development of Steam Cleaner.  
+I will include contributions (usually translations) and critical bugfixes only.  
+There won't be new features, nor native builds.  
+Thx.**
 
 # TikiOne Steam Cleaner
 
