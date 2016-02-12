@@ -2,6 +2,10 @@
 I will continue to include contributions (usually translations) and provide bugfixes.  
 Don't expect new major features or native builds.**
 
+**:fr: Une nouvelle licence est associée à mon projet, celle-ci interdisant  
+à tout membre du FN d'utiliser ou redistribuer le fruit de mon travail.  
+Le FN est un cancer pour la démocratie, une insulte à la vie.**
+
 # TikiOne Steam Cleaner
 
 _The best companion of Steam users - [Download latest version **here**](https://github.com/jonathanlermitage/tikione-steam-cleaner/releases)_
