@@ -66,7 +66,7 @@ I'm working on this software since Janurary 2012. Here is the full [changelog](h
 
 ## License
 
-LGPL License
+LGPL License with FRA-FN exception
 
 ## Donations
 
