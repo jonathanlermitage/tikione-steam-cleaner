@@ -57,8 +57,6 @@ public class JDialogAbout extends JDialog {
                     + "\r\n"
                     + translation.getString(Translation.SEC_WABOUT, "website2")
                     + "\r\n"
-                    + "Steam : http://steamcommunity.com/groups/tikionesteamcleanerusers\r\n"
-                    + "Facebook : http://www.facebook.com/tikione.steamcleaner\r\n\r\n"
                     + translation.getString(Translation.SEC_WABOUT, "dev")
                     + "\r\n"
                     + translation.getString(Translation.SEC_WABOUT, "dep1"));

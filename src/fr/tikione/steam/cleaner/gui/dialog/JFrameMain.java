@@ -200,10 +200,6 @@ public class JFrameMain extends JFrame {
 		jButtonStopSearch.setVisible(false);
 		jButtonGithub.setToolTipText("<html><body>" + "TikiOne <b>GitHub</b>"
 				+ "<br><font color=\"blue\">https://github.com/jonathanlermitage/tikione-steam-cleaner</font></body></html>");
-		jButtonReddit.setToolTipText("<html><body>" + "TikiOne <b>Reddit</b>"
-				+ "<br><font color=\"blue\">"
-				+ "https://www.reddit.com/r/gaming/comments/3ahunc/tikione_steam_cleaner_will_support_gog_and_origin/"
-				+ "</font></body></html>");
 		jButtonTwitter.setToolTipText("<html><body>" + "TikiOne <b>Twitter</b>"
 				+ "<br><font color=\"blue\">https://twitter.com/JLermitage</font></body></html>");
 	}
@@ -447,7 +443,6 @@ public class JFrameMain extends JFrame {
     jButtonSocialFacebook = new JButton();
     jButtonGithub = new JButton();
     jButtonTwitter = new JButton();
-    jButtonReddit = new JButton();
 
     setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     setBackground(new Color(255, 255, 255));
@@ -753,17 +748,6 @@ public class JFrameMain extends JFrame {
       }
     });
 
-    jButtonReddit.setIcon(new ImageIcon(getClass().getResource("/fr/tikione/steam/cleaner/gui/icons/social_reddit.png"))); // NOI18N
-    jButtonReddit.setToolTipText("");
-    jButtonReddit.setContentAreaFilled(false);
-    jButtonReddit.setCursor(new Cursor(Cursor.HAND_CURSOR));
-    jButtonReddit.setFocusPainted(false);
-    jButtonReddit.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent evt) {
-        jButtonRedditActionPerformed(evt);
-      }
-    });
-
     GroupLayout layout = new GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(layout.createParallelGroup(Alignment.LEADING)
@@ -772,8 +756,6 @@ public class JFrameMain extends JFrame {
         .addComponent(jToolBarMain, GroupLayout.PREFERRED_SIZE, 274, GroupLayout.PREFERRED_SIZE)
         .addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         .addComponent(jButtonGithub, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
-        .addPreferredGap(ComponentPlacement.RELATED)
-        .addComponent(jButtonReddit, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
         .addPreferredGap(ComponentPlacement.RELATED)
         .addComponent(jButtonTwitter, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
         .addPreferredGap(ComponentPlacement.RELATED)
@@ -788,8 +770,7 @@ public class JFrameMain extends JFrame {
           .addComponent(jPanelAppVersion, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
           .addComponent(jButtonSocialFacebook)
           .addComponent(jButtonGithub)
-          .addComponent(jButtonTwitter)
-          .addComponent(jButtonReddit))
+          .addComponent(jButtonTwitter))
         .addGap(10, 10, 10)
         .addComponent(jPanelMain, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
@@ -987,10 +968,6 @@ public class JFrameMain extends JFrame {
 		UpdateManager.extBrowser("https://twitter.com/JLermitage");
     }//GEN-LAST:event_jButtonTwitterActionPerformed
 
-    private void jButtonRedditActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonRedditActionPerformed
-		UpdateManager.extBrowser("https://www.reddit.com/r/gaming/comments/3ahunc/tikione_steam_cleaner_will_support_gog_and_origin/");
-    }//GEN-LAST:event_jButtonRedditActionPerformed
-
     private void jTableRedistListMouseClicked(MouseEvent evt) {//GEN-FIRST:event_jTableRedistListMouseClicked
         memorizeCustomFoldersToConf();
 		recomputeTotalSizeMB();
@@ -1006,7 +983,6 @@ public class JFrameMain extends JFrame {
   private JButton jButtonGithub;
   private JButton jButtonLocateSteamDir;
   private JButton jButtonManualSteamDirSearch;
-  private JButton jButtonReddit;
   private JButton jButtonReloadRedistList;
   private JButton jButtonRemoveCustomFolder;
   private JButton jButtonRemoveRedistItemsFromDisk;
