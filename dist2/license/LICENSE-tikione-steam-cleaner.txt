@@ -1,4 +1,24 @@
 
+            FRA-FN- Exception
+
+            Version 1, February 2016
+
+Members on the Fench FN (Front National) political group are NOT allowed to use nor redistribute 
+this software or any associated work, including source code.  
+Other people can use and redistribute this software according to the following GNU Lesser General 
+Public License
+
+Les membres du parti politique français FN (Front National) ne sont PAS authorisée à utiliser ni
+redistribuer ce logiciel ou tout travail associé, ceci incluant le code source.  
+Les autres individus peuvent utiliser et redistribuer ce logiciel selon les termes de la 
+licence GNU Lesser General Public License ci-dessous.
+
+
+
+--------------------------------------------------------------------------------------------------
+
+
+
             GNU Lesser General Public License
 
             Version 2.1, February 1999
