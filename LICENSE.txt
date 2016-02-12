@@ -10,7 +10,7 @@ Public License
 
 Les membres du parti politique français FN (Front National) ne sont PAS authorisée à utiliser ni
 redistribuer ce logiciel ou tout travail associé, ceci incluant le code source.  
-Les autres utilisateurs peuvent utiliser et redistribuer ce logiciel selon les termes de la 
+Les autres individus peuvent utiliser et redistribuer ce logiciel selon les termes de la 
 licence GNU Lesser General Public License ci-dessous.
 
 
