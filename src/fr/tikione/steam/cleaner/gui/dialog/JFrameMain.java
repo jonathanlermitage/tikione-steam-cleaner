@@ -698,7 +698,7 @@ public class JFrameMain extends JFrame {
     });
     jToolBarMain.add(jButtonToolbarAbout);
 
-    jPanelAppVersion.setBackground(new Color(0, 153, 255));
+    jPanelAppVersion.setBackground(new Color(255, 102, 153));
     jPanelAppVersion.setForeground(new Color(255, 255, 255));
 
     jLabelAppVersion.setFont(new Font("Dialog", 1, 14)); // NOI18N
