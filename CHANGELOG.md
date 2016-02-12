@@ -4,7 +4,7 @@
 * added Simplified Chinese (zh-cn) translation. Thx "wbsdty331".
 * some cleanup in dialogs.
 * updated the bundled JVM to Java 8u73.
-* new license (LGPL with FRA-FN exception: in other words, suporters of French "Front National" (FN) are not allowed to use nor redistribute this software and its source code).
+* new license (LGPL with FRA-FN exception: in other words, supporters of French "Front National" (FN) are not allowed to use nor redistribute this software and its source code).
 
 ### 2.9.1 (2015/09/19) JAVA8
 * removed links to Kickstarter and Patreon campaigns.
