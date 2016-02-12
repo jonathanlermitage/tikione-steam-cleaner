@@ -1,6 +1,6 @@
 ## TikiOne Steam Cleaner Change Log
 
-### 2.9.2 (2016/02/xx) JAVA8
+### 2.9.2 (2016/02/13) JAVA8
 * added Simplified Chinese (zh-cn) translation. Thx "wbsdty331".
 * some cleanup in dialogs.
 * updated the bundled JVM to Java 8u73.
