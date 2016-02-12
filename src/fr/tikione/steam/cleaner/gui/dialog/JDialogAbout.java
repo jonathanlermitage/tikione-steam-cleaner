@@ -55,10 +55,8 @@ public class JDialogAbout extends JDialog {
                     + "\r\n"
                     + translation.getString(Translation.SEC_WABOUT, "website1")
                     + "\r\n"
-                    + translation.getString(Translation.SEC_WABOUT, "website2")
-                    + "\r\n"
                     + translation.getString(Translation.SEC_WABOUT, "dev")
-                    + "\r\n"
+                    + "\r\n\r\n"
                     + translation.getString(Translation.SEC_WABOUT, "dep1"));
         } catch (Exception ex) {
             Log.error(ex);
