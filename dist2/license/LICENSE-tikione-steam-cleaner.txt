@@ -8,8 +8,8 @@ this software or any associated work, including source code.
 Other people can use and redistribute this software according to the following GNU Lesser General 
 Public License
 
-Les membres du parti politique français FN (Front National) ne sont PAS authorisée à utiliser ni
-redistribuer ce logiciel ou tout travail associé, ceci incluant le code source.  
+Les membres du parti politique franÃ§ais FN (Front National) ne sont PAS authorisÃ©s Ã  utiliser ni
+redistribuer ce logiciel ou tout travail associÃ©, ceci incluant le code source.  
 Les autres individus peuvent utiliser et redistribuer ce logiciel selon les termes de la 
 licence GNU Lesser General Public License ci-dessous.
 
