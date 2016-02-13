@@ -1,7 +1,5 @@
 *:fire: Thursday, January 21, 2016: I will continue to include contributions (usually translations) and provide bugfixes. Fell free to submit ideas and provide feedback. Don't expect new major features or native builds, this is a side project now.*
 
-*:fr: Une nouvelle licence est associée à mon projet, celle-ci interdisant à tout membre du FN d'utiliser ou redistribuer le fruit de mon travail.*
-
 # TikiOne Steam Cleaner
 
 _The best companion of Steam users - [Download latest version **here**](https://github.com/jonathanlermitage/tikione-steam-cleaner/releases)_
