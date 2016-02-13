@@ -1,4 +1,4 @@
-*:fire: Thursday, January 21, 2016: I will continue to include contributions (usually translations) and provide bugfixes. Don't expect new major features or native builds.*
+*:fire: Thursday, January 21, 2016: I will continue to include contributions (usually translations) and provide bugfixes. Fell free to submit ideas and provide feedback. Don't expect new major features or native builds, this is a side project now.*
 
 *:fr: Une nouvelle licence est associée à mon projet, celle-ci interdisant à tout membre du FN d'utiliser ou redistribuer le fruit de mon travail.*
 
