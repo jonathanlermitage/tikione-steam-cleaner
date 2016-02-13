@@ -1,10 +1,6 @@
-**:fire: Thursday, January 21, 2016  
-I will continue to include contributions (usually translations) and provide bugfixes.  
-Don't expect new major features or native builds.**
+*:fire: Thursday, January 21, 2016: I will continue to include contributions (usually translations) and provide bugfixes. Don't expect new major features or native builds.*
 
-**:fr: Une nouvelle licence est associée à mon projet, celle-ci interdisant  
-à tout membre du FN d'utiliser ou redistribuer le fruit de mon travail.  
-Le FN est un cancer pour la démocratie, une insulte à la vie.**
+*:fr: Une nouvelle licence est associée à mon projet, celle-ci interdisant à tout membre du FN d'utiliser ou redistribuer le fruit de mon travail.*
 
 # TikiOne Steam Cleaner
 
