@@ -30,7 +30,8 @@ You can now build and run the project.
 
 To package the application, simply merge the "dist" and "dist2" folders.
 
-To bundle a JVM (version 8 or better), copy it into a "jre" folder in the "dist2" folder and launch the NSIS script: it will package TikiOne steam Cleaner with the provided JVM into an EXE installer based on NSIS-Unicode (Nullsoft Scriptable Install System, Unicode version: I use version 2.46-5 from [Google Code](http://code.google.com/p/unsis/downloads/list)).
+To bundle a JVM (version 8 or better), copy it into a "jre" folder in the "dist2" folder and launch the NSIS script: it will package TikiOne steam Cleaner with the provided JVM into an EXE installer based on NSIS-Unicode (Nullsoft Scriptable Install System, Unicode version: I use version 2.46-5 from [Google Code](http://code.google.com/p/unsis/downloads/list)).  
+Nota: since Google Code is shutting down, I have uploaded [latest NSIS version here](https://github.com/jonathanlermitage/tikione-steam-cleaner/tree/master/dependencies/NSIS).
 
 ## Author
 * Jonathan Lermitage (<jonathan.lermitage@gmail.com>)
