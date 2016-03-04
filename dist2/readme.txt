@@ -16,5 +16,19 @@
  the "jre" subfolder of TikiOne Steam Cleaner. This way, it will use your version of Java.
 
 
+ CUSTOM LISTS OF REDIST PATTERNS
+ -------------------------------
+ Since version 2.9.3, you can use addtional custom redist patterns.
+ 
+ -> Go to the "Options/General" dialog and add the URL of a remote custom redist patterns file.
+ 
+ -> To create a custom residt patterns files, look at the "tikione-steam-cleaner_patterns.ini" 
+ file and rework it. Host it on the Internet (on GitHub, BitBucket, Sourceforge, your website...) 
+ and share its url: users simply have to register its URL in TikiOne Steam Cleaner.
+ 
+ Please note that custom redist patterns come to addition to existing patterns.
+
+
+
 Regards,
 Jonathan Lermitage <jonathan.lermitage@gmail.com>
