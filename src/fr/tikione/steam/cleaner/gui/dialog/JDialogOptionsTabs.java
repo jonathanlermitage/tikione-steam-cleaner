@@ -153,6 +153,7 @@ public class JDialogOptionsTabs extends JDialog {
     jLabel1 = new JLabel();
     jScrollPane1 = new JScrollPane();
     jTextArea1 = new JTextArea();
+    jCheckBox1 = new JCheckBox();
     jPanelP1 = new JPanel();
     jPanelInfoP1 = new JPanel();
     jLabelInfoP1 = new JLabel();
@@ -243,6 +244,9 @@ public class JDialogOptionsTabs extends JDialog {
     jTextArea1.setText("https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/dist2/conf/backup/tikione-steam-cleaner_patterns.ini\n");
     jScrollPane1.setViewportView(jTextArea1);
 
+    jCheckBox1.setBackground(new Color(255, 255, 255));
+    jCheckBox1.setText("Reload redist definition files at startup");
+
     GroupLayout jPanelP0Layout = new GroupLayout(jPanelP0);
     jPanelP0.setLayout(jPanelP0Layout);
     jPanelP0Layout.setHorizontalGroup(jPanelP0Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -256,8 +260,11 @@ public class JDialogOptionsTabs extends JDialog {
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBoxSearchlMaxDepth, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
               .addComponent(jCheckBoxCheckForUpdatesAtStartup)
-              .addComponent(jLabel1))
-            .addGap(0, 0, Short.MAX_VALUE))
+              .addGroup(jPanelP0Layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jCheckBox1)))
+            .addGap(0, 136, Short.MAX_VALUE))
           .addGroup(jPanelP0Layout.createSequentialGroup()
             .addGroup(jPanelP0Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
               .addComponent(jLabelDescP0, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -282,10 +289,12 @@ public class JDialogOptionsTabs extends JDialog {
         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
         .addComponent(jCheckBoxCheckForUpdatesAtStartup)
         .addGap(18, 18, 18)
-        .addComponent(jLabel1)
+        .addGroup(jPanelP0Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+          .addComponent(jLabel1)
+          .addComponent(jCheckBox1))
         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
         .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
-        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
         .addComponent(jLabelDescP0, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE)
         .addContainerGap())
     );
@@ -551,6 +560,7 @@ public class JDialogOptionsTabs extends JDialog {
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private JButton jButtonCancelP0;
   private JButton jButtonOKP0;
+  private JCheckBox jCheckBox1;
   private JCheckBox jCheckBoxCheckForUpdatesAtStartup;
   private JCheckBox jCheckBoxListEnableExpRedists;
   private JComboBox jComboBoxLang;
