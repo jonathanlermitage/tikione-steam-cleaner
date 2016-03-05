@@ -46,40 +46,40 @@ import javax.swing.border.TitledBorder;
 @SuppressWarnings({"serial", "rawtypes"})
 public class JDialogOptionsTabs extends JDialog {
 
-    /** The program configuration handler (global). */
-    private Config config;
-	
+	/** The program configuration handler (global). */
+	private Config config;
+
 	/** The program configuration handler (redist patterns). */
-    private Patterns patternsCfg;
+	private Patterns patternsCfg;
 
-    /** The links between program languages descriptions (ex: French) and codes (ex: fr_FR). */
-    private Map<String, String> langDescToLangCode = new LinkedHashMap<>(4);
+	/** The links between program languages descriptions (ex: French) and codes (ex: fr_FR). */
+	private Map<String, String> langDescToLangCode = new LinkedHashMap<>(4);
 
-    /** The program language translation handler. */
-    private final Translation translation;
+	/** The program language translation handler. */
+	private final Translation translation;
 
-    /**
-     * Create new form JDialogOptions.
-     *
-     * @param parent the parent component.
-     * @param modal indicates if the frame is modal.
-     * @param translation the program language translation handler.
-     * @throws IOException
-     */
-    @SuppressWarnings({"CallToThreadStartDuringObjectConstruction", "LeakingThisInConstructor", "unchecked"})
-    public JDialogOptionsTabs(java.awt.Frame parent, boolean modal, final Translation translation)
-            throws IOException {
-        super(parent, modal);
-        config = Config.getInstance();
+	/**
+	 * Create new form JDialogOptions.
+	 *
+	 * @param parent the parent component.
+	 * @param modal indicates if the frame is modal.
+	 * @param translation the program language translation handler.
+	 * @throws IOException
+	 */
+	@SuppressWarnings({"CallToThreadStartDuringObjectConstruction", "LeakingThisInConstructor", "unchecked"})
+	public JDialogOptionsTabs(java.awt.Frame parent, boolean modal, final Translation translation)
+					throws IOException {
+		super(parent, modal);
+		config = Config.getInstance();
 		patternsCfg = Patterns.getInstance();
-        this.translation = translation;
-        initComponents();
-        initTranslateComponents(translation);
-        jLabelDescP0.setVisible(false);
-        jLabelDescP1.setVisible(false);
-        GraphicsUtils.setFrameCentered(this);
+		this.translation = translation;
+		initComponents();
+		initTranslateComponents(translation);
+		jLabelDescP0.setVisible(false);
+		jLabelDescP1.setVisible(false);
+		GraphicsUtils.setFrameCentered(this);
 
-        new Thread(() -> {
+		new Thread(() -> {
 			List<CountryLanguage> availLang;
 			try {
 				jCheckBoxCheckForUpdatesAtStartup.setSelected(config.getCheckForUpdatesAtStartup());
@@ -113,31 +113,33 @@ public class JDialogOptionsTabs extends JDialog {
 				Log.error(ex);
 			}
 		}).start();
-    }
+		
+		jTabbedPaneOpts.setEnabledAt(1, false);
+	}
 
-    /**
-     * Translate the components description.
-     *
-     * @param translation the program language translation handler.
-     */
-    private void initTranslateComponents(Translation translation) {
-        this.setTitle(translation.getString(Translation.SEC_OPTIONS, "title"));
-        jLabeSearchlMaxDepth.setText(translation.getString(Translation.SEC_OPTIONS, "optionLine.searchMaxDepth"));
-        jCheckBoxCheckForUpdatesAtStartup.setText(translation.getString(Translation.SEC_OPTIONS, "optionLine.checkForUpdatesAtStartup"));
-        jCheckBoxListEnableExpRedists.setText(translation.getString(Translation.SEC_OPTIONS, "optionLine.includeExpRedistPatterns"));
-        jButtonCancelP0.setText(translation.getString(Translation.SEC_OPTIONS, "button.close"));
-        jButtonOKP0.setText(translation.getString(Translation.SEC_OPTIONS, "button.validate"));
-        jLabelSelectLang.setText(translation.getString(Translation.SEC_OPTIONS, "optionLine.language"));
-        jTabbedPaneOpts.setTitleAt(0, "   " + translation.getString(Translation.SEC_OPTIONS, "tab.options") + "   ");
-        jTabbedPaneOpts.setTitleAt(1, "   " + translation.getString(Translation.SEC_OPTIONS, "tab.experimental") + "   ");
-        jLabelInfoP1.setText(translation.getString(Translation.SEC_OPTIONS, "tab.expWarning"));
-    }
+	/**
+	 * Translate the components description.
+	 *
+	 * @param translation the program language translation handler.
+	 */
+	private void initTranslateComponents(Translation translation) {
+		this.setTitle(translation.getString(Translation.SEC_OPTIONS, "title"));
+		jLabeSearchlMaxDepth.setText(translation.getString(Translation.SEC_OPTIONS, "optionLine.searchMaxDepth"));
+		jCheckBoxCheckForUpdatesAtStartup.setText(translation.getString(Translation.SEC_OPTIONS, "optionLine.checkForUpdatesAtStartup"));
+		jCheckBoxListEnableExpRedists.setText(translation.getString(Translation.SEC_OPTIONS, "optionLine.includeExpRedistPatterns"));
+		jButtonCancelP0.setText(translation.getString(Translation.SEC_OPTIONS, "button.close"));
+		jButtonOKP0.setText(translation.getString(Translation.SEC_OPTIONS, "button.validate"));
+		jLabelSelectLang.setText(translation.getString(Translation.SEC_OPTIONS, "optionLine.language"));
+		jTabbedPaneOpts.setTitleAt(0, "   " + translation.getString(Translation.SEC_OPTIONS, "tab.options") + "   ");
+		jTabbedPaneOpts.setTitleAt(1, "   " + translation.getString(Translation.SEC_OPTIONS, "tab.experimental") + "   ");
+		jLabelInfoP1.setText(translation.getString(Translation.SEC_OPTIONS, "tab.expWarning"));
+	}
 
-    /** 
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always regenerated by the Form Editor.
-     */
-    @SuppressWarnings("unchecked")
+	/**
+	 * This method is called from within the constructor to initialize the form.
+	 * WARNING: Do NOT modify this code. The content of this method is always regenerated by the Form Editor.
+	 */
+	@SuppressWarnings("unchecked")
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
@@ -422,141 +424,141 @@ public class JDialogOptionsTabs extends JDialog {
     pack();
   }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonOKActionPerformedGeneral(ActionEvent evt) {
-        String langDescSelected = ((ImageIcon) jComboBoxLang.getSelectedItem()).getDescription();
-        String langCodeSelected = langDescToLangCode.get(langDescSelected);
-        config.setSelecteLanguage(langCodeSelected);
-        config.setMaxDepth(Integer.parseInt(jComboBoxSearchlMaxDepth.getSelectedItem().toString()));
-        config.setCheckForUpdatesAtStartup(jCheckBoxCheckForUpdatesAtStartup.isSelected());
-        patternsCfg.setEnableExperimentalPatterns(jCheckBoxListEnableExpRedists.isSelected());
-        this.dispose();
-    }
+	private void jButtonOKActionPerformedGeneral(ActionEvent evt) {
+		String langDescSelected = ((ImageIcon) jComboBoxLang.getSelectedItem()).getDescription();
+		String langCodeSelected = langDescToLangCode.get(langDescSelected);
+		config.setSelecteLanguage(langCodeSelected);
+		config.setMaxDepth(Integer.parseInt(jComboBoxSearchlMaxDepth.getSelectedItem().toString()));
+		config.setCheckForUpdatesAtStartup(jCheckBoxCheckForUpdatesAtStartup.isSelected());
+		patternsCfg.setEnableExperimentalPatterns(jCheckBoxListEnableExpRedists.isSelected());
+		this.dispose();
+	}
 
     private void jButtonCancelP0ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonCancelP0ActionPerformed
-        this.dispose();
+			this.dispose();
     }//GEN-LAST:event_jButtonCancelP0ActionPerformed
 
     private void jComboBoxLangMouseEntered(MouseEvent evt) {//GEN-FIRST:event_jComboBoxLangMouseEntered
-        uiEvtLangEntered();
+			uiEvtLangEntered();
     }//GEN-LAST:event_jComboBoxLangMouseEntered
 
     private void jComboBoxLangMouseExited(MouseEvent evt) {//GEN-FIRST:event_jComboBoxLangMouseExited
-        uiEvtLangExited();
+			uiEvtLangExited();
     }//GEN-LAST:event_jComboBoxLangMouseExited
 
     private void jLabelSelectLangMouseEntered(MouseEvent evt) {//GEN-FIRST:event_jLabelSelectLangMouseEntered
-        uiEvtLangEntered();
+			uiEvtLangEntered();
     }//GEN-LAST:event_jLabelSelectLangMouseEntered
 
     private void jLabelSelectLangMouseExited(MouseEvent evt) {//GEN-FIRST:event_jLabelSelectLangMouseExited
-        uiEvtLangExited();
+			uiEvtLangExited();
     }//GEN-LAST:event_jLabelSelectLangMouseExited
 
-    private void uiEvtLangEntered() {
-        jLabelDescP0.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.language") + "</body></html>");
-        jLabelDescP0.setVisible(true);
-    }
+	private void uiEvtLangEntered() {
+		jLabelDescP0.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.language") + "</body></html>");
+		jLabelDescP0.setVisible(true);
+	}
 
-    private void uiEvtLangExited() {
-        jLabelDescP0.setVisible(false);
-        jLabelDescP0.setText("");
-    }
+	private void uiEvtLangExited() {
+		jLabelDescP0.setVisible(false);
+		jLabelDescP0.setText("");
+	}
 
     private void jComboBoxSearchlMaxDepthMouseEntered(MouseEvent evt) {//GEN-FIRST:event_jComboBoxSearchlMaxDepthMouseEntered
-        uiEvtSearchlMaxDepthEntered();
+			uiEvtSearchlMaxDepthEntered();
     }//GEN-LAST:event_jComboBoxSearchlMaxDepthMouseEntered
 
     private void jComboBoxSearchlMaxDepthMouseExited(MouseEvent evt) {//GEN-FIRST:event_jComboBoxSearchlMaxDepthMouseExited
-        uiEvtSearchlMaxDepthExited();
+			uiEvtSearchlMaxDepthExited();
     }//GEN-LAST:event_jComboBoxSearchlMaxDepthMouseExited
 
     private void jLabeSearchlMaxDepthMouseEntered(MouseEvent evt) {//GEN-FIRST:event_jLabeSearchlMaxDepthMouseEntered
-        uiEvtSearchlMaxDepthEntered();
+			uiEvtSearchlMaxDepthEntered();
     }//GEN-LAST:event_jLabeSearchlMaxDepthMouseEntered
 
     private void jLabeSearchlMaxDepthMouseExited(MouseEvent evt) {//GEN-FIRST:event_jLabeSearchlMaxDepthMouseExited
-        uiEvtSearchlMaxDepthExited();
+			uiEvtSearchlMaxDepthExited();
     }//GEN-LAST:event_jLabeSearchlMaxDepthMouseExited
 
-    private void uiEvtSearchlMaxDepthEntered() {
-        jLabelDescP0.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.searchMaxDepth") + "</body></html>");
-        jLabelDescP0.setVisible(true);
-    }
+	private void uiEvtSearchlMaxDepthEntered() {
+		jLabelDescP0.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.searchMaxDepth") + "</body></html>");
+		jLabelDescP0.setVisible(true);
+	}
 
-    private void uiEvtSearchlMaxDepthExited() {
-        jLabelDescP0.setVisible(false);
-        jLabelDescP0.setText("");
-    }
+	private void uiEvtSearchlMaxDepthExited() {
+		jLabelDescP0.setVisible(false);
+		jLabelDescP0.setText("");
+	}
 
     private void jButtonOKP0ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonOKP0ActionPerformed
-        jButtonOKActionPerformedGeneral(evt);
+			jButtonOKActionPerformedGeneral(evt);
     }//GEN-LAST:event_jButtonOKP0ActionPerformed
 
-    private void uiEvtSaveLogToFileEntered() {
-        jLabelDescP0.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.saveLogToFile") + "</body></html>");
-        jLabelDescP0.setVisible(true);
-    }
+	private void uiEvtSaveLogToFileEntered() {
+		jLabelDescP0.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.saveLogToFile") + "</body></html>");
+		jLabelDescP0.setVisible(true);
+	}
 
-    private void uiEvtSaveLogToFileExited() {
-        jLabelDescP0.setVisible(false);
-        jLabelDescP0.setText("");
-    }
+	private void uiEvtSaveLogToFileExited() {
+		jLabelDescP0.setVisible(false);
+		jLabelDescP0.setText("");
+	}
 
     private void jCheckBoxCheckForUpdatesAtStartupMouseEntered(MouseEvent evt) {//GEN-FIRST:event_jCheckBoxCheckForUpdatesAtStartupMouseEntered
-        uiEvtCheckForUpdatesAtStartupEntered();
+			uiEvtCheckForUpdatesAtStartupEntered();
     }//GEN-LAST:event_jCheckBoxCheckForUpdatesAtStartupMouseEntered
 
     private void jCheckBoxCheckForUpdatesAtStartupMouseExited(MouseEvent evt) {//GEN-FIRST:event_jCheckBoxCheckForUpdatesAtStartupMouseExited
-        uiEvtCheckForUpdatesAtStartupExited();
+			uiEvtCheckForUpdatesAtStartupExited();
     }//GEN-LAST:event_jCheckBoxCheckForUpdatesAtStartupMouseExited
 
-    private void uiEvtCheckForUpdatesAtStartupEntered() {
-        jLabelDescP0.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.checkForUpdatesAtStartup") + "</body></html>");
-        jLabelDescP0.setVisible(true);
-    }
+	private void uiEvtCheckForUpdatesAtStartupEntered() {
+		jLabelDescP0.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.checkForUpdatesAtStartup") + "</body></html>");
+		jLabelDescP0.setVisible(true);
+	}
 
-    private void uiEvtCheckForUpdatesAtStartupExited() {
-        jLabelDescP0.setVisible(false);
-        jLabelDescP0.setText("");
-    }
+	private void uiEvtCheckForUpdatesAtStartupExited() {
+		jLabelDescP0.setVisible(false);
+		jLabelDescP0.setText("");
+	}
 
-    private void uiEvtListFromVDFOnlyEntered() {
-        jLabelDescP1.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.listOnlyFromVDF") + "</body></html>");
-        jLabelDescP1.setVisible(true);
-    }
+	private void uiEvtListFromVDFOnlyEntered() {
+		jLabelDescP1.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.listOnlyFromVDF") + "</body></html>");
+		jLabelDescP1.setVisible(true);
+	}
 
-    private void uiEvtListFromVDFOnlyExited() {
-        jLabelDescP1.setVisible(false);
-        jLabelDescP1.setText("");
-    }
+	private void uiEvtListFromVDFOnlyExited() {
+		jLabelDescP1.setVisible(false);
+		jLabelDescP1.setText("");
+	}
 
     private void jCheckBoxListEnableExpRedistsMouseEntered(MouseEvent evt) {//GEN-FIRST:event_jCheckBoxListEnableExpRedistsMouseEntered
-        uiEvtListEnableExpRedistsEntered();
+			uiEvtListEnableExpRedistsEntered();
     }//GEN-LAST:event_jCheckBoxListEnableExpRedistsMouseEntered
 
     private void jCheckBoxListEnableExpRedistsMouseExited(MouseEvent evt) {//GEN-FIRST:event_jCheckBoxListEnableExpRedistsMouseExited
-        uiEvtListEnableExpRedistsExited();
+			uiEvtListEnableExpRedistsExited();
     }//GEN-LAST:event_jCheckBoxListEnableExpRedistsMouseExited
 
-    private void uiEvtListEnableExpRedistsEntered() {
-        jLabelDescP1.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.includeExpRedistPatterns") + "</body></html>");
-        jLabelDescP1.setVisible(true);
-    }
+	private void uiEvtListEnableExpRedistsEntered() {
+		jLabelDescP1.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.includeExpRedistPatterns") + "</body></html>");
+		jLabelDescP1.setVisible(true);
+	}
 
-    private void uiEvtListEnableExpRedistsExited() {
-        jLabelDescP1.setVisible(false);
-        jLabelDescP1.setText("");
-    }
+	private void uiEvtListEnableExpRedistsExited() {
+		jLabelDescP1.setVisible(false);
+		jLabelDescP1.setText("");
+	}
 
-    private void uiEvtEnableDebugEntered() {
-        jLabelDescP0.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.enableDebug") + "</body></html>");
-        jLabelDescP0.setVisible(true);
-    }
+	private void uiEvtEnableDebugEntered() {
+		jLabelDescP0.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.enableDebug") + "</body></html>");
+		jLabelDescP0.setVisible(true);
+	}
 
-    private void uiEvtEnableDebugExited() {
-        jLabelDescP0.setVisible(false);
-        jLabelDescP0.setText("");
-    }
+	private void uiEvtEnableDebugExited() {
+		jLabelDescP0.setVisible(false);
+		jLabelDescP0.setText("");
+	}
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private JButton jButtonCancelP0;
   private JButton jButtonOKP0;
@@ -580,27 +582,27 @@ public class JDialogOptionsTabs extends JDialog {
   private JTextArea jTextArea1;
   // End of variables declaration//GEN-END:variables
 
-    private class ComboBoxRenderer extends JLabel implements ListCellRenderer {
+	private class ComboBoxRenderer extends JLabel implements ListCellRenderer {
 
-        ComboBoxRenderer() {
-            setOpaque(true);
-            setHorizontalAlignment(LEFT);
-            setVerticalAlignment(CENTER);
-        }
+		ComboBoxRenderer() {
+			setOpaque(true);
+			setHorizontalAlignment(LEFT);
+			setVerticalAlignment(CENTER);
+		}
 
-        @Override
-        public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
-            if (isSelected) {
-                setBackground(list.getSelectionBackground());
-                setForeground(list.getSelectionForeground());
-            } else {
-                setBackground(list.getBackground());
-                setForeground(list.getForeground());
-            }
-            ImageIcon icon = (ImageIcon) value;
-            setText(icon.getDescription());
-            setIcon(icon);
-            return this;
-        }
-    }
+		@Override
+		public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+			if (isSelected) {
+				setBackground(list.getSelectionBackground());
+				setForeground(list.getSelectionForeground());
+			} else {
+				setBackground(list.getBackground());
+				setForeground(list.getForeground());
+			}
+			ImageIcon icon = (ImageIcon) value;
+			setText(icon.getDescription());
+			setIcon(icon);
+			return this;
+		}
+	}
 }
