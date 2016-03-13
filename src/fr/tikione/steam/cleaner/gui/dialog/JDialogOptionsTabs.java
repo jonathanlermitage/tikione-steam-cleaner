@@ -155,7 +155,7 @@ public class JDialogOptionsTabs extends JDialog {
     jLabel1 = new JLabel();
     jScrollPane1 = new JScrollPane();
     jTextArea1 = new JTextArea();
-    jCheckBox1 = new JCheckBox();
+    jCheckBoxReloadRedistDefFileAtStartup = new JCheckBox();
     jPanelP1 = new JPanel();
     jPanelInfoP1 = new JPanel();
     jLabelInfoP1 = new JLabel();
@@ -246,8 +246,13 @@ public class JDialogOptionsTabs extends JDialog {
     jTextArea1.setText("https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/dist2/conf/backup/tikione-steam-cleaner_patterns.ini\n");
     jScrollPane1.setViewportView(jTextArea1);
 
-    jCheckBox1.setBackground(new Color(255, 255, 255));
-    jCheckBox1.setText("Reload redist definition files at startup");
+    jCheckBoxReloadRedistDefFileAtStartup.setBackground(new Color(255, 255, 255));
+    jCheckBoxReloadRedistDefFileAtStartup.setText("Reload redist definition files at startup");
+    jCheckBoxReloadRedistDefFileAtStartup.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent evt) {
+        jCheckBoxReloadRedistDefFileAtStartupActionPerformed(evt);
+      }
+    });
 
     GroupLayout jPanelP0Layout = new GroupLayout(jPanelP0);
     jPanelP0.setLayout(jPanelP0Layout);
@@ -265,7 +270,7 @@ public class JDialogOptionsTabs extends JDialog {
               .addGroup(jPanelP0Layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jCheckBox1)))
+                .addComponent(jCheckBoxReloadRedistDefFileAtStartup)))
             .addGap(0, 136, Short.MAX_VALUE))
           .addGroup(jPanelP0Layout.createSequentialGroup()
             .addGroup(jPanelP0Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
@@ -293,10 +298,10 @@ public class JDialogOptionsTabs extends JDialog {
         .addGap(18, 18, 18)
         .addGroup(jPanelP0Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel1)
-          .addComponent(jCheckBox1))
+          .addComponent(jCheckBoxReloadRedistDefFileAtStartup))
         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
         .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
-        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         .addComponent(jLabelDescP0, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE)
         .addContainerGap())
     );
@@ -540,6 +545,11 @@ public class JDialogOptionsTabs extends JDialog {
 			uiEvtListEnableExpRedistsExited();
     }//GEN-LAST:event_jCheckBoxListEnableExpRedistsMouseExited
 
+  private void jCheckBoxReloadRedistDefFileAtStartupActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jCheckBoxReloadRedistDefFileAtStartupActionPerformed
+    // TODO add your handling code here:
+		
+  }//GEN-LAST:event_jCheckBoxReloadRedistDefFileAtStartupActionPerformed
+
 	private void uiEvtListEnableExpRedistsEntered() {
 		jLabelDescP1.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.includeExpRedistPatterns") + "</body></html>");
 		jLabelDescP1.setVisible(true);
@@ -562,9 +572,9 @@ public class JDialogOptionsTabs extends JDialog {
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private JButton jButtonCancelP0;
   private JButton jButtonOKP0;
-  private JCheckBox jCheckBox1;
   private JCheckBox jCheckBoxCheckForUpdatesAtStartup;
   private JCheckBox jCheckBoxListEnableExpRedists;
+  private JCheckBox jCheckBoxReloadRedistDefFileAtStartup;
   private JComboBox jComboBoxLang;
   private JComboBox jComboBoxSearchlMaxDepth;
   private JLabel jLabeSearchlMaxDepth;

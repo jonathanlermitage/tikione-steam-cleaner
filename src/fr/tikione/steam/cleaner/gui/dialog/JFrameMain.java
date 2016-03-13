@@ -116,7 +116,7 @@ public class JFrameMain extends JFrame {
 	 * @throws CharConversionException if an error occurs while loading configuration file.
 	 * @throws InfinitiveLoopException if an error occurs while loading configuration file.
 	 */
-	@SuppressWarnings({"LeakingThisInConstructor", "unchecked"})
+	@SuppressWarnings({"LeakingThisInConstructor", "unchecked", "OverridableMethodCallInConstructor"})
 	public JFrameMain()
 			throws IOException,
 			CharConversionException,
@@ -133,7 +133,7 @@ public class JFrameMain extends JFrame {
 		model = new RedistTableModel(translation); // Model for the (visual) list a detected redistributable packages.
 		initComponents();
 		secondInitComponents(translation);
-		setTitle("TikiOne Steam Cleaner (Jonathan Lermitage)");
+		setTitle("TikiOne Steam Cleaner");
 		if (config.getCheckForUpdatesAtStartup()) {
 			checkForUpdates();
 		}
