@@ -1,0 +1,1 @@
+mvn install:install-file -DgroupId=fr.tikione -DartifactId=ini -Dversion=3.0.0 -Dfile=tikione-ini-3.0.0.jar -Dsources=tikione-ini-3.0.0-src.jar -Djavadoc=tikione-ini-3.0.0-javadoc.jar -Dpackaging=jar -DgeneratePom=true
