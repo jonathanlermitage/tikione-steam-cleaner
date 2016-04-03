@@ -15,6 +15,8 @@ import java.util.List;
  * Configuration handler.
  */
 public class Patterns {
+	
+		public static final String REMOTE_DEFINITION_FILES_SEPARATOR = "##n##"; 
 
     /** INI configuration file section : redistributable packages file and folder patterns. */
     private static final String CONFIG_REDIST_PATTERNS = "REDISTRIBUTABLE_PACKAGES_PATTERNS";
@@ -33,7 +35,7 @@ public class Patterns {
 
     /** INI configuration file key : enable experimental patterns. */
     private static final String CONFIG_REDIST_PATTERNS__ENABLE_EXP_PATTERNS = "enableExperimentalPatterns";
-
+		
     /** Singleton handler. */
     private static final Patterns config;
 

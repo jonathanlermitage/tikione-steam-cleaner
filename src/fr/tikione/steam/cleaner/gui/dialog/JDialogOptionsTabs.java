@@ -79,7 +79,7 @@ public class JDialogOptionsTabs extends JDialog {
 		jLabelDescP0.setVisible(false);
 		jLabelDescP1.setVisible(false);
 		GraphicsUtils.setFrameCentered(this);		
-		jTextAreaRedistDefinitions.setText(config.getRemoteDefinitionFiles().replaceAll("##n##", "\n"));
+		jTextAreaRedistDefinitions.setText(config.getRemoteDefinitionFiles().replaceAll(Patterns.REMOTE_DEFINITION_FILES_SEPARATOR, "\n"));
 		
 		new Thread(() -> {
 			List<CountryLanguage> availLang;
@@ -425,7 +425,7 @@ public class JDialogOptionsTabs extends JDialog {
 		config.setCheckForUpdatesAtStartup(jCheckBoxCheckForUpdatesAtStartup.isSelected());
 		patternsCfg.setEnableExperimentalPatterns(jCheckBoxListEnableExpRedists.isSelected());
 
-		String definitions = jTextAreaRedistDefinitions.getText().replaceAll("\\n", "##n##");
+		String definitions = jTextAreaRedistDefinitions.getText().replaceAll("\\n", Patterns.REMOTE_DEFINITION_FILES_SEPARATOR);
 		config = Config.getInstance();
 		config.setRemoteDefinitionFiles(definitions);
 
