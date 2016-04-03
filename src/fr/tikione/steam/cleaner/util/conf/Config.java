@@ -55,9 +55,16 @@ public class Config {
     /** INI configuration file key : check for updates at startup. */
     private static final String CONFIG_MISC__CHK_FOR_UPT_AT_STATUP = "checkForUpdatesAtStartup";
 
+    /** INI configuration file key : list of remote redist definition files. */
+    private static final String CONFIG_MISC__REMOTE_DEFINITION_FILES = "remoteDefinitionFiles";
+
     /** Singleton handler. */
     private static final Config config;
 
+		/** Default remote definition file. */
+		private static final String DEFAULT_REMOTE_DEFINITION_FILE = "https://raw.githubusercontent.com/jonathanlermitage/"
+						+ "tikione-steam-cleaner/master/dist2/conf/backup/tikione-steam-cleaner_patterns.ini";
+		
     /** File to use for configuration loading and saving. */
     private final File configFile;
 
@@ -157,6 +164,12 @@ public class Config {
         return Boolean.parseBoolean(ini.getKeyValue("false", CONFIG_MISC, CONFIG_MISC__CHK_FOR_UPT_AT_STATUP));
     }
 
+    public String getRemoteDefinitionFiles()
+            throws CharConversionException,
+            InfinitiveLoopException {
+        return ini.getKeyValue(DEFAULT_REMOTE_DEFINITION_FILE, CONFIG_MISC, CONFIG_MISC__REMOTE_DEFINITION_FILES);
+    }
+
     public String getLatestSteamFolder()
             throws CharConversionException,
             InfinitiveLoopException {
@@ -187,9 +200,14 @@ public class Config {
         return Integer.parseInt(ini.getKeyValue("0", CONFIG_MAIN_WINDOW_UI, CONFIG_MAIN_WINDOW_UI__STATE));
     }
 
-	public void setCheckForUpdatesAtStartup(boolean checkForUpt) {
+		public void setCheckForUpdatesAtStartup(boolean checkForUpt) {
         updated = true;
         ini.setKeyValue(CONFIG_MISC, CONFIG_MISC__CHK_FOR_UPT_AT_STATUP, Boolean.toString(checkForUpt));
+    }
+
+		public void setRemoteDefinitionFiles(String urls) {
+        updated = true;
+        ini.setKeyValue(CONFIG_MISC, CONFIG_MISC__REMOTE_DEFINITION_FILES, urls);
     }
 
     public void setLatestSteamFolder(String folder) {

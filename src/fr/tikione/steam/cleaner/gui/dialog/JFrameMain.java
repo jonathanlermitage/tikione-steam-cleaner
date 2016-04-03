@@ -915,7 +915,7 @@ public class JFrameMain extends JFrame {
 		try {
 			JDialogOptionsTabs optionsFrame = new JDialogOptionsTabs(this, true, translation);
 			optionsFrame.setVisible(true);
-		} catch (IOException ex) {
+		} catch (Exception ex) {
 			Log.error(ex);
 		}
     }//GEN-LAST:event_jButtonToolbarOptionsActionPerformed
