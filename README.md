@@ -18,7 +18,7 @@ TikiOne Steam Cleaner installer is hosted on [GitHub releases](https://github.co
 
 ## Build, test and package
 
-TikiOne Steam Cleaner is currently built with [NetBeans](http://netbeans.org) and the latest version of Oracle JDK8 (nota: I am working on an [IntelliJ IDEA](https://www.jetbrains.com/idea/) port).
+TikiOne Steam Cleaner is currently built with [NetBeans](http://netbeans.org) and the latest version of Oracle JDK8 (nota: I am working on an [IntelliJ IDEA](https://www.jetbrains.com/idea/) port and a migration from Ant to Maven).
 
 To build the project:
 
