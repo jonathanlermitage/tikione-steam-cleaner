@@ -9,3 +9,5 @@ nbproject/private/private.properties
 /target/
 nbactions.xml
 nb-configuration.xml
+/.idea/
+*.iml
