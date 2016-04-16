@@ -1,6 +1,11 @@
 /build/
 /dist/
 /dist2/.tikione/
+/dist2/lib/
+/dist2/tikione-steam-cleaner.jar
 nbproject/private/private.xml
 nbproject/private/config.properties
 nbproject/private/private.properties
+/target/
+nbactions.xml
+nb-configuration.xml

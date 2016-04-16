@@ -16,6 +16,7 @@ Section "install"
     delete "$INSTDIR\tikione-steam-cleaner.bat"
     delete "$INSTDIR\tikione-steam-cleaner.ico"
     delete "$INSTDIR\tikione-steam-cleaner.jar"
+    delete "$INSTDIR\tikione-steam-cleaner.png"
     rmDir /r "$INSTDIR\conf"
     rmDir /r "$INSTDIR\jre"
     rmDir /r "$INSTDIR\lib"
@@ -25,6 +26,7 @@ Section "install"
     file tikione-steam-cleaner.bat
     file tikione-steam-cleaner.ico
     file tikione-steam-cleaner.jar
+    file tikione-steam-cleaner.png
     file /r conf
     file /r lib
     file /r license
@@ -48,6 +50,7 @@ Section "uninstall"
     delete "$INSTDIR\tikione-steam-cleaner.bat"
     delete "$INSTDIR\tikione-steam-cleaner.ico"
     delete "$INSTDIR\tikione-steam-cleaner.jar"
+    delete "$INSTDIR\tikione-steam-cleaner.png"
     rmDir /r "$INSTDIR\conf"
     rmDir /r "$INSTDIR\jre"
     rmDir /r "$INSTDIR\lib"

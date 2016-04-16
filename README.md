@@ -18,19 +18,21 @@ TikiOne Steam Cleaner installer is hosted on [GitHub releases](https://github.co
 
 ## Build, test and package
 
-TikiOne Steam Cleaner is currently built with [NetBeans](http://netbeans.org) and the latest version of Oracle JDK8 (nota: I am working on an [IntelliJ IDEA](https://www.jetbrains.com/idea/) port and a migration from Ant to Maven).
+*(Saturday, April 16, 2016 Warning: I just migrated from Ant to Maven build system)*
+
+TikiOne Steam Cleaner is currently built with [NetBeans](http://netbeans.org) and the latest version of Oracle JDK8 (nota: I am working on an [IntelliJ IDEA](https://www.jetbrains.com/idea/) port).
 
 To build the project:
 
+* install TikiOne INI dependency in your Maven local repo: launch ``.dependencies/install-maven-artifacts/tikione-ini-3.0.0.bat``
 * load the project with NetBeans and a Java 8 compatible JDK (I use the latest version of NetBeans and Oracle JDK8)
-* dependencies should be automatically loaded from the ``./dependencies/`` folder.
-* set the working directory to the "dist2" folder. It contains additional configuration files used by base application.
+* set the working directory to the "dist2" folder. It contains additional configuration files used by base application. Also, the build output targets this directory.
 
 You can now build and run the project.
 
-To package the application, simply merge the "dist" and "dist2" folders.
+The packaged application is in the "dist2" folder.
 
-To bundle a JVM (version 8 or better), copy it into a "jre" folder in the "dist2" folder and launch the NSIS script: it will package TikiOne steam Cleaner with the provided JVM into an EXE installer based on NSIS-Unicode (Nullsoft Scriptable Install System, Unicode version: I use version 2.46-5 from [Google Code](http://code.google.com/p/unsis/downloads/list)).  
+To bundle a JVM (version 8 or better), copy it as a "jre" subfolder in the "dist2" directory and launch the NSIS script: it will package TikiOne steam Cleaner with the provided JVM into an EXE installer based on NSIS-Unicode (Nullsoft Scriptable Install System, Unicode version: I use version 2.46-5 from [Google Code](http://code.google.com/p/unsis/downloads/list)).  
 Nota: since Google Code is shutting down, I have uploaded [latest NSIS version here](https://github.com/jonathanlermitage/tikione-steam-cleaner/tree/master/dependencies/NSIS).
 
 ## Author
