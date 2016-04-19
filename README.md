@@ -54,7 +54,7 @@ You can ask questions, share ideas or insult me by email (<jonathan.lermitage@gm
 * "wbsdty331": Simplified Chinese translation.
 * Petr Kudlička: redist detection improvements
 * Brian Huqueriza: redist detection improvements
-* Antti Mieskolainen: redist detection improvements, GOG and Origin support
+* "snowman": redist detection improvements, GOG and Origin support
 * Members of the [CanardPC forum](http://forum.canardpc.com), for their support and cheerfulness
 
 ## History
