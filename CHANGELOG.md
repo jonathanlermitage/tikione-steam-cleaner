@@ -3,6 +3,7 @@
 ### 3.0.0 (2016/??/??, work in progress)
 * you can now use additional lists of redist patterns. See "Options/General" dialog and [readme.txt](https://github.com/jonathanlermitage/tikione-steam-cleaner/blob/master/dist2/readme.txt) file.
 * increased the default maximum depth of search (5->6).
+* updated the bundled JVM to Java 8u92.
 
 ### 2.9.2 (2016/02/13) JAVA8
 * added Simplified Chinese (zh-cn) translation. Thx "wbsdty331".
