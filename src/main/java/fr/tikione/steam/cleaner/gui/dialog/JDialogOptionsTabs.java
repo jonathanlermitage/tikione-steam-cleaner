@@ -251,6 +251,7 @@ public class JDialogOptionsTabs extends JDialog {
     jTextAreaRedistDefinitions.setText("https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/dist2/conf/backup/tikione-steam-cleaner_patterns.ini\n");
     jScrollPane1.setViewportView(jTextAreaRedistDefinitions);
 
+    jButtonDownloadDefinitions.setFont(new Font("Dialog", 1, 11)); // NOI18N
     jButtonDownloadDefinitions.setText("Download definition files");
     jButtonDownloadDefinitions.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
@@ -258,6 +259,9 @@ public class JDialogOptionsTabs extends JDialog {
       }
     });
 
+    jLabelDownloadDefinitionsProgress.setFont(new Font("Dialog", 1, 13)); // NOI18N
+    jLabelDownloadDefinitionsProgress.setForeground(new Color(0, 102, 255));
+    jLabelDownloadDefinitionsProgress.setHorizontalAlignment(SwingConstants.CENTER);
     jLabelDownloadDefinitionsProgress.setText("download status ....");
 
     GroupLayout jPanelP0Layout = new GroupLayout(jPanelP0);
@@ -365,7 +369,7 @@ public class JDialogOptionsTabs extends JDialog {
       .addGroup(jPanelP1Layout.createSequentialGroup()
         .addContainerGap()
         .addGroup(jPanelP1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-          .addComponent(jLabelDescP1, GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
+          .addComponent(jLabelDescP1, GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
           .addComponent(jCheckBoxListEnableExpRedists)
           .addComponent(jPanelInfoP1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         .addContainerGap())
