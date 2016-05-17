@@ -126,7 +126,8 @@ public class JDialogOptionsTabs extends JDialog {
 	 */
 	private void initTranslateComponents(Translation translation) {
 		this.setTitle(translation.getString(Translation.SEC_OPTIONS, "title"));
-		jLabeSearchlMaxDepth.setText(translation.getString(Translation.SEC_OPTIONS, "optionLine.searchMaxDepth"));
+		jLabelSearchlMaxDepth.setText(translation.getString(Translation.SEC_OPTIONS, "optionLine.searchMaxDepth"));
+		jLabelDefinitionFiles.setText(translation.getString(Translation.SEC_OPTIONS, "optionLine.definitionFiles"));
 		jCheckBoxCheckForUpdatesAtStartup.setText(translation.getString(Translation.SEC_OPTIONS, "optionLine.checkForUpdatesAtStartup"));
 		jCheckBoxListEnableExpRedists.setText(translation.getString(Translation.SEC_OPTIONS, "optionLine.includeExpRedistPatterns"));
 		jButtonCancelP0.setText(translation.getString(Translation.SEC_OPTIONS, "button.close"));
@@ -150,11 +151,11 @@ public class JDialogOptionsTabs extends JDialog {
     jPanelP0 = new JPanel();
     jLabelSelectLang = new JLabel();
     jComboBoxLang = new JComboBox();
-    jLabeSearchlMaxDepth = new JLabel();
+    jLabelSearchlMaxDepth = new JLabel();
     jComboBoxSearchlMaxDepth = new JComboBox();
     jLabelDescP0 = new JLabel();
     jCheckBoxCheckForUpdatesAtStartup = new JCheckBox();
-    jLabel1 = new JLabel();
+    jLabelDefinitionFiles = new JLabel();
     jScrollPane1 = new JScrollPane();
     jTextAreaRedistDefinitions = new JTextArea();
     jPanelP1 = new JPanel();
@@ -196,14 +197,14 @@ public class JDialogOptionsTabs extends JDialog {
       }
     });
 
-    jLabeSearchlMaxDepth.setFont(new Font("Dialog", 0, 13)); // NOI18N
-    jLabeSearchlMaxDepth.setText("Search maximum depth :");
-    jLabeSearchlMaxDepth.addMouseListener(new MouseAdapter() {
+    jLabelSearchlMaxDepth.setFont(new Font("Dialog", 0, 13)); // NOI18N
+    jLabelSearchlMaxDepth.setText("Search maximum depth :");
+    jLabelSearchlMaxDepth.addMouseListener(new MouseAdapter() {
       public void mouseEntered(MouseEvent evt) {
-        jLabeSearchlMaxDepthMouseEntered(evt);
+        jLabelSearchlMaxDepthMouseEntered(evt);
       }
       public void mouseExited(MouseEvent evt) {
-        jLabeSearchlMaxDepthMouseExited(evt);
+        jLabelSearchlMaxDepthMouseExited(evt);
       }
     });
 
@@ -236,8 +237,8 @@ public class JDialogOptionsTabs extends JDialog {
       }
     });
 
-    jLabel1.setFont(new Font("Dialog", 0, 13)); // NOI18N
-    jLabel1.setText("Redist definition files (one URL per line) :");
+    jLabelDefinitionFiles.setFont(new Font("Dialog", 0, 13)); // NOI18N
+    jLabelDefinitionFiles.setText("Redist definition files (one URL per line) :");
 
     jTextAreaRedistDefinitions.setColumns(20);
     jTextAreaRedistDefinitions.setFont(new Font("Monospaced", 0, 12)); // NOI18N
@@ -256,11 +257,11 @@ public class JDialogOptionsTabs extends JDialog {
           .addGroup(jPanelP0Layout.createSequentialGroup()
             .addGroup(jPanelP0Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
               .addGroup(jPanelP0Layout.createSequentialGroup()
-                .addComponent(jLabeSearchlMaxDepth)
+                .addComponent(jLabelSearchlMaxDepth)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBoxSearchlMaxDepth, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
               .addComponent(jCheckBoxCheckForUpdatesAtStartup)
-              .addComponent(jLabel1))
+              .addComponent(jLabelDefinitionFiles))
             .addGap(0, 399, Short.MAX_VALUE))
           .addGroup(jPanelP0Layout.createSequentialGroup()
             .addGroup(jPanelP0Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
@@ -282,14 +283,14 @@ public class JDialogOptionsTabs extends JDialog {
         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
         .addGroup(jPanelP0Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
           .addComponent(jComboBoxSearchlMaxDepth, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-          .addComponent(jLabeSearchlMaxDepth))
+          .addComponent(jLabelSearchlMaxDepth))
         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
         .addComponent(jCheckBoxCheckForUpdatesAtStartup)
         .addGap(18, 18, 18)
-        .addComponent(jLabel1)
+        .addComponent(jLabelDefinitionFiles)
         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
         .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
-        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         .addComponent(jLabelDescP0, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE)
         .addContainerGap())
     );
@@ -470,13 +471,13 @@ public class JDialogOptionsTabs extends JDialog {
 			uiEvtSearchlMaxDepthExited();
     }//GEN-LAST:event_jComboBoxSearchlMaxDepthMouseExited
 
-    private void jLabeSearchlMaxDepthMouseEntered(MouseEvent evt) {//GEN-FIRST:event_jLabeSearchlMaxDepthMouseEntered
+    private void jLabelSearchlMaxDepthMouseEntered(MouseEvent evt) {//GEN-FIRST:event_jLabelSearchlMaxDepthMouseEntered
 			uiEvtSearchlMaxDepthEntered();
-    }//GEN-LAST:event_jLabeSearchlMaxDepthMouseEntered
+    }//GEN-LAST:event_jLabelSearchlMaxDepthMouseEntered
 
-    private void jLabeSearchlMaxDepthMouseExited(MouseEvent evt) {//GEN-FIRST:event_jLabeSearchlMaxDepthMouseExited
+    private void jLabelSearchlMaxDepthMouseExited(MouseEvent evt) {//GEN-FIRST:event_jLabelSearchlMaxDepthMouseExited
 			uiEvtSearchlMaxDepthExited();
-    }//GEN-LAST:event_jLabeSearchlMaxDepthMouseExited
+    }//GEN-LAST:event_jLabelSearchlMaxDepthMouseExited
 
 	private void uiEvtSearchlMaxDepthEntered() {
 		jLabelDescP0.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.searchMaxDepth") + "</body></html>");
@@ -564,11 +565,11 @@ public class JDialogOptionsTabs extends JDialog {
   private JCheckBox jCheckBoxListEnableExpRedists;
   private JComboBox jComboBoxLang;
   private JComboBox jComboBoxSearchlMaxDepth;
-  private JLabel jLabeSearchlMaxDepth;
-  private JLabel jLabel1;
+  private JLabel jLabelDefinitionFiles;
   private JLabel jLabelDescP0;
   private JLabel jLabelDescP1;
   private JLabel jLabelInfoP1;
+  private JLabel jLabelSearchlMaxDepth;
   private JLabel jLabelSelectLang;
   private JPanel jPanelInfoP1;
   private JPanel jPanelMain;

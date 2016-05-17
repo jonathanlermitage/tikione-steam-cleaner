@@ -113,12 +113,12 @@
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="jLabeSearchlMaxDepth" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelSearchlMaxDepth" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jComboBoxSearchlMaxDepth" min="-2" pref="42" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="jCheckBoxCheckForUpdatesAtStartup" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelDefinitionFiles" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="399" max="32767" attributes="0"/>
                               </Group>
@@ -150,12 +150,12 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jComboBoxSearchlMaxDepth" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabeSearchlMaxDepth" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelSearchlMaxDepth" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jCheckBoxCheckForUpdatesAtStartup" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelDefinitionFiles" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane1" min="-2" pref="71" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
@@ -196,7 +196,7 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value=""/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabeSearchlMaxDepth">
+                <Component class="javax.swing.JLabel" name="jLabelSearchlMaxDepth">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="13" style="0"/>
@@ -204,8 +204,8 @@
                     <Property name="text" type="java.lang.String" value="Search maximum depth :"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabeSearchlMaxDepthMouseEntered"/>
-                    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabeSearchlMaxDepthMouseExited"/>
+                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabelSearchlMaxDepthMouseEntered"/>
+                    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabelSearchlMaxDepthMouseExited"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBoxSearchlMaxDepth">
@@ -261,7 +261,7 @@
                     <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jCheckBoxCheckForUpdatesAtStartupMouseExited"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel1">
+                <Component class="javax.swing.JLabel" name="jLabelDefinitionFiles">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="13" style="0"/>
