@@ -9,6 +9,7 @@ import java.io.CharConversionException;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -46,6 +47,8 @@ public class Patterns {
 
     /** Configuration object. */
     private final Ini ini;
+		
+		private final List<Ini> inis;
 
     private boolean updated = false;
 
@@ -87,6 +90,10 @@ public class Patterns {
         ini.getConfig().enableParseLineConcat(true);
         ini.getConfig().enableReadUnicodeEscConv(true);
         ini.load(configFile, Main.CONF_ENCODING);
+				
+				inis = new ArrayList<>(8);
+				inis.add(ini);
+				inis.addAll(RemotePatterns.getInis());
     }
 
     /**
@@ -133,7 +140,11 @@ public class Patterns {
             throws CharConversionException,
             InfinitiveLoopException {
         List<Redist> redistList = new ArrayList<>(8);
-        String[] redistTokens = ini.getKeyValue("", CONFIG_REDIST_PATTERNS, configKey).split("\"", 0);
+				List<String> redistTokens = new ArrayList<>(64);
+				for (Ini singleIni : inis) {
+					String[] tokens = singleIni.getKeyValue("", CONFIG_REDIST_PATTERNS, configKey).split("\"", 0);
+					redistTokens.addAll(Arrays.asList(tokens));
+				}
         boolean FileDescToggle = true;
         String redistName = null;
         String redtsiDescription;

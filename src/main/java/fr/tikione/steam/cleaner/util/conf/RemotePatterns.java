@@ -1,7 +1,11 @@
 package fr.tikione.steam.cleaner.util.conf;
 
+import fr.tikione.ini.Ini;
+import fr.tikione.steam.cleaner.Main;
+import fr.tikione.steam.cleaner.util.Log;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.io.FileUtils;
 import static fr.tikione.steam.cleaner.util.conf.Config.getProfilePath;
@@ -30,5 +34,29 @@ public class RemotePatterns {
 			File configFile = new File(thirdpartyFiles, System.nanoTime() + ".ini");
 			FileUtils.write(configFile, content);
 		}
+	}
+
+	/**
+	 * Get all Ini related to remote Redist definitions files recently downloaded.
+	 * @return Ini objects.
+	 */
+	public static List<Ini> getInis() {
+		List<Ini> inis = new ArrayList<>(8);
+		File thirdpartyFiles = new File(getProfilePath(), CONFIG_FOLDER);
+		if (thirdpartyFiles.exists()) {
+			File[] iniFiles = thirdpartyFiles.listFiles();
+			for (File iniFile : iniFiles) {
+				try {
+					Ini ini = new Ini();
+					ini.getConfig().enableParseLineConcat(true);
+					ini.getConfig().enableReadUnicodeEscConv(true);
+					ini.load(iniFile, Main.CONF_ENCODING);
+					inis.add(ini);
+				} catch (IOException ex) {
+					Log.error("cannot load or parse ini file: " + iniFile.getAbsolutePath(), ex);
+				}
+			}
+		}
+		return inis;
 	}
 }
