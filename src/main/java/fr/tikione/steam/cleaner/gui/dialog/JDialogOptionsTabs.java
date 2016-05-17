@@ -1,13 +1,13 @@
 package fr.tikione.steam.cleaner.gui.dialog;
 
 import fr.tikione.ini.InfinitiveLoopException;
-import fr.tikione.ini.Ini;
 import fr.tikione.steam.cleaner.util.CountryLanguage;
 import fr.tikione.steam.cleaner.util.GraphicsUtils;
 import fr.tikione.steam.cleaner.util.Log;
 import fr.tikione.steam.cleaner.util.Translation;
 import fr.tikione.steam.cleaner.util.conf.Config;
 import fr.tikione.steam.cleaner.util.conf.Patterns;
+import fr.tikione.steam.cleaner.util.conf.RemotePatterns;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
@@ -16,7 +16,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.ByteArrayInputStream;
 import java.io.CharConversionException;
 import java.io.IOException;
 import java.net.URL;
@@ -24,7 +23,6 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.PatternSyntaxException;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
@@ -47,7 +45,6 @@ import javax.swing.WindowConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import org.apache.commons.io.IOUtils;
-import static fr.tikione.steam.cleaner.Main.CONF_ENCODING_CHARSET;
 
 /**
  * Options window.
@@ -565,8 +562,8 @@ public class JDialogOptionsTabs extends JDialog {
 			jButtonDownloadDefinitions.setEnabled(false);
 			try {
 				String[] defs = jTextAreaRedistDefinitions.getText().split("\\n");
+				List<String> contentOfRemoteFiles = new ArrayList<>(8);
 				List<String> defInError = new ArrayList<>(8);
-				Ini finalIni = new Ini();
 				int defIdx = 1;
 				for (String def : defs) {
 					def = def.trim();
@@ -576,14 +573,15 @@ public class JDialogOptionsTabs extends JDialog {
 					jLabelDownloadDefinitionsProgress.setText("downloading redist definition files... " + (defIdx++) + "/" + defs.length); // TODO I18N
 					try {
 						String definitions = IOUtils.toString(new URL(def));
-						Ini ini = new Ini();
-						ini.load(new ByteArrayInputStream(definitions.getBytes(CONF_ENCODING_CHARSET)));
-						finalIni.addAll(ini);
+						contentOfRemoteFiles.add(definitions);
 					} catch (IOException e) {
 						Log.error("cannot download remote redist definitions file '" + def + "'", e);
 						defInError.add(def);
 					}
 				}
+				
+				RemotePatterns.store(contentOfRemoteFiles);
+
 				if (!defInError.isEmpty()) {
 					StringBuilder errors = new StringBuilder(1024);
 					for (String url : defInError) {
@@ -597,7 +595,7 @@ public class JDialogOptionsTabs extends JDialog {
 									"Warning", // TODO I18N
 									JOptionPane.WARNING_MESSAGE);
 				}
-			} catch (IOException | PatternSyntaxException ex) {
+			} catch (IOException ex) {
 				Log.error(ex);
 			} finally {
 				jLabelDownloadDefinitionsProgress.setText("download complete");

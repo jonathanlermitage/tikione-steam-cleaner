@@ -36,6 +36,8 @@ public class Patterns {
     /** INI configuration file key : enable experimental patterns. */
     private static final String CONFIG_REDIST_PATTERNS__ENABLE_EXP_PATTERNS = "enableExperimentalPatterns";
 		
+		public static final String CONFIG_FILENAME = "tikione-steam-cleaner_patterns_rev244.ini";
+		
     /** Singleton handler. */
     private static final Patterns config;
 
@@ -77,7 +79,7 @@ public class Patterns {
         File backupConfigFile = new File("conf/backup/tikione-steam-cleaner_patterns.ini");
         File userprofile = new File(Config.getProfilePath());
         userprofile.mkdirs();
-        configFile = new File(userprofile.getAbsolutePath() + "/tikione-steam-cleaner_patterns_rev244.ini");
+        configFile = new File(userprofile.getAbsolutePath() + "/" + CONFIG_FILENAME);
         if (!configFile.exists()) {
             org.apache.commons.io.FileUtils.copyFile(backupConfigFile, configFile);
         }

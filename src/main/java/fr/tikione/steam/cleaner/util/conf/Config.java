@@ -65,6 +65,8 @@ public class Config {
 		private static final String DEFAULT_REMOTE_DEFINITION_FILE = "https://raw.githubusercontent.com/jonathanlermitage/"
 						+ "tikione-steam-cleaner/master/dist2/conf/backup/tikione-steam-cleaner_patterns.ini";
 		
+		public static final String CONFIG_FILENAME = "tikione-steam-cleaner_config_rev241.ini";
+		
     /** File to use for configuration loading and saving. */
     private final File configFile;
 
@@ -103,7 +105,7 @@ public class Config {
         File backupConfigFile = new File("conf/backup/tikione-steam-cleaner_config.ini");
         File userprofile = new File(getProfilePath());
         userprofile.mkdirs();
-        configFile = new File(userprofile.getAbsolutePath() + "/tikione-steam-cleaner_config_rev241.ini");
+        configFile = new File(userprofile.getAbsolutePath() + "/" + CONFIG_FILENAME);
         if (!configFile.exists()) {
             org.apache.commons.io.FileUtils.copyFile(backupConfigFile, configFile);
         }
