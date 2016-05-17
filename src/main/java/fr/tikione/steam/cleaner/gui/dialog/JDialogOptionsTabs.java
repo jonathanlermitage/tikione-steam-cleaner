@@ -76,8 +76,9 @@ public class JDialogOptionsTabs extends JDialog {
 		this.translation = translation;
 		initComponents();
 		initTranslateComponents(translation);
-		jLabelDescP0.setVisible(false);
-		jLabelDescP1.setVisible(false);
+		jLabelDescP0.setVisible(true);
+		jLabelDescP1.setVisible(true);
+		jLabelDownloadDefinitionsProgress.setText("");
 		GraphicsUtils.setFrameCentered(this);		
 		jTextAreaRedistDefinitions.setText(config.getRemoteDefinitionFiles().replaceAll(Patterns.REMOTE_DEFINITION_FILES_SEPARATOR, "\n"));
 		
@@ -158,6 +159,8 @@ public class JDialogOptionsTabs extends JDialog {
     jLabelDefinitionFiles = new JLabel();
     jScrollPane1 = new JScrollPane();
     jTextAreaRedistDefinitions = new JTextArea();
+    jButtonDownloadDefinitions = new JButton();
+    jLabelDownloadDefinitionsProgress = new JLabel();
     jPanelP1 = new JPanel();
     jPanelInfoP1 = new JPanel();
     jLabelInfoP1 = new JLabel();
@@ -248,6 +251,15 @@ public class JDialogOptionsTabs extends JDialog {
     jTextAreaRedistDefinitions.setText("https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/dist2/conf/backup/tikione-steam-cleaner_patterns.ini\n");
     jScrollPane1.setViewportView(jTextAreaRedistDefinitions);
 
+    jButtonDownloadDefinitions.setText("Download definition files");
+    jButtonDownloadDefinitions.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent evt) {
+        jButtonDownloadDefinitionsActionPerformed(evt);
+      }
+    });
+
+    jLabelDownloadDefinitionsProgress.setText("download status ....");
+
     GroupLayout jPanelP0Layout = new GroupLayout(jPanelP0);
     jPanelP0.setLayout(jPanelP0Layout);
     jPanelP0Layout.setHorizontalGroup(jPanelP0Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -264,14 +276,18 @@ public class JDialogOptionsTabs extends JDialog {
               .addComponent(jLabelDefinitionFiles))
             .addGap(0, 399, Short.MAX_VALUE))
           .addGroup(jPanelP0Layout.createSequentialGroup()
-            .addGroup(jPanelP0Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-              .addComponent(jLabelDescP0, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-              .addGroup(GroupLayout.Alignment.LEADING, jPanelP0Layout.createSequentialGroup()
+            .addGroup(jPanelP0Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+              .addComponent(jLabelDescP0, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+              .addGroup(jPanelP0Layout.createSequentialGroup()
                 .addComponent(jLabelSelectLang)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBoxLang, GroupLayout.PREFERRED_SIZE, 387, GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 117, Short.MAX_VALUE))
-              .addComponent(jScrollPane1, GroupLayout.Alignment.LEADING))
+              .addComponent(jScrollPane1)
+              .addGroup(GroupLayout.Alignment.TRAILING, jPanelP0Layout.createSequentialGroup()
+                .addComponent(jLabelDownloadDefinitionsProgress, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonDownloadDefinitions)))
             .addContainerGap())))
     );
     jPanelP0Layout.setVerticalGroup(jPanelP0Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -289,10 +305,14 @@ public class JDialogOptionsTabs extends JDialog {
         .addGap(18, 18, 18)
         .addComponent(jLabelDefinitionFiles)
         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
-        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
+        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(jPanelP0Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+          .addComponent(jButtonDownloadDefinitions)
+          .addComponent(jLabelDownloadDefinitionsProgress))
+        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
         .addComponent(jLabelDescP0, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE)
-        .addContainerGap())
+        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
     jTabbedPaneOpts.addTab("  General  ", jPanelP0);
@@ -356,7 +376,7 @@ public class JDialogOptionsTabs extends JDialog {
         .addComponent(jPanelInfoP1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
         .addGap(18, 18, 18)
         .addComponent(jCheckBoxListEnableExpRedists)
-        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
+        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 249, Short.MAX_VALUE)
         .addComponent(jLabelDescP1, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE)
         .addContainerGap())
     );
@@ -398,8 +418,8 @@ public class JDialogOptionsTabs extends JDialog {
     jPanelMainLayout.setVerticalGroup(jPanelMainLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
       .addGroup(jPanelMainLayout.createSequentialGroup()
         .addContainerGap()
-        .addComponent(jTabbedPaneOpts, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)
-        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+        .addComponent(jTabbedPaneOpts)
+        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
         .addGroup(jPanelMainLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
           .addComponent(jButtonOKP0)
           .addComponent(jButtonCancelP0))
@@ -455,11 +475,9 @@ public class JDialogOptionsTabs extends JDialog {
 
 	private void uiEvtLangEntered() {
 		jLabelDescP0.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.language") + "</body></html>");
-		jLabelDescP0.setVisible(true);
 	}
 
 	private void uiEvtLangExited() {
-		jLabelDescP0.setVisible(false);
 		jLabelDescP0.setText("");
 	}
 
@@ -481,11 +499,9 @@ public class JDialogOptionsTabs extends JDialog {
 
 	private void uiEvtSearchlMaxDepthEntered() {
 		jLabelDescP0.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.searchMaxDepth") + "</body></html>");
-		jLabelDescP0.setVisible(true);
 	}
 
 	private void uiEvtSearchlMaxDepthExited() {
-		jLabelDescP0.setVisible(false);
 		jLabelDescP0.setText("");
 	}
 
@@ -495,11 +511,9 @@ public class JDialogOptionsTabs extends JDialog {
 
 	private void uiEvtSaveLogToFileEntered() {
 		jLabelDescP0.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.saveLogToFile") + "</body></html>");
-		jLabelDescP0.setVisible(true);
 	}
 
 	private void uiEvtSaveLogToFileExited() {
-		jLabelDescP0.setVisible(false);
 		jLabelDescP0.setText("");
 	}
 
@@ -513,21 +527,17 @@ public class JDialogOptionsTabs extends JDialog {
 
 	private void uiEvtCheckForUpdatesAtStartupEntered() {
 		jLabelDescP0.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.checkForUpdatesAtStartup") + "</body></html>");
-		jLabelDescP0.setVisible(true);
 	}
 
 	private void uiEvtCheckForUpdatesAtStartupExited() {
-		jLabelDescP0.setVisible(false);
 		jLabelDescP0.setText("");
 	}
 
 	private void uiEvtListFromVDFOnlyEntered() {
 		jLabelDescP1.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.listOnlyFromVDF") + "</body></html>");
-		jLabelDescP1.setVisible(true);
 	}
 
 	private void uiEvtListFromVDFOnlyExited() {
-		jLabelDescP1.setVisible(false);
 		jLabelDescP1.setText("");
 	}
 
@@ -539,27 +549,29 @@ public class JDialogOptionsTabs extends JDialog {
 			uiEvtListEnableExpRedistsExited();
     }//GEN-LAST:event_jCheckBoxListEnableExpRedistsMouseExited
 
+  private void jButtonDownloadDefinitionsActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonDownloadDefinitionsActionPerformed
+    jLabelDownloadDefinitionsProgress.setText("downloading redist definition files... 1/" + 4);
+		
+  }//GEN-LAST:event_jButtonDownloadDefinitionsActionPerformed
+
 	private void uiEvtListEnableExpRedistsEntered() {
 		jLabelDescP1.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.includeExpRedistPatterns") + "</body></html>");
-		jLabelDescP1.setVisible(true);
 	}
 
 	private void uiEvtListEnableExpRedistsExited() {
-		jLabelDescP1.setVisible(false);
 		jLabelDescP1.setText("");
 	}
 
 	private void uiEvtEnableDebugEntered() {
 		jLabelDescP0.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.enableDebug") + "</body></html>");
-		jLabelDescP0.setVisible(true);
 	}
 
 	private void uiEvtEnableDebugExited() {
-		jLabelDescP0.setVisible(false);
-		jLabelDescP0.setText("");
+		jLabelDescP0.setText("aaa");
 	}
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private JButton jButtonCancelP0;
+  private JButton jButtonDownloadDefinitions;
   private JButton jButtonOKP0;
   private JCheckBox jCheckBoxCheckForUpdatesAtStartup;
   private JCheckBox jCheckBoxListEnableExpRedists;
@@ -568,6 +580,7 @@ public class JDialogOptionsTabs extends JDialog {
   private JLabel jLabelDefinitionFiles;
   private JLabel jLabelDescP0;
   private JLabel jLabelDescP1;
+  private JLabel jLabelDownloadDefinitionsProgress;
   private JLabel jLabelInfoP1;
   private JLabel jLabelSearchlMaxDepth;
   private JLabel jLabelSelectLang;
