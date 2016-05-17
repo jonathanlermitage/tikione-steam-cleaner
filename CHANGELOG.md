@@ -1,9 +1,11 @@
 ## TikiOne Steam Cleaner Change Log
 
-### 3.0.0 (2016/??/??, work in progress)
+### 3.0.0 (2016/0?/??, work in progress)
 * you can now use additional lists of redist patterns. See "Options/General" dialog and [readme.txt](https://github.com/jonathanlermitage/tikione-steam-cleaner/blob/master/dist2/readme.txt) file.
 * some cleanup in UI.
 * increased the default maximum depth of search (5->6).
+* internal: some code cleanup
+* internal: migration from Ant to Maven build system (I'm also working on a migration from NetBeans to IntelliJ IDEA Community)
 * updated the bundled JVM to Java 8u92.
 
 ### 2.9.2 (2016/02/13) JAVA8
