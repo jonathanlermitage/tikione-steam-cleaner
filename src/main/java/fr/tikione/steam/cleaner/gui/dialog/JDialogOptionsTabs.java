@@ -35,6 +35,7 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
@@ -560,38 +561,50 @@ public class JDialogOptionsTabs extends JDialog {
     }//GEN-LAST:event_jCheckBoxListEnableExpRedistsMouseExited
 
   private void jButtonDownloadDefinitionsActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonDownloadDefinitionsActionPerformed
-  jButtonDownloadDefinitions.setEnabled(false);
-		try {
-			String[] defs = jTextAreaRedistDefinitions.getText().split("\\n");
-			List<String> defInError = new ArrayList<>(8);
-			Ini finalIni = new Ini();
-			for (String def : defs) {
-				def = def.trim();
-				if (def.isEmpty()) {
-					continue;
+		Thread tJob = new Thread(() -> {
+			jButtonDownloadDefinitions.setEnabled(false);
+			try {
+				String[] defs = jTextAreaRedistDefinitions.getText().split("\\n");
+				List<String> defInError = new ArrayList<>(8);
+				Ini finalIni = new Ini();
+				int defIdx = 1;
+				for (String def : defs) {
+					def = def.trim();
+					if (def.isEmpty()) {
+						continue;
+					}
+					jLabelDownloadDefinitionsProgress.setText("downloading redist definition files... " + (defIdx++) + "/" + defs.length); // TODO I18N
+					try {
+						String definitions = IOUtils.toString(new URL(def));
+						Ini ini = new Ini();
+						ini.load(new ByteArrayInputStream(definitions.getBytes(CONF_ENCODING_CHARSET)));
+						finalIni.addAll(ini);
+					} catch (IOException e) {
+						Log.error("cannot download remote redist definitions file '" + def + "'", e);
+						defInError.add(def);
+					}
 				}
-				jLabelDownloadDefinitionsProgress.setText("downloading redist definition files... 1/" + defs.length);
-				try {
-					String definitions = IOUtils.toString(new URL(def));
-					Ini ini = new Ini();
-					ini.load(new ByteArrayInputStream(definitions.getBytes(CONF_ENCODING_CHARSET)));
-					finalIni.addAll(ini);
-					Log.info("downloaded " + def + " with success");
-				} catch (IOException e) {
-					Log.error("cannot download remote redist definitions file '" + def + "'", e);
-					defInError.add(def);
+				if (!defInError.isEmpty()) {
+					StringBuilder errors = new StringBuilder(1024);
+					for (String url : defInError) {
+						if (errors.length() > 0) {
+							errors.append("\n");
+						}
+						errors.append(url);
+					}
+					JOptionPane.showMessageDialog(null,
+									"Cannot download or process some files, ignoring them: \n\n" + errors.toString(), // TODO I18N
+									"Warning", // TODO I18N
+									JOptionPane.WARNING_MESSAGE);
 				}
+			} catch (IOException | PatternSyntaxException ex) {
+				Log.error(ex);
+			} finally {
+				jLabelDownloadDefinitionsProgress.setText("download complete");
+				jButtonDownloadDefinitions.setEnabled(true);
 			}
-			if (!defInError.isEmpty()) {
-				// TODO show warning popup
-				
-			}
-		} catch (IOException | PatternSyntaxException ex) {
-			Log.error(ex);
-		} finally {
-			jLabelDownloadDefinitionsProgress.setText("download complete");
-			jButtonDownloadDefinitions.setEnabled(true);
-		}
+		});
+		tJob.start();
   }//GEN-LAST:event_jButtonDownloadDefinitionsActionPerformed
 
 	private void uiEvtListEnableExpRedistsEntered() {
