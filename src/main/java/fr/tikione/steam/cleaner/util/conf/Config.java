@@ -253,7 +253,7 @@ public class Config {
         return lang;
     }
 
-    public void setSelecteLanguage(String language) {
+    public void setSelectedLanguage(String language) {
         updated = true;
         ini.setKeyValue(CONFIG_LANG, CONFIG_LANG__SELECTION, language);
     }

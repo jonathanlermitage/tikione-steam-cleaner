@@ -452,7 +452,7 @@ public class JDialogOptionsTabs extends JDialog {
 	private void jButtonOKActionPerformedGeneral(ActionEvent evt) {
 		String langDescSelected = ((ImageIcon) jComboBoxLang.getSelectedItem()).getDescription();
 		String langCodeSelected = langDescToLangCode.get(langDescSelected);
-		config.setSelecteLanguage(langCodeSelected);
+		config.setSelectedLanguage(langCodeSelected);
 		config.setMaxDepth(Integer.parseInt(jComboBoxSearchlMaxDepth.getSelectedItem().toString()));
 		config.setCheckForUpdatesAtStartup(jCheckBoxCheckForUpdatesAtStartup.isSelected());
 		patternsCfg.setEnableExperimentalPatterns(jCheckBoxListEnableExpRedists.isSelected());
