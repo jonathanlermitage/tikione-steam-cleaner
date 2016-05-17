@@ -1,6 +1,7 @@
 package fr.tikione.steam.cleaner.gui.dialog;
 
 import fr.tikione.ini.InfinitiveLoopException;
+import fr.tikione.ini.Ini;
 import fr.tikione.steam.cleaner.util.CountryLanguage;
 import fr.tikione.steam.cleaner.util.GraphicsUtils;
 import fr.tikione.steam.cleaner.util.Log;
@@ -15,11 +16,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.ByteArrayInputStream;
 import java.io.CharConversionException;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.PatternSyntaxException;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
@@ -40,6 +45,8 @@ import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
+import org.apache.commons.io.IOUtils;
+import static fr.tikione.steam.cleaner.Main.CONF_ENCODING_CHARSET;
 
 /**
  * Options window.
@@ -248,7 +255,6 @@ public class JDialogOptionsTabs extends JDialog {
     jTextAreaRedistDefinitions.setForeground(new Color(0, 102, 204));
     jTextAreaRedistDefinitions.setRows(2);
     jTextAreaRedistDefinitions.setTabSize(2);
-    jTextAreaRedistDefinitions.setText("https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/dist2/conf/backup/tikione-steam-cleaner_patterns.ini\n");
     jScrollPane1.setViewportView(jTextAreaRedistDefinitions);
 
     jButtonDownloadDefinitions.setFont(new Font("Dialog", 1, 11)); // NOI18N
@@ -315,8 +321,8 @@ public class JDialogOptionsTabs extends JDialog {
           .addComponent(jButtonDownloadDefinitions)
           .addComponent(jLabelDownloadDefinitionsProgress))
         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(jLabelDescP0, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE)
-        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        .addComponent(jLabelDescP0, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
+        .addContainerGap())
     );
 
     jTabbedPaneOpts.addTab("  General  ", jPanelP0);
@@ -380,8 +386,8 @@ public class JDialogOptionsTabs extends JDialog {
         .addComponent(jPanelInfoP1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
         .addGap(18, 18, 18)
         .addComponent(jCheckBoxListEnableExpRedists)
-        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 249, Short.MAX_VALUE)
-        .addComponent(jLabelDescP1, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE)
+        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 247, Short.MAX_VALUE)
+        .addComponent(jLabelDescP1, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
         .addContainerGap())
     );
 
@@ -554,8 +560,38 @@ public class JDialogOptionsTabs extends JDialog {
     }//GEN-LAST:event_jCheckBoxListEnableExpRedistsMouseExited
 
   private void jButtonDownloadDefinitionsActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonDownloadDefinitionsActionPerformed
-    jLabelDownloadDefinitionsProgress.setText("downloading redist definition files... 1/" + 4);
-		
+  jButtonDownloadDefinitions.setEnabled(false);
+		try {
+			String[] defs = jTextAreaRedistDefinitions.getText().split("\\n");
+			List<String> defInError = new ArrayList<>(8);
+			Ini finalIni = new Ini();
+			for (String def : defs) {
+				def = def.trim();
+				if (def.isEmpty()) {
+					continue;
+				}
+				jLabelDownloadDefinitionsProgress.setText("downloading redist definition files... 1/" + defs.length);
+				try {
+					String definitions = IOUtils.toString(new URL(def));
+					Ini ini = new Ini();
+					ini.load(new ByteArrayInputStream(definitions.getBytes(CONF_ENCODING_CHARSET)));
+					finalIni.addAll(ini);
+					Log.info("downloaded " + def + " with success");
+				} catch (IOException e) {
+					Log.error("cannot download remote redist definitions file '" + def + "'", e);
+					defInError.add(def);
+				}
+			}
+			if (!defInError.isEmpty()) {
+				// TODO show warning popup
+				
+			}
+		} catch (IOException | PatternSyntaxException ex) {
+			Log.error(ex);
+		} finally {
+			jLabelDownloadDefinitionsProgress.setText("download complete");
+			jButtonDownloadDefinitions.setEnabled(true);
+		}
   }//GEN-LAST:event_jButtonDownloadDefinitionsActionPerformed
 
 	private void uiEvtListEnableExpRedistsEntered() {

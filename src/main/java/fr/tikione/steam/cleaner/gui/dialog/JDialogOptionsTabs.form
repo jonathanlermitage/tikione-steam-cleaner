@@ -169,8 +169,8 @@
                               <Component id="jLabelDownloadDefinitionsProgress" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabelDescP0" min="-2" pref="117" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jLabelDescP0" min="-2" pref="119" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -297,7 +297,6 @@
                         </Property>
                         <Property name="rows" type="int" value="2"/>
                         <Property name="tabSize" type="int" value="2"/>
-                        <Property name="text" type="java.lang.String" value="https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/dist2/conf/backup/tikione-steam-cleaner_patterns.ini&#xa;"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -362,8 +361,8 @@
                           <Component id="jPanelInfoP1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jCheckBoxListEnableExpRedists" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="249" max="32767" attributes="0"/>
-                          <Component id="jLabelDescP1" min="-2" pref="117" max="-2" attributes="0"/>
+                          <EmptySpace pref="247" max="32767" attributes="0"/>
+                          <Component id="jLabelDescP1" min="-2" pref="119" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
