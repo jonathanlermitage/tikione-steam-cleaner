@@ -581,6 +581,7 @@ public class JDialogOptionsTabs extends JDialog {
 				}
 				
 				RemotePatterns.store(contentOfRemoteFiles);
+				Patterns.getInstance().reload();
 
 				if (!defInError.isEmpty()) {
 					StringBuilder errors = new StringBuilder(1024);
@@ -595,7 +596,7 @@ public class JDialogOptionsTabs extends JDialog {
 									"Warning", // TODO I18N
 									JOptionPane.WARNING_MESSAGE);
 				}
-			} catch (IOException ex) {
+			} catch (InfinitiveLoopException | IOException ex) {
 				Log.error(ex);
 			} finally {
 				jLabelDownloadDefinitionsProgress.setText("download complete");

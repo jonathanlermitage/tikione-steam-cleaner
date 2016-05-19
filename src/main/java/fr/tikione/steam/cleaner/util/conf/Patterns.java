@@ -46,9 +46,9 @@ public class Patterns {
     private final File configFile;
 
     /** Configuration object. */
-    private final Ini ini;
+    private Ini ini;
 		
-		private final List<Ini> inis;
+		private List<Ini> inis;
 
     private boolean updated = false;
 
@@ -77,6 +77,7 @@ public class Patterns {
      * @throws IOException if an I/O error occurs while retrieving the internal default configuration file, or while writing this default
      * configuration file.
      */
+		@SuppressWarnings("OverridableMethodCallInConstructor")
     private Patterns()
             throws IOException, CharConversionException, InfinitiveLoopException {
         File backupConfigFile = new File("conf/backup/tikione-steam-cleaner_patterns.ini");
@@ -86,6 +87,12 @@ public class Patterns {
         if (!configFile.exists()) {
             org.apache.commons.io.FileUtils.copyFile(backupConfigFile, configFile);
         }
+				
+				reload();
+    }
+		
+		public void reload()
+            throws IOException, CharConversionException, InfinitiveLoopException {
         ini = new Ini();
         ini.getConfig().enableParseLineConcat(true);
         ini.getConfig().enableReadUnicodeEscConv(true);
@@ -94,7 +101,7 @@ public class Patterns {
 				inis = new ArrayList<>(8);
 				inis.add(ini);
 				inis.addAll(RemotePatterns.getInis());
-    }
+		}
 
     /**
      * Saves the configuration into a file.
