@@ -6,14 +6,16 @@ rem ----------------------------------------------------------------------------
 
 cd %~dp0%
 
-set "PATH=%PATH%;%cd%\jre\bin\;%~dp0%\jre\bin\"
-set "PATH=%PATH%;C:\Program Files\Java\jre\bin\"
-set "PATH=%PATH%;C:\Program Files\Java\jre8\bin\"
-set "PATH=%PATH%;C:\Program Files\Java\jre9\bin\"
-set "PATH=%PATH%;C:\Program Files\Java\jre10\bin\"
-set "PATH=%PATH%;C:\Program Files (x86)\Java\jre\bin\"
+set "OPATH=%PATH%"
+set "PATH=%cd%\jre\bin\;%~dp0%\jre\bin\"
 set "PATH=%PATH%;C:\Program Files (x86)\Java\jre8\bin\"
 set "PATH=%PATH%;C:\Program Files (x86)\Java\jre9\bin\"
 set "PATH=%PATH%;C:\Program Files (x86)\Java\jre10\bin\"
+set "PATH=%PATH%;C:\Program Files (x86)\Java\jre\bin\"
+set "PATH=%PATH%;C:\Program Files\Java\jre8\bin\"
+set "PATH=%PATH%;C:\Program Files\Java\jre9\bin\"
+set "PATH=%PATH%;C:\Program Files\Java\jre10\bin\"
+set "PATH=%PATH%;C:\Program Files\Java\jre\bin\"
+set "PATH=%PATH%;%OPATH%"
 
 start "" "javaw.exe" "-jar" "-splash:tikione-steam-cleaner.png" "-Xms32m" "-Xmx512m" "tikione-steam-cleaner.jar"
