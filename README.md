@@ -1,5 +1,3 @@
-*:fire: Thursday, January 21, 2016: I will continue to include contributions (usually translations) and provide bugfixes. Fell free to submit ideas and provide feedback. Don't expect new major features or native builds, this is a side project now.*
-
 # TikiOne Steam Cleaner
 
 _The best companion of Steam users - [Download latest version **here**](https://github.com/jonathanlermitage/tikione-steam-cleaner/releases)_
@@ -14,13 +12,11 @@ Tikione Steam Cleaner is an open source and free software written in Java 8 and 
 
 TikiOne Steam Cleaner installer is hosted on [GitHub releases](https://github.com/jonathanlermitage/tikione-steam-cleaner/releases).
 
-**Information about Sourceforge**: up to version 2.4.6, TikiOne Steam Cleaner was hosted on SourceForge. I have decided to leave this website to prefer GitHub. Starting from next version, I'll use GitHub only.
-
 ## Build, test and package
 
 *(Saturday, April 16, 2016 Warning: I just migrated from Ant to Maven build system)*
 
-TikiOne Steam Cleaner is currently built with [NetBeans](http://netbeans.org) and the latest version of Oracle JDK8 (nota: I am working on an [IntelliJ IDEA](https://www.jetbrains.com/idea/) port).
+TikiOne Steam Cleaner is currently built with [NetBeans](http://netbeans.org), Maven and the latest version of Oracle JDK8.
 
 To build the project:
 
@@ -37,10 +33,6 @@ Nota: since Google Code is shutting down, I have uploaded [latest NSIS version h
 
 ## Author
 * Jonathan Lermitage (<jonathan.lermitage@gmail.com>)
-
-## Contact
-
-You can ask questions, share ideas or insult me by email (<jonathan.lermitage@gmail.com>) or discuss via [Twitter](https://twitter.com/JLermitage).
 
 ## Contributors
 * Dmitry Bolotov (Дмитрий Болотов): Russian and Ukrainian translations
@@ -60,11 +52,3 @@ You can ask questions, share ideas or insult me by email (<jonathan.lermitage@gm
 ## History
 
 I'm working on this software since Janurary 2012. Here is the full [changelog](https://github.com/jonathanlermitage/tikione-steam-cleaner/blob/master/CHANGELOG.md).
-
-## License
-
-LGPL License with FRA-FN exception
-
-## Donations
-
-You can help me with a PayPal donation ([TikiOne, jonathan@lermitage.biz](http://sourceforge.net/p/tikione/donate/)).
