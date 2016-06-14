@@ -4,6 +4,7 @@
 * you can now use additional lists of redist patterns. See "Options/General" dialog and [readme.txt](https://github.com/jonathanlermitage/tikione-steam-cleaner/blob/master/dist2/readme.txt) file.
 * some cleanup in UI.
 * increased the default maximum depth of search (5->6).
+* fixed program startup on some Windows installations.
 * internal: some code cleanup
 * internal: migration from Ant to Maven build system (I'm also working on a migration from NetBeans to IntelliJ IDEA Community)
 * updated the bundled JVM to Java 8u92.
