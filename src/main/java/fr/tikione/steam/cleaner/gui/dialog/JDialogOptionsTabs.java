@@ -142,6 +142,8 @@ public class JDialogOptionsTabs extends JDialog {
 		jTabbedPaneOpts.setTitleAt(0, "   " + translation.getString(Translation.SEC_OPTIONS, "tab.options") + "   ");
 		jTabbedPaneOpts.setTitleAt(1, "   " + translation.getString(Translation.SEC_OPTIONS, "tab.experimental") + "   ");
 		jLabelInfoP1.setText(translation.getString(Translation.SEC_OPTIONS, "tab.expWarning"));
+		jButtonDownloadDefinitions.setText(translation.getString(Translation.SEC_OPTIONS, "button.downloadRedist"));
+		jLabelDefinitionFiles.setText(translation.getString(Translation.SEC_OPTIONS, "label.downloadRedist"));
 	}
 
 	/**
@@ -247,16 +249,40 @@ public class JDialogOptionsTabs extends JDialog {
 
     jLabelDefinitionFiles.setFont(new Font("Dialog", 0, 13)); // NOI18N
     jLabelDefinitionFiles.setText("Redist definition files (one URL per line) :");
+    jLabelDefinitionFiles.addMouseListener(new MouseAdapter() {
+      public void mouseEntered(MouseEvent evt) {
+        jLabelDefinitionFilesMouseEntered(evt);
+      }
+      public void mouseExited(MouseEvent evt) {
+        jLabelDefinitionFilesMouseExited(evt);
+      }
+    });
 
     jTextAreaRedistDefinitions.setColumns(20);
     jTextAreaRedistDefinitions.setFont(new Font("Monospaced", 0, 12)); // NOI18N
     jTextAreaRedistDefinitions.setForeground(new Color(0, 102, 204));
     jTextAreaRedistDefinitions.setRows(2);
     jTextAreaRedistDefinitions.setTabSize(2);
+    jTextAreaRedistDefinitions.addMouseListener(new MouseAdapter() {
+      public void mouseEntered(MouseEvent evt) {
+        jTextAreaRedistDefinitionsMouseEntered(evt);
+      }
+      public void mouseExited(MouseEvent evt) {
+        jTextAreaRedistDefinitionsMouseExited(evt);
+      }
+    });
     jScrollPane1.setViewportView(jTextAreaRedistDefinitions);
 
     jButtonDownloadDefinitions.setFont(new Font("Dialog", 1, 11)); // NOI18N
     jButtonDownloadDefinitions.setText("Download definition files");
+    jButtonDownloadDefinitions.addMouseListener(new MouseAdapter() {
+      public void mouseEntered(MouseEvent evt) {
+        jButtonDownloadDefinitionsMouseEntered(evt);
+      }
+      public void mouseExited(MouseEvent evt) {
+        jButtonDownloadDefinitionsMouseExited(evt);
+      }
+    });
     jButtonDownloadDefinitions.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
         jButtonDownloadDefinitionsActionPerformed(evt);
@@ -542,11 +568,11 @@ public class JDialogOptionsTabs extends JDialog {
 	}
 
 	private void uiEvtListFromVDFOnlyEntered() {
-		jLabelDescP1.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.listOnlyFromVDF") + "</body></html>");
+		jLabelDescP0.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.listOnlyFromVDF") + "</body></html>");
 	}
 
 	private void uiEvtListFromVDFOnlyExited() {
-		jLabelDescP1.setText("");
+		jLabelDescP0.setText("");
 	}
 
     private void jCheckBoxListEnableExpRedistsMouseEntered(MouseEvent evt) {//GEN-FIRST:event_jCheckBoxListEnableExpRedistsMouseEntered
@@ -570,12 +596,12 @@ public class JDialogOptionsTabs extends JDialog {
 					if (def.isEmpty()) {
 						continue;
 					}
-					jLabelDownloadDefinitionsProgress.setText("downloading redist definition files... " + (defIdx++) + "/" + defs.length); // TODO I18N
+					jLabelDownloadDefinitionsProgress.setText((defIdx++) + "/" + defs.length + "...");
 					try {
 						String definitions = IOUtils.toString(new URL(def));
 						contentOfRemoteFiles.add(definitions);
 					} catch (IOException e) {
-						Log.error("cannot download remote redist definitions file '" + def + "'", e);
+						Log.error(translation.getString(Translation.SEC_OPTIONS, "download.errormsg.remoteRedistDefFiless").replace("{0}", def), e);
 						defInError.add(def);
 					}
 				}
@@ -592,35 +618,52 @@ public class JDialogOptionsTabs extends JDialog {
 						errors.append(url);
 					}
 					JOptionPane.showMessageDialog(null,
-									"Cannot download or process some files, ignoring them: \n\n" + errors.toString(), // TODO I18N
-									"Warning", // TODO I18N
+									translation.getString(Translation.SEC_OPTIONS, "download.warningbox.remoteRedistDefFiles") + "\n\n" + errors.toString(),
+									translation.getString(Translation.SEC_OPTIONS, "download.warningbox.title.remoteRedistDefFiles"),
 									JOptionPane.WARNING_MESSAGE);
 				}
 			} catch (InfinitiveLoopException | IOException ex) {
 				Log.error(ex);
 			} finally {
-				jLabelDownloadDefinitionsProgress.setText("download complete");
+				jLabelDownloadDefinitionsProgress.setText(translation.getString(Translation.SEC_OPTIONS, "download.complete"));
 				jButtonDownloadDefinitions.setEnabled(true);
 			}
 		});
 		tJob.start();
   }//GEN-LAST:event_jButtonDownloadDefinitionsActionPerformed
 
+  private void jTextAreaRedistDefinitionsMouseEntered(MouseEvent evt) {//GEN-FIRST:event_jTextAreaRedistDefinitionsMouseEntered
+    jLabelDescP0.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.registerRemoteRedistDefFiles") + "</body></html>");
+  }//GEN-LAST:event_jTextAreaRedistDefinitionsMouseEntered
+
+  private void jTextAreaRedistDefinitionsMouseExited(MouseEvent evt) {//GEN-FIRST:event_jTextAreaRedistDefinitionsMouseExited
+    jLabelDescP0.setText("");
+  }//GEN-LAST:event_jTextAreaRedistDefinitionsMouseExited
+
+  private void jLabelDefinitionFilesMouseEntered(MouseEvent evt) {//GEN-FIRST:event_jLabelDefinitionFilesMouseEntered
+    jLabelDescP0.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.registerRemoteRedistDefFiles") + "</body></html>");
+  }//GEN-LAST:event_jLabelDefinitionFilesMouseEntered
+
+  private void jLabelDefinitionFilesMouseExited(MouseEvent evt) {//GEN-FIRST:event_jLabelDefinitionFilesMouseExited
+    jLabelDescP0.setText("");
+  }//GEN-LAST:event_jLabelDefinitionFilesMouseExited
+
+  private void jButtonDownloadDefinitionsMouseEntered(MouseEvent evt) {//GEN-FIRST:event_jButtonDownloadDefinitionsMouseEntered
+    jLabelDescP0.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.downloadRemoteRedistDefFiles") + "</body></html>");
+  }//GEN-LAST:event_jButtonDownloadDefinitionsMouseEntered
+
+  private void jButtonDownloadDefinitionsMouseExited(MouseEvent evt) {//GEN-FIRST:event_jButtonDownloadDefinitionsMouseExited
+    jLabelDescP0.setText("");
+  }//GEN-LAST:event_jButtonDownloadDefinitionsMouseExited
+
 	private void uiEvtListEnableExpRedistsEntered() {
-		jLabelDescP1.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.includeExpRedistPatterns") + "</body></html>");
+		jLabelDescP0.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.includeExpRedistPatterns") + "</body></html>");
 	}
 
 	private void uiEvtListEnableExpRedistsExited() {
-		jLabelDescP1.setText("");
+		jLabelDescP0.setText("");
 	}
 
-	private void uiEvtEnableDebugEntered() {
-		jLabelDescP0.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.enableDebug") + "</body></html>");
-	}
-
-	private void uiEvtEnableDebugExited() {
-		jLabelDescP0.setText("aaa");
-	}
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private JButton jButtonCancelP0;
   private JButton jButtonDownloadDefinitions;
