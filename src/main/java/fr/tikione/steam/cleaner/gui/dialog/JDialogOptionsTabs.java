@@ -657,11 +657,11 @@ public class JDialogOptionsTabs extends JDialog {
   }//GEN-LAST:event_jButtonDownloadDefinitionsMouseExited
 
 	private void uiEvtListEnableExpRedistsEntered() {
-		jLabelDescP0.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.includeExpRedistPatterns") + "</body></html>");
+		jLabelDescP1.setText("<html><body>" + translation.getString(Translation.SEC_OPTIONS, "notice.includeExpRedistPatterns") + "</body></html>");
 	}
 
 	private void uiEvtListEnableExpRedistsExited() {
-		jLabelDescP0.setText("");
+		jLabelDescP1.setText("");
 	}
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
