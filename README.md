@@ -1,3 +1,15 @@
+:fire: Translation update: help wanted  
+See [ini files in dist2/conf/i18n](https://github.com/jonathanlermitage/tikione-steam-cleaner/tree/master/dist2/conf/i18n)
+```
+[W_OPTIONS]
+notice.registerRemoteRedistDefFiles=<translation here>
+notice.downloadRemoteRedistDefFiles=<translation here>
+download.errormsg.remoteRedistDefFiles=<translation here>
+download.warningbox.remoteRedistDefFiles=<translation here>
+download.warningbox.title.remoteRedistDefFiles=<translation here>
+download.complete=<translation here>
+```
+
 # TikiOne Steam Cleaner
 
 _The best companion of Steam users - [Download latest version **here**](https://github.com/jonathanlermitage/tikione-steam-cleaner/releases)_
