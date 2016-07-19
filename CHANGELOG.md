@@ -2,6 +2,7 @@
 
 ### 3.0.1 (2016/0?/??) JAVA8
 * Steam download folder is now protected. You can now safely run Steam Cleaner while downloading games.
+* updated the bundled JVM to Java 8u101.
 
 ### 3.0.0 (2016/06/26) JAVA8
 * you can now use additional remote lists of redist patterns. See "Options/General" dialog and [readme.txt](https://github.com/jonathanlermitage/tikione-steam-cleaner/blob/master/dist2/readme.txt) file.
