@@ -59,6 +59,8 @@ Nota: since Google Code is shutting down, I have uploaded [latest NSIS version h
 * Petr Kudlička: redist detection improvements
 * Brian Huqueriza: redist detection improvements
 * "snowman": redist detection improvements, GOG and Origin support
+* "[voltagex](https://github.com/voltagex)": Steam and GOG protection improvements
+* "[mariosumd](https://github.com/mariosumd)": Steam and GOG protection improvements
 * Members of the [CanardPC forum](http://forum.canardpc.com), for their support and cheerfulness
 
 ## History
