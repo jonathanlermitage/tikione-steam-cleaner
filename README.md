@@ -69,22 +69,22 @@ I'm working on this software since Janurary 2012. Here is the full [changelog](h
 
 ## Tools
 
-* Apache libraries (Apache Log4j and Apache Commons IO)
+|Apache libraries (Apache Log4j and Apache Commons IO)|
+|:--|
+|![Apache](https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/misc/logo_apache.png)|
 
-![Maven](https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/misc/logo_apache.png)
+|Apache Maven build tool|
+|:--|
+|![Maven](https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/misc/logo_maven.png)|
 
-* Apache Maven build tool
+|Oracle Java JVM and JDK|
+|:--|
+|![JDK](https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/misc/logo_java.png)|
 
-![Maven](https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/misc/logo_maven.png)
+|Currently developed with Oracle NetBeans IDE|
+|:--|
+|![NetBeans](https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/misc/logo_netbeans.png)|
 
-* Oracle Java JVM and JDK
-
-![Maven](https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/misc/logo_java.png)
-
-* Currently developed with Oracle NetBeans IDE
-
-![Maven](https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/misc/logo_netbeans.png)
-
-* Migrating to JetBrains IntelliJ IDEA IDE
-
-![Maven](https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/misc/logo_intellij.png)
+|Migrating to JetBrains IntelliJ IDEA IDE|
+|:--|
+|![IntelliJ](https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/misc/logo_intellij.png)|
