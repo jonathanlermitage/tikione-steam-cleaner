@@ -1,1 +1,1 @@
-fr.tikione.steam.cleaner=3.0.0
+fr.tikione.steam.cleaner=3.0.1
