@@ -66,3 +66,25 @@ Nota: since Google Code is shutting down, I have uploaded [latest NSIS version h
 ## History
 
 I'm working on this software since Janurary 2012. Here is the full [changelog](https://github.com/jonathanlermitage/tikione-steam-cleaner/blob/master/CHANGELOG.md).
+
+## Tools
+
+* Apache libraries (Apache Log4j and Apache Commons IO)
+
+![Maven](https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/misc/logo_apache.png)
+
+* Apache Maven build tool
+
+![Maven](https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/misc/logo_maven.png)
+
+* Oracle Java JVM and JDK
+
+![Maven](https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/misc/logo_java.png)
+
+* Currently developed with Oracle NetBeans IDE
+
+![Maven](https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/misc/logo_netbeans.png)
+
+* Migrating to JetBrains IntelliJ IDEA IDE
+
+![Maven](https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/misc/logo_intellij.png)
