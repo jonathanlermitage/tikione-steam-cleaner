@@ -1,5 +1,9 @@
 ## TikiOne Steam Cleaner Change Log
 
+### 3.0.2 (2016/0?/??) JAVA8
+* changed download link to updates.
+* updated Portuguese (pt) translation. Thx "poutros".
+
 ### 3.0.1 (2016/08/12) JAVA8
 * added Steam download folder protection. You can now safely run Steam Cleaner while downloading games.
 * fixed GOG folders protection. You can now safely run GOG while downloading games.
