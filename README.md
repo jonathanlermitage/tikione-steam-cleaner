@@ -12,7 +12,7 @@ download.complete=<translation here>
 
 # TikiOne Steam Cleaner
 
-_The best companion of Steam users - [Download latest version **here**](https://github.com/jonathanlermitage/tikione-steam-cleaner/releases)_
+_The best companion of Steam users - [Download latest version **here**](https://github.com/jonathanlermitage/tikione-steam-cleaner/releases/latest)_
 
 Tikione Steam Cleaner is an open source and free software written in Java 8 and helps you to find and remove all games's redistribuable packages downloaded by **Steam** (http://store.steampowered.com). For MS Windows only.
 
@@ -22,7 +22,7 @@ Tikione Steam Cleaner is an open source and free software written in Java 8 and 
 
 ## Download installer
 
-TikiOne Steam Cleaner installer is hosted on [GitHub releases](https://github.com/jonathanlermitage/tikione-steam-cleaner/releases/latest).
+TikiOne Steam Cleaner installer is hosted on [GitHub releases](https://github.com/jonathanlermitage/tikione-steam-cleaner/releases).
 
 ## Build, test and package
 
