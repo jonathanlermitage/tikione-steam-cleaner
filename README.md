@@ -68,7 +68,7 @@ Nota: since Google Code is shutting down, I have uploaded [latest NSIS version h
 
 I'm working on this software since Janurary 2012. Here is the full [changelog](https://github.com/jonathanlermitage/tikione-steam-cleaner/blob/master/CHANGELOG.md).
 
-### License
+## License
 
 MIT License. In other words, you can do what you want: this project is entirely OpenSource, Free and Gratis.
 
