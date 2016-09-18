@@ -73,6 +73,8 @@ MIT License. In other words, you can do what you want: this project is entirely 
 
 ## Tools
 
+I maintain TikiOne Steam Cleaner thanks to these products:
+
 |Apache libraries (Apache Log4j and Apache Commons IO)|
 |:--|
 |![Apache](https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/misc/logo_apache.png)|
