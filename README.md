@@ -54,10 +54,9 @@ Nota: since Google Code is shutting down, I have uploaded [latest NSIS version h
 * Zsolt Brechler: Hungarian translation
 * Piotr Swat: Polish translation
 * Pedro Henrique Viegas Diniz: Portuguese translation
+* "[poutros](https://github.com/poutros)": Portuguese  translation
 * "ZoSH": Spanish translation
 * "wbsdty331": Simplified Chinese translation.
-* Pedro Henrique Viegas Diniz: Portuguese  translation
-* "[poutros](https://github.com/poutros)": Portuguese  translation
 * Petr Kudlička: redist detection improvements
 * Brian Huqueriza: redist detection improvements
 * "snowman": redist detection improvements, GOG and Origin support
@@ -69,7 +68,13 @@ Nota: since Google Code is shutting down, I have uploaded [latest NSIS version h
 
 I'm working on this software since Janurary 2012. Here is the full [changelog](https://github.com/jonathanlermitage/tikione-steam-cleaner/blob/master/CHANGELOG.md).
 
+## License
+
+MIT License. In other words, you can do what you want: this project is entirely OpenSource, Free and Gratis.
+
 ## Tools
+
+I maintain TikiOne Steam Cleaner thanks to these products:
 
 |Apache libraries (Apache Log4j and Apache Commons IO)|
 |:--|
