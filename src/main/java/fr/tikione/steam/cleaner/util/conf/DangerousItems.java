@@ -72,7 +72,7 @@ public class DangerousItems {
         for (String pattern : keys) {
             if (pattern.length() > 0) {
                 try {
-                    dangerousFolders.add(Pattern.compile(pattern));
+                    dangerousFolders.add(Pattern.compile(pattern, Pattern.CASE_INSENSITIVE));
                 } catch (PatternSyntaxException ex) {
                     Log.error(ex);
                 }

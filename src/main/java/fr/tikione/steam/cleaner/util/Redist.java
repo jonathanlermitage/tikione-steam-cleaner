@@ -25,7 +25,7 @@ public class Redist {
      */
     public Redist(String pattern, String description) {
         this.description = description;
-        this.compiledPattern = Pattern.compile(pattern);
+        this.compiledPattern = Pattern.compile(pattern, Pattern.CASE_INSENSITIVE);
     }
 
     /**

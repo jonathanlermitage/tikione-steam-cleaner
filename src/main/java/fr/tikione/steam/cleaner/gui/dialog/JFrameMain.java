@@ -195,8 +195,6 @@ public class JFrameMain extends JFrame {
 		jButtonAddCustomFolder.setText(translation.getString(Translation.SEC_WMAIN, "button.add.custom.folder"));
 		jButtonRemoveCustomFolder.setText(translation.getString(Translation.SEC_WMAIN, "button.rem.custom.folder"));
 		jLabelCustomFolders.setText("<html>" + translation.getString(Translation.SEC_WMAIN, "label.custom.folders.list") + "</html>");
-		jButtonSocialFacebook.setToolTipText("<html><body>" + translation.getString(Translation.SEC_WMAIN, "icon.social.facebook")
-				+ "<br><font color=\"blue\">https://www.facebook.com/jonathan.lermitage</font></body></html>");
 		jButtonStopSearch.setVisible(false);
 		jButtonGithub.setToolTipText("<html><body>" + "TikiOne <b>GitHub</b>"
 				+ "<br><font color=\"blue\">https://github.com/jonathanlermitage/tikione-steam-cleaner</font></body></html>");
@@ -440,7 +438,6 @@ public class JFrameMain extends JFrame {
     jButtonToolbarAbout = new JButton();
     jPanelAppVersion = new JPanel();
     jLabelAppVersion = new JLabel();
-    jButtonSocialFacebook = new JButton();
     jButtonGithub = new JButton();
     jButtonTwitter = new JButton();
 
@@ -469,7 +466,6 @@ public class JFrameMain extends JFrame {
       }
     });
 
-    jButtonLocateSteamDir.setFont(new Font("Dialog", 1, 12)); // NOI18N
     jButtonLocateSteamDir.setText("Try to locate Steam automatically");
     jButtonLocateSteamDir.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
@@ -489,7 +485,6 @@ public class JFrameMain extends JFrame {
     jPanelList.setBorder(BorderFactory.createTitledBorder("Redistributable packages found :"));
     jPanelList.setFont(new Font("Dialog", 0, 13)); // NOI18N
 
-    jButtonReloadRedistList.setFont(new Font("Dialog", 1, 12)); // NOI18N
     jButtonReloadRedistList.setIcon(new ImageIcon(getClass().getResource("/fr/tikione/steam/cleaner/gui/icons/famfamfam_btn_search.png"))); // NOI18N
     jButtonReloadRedistList.setText("Search");
     jButtonReloadRedistList.setEnabled(false);
@@ -499,7 +494,6 @@ public class JFrameMain extends JFrame {
       }
     });
 
-    jButtonRemoveRedistItemsFromDisk.setFont(new Font("Dialog", 1, 12)); // NOI18N
     jButtonRemoveRedistItemsFromDisk.setForeground(new Color(0, 0, 153));
     jButtonRemoveRedistItemsFromDisk.setIcon(new ImageIcon(getClass().getResource("/fr/tikione/steam/cleaner/gui/icons/famfamfam_btn_clean.png"))); // NOI18N
     jButtonRemoveRedistItemsFromDisk.setText("Remove selected items from disk");
@@ -586,7 +580,6 @@ public class JFrameMain extends JFrame {
     jListCustomFolders.setRequestFocusEnabled(false);
     jScrollPane2.setViewportView(jListCustomFolders);
 
-    jButtonAddCustomFolder.setFont(new Font("Dialog", 1, 12)); // NOI18N
     jButtonAddCustomFolder.setIcon(new ImageIcon(getClass().getResource("/fr/tikione/steam/cleaner/gui/icons/famfamfam_btn_add_folder.png"))); // NOI18N
     jButtonAddCustomFolder.setText("Add to list...");
     jButtonAddCustomFolder.setMaximumSize(new Dimension(119, 23));
@@ -598,7 +591,6 @@ public class JFrameMain extends JFrame {
       }
     });
 
-    jButtonRemoveCustomFolder.setFont(new Font("Dialog", 1, 12)); // NOI18N
     jButtonRemoveCustomFolder.setIcon(new ImageIcon(getClass().getResource("/fr/tikione/steam/cleaner/gui/icons/famfamfam_btn_del_folder.png"))); // NOI18N
     jButtonRemoveCustomFolder.setText("Remove from list");
     jButtonRemoveCustomFolder.setMaximumSize(new Dimension(149, 23));
@@ -715,17 +707,6 @@ public class JFrameMain extends JFrame {
       .addComponent(jLabelAppVersion, GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
     );
 
-    jButtonSocialFacebook.setIcon(new ImageIcon(getClass().getResource("/fr/tikione/steam/cleaner/gui/icons/social_facebook.png"))); // NOI18N
-    jButtonSocialFacebook.setToolTipText("");
-    jButtonSocialFacebook.setContentAreaFilled(false);
-    jButtonSocialFacebook.setCursor(new Cursor(Cursor.HAND_CURSOR));
-    jButtonSocialFacebook.setFocusPainted(false);
-    jButtonSocialFacebook.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent evt) {
-        jButtonSocialFacebookActionPerformed(evt);
-      }
-    });
-
     jButtonGithub.setIcon(new ImageIcon(getClass().getResource("/fr/tikione/steam/cleaner/gui/icons/social_github.png"))); // NOI18N
     jButtonGithub.setToolTipText("");
     jButtonGithub.setContentAreaFilled(false);
@@ -758,8 +739,6 @@ public class JFrameMain extends JFrame {
         .addComponent(jButtonGithub, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
         .addPreferredGap(ComponentPlacement.RELATED)
         .addComponent(jButtonTwitter, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
-        .addPreferredGap(ComponentPlacement.RELATED)
-        .addComponent(jButtonSocialFacebook, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
         .addGap(18, 18, 18)
         .addComponent(jPanelAppVersion, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
     );
@@ -768,7 +747,6 @@ public class JFrameMain extends JFrame {
         .addGroup(layout.createParallelGroup(Alignment.LEADING)
           .addComponent(jToolBarMain, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
           .addComponent(jPanelAppVersion, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-          .addComponent(jButtonSocialFacebook)
           .addComponent(jButtonGithub)
           .addComponent(jButtonTwitter))
         .addGap(10, 10, 10)
@@ -930,10 +908,6 @@ public class JFrameMain extends JFrame {
 		aboutFrame.setVisible(true);
     }//GEN-LAST:event_jButtonToolbarAboutActionPerformed
 
-    private void jButtonSocialFacebookActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonSocialFacebookActionPerformed
-		UpdateManager.extBrowser("https://www.facebook.com/jonathan.lermitage");
-    }//GEN-LAST:event_jButtonSocialFacebookActionPerformed
-
     private void jButtonAddCustomFolderActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButtonAddCustomFolderActionPerformed
 		JFileChooser dialogue = new JFileChooser();
 		dialogue.setMultiSelectionEnabled(false);
@@ -986,7 +960,6 @@ public class JFrameMain extends JFrame {
   private JButton jButtonReloadRedistList;
   private JButton jButtonRemoveCustomFolder;
   private JButton jButtonRemoveRedistItemsFromDisk;
-  private JButton jButtonSocialFacebook;
   private JButton jButtonStopSearch;
   private JButton jButtonToolbarAbout;
   private JButton jButtonToolbarCheckforupdates;

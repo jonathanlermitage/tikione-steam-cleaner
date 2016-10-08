@@ -1,10 +1,8 @@
 package fr.tikione.steam.cleaner.util;
 
 import fr.tikione.ini.util.StringHelper;
-import fr.tikione.steam.cleaner.Main;
 import fr.tikione.steam.cleaner.gui.dialog.JFrameMain;
 import java.io.File;
-import java.io.FileFilter;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
@@ -42,10 +40,9 @@ public class FileUtils {
 						boolean accept;
 						if (pathname.isDirectory()) {
 							accept = true;
-							String abslowPath = pathname.getAbsolutePath().toLowerCase(Main.SYS_LOCALE);
 							EXCLUDE_DANGEROUS:
 							for (Pattern dangerousPatt : dangerousFolders) {
-								if (StringHelper.checkRegex(abslowPath, dangerousPatt)) {
+								if (StringHelper.checkRegex(pathname.getAbsolutePath(), dangerousPatt)) {
 									accept = false;
 									Log.info("Skipped hazardous place: '" + pathname + "'");
 									break;
@@ -91,10 +88,9 @@ public class FileUtils {
 			boolean accept;
 			if (pathname.isDirectory()) {
 				accept = true;
-				String abslowPath = pathname.getAbsolutePath().toLowerCase(Main.SYS_LOCALE);
 				EXCLUDE_DANGEROUS:
 				for (Pattern dangerousPatt : dangerousFolders) {
-					if (StringHelper.checkRegex(abslowPath, dangerousPatt)) {
+					if (StringHelper.checkRegex(pathname.getAbsolutePath(), dangerousPatt)) {
 						accept = false;
 						Log.info("Skipped hazardous place: '" + pathname + "'");
 						break;
@@ -130,7 +126,7 @@ public class FileUtils {
         for (Redist redist : redistsPatterns) {
             Pattern pattern = redist.getCompiledPattern();
             String fileName = file.getName();
-            if (pattern.matcher(fileName.toLowerCase(Main.SYS_LOCALE)).find()) {
+            if (pattern.matcher(fileName).find()) {
                 Redist redistFound = new Redist(file, redist.getDescription());
                 checkedFiles = redistFound;
                 break;
