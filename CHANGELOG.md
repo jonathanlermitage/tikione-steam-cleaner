@@ -1,10 +1,11 @@
 ## TikiOne Steam Cleaner Change Log
 
 ### 3.0.2 (2016/??/??) JAVA8
+* improved redist detection: patterns are now case-insensitive.
 * changed download link to updates.
 * updated Portuguese (pt) translation. Thx "poutros".
 * added Italian (it) translation. Thx Davide Crucitti.
-* moved to MIT license
+* moved to MIT license.
 
 ### 3.0.1 (2016/08/12) JAVA8
 * added Steam download folder protection. You can now safely run Steam Cleaner while downloading games.
