@@ -1,8 +1,9 @@
 ## TikiOne Steam Cleaner Change Log
 
-### 3.0.2 (2016/??/??) JAVA8
+### 3.0.2 (2016/10/09) JAVA8
 * improved redist detection: patterns are now case-insensitive.
-* changed download link to updates.
+* fixed some redist patterns.
+* reworked download link to updates.
 * updated Portuguese (pt) translation. Thx "poutros".
 * added Italian (it) translation. Thx Davide Crucitti.
 * moved to MIT license.
