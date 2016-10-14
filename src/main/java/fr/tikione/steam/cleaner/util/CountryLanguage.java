@@ -4,13 +4,13 @@ package fr.tikione.steam.cleaner.util;
  * UI language handler.
  */
 public class CountryLanguage {
-
+    
     /** Language code. */
     private final String code;
-
+    
     /** Language name. */
     private final String desc;
-
+    
     /**
      * Define a language to be used in the application's UI.
      *
@@ -21,7 +21,7 @@ public class CountryLanguage {
         this.code = code;
         this.desc = desc;
     }
-
+    
     /**
      * The two-letters language code (eg "fr" for French or "ru" for Russian).
      *
@@ -30,7 +30,7 @@ public class CountryLanguage {
     public String getCode() {
         return code;
     }
-
+    
     /**
      * The language name (eg "French" or "Russian")
      *

@@ -3,6 +3,7 @@ package fr.tikione.steam.cleaner.util.conf;
 import fr.tikione.ini.InfinitiveLoopException;
 import fr.tikione.ini.Ini;
 import fr.tikione.steam.cleaner.Main;
+
 import java.io.CharConversionException;
 import java.io.File;
 import java.io.IOException;
@@ -15,21 +16,21 @@ import java.util.regex.Matcher;
  * List of custom folders for redistributable packages research.
  */
 public class CustomFolders {
-
+    
     /** INI configuration file section : custom folders. */
     private static final String CONFIG_CUSTOM_FOLDERS = "CUSTOM_FOLDERS";
-
+    
     /** INI configuration file key : custom folders. */
     private static final String CONFIG_CUSTOM_FOLDERS__ITEM_LIST = "itemList";
-
+    
     /** File to use for configuration loading and saving. */
     private final File configFile;
-
+    
     /** Configuration object. */
     private final Ini ini;
-
+    
     private boolean updated = false;
-
+    
     /**
      * Load application configuration file. A default configuration file is created if necessary.
      *
@@ -50,7 +51,7 @@ public class CustomFolders {
         ini.getConfig().enableReadUnicodeEscConv(false);
         ini.load(configFile, Main.CONF_ENCODING);
     }
-
+    
     /**
      * Saves the unchecked items list into a file.
      *
@@ -62,7 +63,7 @@ public class CustomFolders {
             ini.store(configFile, Main.CONF_ENCODING, Main.CONF_NEWLINE);
         }
     }
-
+    
     /**
      * Get the list of unchecked items memorized from the file.
      *
@@ -73,7 +74,7 @@ public class CustomFolders {
     @SuppressWarnings("unchecked")
     public List<String> getCustomFolders()
             throws CharConversionException,
-                   InfinitiveLoopException {
+            InfinitiveLoopException {
         String itemTable = ini.getKeyValue(null, CONFIG_CUSTOM_FOLDERS, CONFIG_CUSTOM_FOLDERS__ITEM_LIST);
         List<String> res;
         if (itemTable == null) {
@@ -83,7 +84,7 @@ public class CustomFolders {
         }
         return res;
     }
-
+    
     /**
      * Set the list of unchecked items to memorize.
      *
@@ -93,7 +94,7 @@ public class CustomFolders {
      */
     public void setCustomFolders(List<String> items)
             throws CharConversionException,
-                   InfinitiveLoopException {
+            InfinitiveLoopException {
         List<String> prevItems = getCustomFolders();
         if (!prevItems.containsAll(items) || !items.containsAll(prevItems)) {
             updated = true;

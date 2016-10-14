@@ -9,13 +9,13 @@ import java.util.regex.Pattern;
  * a file or folder name pattern that represents a single or a set of redistributable packages.
  */
 public class Redist {
-
+    
     private final String description;
-
+    
     private Pattern compiledPattern;
-
+    
     private File file;
-
+    
     /**
      * Define a file or folder name pattern that represents a single or a set of redistributable packages. Used to find
      * redistributable packages files and folders on the system storage.
@@ -27,7 +27,7 @@ public class Redist {
         this.description = description;
         this.compiledPattern = Pattern.compile(pattern, Pattern.CASE_INSENSITIVE);
     }
-
+    
     /**
      * Define description of a redistributable package file or folder found on the system storage.
      *
@@ -38,14 +38,14 @@ public class Redist {
         this.file = file;
         this.description = description;
     }
-
+    
     @Override
     public int hashCode() {
         int hash = 5;
         hash = 53 * hash + Objects.hashCode(this.file);
         return hash;
     }
-
+    
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -57,15 +57,15 @@ public class Redist {
         final Redist other = (Redist) obj;
         return Objects.equals(this.file, other.file);
     }
-
+    
     public String getDescription() {
         return description;
     }
-
+    
     public Pattern getCompiledPattern() {
         return compiledPattern;
     }
-
+    
     public double getSize() {
         long fsize;
         if (file.isFile()) {
@@ -79,7 +79,7 @@ public class Redist {
         floatSize /= (1024.0 * 1024.0);
         return floatSize;
     }
-
+    
     public File getFile() {
         return file;
     }

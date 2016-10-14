@@ -1,21 +1,22 @@
 package fr.tikione.steam.cleaner.util;
 
 import fr.tikione.steam.cleaner.util.conf.Config;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 
 /**
  * Log file handler.
  */
 public class Log {
-
+    
     /** Default logger. */
-    protected static Logger messagesLogger;
-
+    private static Logger messagesLogger;
+    
     static {
         try {
             Properties conf = new Properties();
@@ -34,11 +35,11 @@ public class Log {
             throw new RuntimeException("Cannot instantiate Log4j", ex);
         }
     }
-
+    
     /** Suppresses default constructor, ensuring non-instantiability. */
     private Log() {
     }
-
+    
     /**
      * Log a message object with the INFO Level.
      *
@@ -47,7 +48,7 @@ public class Log {
     public static void info(String message) {
         messagesLogger.info(message);
     }
-
+    
     /**
      * Log a message object with the ERROR Level.
      *
@@ -56,7 +57,7 @@ public class Log {
     public static void error(Throwable ex) {
         messagesLogger.error("", ex);
     }
-
+    
     /**
      * Log a message object with the ERROR Level.
      *

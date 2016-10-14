@@ -2,22 +2,23 @@ package fr.tikione.steam.cleaner.util;
 
 import fr.tikione.ini.util.StringHelper;
 import fr.tikione.steam.cleaner.gui.dialog.JFrameMain;
+
+import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 import java.util.regex.Pattern;
-import javax.swing.JFrame;
 
 /**
  * File utilities.
  */
 public class FileUtils {
-
+    
     /** Suppresses default constructor, ensuring non-instantiability. */
     private FileUtils() {
     }
-
+    
     /**
      * List all files and folders of a specific folder with a recursive search.
      *
@@ -28,7 +29,7 @@ public class FileUtils {
      * @param dangerousFolders list of folders patterns to exclude.
      */
     public static void listDir(JFrame jframe, Collection<File> files, Collection<File> folders, int depth,
-            final List<Pattern> dangerousFolders) {
+                               final List<Pattern> dangerousFolders) {
         String frameTitle = jframe.getTitle();
         try {
             for (File folder : folders) {
@@ -37,30 +38,28 @@ public class FileUtils {
                     files.addAll(org.apache.commons.io.FileUtils.listFiles(folder, null, false));
                     File[] subFolders;
                     subFolders = folder.listFiles((File pathname) -> {
-						boolean accept;
-						if (pathname.isDirectory()) {
-							accept = true;
-							EXCLUDE_DANGEROUS:
-							for (Pattern dangerousPatt : dangerousFolders) {
-								if (StringHelper.checkRegex(pathname.getAbsolutePath(), dangerousPatt)) {
-									accept = false;
-									Log.info("Skipped hazardous place: '" + pathname + "'");
-									break;
-								}
-							}
-						} else {
-							accept = false;
-						}
-						return accept;
-					});
+                        boolean accept;
+                        if (pathname.isDirectory()) {
+                            accept = true;
+                            for (Pattern dangerousPatt : dangerousFolders) {
+                                if (StringHelper.checkRegex(pathname.getAbsolutePath(), dangerousPatt)) {
+                                    accept = false;
+                                    Log.info("Skipped hazardous place: '" + pathname + "'");
+                                    break;
+                                }
+                            }
+                        } else {
+                            accept = false;
+                        }
+                        return accept;
+                    });
                     if (depth > 0 && subFolders != null) {
-                        FOLDER_LISTING:
                         for (File subFolder : subFolders) {
                             if (JFrameMain.isCLOSING_APP()) {
                                 break;
                             }
                             files.add(subFolder);
-                            listDirNoRecount(jframe, files, subFolder, depth - 1, dangerousFolders);
+                            listDirNoRecount(jframe, files, subFolder, depth - 1, dangerousFolders); // FIXME needs optimization (duplicated code: listDirNoRecount)
                         }
                     }
                 } catch (Exception ex) {
@@ -71,7 +70,7 @@ public class FileUtils {
             jframe.setTitle(frameTitle);
         }
     }
-
+    
     /**
      * List all files and folders of a specific folder with a recursive search.
      *
@@ -81,28 +80,26 @@ public class FileUtils {
      * @param dangerousFolders list of folders patterns to exclude.
      */
     private static void listDirNoRecount(final JFrame jframe, Collection<File> files, File folder, int depth,
-            final List<Pattern> dangerousFolders) {
+                                         final List<Pattern> dangerousFolders) {
         jframe.setTitle(folder.getAbsolutePath() + File.separatorChar);
         files.addAll(org.apache.commons.io.FileUtils.listFiles(folder, null, false));
         File[] subFolders = folder.listFiles((File pathname) -> {
-			boolean accept;
-			if (pathname.isDirectory()) {
-				accept = true;
-				EXCLUDE_DANGEROUS:
-				for (Pattern dangerousPatt : dangerousFolders) {
-					if (StringHelper.checkRegex(pathname.getAbsolutePath(), dangerousPatt)) {
-						accept = false;
-						Log.info("Skipped hazardous place: '" + pathname + "'");
-						break;
-					}
-				}
-			} else {
-				accept = false;
-			}
-			return accept;
-		});
+            boolean accept;
+            if (pathname.isDirectory()) {
+                accept = true;
+                for (Pattern dangerousPatt : dangerousFolders) {
+                    if (StringHelper.checkRegex(pathname.getAbsolutePath(), dangerousPatt)) {
+                        accept = false;
+                        Log.info("Skipped hazardous place: '" + pathname + "'");
+                        break;
+                    }
+                }
+            } else {
+                accept = false;
+            }
+            return accept;
+        });
         if (depth > 0 && subFolders != null) {
-            FILE_LISTING:
             for (File subFolder : subFolders) { // FIXED avoid NPE on (protected) subFolders if custom dir.
                 if (JFrameMain.isCLOSING_APP()) {
                     break;
@@ -112,7 +109,7 @@ public class FileUtils {
             }
         }
     }
-
+    
     /**
      * Check if a file-name verifies one of the patterns in the patterns-collection.
      *
@@ -122,19 +119,17 @@ public class FileUtils {
      */
     public static Redist checkFile(File file, List<Redist> redistsPatterns) {
         Redist checkedFiles = null;
-        CHECK:
         for (Redist redist : redistsPatterns) {
             Pattern pattern = redist.getCompiledPattern();
             String fileName = file.getName();
             if (pattern.matcher(fileName).find()) {
-                Redist redistFound = new Redist(file, redist.getDescription());
-                checkedFiles = redistFound;
+                checkedFiles = new Redist(file, redist.getDescription());
                 break;
             }
         }
         return checkedFiles;
     }
-
+    
     /**
      * Delete a folder on the hard-drive.
      *

@@ -4,6 +4,7 @@ import fr.tikione.ini.InfinitiveLoopException;
 import fr.tikione.ini.Ini;
 import fr.tikione.steam.cleaner.Main;
 import fr.tikione.steam.cleaner.util.Log;
+
 import java.io.CharConversionException;
 import java.io.File;
 import java.io.IOException;
@@ -16,21 +17,21 @@ import java.util.regex.PatternSyntaxException;
  * List of items patterns to exclude from the search path.
  */
 public class DangerousItems {
-
+    
     private static final DangerousItems dangerousItems;
-
+    
     /** INI configuration file section : unchecked items. */
     private static final String CONFIG_AUTOEXCLUDE_PATTERNS = "AUTOEXCLUDE_PATTERNS";
-
+    
     /** INI configuration file key : unchecked items. */
     private static final String CONFIG_AUTOEXCLUDE_PATTERNS__FOLDERS_LIST = "folderPatterns";
-
+    
     /** File to use for configuration loading and saving. */
     private static File configFile;
-
+    
     /** Configuration object. */
     private static Ini ini;
-
+    
     static {
         // Singleton creation.
         try {
@@ -40,7 +41,7 @@ public class DangerousItems {
             throw new RuntimeException(ex);
         }
     }
-
+    
     /**
      * Get the configuration handler as a singleton.
      *
@@ -49,7 +50,7 @@ public class DangerousItems {
     public static synchronized DangerousItems getInstance() {
         return dangerousItems;
     }
-
+    
     /**
      * Load application configuration file.
      *
@@ -63,10 +64,10 @@ public class DangerousItems {
         ini.getConfig().enableReadUnicodeEscConv(true);
         ini.load(configFile, Main.CONF_ENCODING);
     }
-
+    
     public List<Pattern> getDangerousFolders()
             throws CharConversionException,
-                   InfinitiveLoopException {
+            InfinitiveLoopException {
         List<Pattern> dangerousFolders = new ArrayList<>(16);
         String[] keys = ini.getKeyValue("", CONFIG_AUTOEXCLUDE_PATTERNS, CONFIG_AUTOEXCLUDE_PATTERNS__FOLDERS_LIST).split("\"", 0);
         for (String pattern : keys) {
