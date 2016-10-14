@@ -85,7 +85,7 @@ I maintain TikiOne Steam Cleaner thanks to these products:
 |:--|
 |![Maven](https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/misc/logo_maven.png)|
 
-|Oracle Java JVM and JDK|
+|Oracle JRE and JDK|
 |:--|
 |![JDK](https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/misc/logo_java.png)|
 
