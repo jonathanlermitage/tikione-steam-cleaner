@@ -48,8 +48,8 @@
 * there are now two editions of TikiOne Steam Cleaner: regular, with the installer, and a portable edition that don't left config files in %userprofile% folder.
 
 ### 2.4.4 (2015/06/21) JAVA7
-* updated the list of redistributable packages to support GOG (GalaxyClient) and Origin platforms. Thx Antti Mieskolainen.
-* updated the experimental list of redistributable packages to support Help, Support and EULA files (non-redist but still removable). Thx Antti Mieskolainen.
+* updated the list of redistributable packages to support GOG (GalaxyClient) and Origin platforms.
+* updated the experimental list of redistributable packages to support Help, Support and EULA files (non-redist but still removable).
 * greatly updated the exclude list to prevent many programs corruption.
 * updated Spanish (es) translation. Thx "ZoSH".
 
