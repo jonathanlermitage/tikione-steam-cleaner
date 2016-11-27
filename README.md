@@ -57,7 +57,7 @@ Nota: since Google Code is shutting down, I have uploaded [latest NSIS version h
 * "[poutros](https://github.com/poutros)": Portuguese  translation
 * "ZoSH": Spanish translation
 * "wbsdty331": Simplified Chinese translation
-* "tsk12": Traditional Chinese translation
+* "[tsk12](https://github.com/tsk12)": Traditional Chinese translation
 * Davide Crucitti: Italian translation
 * Petr Kudlička: redist detection improvements
 * Brian Huqueriza: redist detection improvements
