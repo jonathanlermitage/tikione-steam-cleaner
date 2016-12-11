@@ -17,9 +17,6 @@ public class I18nEncoding {
     /** Singleton handler. */
     private static final I18nEncoding i18nEncoding;
     
-    /** File to use for configuration loading and saving. */
-    private final File configFile;
-    
     /** Configuration object. */
     private final Ini ini;
     
@@ -49,11 +46,10 @@ public class I18nEncoding {
      */
     private I18nEncoding()
             throws IOException {
-        configFile = new File("conf/i18n/encoding.ini");
         ini = new Ini();
         ini.getConfig().enableParseLineConcat(true);
         ini.getConfig().enableReadUnicodeEscConv(true);
-        ini.load(configFile, Main.CONF_ENCODING);
+        ini.load(new File("conf/i18n/encoding.ini"), Main.CONF_ENCODING);
     }
     
     public String getLngEncoding(String locale)

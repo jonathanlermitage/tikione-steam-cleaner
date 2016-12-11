@@ -1,22 +1,13 @@
 package fr.tikione.steam.cleaner.util;
 
 import java.awt.*;
-import java.net.URL;
 
 /**
  * GUI utilities.
  */
 public class GraphicsUtils {
     
-    private static final Image DEFAULT_ICON_IMG;
-    
     private static final Toolkit DEFAULT_TOOLKIT = Toolkit.getDefaultToolkit();
-    
-    static {
-        URL TSC_MAIN_ICON = GraphicsUtils.class.getResource(
-                "/fr/tikione/steam/cleaner/gui/icons/tikione-steam-cleaner-icon.png");
-        DEFAULT_ICON_IMG = DEFAULT_TOOLKIT.createImage(TSC_MAIN_ICON);
-    }
     
     /** Suppresses default constructor, ensuring non-instantiability. */
     private GraphicsUtils() {
@@ -42,6 +33,7 @@ public class GraphicsUtils {
      * @param window the frame to set icon.
      */
     public static void setIcon(Window window) {
-        window.setIconImage(DEFAULT_ICON_IMG);
+        window.setIconImage(DEFAULT_TOOLKIT.createImage(GraphicsUtils.class.getResource(
+                "/fr/tikione/steam/cleaner/gui/icons/tikione-steam-cleaner-icon.png")));
     }
 }

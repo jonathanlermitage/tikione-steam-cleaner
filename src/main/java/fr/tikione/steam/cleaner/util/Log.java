@@ -22,6 +22,7 @@ public class Log {
             Properties conf = new Properties();
             File backupLog4j = new File("conf/backup/tikione-steam-cleaner_log4j.properties");
             File userprofile = new File(Config.getProfilePath());
+            //noinspection ResultOfMethodCallIgnored
             userprofile.mkdirs();
             File userLog4j = new File(userprofile.getAbsolutePath() + "/tikione-steam-cleaner_log4j.properties");
             if (!userLog4j.exists()) {

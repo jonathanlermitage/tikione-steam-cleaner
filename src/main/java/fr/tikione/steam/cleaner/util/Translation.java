@@ -19,8 +19,6 @@ public class Translation {
     
     private static final String DEFAULT_LANGCODE = "en";
     
-    private static final String CONF_GLOBAL_SECTION = "";
-    
     private static final String CONF_BASEPATH = "conf/i18n/";
     
     public static final String CONF_BASEPATH_FLAGS = CONF_BASEPATH + "flags/";
@@ -48,16 +46,6 @@ public class Translation {
         } catch (IOException | PatternSyntaxException | InfinitiveLoopException ex) {
             Log.error(ex);
         }
-    }
-    
-    /**
-     * Get a translated string denoted by an identifier (in the global section).
-     *
-     * @param key the string identifier.
-     * @return the translated string.
-     */
-    public String getString(String key) {
-        return getString(CONF_GLOBAL_SECTION, key);
     }
     
     /**

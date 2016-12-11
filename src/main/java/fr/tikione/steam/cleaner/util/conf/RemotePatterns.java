@@ -15,9 +15,10 @@ import static fr.tikione.steam.cleaner.util.conf.Config.getProfilePath;
 /**
  * Configuration handler for remote Redist definitions files.
  */
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class RemotePatterns {
     
-    public static final String CONFIG_FOLDER = "remoteRedistDefinitions";
+    private static final String CONFIG_FOLDER = "remoteRedistDefinitions";
     
     /**
      * Store new remote Redist definitions files and remove olderones.
@@ -28,13 +29,15 @@ public class RemotePatterns {
         File thirdpartyFiles = new File(getProfilePath(), CONFIG_FOLDER);
         thirdpartyFiles.mkdirs();
         File[] oldFiles = thirdpartyFiles.listFiles();
-        for (File oldFile : oldFiles) {
-            oldFile.delete();
+        if (null != oldFiles) {
+            for (File oldFile : oldFiles) {
+                oldFile.delete();
+            }
         }
         thirdpartyFiles.mkdirs();
         for (String content : contents) {
             File configFile = new File(thirdpartyFiles, System.nanoTime() + ".ini");
-            FileUtils.write(configFile, content);
+            FileUtils.write(configFile, content, Main.CONF_ENCODING);
         }
     }
     
@@ -47,15 +50,17 @@ public class RemotePatterns {
         File thirdpartyFiles = new File(getProfilePath(), CONFIG_FOLDER);
         if (thirdpartyFiles.exists()) {
             File[] iniFiles = thirdpartyFiles.listFiles();
-            for (File iniFile : iniFiles) {
-                try {
-                    Ini ini = new Ini();
-                    ini.getConfig().enableParseLineConcat(true);
-                    ini.getConfig().enableReadUnicodeEscConv(true);
-                    ini.load(iniFile, Main.CONF_ENCODING);
-                    inis.add(ini);
-                } catch (IOException ex) {
-                    Log.error("cannot load or parse ini file: " + iniFile.getAbsolutePath(), ex);
+            if (null != iniFiles) {
+                for (File iniFile : iniFiles) {
+                    try {
+                        Ini ini = new Ini();
+                        ini.getConfig().enableParseLineConcat(true);
+                        ini.getConfig().enableReadUnicodeEscConv(true);
+                        ini.load(iniFile, Main.CONF_ENCODING);
+                        inis.add(ini);
+                    } catch (IOException ex) {
+                        Log.error("cannot load or parse ini file: " + iniFile.getAbsolutePath(), ex);
+                    }
                 }
             }
         }

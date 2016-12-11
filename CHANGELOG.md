@@ -2,6 +2,7 @@
 
 ### 3.0.3 (2016/??/??) JAVA8
 * added Traditional Chinese (zh-hk) translation. Thx "tsk12".
+* internal: code rework and cleanup.
 
 ### 3.0.2 (2016/10/09) JAVA8
 * improved redist detection: patterns are now case-insensitive.

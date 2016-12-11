@@ -26,9 +26,6 @@ public class DangerousItems {
     /** INI configuration file key : unchecked items. */
     private static final String CONFIG_AUTOEXCLUDE_PATTERNS__FOLDERS_LIST = "folderPatterns";
     
-    /** File to use for configuration loading and saving. */
-    private static File configFile;
-    
     /** Configuration object. */
     private static Ini ini;
     
@@ -58,11 +55,10 @@ public class DangerousItems {
      */
     private DangerousItems()
             throws IOException {
-        configFile = new File("conf/tikione-steam-cleaner_dangerous-items.ini");
         ini = new Ini();
         ini.getConfig().enableParseLineConcat(true);
         ini.getConfig().enableReadUnicodeEscConv(true);
-        ini.load(configFile, Main.CONF_ENCODING);
+        ini.load(new File("conf/tikione-steam-cleaner_dangerous-items.ini"), Main.CONF_ENCODING);
     }
     
     public List<Pattern> getDangerousFolders()

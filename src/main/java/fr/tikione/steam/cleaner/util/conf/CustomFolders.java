@@ -41,6 +41,7 @@ public class CustomFolders {
             throws IOException {
         File backupConfigFile = new File("conf/backup/tikione-steam-cleaner_custom-folders.ini");
         File userprofile = new File(Config.getProfilePath());
+        //noinspection ResultOfMethodCallIgnored
         userprofile.mkdirs();
         configFile = new File(userprofile.getAbsolutePath() + "/tikione-steam-cleaner_custom-folders.ini");
         if (!configFile.exists()) {
@@ -89,9 +90,10 @@ public class CustomFolders {
      * Set the list of unchecked items to memorize.
      *
      * @param items the items to memorize.
-     * @throws CharConversionException
-     * @throws InfinitiveLoopException
+     * @throws CharConversionException if an error occurs while setting the list from the file (invalid characters).
+     * @throws InfinitiveLoopException if an error occurs while setting the list from the file (file parsing error).
      */
+    @SuppressWarnings("Duplicates")
     public void setCustomFolders(List<String> items)
             throws CharConversionException,
             InfinitiveLoopException {

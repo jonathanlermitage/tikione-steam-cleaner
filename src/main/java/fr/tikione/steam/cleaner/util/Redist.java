@@ -1,13 +1,17 @@
 package fr.tikione.steam.cleaner.util;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+
 import java.io.File;
-import java.util.Objects;
 import java.util.regex.Pattern;
 
 /**
  * A description of a redistributable package file or folder found on the system storage -OR-
  * a file or folder name pattern that represents a single or a set of redistributable packages.
  */
+@Getter
+@EqualsAndHashCode(exclude = {"description", "compiledPattern"})
 public class Redist {
     
     private final String description;
@@ -39,33 +43,6 @@ public class Redist {
         this.description = description;
     }
     
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 53 * hash + Objects.hashCode(this.file);
-        return hash;
-    }
-    
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Redist other = (Redist) obj;
-        return Objects.equals(this.file, other.file);
-    }
-    
-    public String getDescription() {
-        return description;
-    }
-    
-    public Pattern getCompiledPattern() {
-        return compiledPattern;
-    }
-    
     public double getSize() {
         long fsize;
         if (file.isFile()) {
@@ -78,9 +55,5 @@ public class Redist {
         double floatSize = fsize;
         floatSize /= (1024.0 * 1024.0);
         return floatSize;
-    }
-    
-    public File getFile() {
-        return file;
     }
 }

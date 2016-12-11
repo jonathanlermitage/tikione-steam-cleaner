@@ -46,8 +46,7 @@ public class Main {
 			Log.error(e);
 		}
 		try {
-			JFrameMain gui = new JFrameMain();
-			gui.setVisible(true);
+			new JFrameMain().setVisible(true);
 		} catch (IOException | InfinitiveLoopException ex) {
 			Log.error(ex);
 		}

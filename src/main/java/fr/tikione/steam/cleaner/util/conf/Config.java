@@ -65,7 +65,7 @@ public class Config {
     private static final String DEFAULT_REMOTE_DEFINITION_FILE = "https://raw.githubusercontent.com/jonathanlermitage/"
             + "tikione-steam-cleaner/master/dist2/conf/backup/tikione-steam-cleaner_patterns.ini";
     
-    public static final String CONFIG_FILENAME = "tikione-steam-cleaner_config_rev241.ini";
+    private static final String CONFIG_FILENAME = "tikione-steam-cleaner_config_rev241.ini";
     
     /** File to use for configuration loading and saving. */
     private final File configFile;
@@ -101,9 +101,10 @@ public class Config {
      * configuration file.
      */
     private Config()
-            throws IOException, CharConversionException, InfinitiveLoopException {
+            throws IOException, InfinitiveLoopException {
         File backupConfigFile = new File("conf/backup/tikione-steam-cleaner_config.ini");
         File userprofile = new File(getProfilePath());
+        //noinspection ResultOfMethodCallIgnored
         userprofile.mkdirs();
         configFile = new File(userprofile.getAbsolutePath() + "/" + CONFIG_FILENAME);
         if (!configFile.exists()) {
@@ -238,14 +239,14 @@ public class Config {
     }
     
     public String getSelectedLanguage()
-            throws CharConversionException,
+            throws
             InfinitiveLoopException,
             IOException {
         return getSelectedLanguage(Translation.getAvailLangList());
     }
     
     public String getSelectedLanguage(List<CountryLanguage> availLang)
-            throws CharConversionException,
+            throws
             InfinitiveLoopException,
             IOException {
         String lang = ini.getKeyValue("", CONFIG_LANG, CONFIG_LANG__SELECTION);

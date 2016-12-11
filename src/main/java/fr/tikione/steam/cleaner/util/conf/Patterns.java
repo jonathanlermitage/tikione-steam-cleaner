@@ -38,7 +38,7 @@ public class Patterns {
     /** INI configuration file key : enable experimental patterns. */
     private static final String CONFIG_REDIST_PATTERNS__ENABLE_EXP_PATTERNS = "enableExperimentalPatterns";
     
-    public static final String CONFIG_FILENAME = "tikione-steam-cleaner_patterns_rev244.ini";
+    private static final String CONFIG_FILENAME = "tikione-steam-cleaner_patterns_rev244.ini";
     
     /** Singleton handler. */
     private static final Patterns config;
@@ -80,9 +80,10 @@ public class Patterns {
      */
     @SuppressWarnings("OverridableMethodCallInConstructor")
     private Patterns()
-            throws IOException, CharConversionException, InfinitiveLoopException {
+            throws IOException, InfinitiveLoopException {
         File backupConfigFile = new File("conf/backup/tikione-steam-cleaner_patterns.ini");
         File userprofile = new File(Config.getProfilePath());
+        //noinspection ResultOfMethodCallIgnored
         userprofile.mkdirs();
         configFile = new File(userprofile.getAbsolutePath() + "/" + CONFIG_FILENAME);
         if (!configFile.exists()) {
@@ -93,7 +94,7 @@ public class Patterns {
     }
     
     public void reload()
-            throws IOException, CharConversionException, InfinitiveLoopException {
+            throws IOException, InfinitiveLoopException {
         ini = new Ini();
         ini.getConfig().enableParseLineConcat(true);
         ini.getConfig().enableReadUnicodeEscConv(true);
