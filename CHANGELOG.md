@@ -1,5 +1,8 @@
 ## TikiOne Steam Cleaner Change Log
 
+### 3.0.4 (2017/01/xx) JAVA8
+* improved handling of "Penumbra" games. Thx "DickTektiv".
+
 ### 3.0.3 (2016/12/30) JAVA8
 * added Traditional Chinese (zh-hk) translation. Thx "tsk12".
 * internal: code rework and cleanup.
