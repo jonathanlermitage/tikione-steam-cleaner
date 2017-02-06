@@ -1,6 +1,7 @@
 ## TikiOne Steam Cleaner Change Log
 
-### 3.0.4 (2017/01/xx) JAVA8
+### 3.0.4 (2017/02/06) JAVA8
+* updated Italian (it) translation. Thx xDarkWolf.
 * improved handling of "Penumbra" games. Thx "DickTektiv".
 * updated the bundled JVM to Java 8u121.
 
