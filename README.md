@@ -80,7 +80,7 @@ MIT License. In other words, you can do what you want: this project is entirely 
 Andrew Sampson is the developper of an excellent alternative based on Microsoft *.NET* technology. Check his repository: [Codeusa/SteamCleaner](https://github.com/Codeusa/SteamCleaner).  
 He is also the author of the famous *Borderless Gaming* software: [Codeusa/Borderless-Gaming](https://github.com/Codeusa/Borderless-Gaming).
 
-# Security
+## Security
 
 You may think that *Java* is not secure. I won't blame you, but please keep in mind that if the *Java _plugin_* (which is dead now) was a giant security hole, the *Java _VM_* (that runs TikiOne Steam Cleaner) is secure and is used by many major companies to run servers (for Google, Amazon...), desktop applications (like JetBrains IDEs), TVs, IoT, Android smartphones, etc. In other words, Java is everywhere and it works fine ;-)
 
