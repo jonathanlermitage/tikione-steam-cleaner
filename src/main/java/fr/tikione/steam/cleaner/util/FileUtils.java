@@ -2,13 +2,12 @@ package fr.tikione.steam.cleaner.util;
 
 import fr.tikione.ini.util.StringHelper;
 import fr.tikione.steam.cleaner.gui.dialog.JFrameMain;
-
-import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 import java.util.regex.Pattern;
+import javax.swing.*;
 
 /**
  * File utilities.
@@ -35,6 +34,14 @@ public class FileUtils {
             for (File folder : folders) {
                 Log.info("Folder to scan: '" + folder.getAbsolutePath() + '\'');
                 try {
+									if (!folder.exists()) {
+											Log.info("Skipped path: '" + folder.getAbsolutePath() + "', this path doesn't exist");
+											continue;
+									}
+									if (!folder.isDirectory()) {
+											Log.info("Skipped path: '" + folder.getAbsolutePath() + "', this path is not a directory");
+											continue;
+									}
                     files.addAll(org.apache.commons.io.FileUtils.listFiles(folder, null, false));
                     File[] subFolders;
                     subFolders = folder.listFiles((File pathname) -> {
