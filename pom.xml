@@ -79,6 +79,7 @@
 						</goals>
 						<configuration>
 							<outputDirectory>dist2/lib</outputDirectory>
+							<excludeScope>provided</excludeScope>
 						</configuration>
 					</execution>
 				</executions>
