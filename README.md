@@ -32,7 +32,6 @@ TikiOne Steam Cleaner is currently built with [NetBeans](http://netbeans.org), M
 
 To build the project:
 
-* install TikiOne INI dependency in your Maven local repo: launch ``.dependencies/install-maven-artifacts/tikione-ini-3.0.0.bat``
 * load the project with NetBeans and a Java 8 compatible JDK (I use the latest version of NetBeans and Oracle JDK8)
 * set the working directory to the "dist2" folder. It contains additional configuration files used by base application. Also, the build output targets this directory.
 
