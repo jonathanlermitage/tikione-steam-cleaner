@@ -1,8 +1,7 @@
 ## TikiOne Steam Cleaner Change Log
 
-### work in progress (2017/05/13) JAVA8
-* added a launcher to start portable application with debug options (will generate a "crashdump.hprof" dump file of application crashes).
-* will provide installers that ship 32bits or 64bits bundled JVM.
+### work in progress (2017/07/10) JAVA8
+* updated Traditional Chinese (zh-hk) translation. Thx "tskonetwo".
 * improved weight of application (a ~1MB library was needed at compile time only).
 * updated the bundled JVM to Java 8u131.
 
