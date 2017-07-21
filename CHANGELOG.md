@@ -3,7 +3,7 @@
 ### 3.0.5 (2017/07/10) JAVA8
 * updated Traditional Chinese (zh-hk) translation. Thx "tskonetwo".
 * improved weight of application (a ~1MB library was needed at compile time only).
-* updated the bundled JVM to Java 8u131.
+* updated the bundled JVM to Java 8u141.
 
 ### 3.0.4 (2017/02/06) JAVA8
 * updated Italian (it) translation. Thx "xDarkWolf".
