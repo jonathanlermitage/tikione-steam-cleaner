@@ -45,9 +45,10 @@ Nota: since Google Code is shutting down, I have uploaded [latest NSIS version h
 * "ZoSH": Spanish translation
 * "wbsdty331": Simplified Chinese translation
 * "[tsk12](https://github.com/tsk12)": Traditional Chinese translation
-* "[tskonetwo](https://github.com/tskonetwo)" Traditional Chinese translation
+* "[tskonetwo](https://github.com/tskonetwo)": Traditional Chinese translation
 * Davide Crucitti: Italian translation
 * "[xDarkWolf](https://github.com/xDarkWolf)": Italian translation
+* "[gizmo3399](https://github.com/gizmo3399)": Dutch translation
 * Petr Kudlička: redist detection improvements
 * Brian Huqueriza: redist detection improvements
 * "snowman": redist detection improvements, GOG and Origin support

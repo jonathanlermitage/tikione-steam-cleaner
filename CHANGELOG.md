@@ -1,5 +1,8 @@
 ## TikiOne Steam Cleaner Change Log
 
+### 3.0.6 (2017/09/09) JAVA8
+* added Dutch (nl) translation. Thx "gizmo3399".
+
 ### 3.0.5 (2017/07/10) JAVA8
 * updated Traditional Chinese (zh-hk) translation. Thx "tskonetwo".
 * improved weight of application (a ~1MB library was needed at compile time only).
