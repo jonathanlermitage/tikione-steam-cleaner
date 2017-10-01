@@ -1,3 +1,5 @@
+:fire::fire::fire: **October 1, 2017: Windows Defender seeing installer as severe threat. This is a false-positive. If you don't trust installer, please use ZIP package with or without bundled JRE. Thx for your understanding.** :fire::fire::fire:
+
 # TikiOne Steam Cleaner
 
 _The best companion of Steam users - [Download latest version **here**](https://github.com/jonathanlermitage/tikione-steam-cleaner/releases)_
