@@ -16,10 +16,14 @@ import fr.tikione.steam.cleaner.util.conf.CustomFolders;
 import fr.tikione.steam.cleaner.util.conf.DangerousItems;
 import fr.tikione.steam.cleaner.util.conf.Patterns;
 import fr.tikione.steam.cleaner.util.conf.UncheckedItems;
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Font;
+
+import javax.swing.*;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -34,30 +38,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.regex.Pattern;
-import javax.swing.BorderFactory;
-import javax.swing.DefaultListModel;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.JToolBar;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.ListSelectionModel;
-import javax.swing.RowSorter;
-import javax.swing.SwingConstants;
-import javax.swing.WindowConstants;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
 
 /**
  * Main window.
@@ -285,6 +267,13 @@ public class JFrameMain extends JFrame {
 				sSteamDir += File.separatorChar;
 			}
 			fSteamDir = new File(sSteamDir);
+			
+			// go to steamapps folder if exists (fix https://github.com/jonathanlermitage/tikione-steam-cleaner/issues/27)
+			if (Objects.requireNonNull(fSteamDir.listFiles((dir, name) -> name.equalsIgnoreCase("steamapps"))).length > 0) {
+				fSteamDir = new File(fSteamDir, "steamapps/");
+				Log.info("steamapps folder found");
+			}
+			
 			boolean steamExists = fSteamDir.isDirectory() && fSteamDir.exists();
 			if (!listModel.isEmpty() || steamExists) {
 				enableAllUI(false);

@@ -8,10 +8,12 @@ import fr.tikione.steam.cleaner.util.Translation;
 import fr.tikione.steam.cleaner.util.conf.Config;
 import fr.tikione.steam.cleaner.util.conf.Patterns;
 import fr.tikione.steam.cleaner.util.conf.RemotePatterns;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Cursor;
-import java.awt.Font;
+import org.apache.commons.io.IOUtils;
+
+import javax.swing.*;
+import javax.swing.border.LineBorder;
+import javax.swing.border.TitledBorder;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -19,32 +21,11 @@ import java.awt.event.MouseEvent;
 import java.io.CharConversionException;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import javax.swing.BorderFactory;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.GroupLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTabbedPane;
-import javax.swing.JTextArea;
-import javax.swing.LayoutStyle;
-import javax.swing.ListCellRenderer;
-import javax.swing.SwingConstants;
-import javax.swing.WindowConstants;
-import javax.swing.border.LineBorder;
-import javax.swing.border.TitledBorder;
-import org.apache.commons.io.IOUtils;
 
 /**
  * Options window.
@@ -598,7 +579,7 @@ public class JDialogOptionsTabs extends JDialog {
 					}
 					jLabelDownloadDefinitionsProgress.setText((defIdx++) + "/" + defs.length + "...");
 					try {
-						String definitions = IOUtils.toString(new URL(def));
+						String definitions = IOUtils.toString(new URL(def), StandardCharsets.UTF_8);
 						contentOfRemoteFiles.add(definitions);
 					} catch (IOException e) {
 						Log.error(translation.getString(Translation.SEC_OPTIONS, "download.errormsg.remoteRedistDefFiless").replace("{0}", def), e);
