@@ -1,6 +1,6 @@
 [![Github All Releases](https://img.shields.io/github/downloads/jonathanlermitage/tikione-steam-cleaner/total.svg)](https://github.com/jonathanlermitage/tikione-steam-cleaner/releases) [![SourceForge](https://img.shields.io/sourceforge/dt/tikione.svg)](https://sourceforge.net/projects/tikione/) [![license](https://img.shields.io/github/license/jonathanlermitage/tikione-steam-cleaner.svg)](https://github.com/jonathanlermitage/tikione-steam-cleaner/blob/master/LICENSE.txt)
 
-:cat: **To fix font rendering on hdpi screens, please try JRE9 (Java 9 JVM), it seems to work. I'll bundle JRE9 with 3.0.8 release.**
+:cat: **To fix font rendering on hdpi screens, please try JRE9 (Java 9 JVM), it seems to work.** I'll bundle JRE9 with 3.0.8 release. Current version is 3.0.7.
 
 # TikiOne Steam Cleaner
 
