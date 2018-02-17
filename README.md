@@ -1,6 +1,6 @@
 [![Github All Releases](https://img.shields.io/github/downloads/jonathanlermitage/tikione-steam-cleaner/total.svg)](https://github.com/jonathanlermitage/tikione-steam-cleaner/releases) [![SourceForge](https://img.shields.io/sourceforge/dt/tikione.svg)](https://sourceforge.net/projects/tikione/) [![license](https://img.shields.io/github/license/jonathanlermitage/tikione-steam-cleaner.svg)](https://github.com/jonathanlermitage/tikione-steam-cleaner/blob/master/LICENSE.txt)
 
-:fire::fire::fire: **October 1, 2017: Windows Defender seeing installer as severe threat. This is a false-positive. If you don't trust installer, please use ZIP package with or without bundled JRE. Thx for your understanding.** :fire::fire::fire:
+:cat: **To fix font rendering on hdpi screens, please try JRE9 (Java 9 JVM), it seems to work. I'll bundle JRE9 with 3.0.8 release.**
 
 # TikiOne Steam Cleaner
 
