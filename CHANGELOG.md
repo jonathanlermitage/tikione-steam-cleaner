@@ -1,6 +1,6 @@
 ## TikiOne Steam Cleaner Change Log
 
-### 3.0.7 (wip) JAVA8
+### 3.0.7 (2018/02/17) JAVA8
 * fixed issue [#27](https://github.com/jonathanlermitage/tikione-steam-cleaner/issues/27): scan Steam `steamapps` subfolder instead of base dir.
 
 ### 3.0.6 (2017/09/09) JAVA8
