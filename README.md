@@ -1,8 +1,15 @@
-[![Travis Build status](https://travis-ci.org/jonathanlermitage/tikione-steam-cleaner.svg?branch=master)](https://travis-ci.org/jonathanlermitage/tikione-steam-cleaner) [![Github All Releases](https://img.shields.io/github/downloads/jonathanlermitage/tikione-steam-cleaner/total.svg)](https://github.com/jonathanlermitage/tikione-steam-cleaner/releases) [![SourceForge](https://img.shields.io/sourceforge/dt/tikione.svg)](https://sourceforge.net/projects/tikione/) [![license](https://img.shields.io/github/license/jonathanlermitage/tikione-steam-cleaner.svg)](https://github.com/jonathanlermitage/tikione-steam-cleaner/blob/master/LICENSE.txt)
+<h1 align="center">
+    TikiOne Steam Cleaner
+</h1>
+<p align="center">
+    <a href="https://travis-ci.org/jonathanlermitage/tikione-steam-cleaner"><img src="https://travis-ci.org/jonathanlermitage/tikione-steam-cleaner.svg?branch=master"/></a>
+    <a href="https://github.com/jonathanlermitage/tikione-steam-cleaner/releases"><img src="https://img.shields.io/github/release/jonathanlermitage/tikione-steam-cleaner.svg"/></a>
+    <a href="https://github.com/jonathanlermitage/tikione-steam-cleaner/blob/master/LICENSE.txt"><img src="https://img.shields.io/github/license/jonathanlermitage/tikione-steam-cleaner.svg"/></a>
+    <a href="https://github.com/jonathanlermitage/tikione-steam-cleaner/releases"><img src="https://img.shields.io/github/downloads/jonathanlermitage/tikione-steam-cleaner/total.svg"/></a>
+    <a href="https://sourceforge.net/projects/tikione/"><img src="https://img.shields.io/sourceforge/dt/tikione.svg"/></a>
+</p>
 
 :cat: **To fix font rendering on hdpi screens, please try JRE10 (Java 10 JVM), it seems to work.** See [v3.0.7-jre10 pre-release](https://github.com/jonathanlermitage/tikione-steam-cleaner/releases/tag/v3.0.7-jre10).
-
-# TikiOne Steam Cleaner
 
 _The best companion of Steam users - [Download latest version **here**](https://github.com/jonathanlermitage/tikione-steam-cleaner/releases)_
 
