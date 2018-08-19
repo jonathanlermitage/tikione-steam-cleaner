@@ -1,5 +1,8 @@
 ## TikiOne Steam Cleaner Change Log
 
+### 3.0.8 (2018/08/19) JAVA8
+* fixed JDK10 build. This is a build problem only due to a Lombok compatibility issue with JDK10, not a runtime issue. You don't need to upgrade Steam Cleaner, so there won't be a new release for 3.0.8 revision.
+
 ### 3.0.7 (2018/02/17) JAVA8
 * fixed issue [#27](https://github.com/jonathanlermitage/tikione-steam-cleaner/issues/27): scan Steam `steamapps` subfolder instead of base dir.
 
