@@ -9,7 +9,7 @@
     <a href="https://sourceforge.net/projects/tikione/"><img src="https://img.shields.io/sourceforge/dt/tikione.svg"/></a>
 </p>
 
-:cat: **To fix font rendering on hdpi screens, please try JRE10 (Java 10 JVM), it seems to work.** See [v3.0.7-jre10 pre-release](https://github.com/jonathanlermitage/tikione-steam-cleaner/releases/tag/v3.0.7-jre10).
+:cat: **To fix font rendering on hdpi screens, please try JRE11 (Java 11 JVM), it seems to work.** See [v3.0.7-jre11.0.1.13 pre-release](https://github.com/jonathanlermitage/tikione-steam-cleaner/releases/tag/v3.0.7-jre11.0.1.13).
 
 _The best companion of Steam users - [Download latest version **here**](https://github.com/jonathanlermitage/tikione-steam-cleaner/releases)_
 
