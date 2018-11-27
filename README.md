@@ -7,6 +7,8 @@
     <a href="https://github.com/jonathanlermitage/tikione-steam-cleaner/blob/master/LICENSE.txt"><img src="https://img.shields.io/github/license/jonathanlermitage/tikione-steam-cleaner.svg"/></a>
     <a href="https://github.com/jonathanlermitage/tikione-steam-cleaner/releases"><img src="https://img.shields.io/github/downloads/jonathanlermitage/tikione-steam-cleaner/total.svg"/></a>
     <a href="https://sourceforge.net/projects/tikione/"><img src="https://img.shields.io/sourceforge/dt/tikione.svg"/></a>
+    <a href="https://lgtm.com/projects/g/jonathanlermitage/tikione-steam-cleaner/context:java"><img src="https://img.shields.io/lgtm/grade/java/g/jonathanlermitage/tikione-steam-cleaner.svg?logo=lgtm&logoWidth=18" alt="Code Quality: Java" height="18"></a>
+    <a href="https://lgtm.com/projects/g/jonathanlermitage/tikione-steam-cleaner/alerts"><img src="https://img.shields.io/lgtm/alerts/g/jonathanlermitage/tikione-steam-cleaner.svg?logo=lgtm&logoWidth=18" alt="Total Alerts" height="18"></a>
 </p>
 
 :cat: **To fix font rendering on hdpi screens, please try JRE11 (Java 11 JVM), it seems to work.** See [v3.0.7-jre11.0.1.13 pre-release](https://github.com/jonathanlermitage/tikione-steam-cleaner/releases/tag/v3.0.7-jre11.0.1.13).
