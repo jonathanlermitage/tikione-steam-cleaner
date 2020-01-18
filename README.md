@@ -1,3 +1,5 @@
+:fire: Due to a lack of free time and interest, this project is over. Feel free to start a fork. You still can open [issues](https://github.com/jonathanlermitage/tikione-steam-cleaner/issues) to get some help.
+
 <h1 align="center">
     TikiOne Steam Cleaner
 </h1>
@@ -105,7 +107,3 @@ I maintain TikiOne Steam Cleaner thanks to these products:
 |Currently developed with Oracle NetBeans IDE|
 |:--|
 |[![NetBeans](https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/misc/logo_netbeans.png)](https://netbeans.org)|
-
-|Migrating to JetBrains IntelliJ IDEA IDE|
-|:--|
-|[![IntelliJ](https://raw.githubusercontent.com/jonathanlermitage/tikione-steam-cleaner/master/misc/logo_intellij.png)](https://www.jetbrains.com/idea/)|
