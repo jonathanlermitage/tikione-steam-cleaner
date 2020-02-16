@@ -1,4 +1,4 @@
-:fire: Due to a lack of free time and interest, this project is over. Feel free to start a fork. You still can open [issues](https://github.com/jonathanlermitage/tikione-steam-cleaner/issues) to get some help.
+:fire: Due to a lack of free time and interest, this project is over. Feel free to start a fork.
 
 <h1 align="center">
     TikiOne Steam Cleaner
